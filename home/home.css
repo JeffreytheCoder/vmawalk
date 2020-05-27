@@ -1,0 +1,73 @@
+.add-review {
+    color: white;
+    margin-top: 10px;
+    margin-right: 15px;
+    width: 100px;
+    height: 30px;
+    background-color: #69BDC8;
+    border-radius: 12.5px;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+.add-review:hover {
+    background-color: blue;
+}
+
+.title {
+    color: #69BDC8;
+    font-weight: normal;
+    font-size: 60px;
+    margin-top: 130px;
+    margin-bottom: 0px;
+}
+
+.subtitle {
+    color: rgba(102, 100, 101, 0.5);
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+.search {
+    width: 35%;
+    margin: 100px auto;
+    margin-top: 60px;
+    display: flex;
+    /*border: 1px solid red;*/
+}
+
+.search input {
+    float: left;
+    flex: 4;
+    height: 50px;
+    outline: none;
+    border: 2px solid #666465;
+    box-sizing: border-box;
+    padding-left: 15px;
+    border-radius: 15px;
+}
+
+.search button {
+    float: right;
+    flex: 1;
+    height: 50px;
+    background-color: #69BDC8;
+    color: white;
+    border-style: none;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+.search button i {
+    font-style: normal;
+}
+
+.search button:hover {
+    font-size: 16px;
+}
