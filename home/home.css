@@ -14,7 +14,12 @@
 }
 
 .add-review:hover {
-    background-color: blue;
+    background-color: rgb(84, 160, 170);
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+
+.add-review:before {
+    content: "\f067";
 }
 
 .title {
@@ -69,5 +74,6 @@
 }
 
 .search button:hover {
-    font-size: 16px;
+    background-color: rgb(84, 160, 170);
+    transition: background-color .25s ease-out, color .25s ease-out;
 }
