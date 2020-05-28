@@ -1,3 +1,7 @@
+.general{
+    font-family: Verdana, Geneva, Tahoma, sans-serif, 微软雅黑;
+}
+
 .add-review {
     color: white;
     margin-top: 10px;
@@ -20,6 +24,12 @@
 
 .add-review:before {
     content: "\f067";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    padding-right: .35em;
+    font-family: lato,Helvetica,sans-serif;;
 }
 
 .title {
