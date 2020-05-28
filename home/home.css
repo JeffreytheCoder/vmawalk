@@ -1,5 +1,5 @@
-.general{
-    font-family: Verdana, Geneva, Tahoma, sans-serif, 微软雅黑;
+body {
+    font-family: sans-serif, "Microsoft Yahei";
 }
 
 .add-review {
@@ -22,14 +22,9 @@
     transition: background-color .25s ease-out, color .25s ease-out;
 }
 
-.add-review:before {
-    content: "\f067";
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    padding-right: .35em;
-    font-family: lato,Helvetica,sans-serif;;
+.add-review-text {
+    color: white;
+    font-family: sans-serif, "Microsoft Yahei";
 }
 
 .title {
@@ -81,6 +76,7 @@
 
 .search button i {
     font-style: normal;
+    font-family: sans-serif,"Microsoft Yahei";
 }
 
 .search button:hover {
