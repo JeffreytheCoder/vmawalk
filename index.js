@@ -706,6 +706,8 @@ function fuzzyQuery() {
     console.log(result)
 }
 
+layui.link('layui/autocomplete.css');
+
 layui.config({
     base: 'layui/', // 自己autocomplete文件路径
     version: false,
@@ -717,8 +719,7 @@ layui.use(['jquery', 'autocomplete'], function() {
         autocomplete = layui.autocomplete;
     autocomplete.render({
         elem: $('#keyword'),
-        array: teachers,
-        // url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
+        url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
         response: { Chinese: 'Chinese', English: 'English' },
         num: 1,
         count: 5,
