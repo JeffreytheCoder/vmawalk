@@ -703,7 +703,8 @@ function fuzzyQuery() {
     if (success == false) {
         console.log("not found")
     }
-    console.log(result)
+    window.open('https://jeffreythecoder.github.io/vmawalk/search?q=${result}');
+    console.log(result);
 }
 
 layui.link('layui/autocomplete.css');
