@@ -717,11 +717,10 @@ layui.use(['jquery', 'autocomplete'], function() {
         autocomplete = layui.autocomplete;
     autocomplete.render({
         elem: $('#keyword'),
-        cache: true,
         url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
         response: { Chinese: 'Chinese', English: 'English' },
         onselect: function(resp) {
-            $('#content1').html("NEW RENDER: " + JSON.stringify(resp));
+            console.log(resp);
         }
     })
 })
