@@ -707,8 +707,6 @@ function fuzzyQuery() {
     console.log(result);
 }
 
-layui.link('layui/autocomplete.css');
-
 layui.config({
     base: 'layui/', // 自己autocomplete文件路径
     version: false,
