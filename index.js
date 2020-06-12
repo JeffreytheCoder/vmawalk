@@ -680,32 +680,11 @@ teachers = [{
     }
 ]
 
-function fuzzyQuery() {
-    var keyword = document.getElementById('keyword').value;
-    var list = teachers;
-    var result = []
-    var success = false;
-    for (var i = 0; i < list.length; i++) {
-        // console.log(typeof(list[i]))
-        // console.log(typeof(list[i].Chinese))
-        if (list[i].Chinese == null) {
-            continue;
-        }
-        if (list[i].Chinese.indexOf(keyword) >= 0) {
-            result.push(list[i].Chinese)
-            var success = true;
-        }
-        if (list[i].English.indexOf(keyword) >= 0) {
-            result.push(list[i].English)
-            var success = true;
-        }
-    }
-    if (success == false) {
-        console.log("not found")
-    }
-    // window.open('https://jeffreythecoder.github.io/vmawalk/search?q=${result}');
-    console.log(result);
-}
+function toSearchPage() {
+    var query = document.getElementById("keyword").value
+        // window.open("https://jeffreythecoder.github.io/vmawalk/search/search?"+)
+    window.location.href = "https://jeffreythecoder.github.io/vmawalk/search/search?" + query;
+};
 
 layui.config({
     base: 'layui/', // 自己autocomplete文件路径
@@ -721,7 +700,7 @@ layui.use(['jquery', 'autocomplete'], function() {
         url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
         template_val: '{{d.name}}',
         template_txt: '{{d.name}} <span class=\'layui-badge layui-bg-gray\'>{{d.pinyin}}</span>',
-        response: { Chinese: 'Chinese', English: 'English' },
+        // response: { Chinese: 'Chinese', English: 'English' },
         num: 1,
         count: 5,
         onselect: function(resp) {
