@@ -707,7 +707,7 @@ function fuzzyQuery() {
 }
 
 layui.config({
-    base: '../layui/', // 自己autocomplete文件路径
+    base: '/layui/', // 自己autocomplete文件路径
     version: false,
     debug: false,
 });
@@ -718,7 +718,7 @@ layui.use(['jquery', 'autocomplete'], function() {
     autocomplete.render({
         elem: $('#keyword'),
         cache: true,
-        url: 'http://localhost:250/C%3A/Users/23973/Desktop/vmawalk/files/Teachers.json',
+        url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
         response: { Chinese: 'Chinese', English: 'English' },
         onselect: function(resp) {
             $('#content1').html("NEW RENDER: " + JSON.stringify(resp));
