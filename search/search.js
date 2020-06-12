@@ -1,7 +1,9 @@
 window.onload = function() {
-        var keyword = window.location.search.substring(1);
-        // var keyword = getUrlQueryString('q');
-        vr result: list = fuzzyQuery()
+        var query = window.location.search.substring(1);
+        console.log(query)
+        var keyword = getUrlQueryString('q');
+        console.log(keyword)
+        var result = fuzzyQuery(keyword);
     },
 
     function getUrlQueryString(names, urls) {

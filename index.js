@@ -683,7 +683,7 @@ teachers = [{
 function toSearchPage() {
     var query = document.getElementById("keyword").value
         // window.open("https://jeffreythecoder.github.io/vmawalk/search/search?"+)
-    window.location.href = "https://jeffreythecoder.github.io/vmawalk/search/search?" + query;
+    window.location.href = "https://jeffreythecoder.github.io/vmawalk/search/search?index=" + query;
 };
 
 layui.config({
