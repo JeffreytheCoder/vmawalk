@@ -106,7 +106,7 @@ layui.define(function(a) {
     var i = layui.cache;
     layui.config({
         dir: i.dir.replace(/lay\/dest\/$/, ""),
-        base: "/layui"
+        base: "/res"
     });
     a("layui.all", layui.v)
 });

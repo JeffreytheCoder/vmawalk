@@ -32,8 +32,6 @@ if (!Object.keys) {
     })()
 }
 
-layui.link('/layui/autocomplete.css');
-
 layui.define(['jquery', 'laytpl', 'layer'], function(e) {
     "use strict";
     var hint = layui.hint(),
