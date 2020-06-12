@@ -707,7 +707,7 @@ function fuzzyQuery() {
 }
 
 layui.config({
-    base: '/layui/', // 自己autocomplete文件路径
+    base: 'layui/', // 自己autocomplete文件路径
     version: false,
     debug: false,
 });
