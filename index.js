@@ -717,8 +717,11 @@ layui.use(['jquery', 'autocomplete'], function() {
         autocomplete = layui.autocomplete;
     autocomplete.render({
         elem: $('#keyword'),
-        url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
+        array: teachers,
+        // url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
         response: { Chinese: 'Chinese', English: 'English' },
+        num: 1,
+        count: 5,
         onselect: function(resp) {
             console.log(resp);
         }
