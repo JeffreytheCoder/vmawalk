@@ -719,6 +719,8 @@ layui.use(['jquery', 'autocomplete'], function() {
     autocomplete.render({
         elem: $('#keyword'),
         url: 'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json',
+        template_val: '{{d.name}}',
+        template_txt: '{{d.name}} <span class=\'layui-badge layui-bg-gray\'>{{d.pinyin}}</span>',
         response: { Chinese: 'Chinese', English: 'English' },
         num: 1,
         count: 5,
