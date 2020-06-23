@@ -5,41 +5,43 @@
 <!DOCTYPE html>
 
 <style type="text/css">
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 </style>
 
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>vmawalk By Sam</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>vmawalk</title>
-</head>
-
-<body class="general">
+  <body class="general">
     <div align="right">
-        <a href="login/login.html">
-            <button class="add-review">
-                <text class="add-review-text">登 录</text>
-            </button>
-        </a>
-        <a href="review/review.html">
-            <button class="add-review">
-                <text class="add-review-text">✚ 加点评</text>
-            </button>
-        </a>
+      <a href="login/login.html">
+        <button class="add-review">
+          <text class="add-review-text">登 录</text>
+        </button>
+      </a>
+      <a href="review/review.html">
+        <button class="add-review">
+          <text class="add-review-text">✚ 加点评</text>
+        </button>
+      </a>
     </div>
-    <h1 align="center" class="title">
-        <strong>vma</strong>walk
-    </h1>
+    <h1 align="center" class="title"><strong>vma</strong>walk</h1>
     <p align="center" class="subtitle">
-        Get the vma truth
+      Get the vma truth
     </p>
     <div class="search">
-        <input type="text" id="keyword" class="layui-input" autocomplete="on" placeholder="搜索VMA课程或老师..." />
-        <button id="search" onclick="toSearchPage()"><i>搜索</i></button>
+      <input
+        type="text"
+        id="keyword"
+        class="layui-input"
+        autocomplete="on"
+        placeholder="搜索VMA课程或老师..."
+      />
+      <button id="search" onclick="toSearchPage()"><i>搜索</i></button>
     </div>
-</body>
-
+  </body>
 </html>
