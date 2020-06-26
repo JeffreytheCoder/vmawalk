@@ -1,46 +1,47 @@
 <link rel="stylesheet" href="index.css" />
-<link rel="stylesheet" href="layui/autocomplete.css" />
 <script src="layui/layui.js"></script>
 <script src="index.js"></script>
 
 <!DOCTYPE html>
 
 <style type="text/css">
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 </style>
+<a href="https://github.com/JeffreytheCoder/vmawalk">Github 源码</a> 【Created By 姐夫，🥔，QP】
+
 
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>vmawalk</title>
+  <meta charset="UTF-8" />
+  <title>vmawalk</title>
 </head>
 
 <body class="general">
-    <div align="right">
-        <a href="login/login.html">
-            <button class="add-review">
-                <text class="add-review-text">登  录</text >
-            </button>
-        </a>
-        <a href="review/review.html">
-            <button class="add-review">
-                <text class="add-review-text">✚ 加点评</text >
-            </button>
-        </a>
-    </div>
-    <h1 align="center" class="title">
-        <strong>vma</strong>walk
-    </h1>
-    <p align="center" class="subtitle">
-        Get the vma truth
-    </p>
-    <div class="search">
-        <input type="text" id="keyword" class="layui-input" autocomplete="off" placeholder="搜索VMA课程或老师..." />
-        <button id="search" onclick="fuzzyQuery()"><i>搜索</i></button>
-    </div>
+  <div align="right">
+    <a href="login/login.html">
+      <button class="add-review">
+        <text class="add-review-text">登 录</text>
+      </button>
+    </a>
+    <a href="review/review.html">
+      <button class="add-review">
+        <text class="add-review-text">✚ 加点评</text>
+      </button>
+    </a>
+  </div>
+  <a href="https://jeffreythecoder.github.io/vmawalk/">
+    <h1 align="center" class="title"><strong>VMA</strong>walk</h1>
+  </a>
+  <p align="center" class="subtitle">
+    Get the vma truth
+  </p>
+  <div class="search">
+    <input type="text" id="keyword" class="layui-input" autocomplete="on" placeholder="搜索VMA课程或老师..." />
+    <button id="search" onclick="toSearchPage()"><i>搜索</i></button>
+  </div>
 </body>
 
 </html>
