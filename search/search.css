@@ -1,0 +1,170 @@
+.general {
+    font-family: sans-serif;
+    margin: 0%;
+}
+
+.header {
+    background-color: #69BDC8;
+    display: flex;
+    height: 100px;
+}
+
+.add-review {
+    align-items: right;
+    width: 100px;
+    height: 30px;
+    background-color: #69BDC8;
+    border: 1px solid white;
+    border-radius: 12.5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+.add-review:hover {
+    background-color: rgb(84, 160, 170);
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+
+.add-review-text {
+    color: white;
+    font-family: "Microsoft Yahei";
+}
+
+.title {
+    color: white;
+    font-weight: normal;
+    font-size: 30px;
+    padding: 20px;
+    padding-left: 50px;
+}
+
+.subtitle {
+    color: rgba(102, 100, 101, 0.5);
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+.search {
+    width: 35%;
+    margin: auto;
+    display: flex;
+    padding: 20px;
+    /*border: 1px solid red;*/
+}
+
+.search input {
+    float: left;
+    flex: 4;
+    height: 50px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 15px;
+    border-radius: 15px;
+    font-family: "Microsoft Yahei";
+}
+
+.search button {
+    float: right;
+    flex: 1;
+    height: 50px;
+    background-color: #0098ac;
+    color: white;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    font-family: "Microsoft Yahei";
+}
+
+.search button i {
+    font-style: normal;
+}
+
+.search button:hover {
+    background-color: rgb(84, 160, 170);
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+
+.card-frame {
+    margin: 30px;
+    margin-right: 350px;
+    border: 1px solid black;
+    height: 100%;
+}
+
+.card {
+    border: 1px solid gray;
+    padding: 30px;
+    height: 350px;
+}
+
+.card-name {
+    float: left
+}
+
+.card-image {
+    width: 150px;
+    height: 150px;
+    border: 3px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.card-rating {
+    display: block;
+    padding: 7.5px;
+    text-align: center;
+    font-size: 25px;
+    color: #69BDC8;
+}
+
+.card-rating-label {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    color: gray;
+}
+
+.card-title {
+    font-size: 25px;
+}
+
+.card-info {
+    display: block;
+    padding-left: 20px;
+    float: left
+}
+
+.card-container {
+    display: block;
+    padding-top: 20px;
+}
+
+.card-item {
+    display: block;
+    flex-direction: column;
+}
+
+.card-intro {
+    color: gray;
+    font: 15px
+}
+
+.card-item-image {
+    width: 50px;
+    height: 50px;
+    border: 3px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+}
+
+.card-label {
+    float: left;
+    padding: 15px;
+}

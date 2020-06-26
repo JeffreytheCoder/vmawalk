@@ -1,1 +1,68 @@
 <script src="search.js"></script>
+<script src="../layui/layui.js"></script>
+<link rel="stylesheet" href="search.css" />
+
+<style type="text/css">
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<body class="general">
+    <div class="header">
+        <div class="title" style="padding-top: 30px; padding-right: 30px">
+            <strong>vma</strong>walk
+        </div>
+        <div align="center" class="search">
+            <input type="text" placeholder="搜索VMA课程或老师..." id="keyword" class="layui-input" autocomplete="off" />
+            <button id="search" onclick="fuzzyQuery()"><i>搜索</i></button>
+        </div>
+        <div style="padding-top: 30px; padding-right: 30px">
+            <a href="../review/review.html">
+                <button class="add-review">
+                    <text class="add-review-text">✚ 加点评</text >
+                </button>
+            </a>
+        </div>
+        <div style="padding-top: 30px; padding-right: 30px">
+            <a href="../login/login.html">
+                <button class="add-review">
+                    <text class="add-review-text">登  录</text >
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="card-frame">
+        <div class="card">
+            <div class="card-name">
+                <img class="card-image" src="../img/wanghe.png">
+                <label class="card-rating"><strong>4.5</strong></label>
+                <label class="card-rating-label">平均评分</label>
+            </div>
+            <div class="card-info">
+                <label class="card-title"><strong>王赫</strong></label>
+                <div class="card-container">
+                    <label class="card-intro">课程</label>
+                    <hr>
+                    <div class="card-item">
+                        <img class="card-item-image" src="../img/empty.png">
+                        <div class="card-label">
+                            <a href="../review/review.html">
+                                <label>Theater Production</label>
+                            </a>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card-item">
+                        <img class="card-item-image" src="../img/empty.png">
+                        <div class="card-label">
+                            <a href="../review/review.html">
+                                <label>Introduction to Linear Algebra</label>
+                            </a>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
