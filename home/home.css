@@ -24,7 +24,7 @@ body {
 
 .add-review-text {
     color: white;
-    font-family: sans-serif, "Microsoft Yahei";
+    font-family: "Microsoft Yahei";
 }
 
 .title {
@@ -58,6 +58,7 @@ body {
     box-sizing: border-box;
     padding-left: 15px;
     border-radius: 15px;
+    font-family: "Microsoft Yahei";
 }
 
 .search button {
@@ -72,6 +73,7 @@ body {
     border-radius: 15px;
     cursor: pointer;
     text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    font-family: "Microsoft Yahei";
 }
 
 .search button i {

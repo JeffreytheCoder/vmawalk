@@ -1,0 +1,186 @@
+<link rel="stylesheet" href="review.css" />
+<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<script src="../layui/layui.js"></script>
+<script src="../jquery-3.5.1.min.js"></script>
+<script src="review.js"></script>
+
+<!DOCTYPE html>
+
+<style type="text/css">
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>vmawalk</title>
+</head>
+
+<body class="general">
+
+    <h1 align="center" class="title">
+        <strong>点评</strong>课程/老师
+    </h1>
+
+    <form class="layui-form" align="center" action="submit" style="margin-top: 30px">
+
+        <div class="question">
+            <label>1. 你要点评哪个学科部门的课程？</label>
+            <select align="center" id="department" lay-filter="department" lay-verify="required">
+                <option value="">选择学科部门</option>
+                <option value="world_language">世界语言 World Language</option>
+                <option value="science">科学 Science</option>
+                <option value="math">数学 Math</option>
+                <option value="social_science">社会科学 Social Science</option>
+                <option value="chinese">语文 Chinese</option>
+                <option value="sports">体育 Sports</option>
+                <option value="visual_arts">视觉艺术 Visual Arts</option>
+                <option value="performance arts">表演艺术 Performance Arts</option>
+                <option value="vmaa">万科梅沙艺术学院 VMAA</option>
+         </select>
+        </div>
+
+        <div id="unknown" class="question">
+            <label>2. 你要点评哪个课程？</label>
+            <select id="course">
+            <option value="">请先选择学科部门</option>
+            </select>
+        </div>
+
+        <div id="world language" class="hide-question" lay-verify="required">
+            <label>2. 你要点评哪个世界语言课程？</label>
+            <select>
+            <option value="">选择世界语言课程</option>
+            <option value="ENG209">ENG209 ELL English Language Development </option>
+            <option value="ENG211">ENG211 Communications: Public Speaking & Debate </option>
+            <option value="ENG218">ENG218 ELL English Language Development Honors </option>
+            <option value="ENG305">ENG305 English 3 American Literature </option>
+            <option value="ENG309">ENG309 Introduction to Creative Writting </option>
+            <option value="ENG310">ENG310 Journalism Writing </option>
+            <option value="ENG312">ENG312 ELL Language Development 3 </option>
+            <option value="ENG318">ENG318 English 3 Honors </option>
+            <option value="ENG401">ENG401 English 4 British & World Literature </option>
+            <option value="ENG501">ENG501 AP English Literature and Composition</option>
+            <option value="ENG502">ENG502 AP English Language and Composition</option>
+            <option value="SPA201">SPA201 Spanish 1 </option>
+            <option value="SPA301">SPA301 Spanish 2 </option>
+            <option value="GER201">GER201 German 1 </option>
+            <option value="GER301">GER301 German 2 </option>
+            </select>
+        </div>
+
+        <div id="science" class="hide-question">
+            <label>2. 你要点评哪个科学课程？</label>
+            <select>
+            <option value="">选择科学课程</option>
+            <option value="BIO203">BIO203 Biology</option>
+            <option value="BIO303">BIO303 Botany</option>
+            <option value="BIO501">BIO501 AP Biology</option>
+            <option value="PHY204">PHY204 Physics</option>
+            <option value="PHY501">PHY501 AP Physics 1</option>
+            <option value="PHY502">PHY502 AP Physics 2</option>
+            <option value="PHY503">PHY503 AP Physics C: Mechanics</option>
+            <option value="PHY504">PHY504 AP Physics C: Electricity and Magnetism</option>
+            <option value="CSE202">CSE202 Information Technology</option>
+            <option value="CSE205">CSE205 Programming with Python</option>
+            <option value="CSE302">CSE302 Programming with Java</option>
+            <option value="CSE501">CSE501 AP Computer Science A</option>
+            <option value="CSE502">CSE502 AP Computer Science Principles</option>
+            <option value="EGR309">EGR309 Programming with Electronics</option>
+            <option value="EGR403">EGR403 Robotics Engineering</option>
+            <option value="EGR409">EGR409 Electronics Engineering</option>
+            <option value="SCIC0653A">SCIC0653A Integrated Science</option>
+            </select>
+        </div>
+
+        <div id="math" class="hide-question">
+            <label>2. 你要点评哪个数学课程？</label>
+            <select>
+            <option value="">选择数学课程</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            <option value="MATH">MATH</option>
+            </select>
+        </div>
+
+        <div id="unknown" class="question">
+            <label>3. 教这门课程的老师是谁？</label>
+            <select>
+            <option value="null">请先选择课程</option>
+            </select>
+        </div>
+
+        <div id="semester" class="question">
+            <label>4. 你哪个学期上的这门课？</label>
+            <select>
+            <option value="null">选择学期</option>
+            <option value="2019.2">2019-2020下学期</option>
+            <option value="2019.1">2019-2020上学期</option>
+            <option value="2018.2">2018-2019下学期</option>
+            <option value="2018.1">2018-2019上学期</option>
+            <option value="2017.2">2017-2018下学期</option>
+            <option value="2017.1">2017-2018上学期</option>
+            </select>
+        </div>
+
+        <div id="grade" class="question">
+            <label>5. 你拿到了什么成绩?</label>
+            <select>
+            <option value="null">选择成绩</option>
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B">B</option>
+            <option value="B-">B-</option>
+            <option value="C+">C+</option>
+            <option value="C">C</option>
+            <option value="C-">C-</option>
+            <option value="D">D+</option>
+            <option value="D">D</option>
+            <option value="D">D-</option>
+            <option value="F">F</option>
+            <option value="withdrawn">Withdrawn</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label>6. 给出你对该课程/老师的评分</label>
+            <label class="layui-input-block">总体分</label>
+            <div class="radio-block">
+                <input type="radio" name="overall" value="5" title="5">
+                <input type="radio" name="overall" value="4" title="4">
+                <input type="radio" name="overall" value="3" title="3">
+                <input type="radio" name="overall" value="2" title="2">
+                <input type="radio" name="overall" value="1" title="1">
+            </div>
+        </div>
+
+        <div class="question">
+            <label class="layui-form-label">容易度</label>
+            <div class="layui-input-block">
+                <input type="radio" name="overall" value="5" title="5">
+                <input type="radio" name="overall" value="4" title="4">
+                <input type="radio" name="overall" value="3" title="3">
+                <input type="radio" name="overall" value="2" title="2">
+                <input type="radio" name="overall" value="1" title="1">
+            </div>
+        </div>
+
+        <input class="add-review" type="submit" value="Submit">
+        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit">提交</button>
+
+    </form>
+
+</body>
+
+</html>
