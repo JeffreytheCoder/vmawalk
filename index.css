@@ -84,3 +84,9 @@
     background-color: rgb(84, 160, 170);
     transition: background-color .25s ease-out, color .25s ease-out;
 }
+
+.home-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
