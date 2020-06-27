@@ -148,6 +148,7 @@
 .card-item {
     display: block;
     flex-direction: column;
+    clear: both;
 }
 
 .card-intro {

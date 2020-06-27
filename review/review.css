@@ -14,28 +14,9 @@
     margin-top: 30px;
 }
 
-.hide-question {
-    display: none;
-    margin-top: 35px;
-}
-
-.hide-question label {
-    font-family: "Microsoft Yahei";
-    display: block;
-    margin-bottom: 15px;
-}
-
-.hide-question select {
-    background: white;
-    height: 28px;
-    width: 280px;
-    line-height: 28px;
-    border: 1px solid #69BDC8;
-    border-radius: 3px;
-}
-
 .question {
     margin-top: 30px;
+    clear: both
 }
 
 .question label {
@@ -76,4 +57,16 @@
 .add-review-text {
     color: white;
     font-family: "Microsoft Yahei";
+}
+
+.subtitle {
+    text-align: center;
+    display: block;
+    padding-top: 30px;
+    clear: both;
+}
+
+.radio-block {
+    margin-top: 10px;
+    clear: both
 }
