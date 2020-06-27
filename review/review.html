@@ -25,115 +25,40 @@
         <strong>点评</strong>课程/老师
     </h1>
 
-    <form class="layui-form" align="center" action="submit" style="margin-top: 30px">
+    <form class="layui-form" align="center" action="submit" style="margin-top: 30px; width: 80%; margin: 0 auto">
 
-        <div class="question">
-            <label>1. 你要点评哪个学科部门的课程？</label>
-            <select align="center" id="department" lay-filter="department" lay-verify="required">
-                <option value="">选择学科部门</option>
-                <option value="world_language">世界语言 World Language</option>
-                <option value="science">科学 Science</option>
-                <option value="math">数学 Math</option>
-                <option value="social_science">社会科学 Social Science</option>
-                <option value="chinese">语文 Chinese</option>
-                <option value="sports">体育 Sports</option>
-                <option value="visual_arts">视觉艺术 Visual Arts</option>
-                <option value="performance arts">表演艺术 Performance Arts</option>
-                <option value="vmaa">万科梅沙艺术学院 VMAA</option>
-         </select>
+        <div id="unknown" class="question">
+            <label>1. 你要点评哪个老师？</label>
+            <select id="teacher" lay-filter="watch" class="layui-input layui-unselect">
+            <option value="null">请选择老师</option>
+            </select>
         </div>
 
         <div id="unknown" class="question">
-            <label>2. 你要点评哪个课程？</label>
+            <label>2. 你要点评这位老师教的哪门课程？</label>
             <select id="course">
-            <option value="">请先选择学科部门</option>
-            </select>
-        </div>
-
-        <div id="world language" class="hide-question" lay-verify="required">
-            <label>2. 你要点评哪个世界语言课程？</label>
-            <select>
-            <option value="">选择世界语言课程</option>
-            <option value="ENG209">ENG209 ELL English Language Development </option>
-            <option value="ENG211">ENG211 Communications: Public Speaking & Debate </option>
-            <option value="ENG218">ENG218 ELL English Language Development Honors </option>
-            <option value="ENG305">ENG305 English 3 American Literature </option>
-            <option value="ENG309">ENG309 Introduction to Creative Writting </option>
-            <option value="ENG310">ENG310 Journalism Writing </option>
-            <option value="ENG312">ENG312 ELL Language Development 3 </option>
-            <option value="ENG318">ENG318 English 3 Honors </option>
-            <option value="ENG401">ENG401 English 4 British & World Literature </option>
-            <option value="ENG501">ENG501 AP English Literature and Composition</option>
-            <option value="ENG502">ENG502 AP English Language and Composition</option>
-            <option value="SPA201">SPA201 Spanish 1 </option>
-            <option value="SPA301">SPA301 Spanish 2 </option>
-            <option value="GER201">GER201 German 1 </option>
-            <option value="GER301">GER301 German 2 </option>
-            </select>
-        </div>
-
-        <div id="science" class="hide-question">
-            <label>2. 你要点评哪个科学课程？</label>
-            <select>
-            <option value="">选择科学课程</option>
-            <option value="BIO203">BIO203 Biology</option>
-            <option value="BIO303">BIO303 Botany</option>
-            <option value="BIO501">BIO501 AP Biology</option>
-            <option value="PHY204">PHY204 Physics</option>
-            <option value="PHY501">PHY501 AP Physics 1</option>
-            <option value="PHY502">PHY502 AP Physics 2</option>
-            <option value="PHY503">PHY503 AP Physics C: Mechanics</option>
-            <option value="PHY504">PHY504 AP Physics C: Electricity and Magnetism</option>
-            <option value="CSE202">CSE202 Information Technology</option>
-            <option value="CSE205">CSE205 Programming with Python</option>
-            <option value="CSE302">CSE302 Programming with Java</option>
-            <option value="CSE501">CSE501 AP Computer Science A</option>
-            <option value="CSE502">CSE502 AP Computer Science Principles</option>
-            <option value="EGR309">EGR309 Programming with Electronics</option>
-            <option value="EGR403">EGR403 Robotics Engineering</option>
-            <option value="EGR409">EGR409 Electronics Engineering</option>
-            <option value="SCIC0653A">SCIC0653A Integrated Science</option>
-            </select>
-        </div>
-
-        <div id="math" class="hide-question">
-            <label>2. 你要点评哪个数学课程？</label>
-            <select>
-            <option value="">选择数学课程</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            <option value="MATH">MATH</option>
-            </select>
-        </div>
-
-        <div id="unknown" class="question">
-            <label>3. 教这门课程的老师是谁？</label>
-            <select>
-            <option value="null">请先选择课程</option>
+            <option value="null">请选择课程</option>
             </select>
         </div>
 
         <div id="semester" class="question">
-            <label>4. 你哪个学期上的这门课？</label>
+            <label>3. 你在哪个学期上的这门课？</label>
             <select>
             <option value="null">选择学期</option>
+            <option value="2019.3">2019-2020全学年</option>
             <option value="2019.2">2019-2020下学期</option>
             <option value="2019.1">2019-2020上学期</option>
+            <option value="2018.3">2018-2019全学年</option>
             <option value="2018.2">2018-2019下学期</option>
             <option value="2018.1">2018-2019上学期</option>
+            <option value="2017.3">2017-2018全学年</option>
             <option value="2017.2">2017-2018下学期</option>
             <option value="2017.1">2017-2018上学期</option>
             </select>
         </div>
 
         <div id="grade" class="question">
-            <label>5. 你拿到了什么成绩?</label>
+            <label>4. 你在这门课的成绩是多少?</label>
             <select>
             <option value="null">选择成绩</option>
             <option value="A+">A+</option>
@@ -153,31 +78,79 @@
             </select>
         </div>
 
-        <div class="question">
-            <label>6. 给出你对该课程/老师的评分</label>
-            <label class="layui-input-block">总体分</label>
-            <div class="radio-block">
-                <input type="radio" name="overall" value="5" title="5">
-                <input type="radio" name="overall" value="4" title="4">
-                <input type="radio" name="overall" value="3" title="3">
-                <input type="radio" name="overall" value="2" title="2">
-                <input type="radio" name="overall" value="1" title="1">
-            </div>
-        </div>
+        <label class="subtitle" style="margin-top: 15px;">5. 给出你对该老师教这门课的评分</label>
 
-        <div class="question">
-            <label class="layui-form-label">容易度</label>
+        <hr style="margin-top: 20px">
+        <label class="subtitle"><strong>总体满意度 Overall</strong></label>
+        <div class="radio-block">
+            <label class="layui-form-label" style="padding-left: 200px; padding-right: 30px; width: 50px;">不满意</label>
             <div class="layui-input-block">
-                <input type="radio" name="overall" value="5" title="5">
-                <input type="radio" name="overall" value="4" title="4">
-                <input type="radio" name="overall" value="3" title="3">
-                <input type="radio" name="overall" value="2" title="2">
                 <input type="radio" name="overall" value="1" title="1">
+                <input type="radio" name="overall" value="2" title="2">
+                <input type="radio" name="overall" value="3" title="3">
+                <input type="radio" name="overall" value="4" title="4">
+                <input type="radio" name="overall" value="5" title="5">
             </div>
+            <label class="layui-form-label" style="width: 50px; padding-left: 0px">满意</label>
         </div>
 
-        <input class="add-review" type="submit" value="Submit">
-        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit">提交</button>
+        <label class="subtitle"><strong>课程难易度 Easiness</strong></label>
+        <div class="radio-block">
+            <label class="layui-form-label" style="padding-left: 200px; padding-right: 30px; width: 50px;">困难</label>
+            <div class="layui-input-block">
+                <input type="radio" name="easiness" value="1" title="1">
+                <input type="radio" name="easiness" value="2" title="2">
+                <input type="radio" name="easiness" value="3" title="3">
+                <input type="radio" name="easiness" value="4" title="4">
+                <input type="radio" name="easiness" value="5" title="5">
+            </div>
+            <label class="layui-form-label" style="width: 50px; padding-left: 0px">简单</label>
+        </div>
+
+        <label class="subtitle"><strong>功课轻重度 Workload</strong></label>
+        <div class="radio-block">
+            <label class="layui-form-label" style="padding-left: 200px; padding-right: 30px; width: 50px;">繁重</label>
+            <div class="layui-input-block">
+                <input type="radio" name="workload" value="1" title="1">
+                <input type="radio" name="workload" value="2" title="2">
+                <input type="radio" name="workload" value="3" title="3">
+                <input type="radio" name="workload" value="4" title="4">
+                <input type="radio" name="workload" value="5" title="5">
+            </div>
+            <label class="layui-form-label" style="width: 50px; padding-left: 0px">轻松</label>
+        </div>
+
+        <label class="subtitle"><strong>上课理解度 Clarity</strong></label>
+        <div class="radio-block">
+            <label class="layui-form-label" style="padding-left: 200px; padding-right: 30px; width: 50px;">费解</label>
+            <div class="layui-input-block">
+                <input type="radio" name="clarity" value="1" title="1">
+                <input type="radio" name="clarity" value="2" title="2">
+                <input type="radio" name="clarity" value="3" title="3">
+                <input type="radio" name="clarity" value="4" title="4">
+                <input type="radio" name="clarity" value="5" title="5">
+            </div>
+            <label class="layui-form-label" style="width: 50px; padding-left: 0px">清晰</label>
+        </div>
+
+        <label class="subtitle"><strong>老师帮助度 Helpfulness</strong></label>
+        <div class="radio-block">
+            <label class="layui-form-label" style="padding-left: 200px; padding-right: 30px; width: 50px;">草率</label>
+            <div class="layui-input-block" style="padding-bottom: 40px">
+                <input type="radio" name="helpfulness" value="1" title="1">
+                <input type="radio" name="helpfulness" value="2" title="2">
+                <input type="radio" name="helpfulness" value="3" title="3">
+                <input type="radio" name="helpfulness" value="4" title="4">
+                <input type="radio" name="helpfulness" value="5" title="5">
+            </div>
+            <label class="layui-form-label" style="width: 50px; padding-left: 0px;">用心</label>
+        </div>
+        <hr>
+
+        <label class="subtitle" style="margin-top: 15px;">6. 用<strong>自己的话</strong>点评一下这位老师教的这门课吧！</label>
+        <textarea name="review" placeholder="在这门课上你有什么经历？你想改变这门课的什么？你会给后面想上这位老师教的这门课的学生什么建议？" class="layui-textarea" style="width: 60%; margin: 0 auto; height: 250px; margin-top: 30px"></textarea>
+
+        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="margin-top: 75px; margin-bottom: 50px">提交</button>
 
     </form>
 
