@@ -56,12 +56,12 @@ teachers = [
     "Zhu Xiaojun"
 ];
 
-layui.use(['jquery'], function () {
+layui.use(['jquery'], function() {
     var $ = layui.$;
     $('#keyword').autocomplete({
         // serviceUrl:'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json'
         lookup: teachers,
-        lookupFilter: function (
+        lookupFilter: function(
             suggestion, query,
             queryLowerCase) {
             if (suggestion.value.toLowerCase().indexOf(queryLowerCase) != -1 ||
