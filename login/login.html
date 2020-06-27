@@ -14,13 +14,15 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">学生邮箱</label>
                 <div class="layui-input-block">
-                    <input type="text" name="Email" lay-verify="required|Email" placeholder="请输入学生邮箱" autocomplete="off" class="layui-input">
+                    <input type="text" name="Email" required lay-verify="Email" placeholder="请输入学生邮箱" autocomplete="off"
+                           class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">密 &nbsp;&nbsp;码</label>
                 <div class="layui-input-inline">
-                    <input type="password" name="password" lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    <input type="password" name="password" required lay-verify="pass" placeholder="请输入密码"
+                           autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-mid layui-word-aux">
@@ -34,23 +36,6 @@
             <a href="../register/register.html" class="font-set">立即注册</a>
         </div>
     </form>
-    <script type="text/javascript" src="layui/layui.js"></script>
-    <script>
-        layui.use('form', function() {
-            var form = layui.form;
-            form.verity({
-                pass: [/^[\S]{10,30}$/, '密码需长于10位，小于30位，且不能出现空格']
-            })
-
-            form.on('submit(form)', function(data) {
-                layer.alert(JSON.stringify(data.field), {
-                    title: '最终的提交信息'
-                })
-                return false;
-            });
-
-        });
-    </script>
-</body>
-
-</html>
+    <script type="text/javascript" src=../layui/layui.js "></script>
+    <script type="text/javascript" src="login.js""></script>
+</body></html>
