@@ -27,9 +27,15 @@ layui.use(['form', 'layer', 'jquery'], function () {
                 layer.msg("请查看邮箱并验证")
             },
             error: function (req) {
-                layer.alert(req.responseText,{
-                    anim:4,
-                    title:"请重试"
+
+                var message = "";
+                req.responseJSON.message.forEach(element => {
+                    message+=element.description+'</br>';
+                });
+                layer.alert(message, {
+                    skin: 'layui-layer-molv',
+                    anim: 5,
+                    title: "请重试"
                 })
             },
             complete: function () {
