@@ -2082,7 +2082,7 @@ hr {
     float: left;
     display: block;
     padding: 9px 15px;
-    width: 80px;
+    width: 180px;
     font-weight: 400;
     line-height: 20px;
     text-align: right
@@ -2102,8 +2102,10 @@ hr {
 }
 
 .layui-input-block {
-    margin-left: 110px;
-    min-height: 36px
+    margin-left: 10px;
+    min-height: 36px;
+    float: left;
+    /* clear: both; */
 }
 
 .layui-input-inline {
