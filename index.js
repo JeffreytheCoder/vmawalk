@@ -1,7 +1,10 @@
 function toSearchPage() {
-    var query = document.getElementById("keyword").value;
+    var query = document.getElementById("keyword")
+        .value;
     // window.open("https://jeffreythecoder.github.io/vmawalk/search/search?"+)
-    window.location.href = "https://jeffreythecoder.github.io/vmawalk/search/search?index=" + query;
+    window.location.href =
+        "https://jeffreythecoder.github.io/vmawalk/search/search?index=" +
+        query;
 }
 
 teachers = [
@@ -58,5 +61,12 @@ layui.use(['jquery'], function () {
     $('#keyword').autocomplete({
         // serviceUrl:'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json'
         lookup: teachers,
+        lookupFilter: function (
+            suggestion, query,
+            queryLowerCase) {
+            if (suggestion.value.toLowerCase().indexOf(queryLowerCase) != -1 ||
+                chineseToPinYin(suggestion.value).toLowerCase().indexOf(queryLowerCase) != -1)
+                return true;
+        }
     })
 });
