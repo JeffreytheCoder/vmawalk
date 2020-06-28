@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../search/search.css" />
+    <link rel="stylesheet" href="profile.css" />
+</head>
+
+<body class="general">
+    <!--header-->
+    <div class="header">
+        <div class="title" style="padding-top: 30px; padding-right: 30px">
+            <strong>vma</strong>walk
+        </div>
+        <div align="center" class="search">
+            <input type="text" placeholder="搜索VMA课程或老师..." id="keyword" class="layui-input" autocomplete="off" />
+            <button id="search" onclick="fuzzyQuery()"><i>搜索</i></button>
+        </div>
+        <div style="padding-top: 30px; padding-right: 30px">
+            <a href="../review/review.html">
+                <button class="add-review">
+                    <text class="add-review-text">✚ 加点评</text>
+                </button>
+            </a>
+        </div>
+        <div style="padding-top: 30px; padding-right: 30px">
+            <a href="../login/login.html">
+                <button class="add-review">
+                    <text class="add-review-text">登 录</text>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <!--导航栏-->
+    <div>
+        <ul class="navigation">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Search</a>
+            </li>
+            <li>
+                <a href="#">Wang He</a>
+            </li>
+            <li>
+                <a href="#">233</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--展示内容-->
+    <div class="content">
+        <!--头像名称-->
+        <div class="name-with-picture">
+            <table height="120px">
+                <tr height="80px">
+                    <td rowspan="2" width="130px" height="100%">
+                        <a href="#" style="text-decoration: none; color: white;">
+                            <div class="icon-round">233</div>
+                        </a>
+                    </td>
+                    <td>
+                        <font size="6">Biochemistry: Biosynthetic and Energy Metabolism and Its Regulation</font>
+                    </td>
+                </tr>
+                <tr height="40px">
+                    <td style="display: flex; align-items: center;">
+                        <div class="teacher-icon"
+                            style="background-image: url(https://github.com/JeffreytheCoder/vmawalk/blob/master/img/wanghe.jpg?raw=true);">
+                        </div>
+                        <b>Wang He</b>
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+        <!--评分-->
+        <div class="ratings">
+            <b>Ratings</b>
+            <div class="display-box">
+                <table width="100%">
+                    <tr class="rating-cell">
+                        <td align="center" width="20%">Bad</td>
+                        <td width="60%">
+                            <div style="display: flex; justify-content: space-between;">
+                                <font color="black">Overall</font>
+                                <font color="#69BDC8"><b>4.3</b></font>
+                            </div>
+                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                                </div>
+                            </div>
+                        </td>
+                        <td align=" center" width="20%">Good</td>
+                    </tr>
+                    <tr class="rating-cell">
+                        <td align="center" width="20%">Bad</td>
+                        <td width="60%">
+                            <div style="display: flex; justify-content: space-between;">
+                                <font color="black">Overall</font>
+                                <font color="#69BDC8"><b>4.3</b></font>
+                            </div>
+                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                                </div>
+                            </div>
+                        </td>
+                        <td align=" center" width="20%">Good</td>
+                    </tr>
+                    <tr class="rating-cell">
+                        <td align="center" width="20%">Bad</td>
+                        <td width="60%">
+                            <div style="display: flex; justify-content: space-between;">
+                                <font color="black">Overall</font>
+                                <font color="#69BDC8"><b>4.3</b></font>
+                            </div>
+                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                                </div>
+                            </div>
+                        </td>
+                        <td align=" center" width="20%">Good</td>
+                    </tr>
+                    <tr class="rating-cell">
+                        <td align="center" width="20%">Bad</td>
+                        <td width="60%">
+                            <div style="display: flex; justify-content: space-between;">
+                                <font color="black">Overall</font>
+                                <font color="#69BDC8"><b>4.3</b></font>
+                            </div>
+                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                                </div>
+                            </div>
+                        </td>
+                        <td align=" center" width="20%">Good</td>
+                    </tr>
+                    <tr class="rating-cell">
+                        <td align="center" width="20%">Bad</td>
+                        <td width="60%">
+                            <div style="display: flex; justify-content: space-between;">
+                                <font color="black">Overall</font>
+                                <font color="#69BDC8"><b>4.3</b></font>
+                            </div>
+                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                                </div>
+                            </div>
+                        </td>
+                        <td align=" center" width="20%">Good</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+        <div style="display: flex; width: 100%;justify-content: space-between; align-items: center;">
+            <b>Reviews</b>
+            <!--翻页器-->
+            <div class="page-selector-first">
+                <a href="#">
+                    <div class="left-arrow"></div>
+                </a>
+                1 of 2
+                <a href="#">
+                    <div class="right-arrow"></div>
+                </a>
+            </div>
+        </div>
+        <!--评论内容-->
+        <div class="display-box">
+            <table class="review-table">
+                <tr>
+                    <td style="color: gray;">Quarter Taken: N/A</td>
+                    <td style="color: gray; float: right;">Submitted June 8, 2011</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color: gray;">Grade Received: N/A</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>
+                            Took biochem 153C with Prof Clarke but haven't seen my final grade yet.
+                            1. Do all of the old final exams you can find on VOH. they go back almost ten years and she
+                            repeats questions sometimes.
+                            2. go to class. Podcasts don't help when you're trying to learn mechanisms! You need to be
+                            able to see what she writes.
+                            3. There are a ton of mechanisms but most of them follow some really simple patterns. It
+                            always helps to think of biochem in terms of pathways and patterns! use analogies.
+                            Have fun! She's a really nice lady and she is really helpful in providing as much material
+                            as you need to practice.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="feedback">
+                            <div class="control">
+                                <a href="#">🙂Like</a>
+                                0
+                            </div>
+                            <div class="control">
+                                <a href="#">🙃Dislike</a>
+                                0
+                            </div>
+                            <div class="control" style="margin-left:auto;">
+                                <a href=" #">🖐Report</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="display-box">
+            <table class="review-table">
+                <tr>
+                    <td style="color: gray;">Quarter Taken: N/A</td>
+                    <td style="color: gray; float: right;">Submitted June 8, 2011</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color: gray;">Grade Received: N/A</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>
+                            Took biochem 153C with Prof Clarke but haven't seen my final grade yet.
+                            1. Do all of the old final exams you can find on VOH. they go back almost ten years and she
+                            repeats questions sometimes.
+                            2. go to class. Podcasts don't help when you're trying to learn mechanisms! You need to be
+                            able to see what she writes.
+                            3. There are a ton of mechanisms but most of them follow some really simple patterns. It
+                            always helps to think of biochem in terms of pathways and patterns! use analogies.
+                            Have fun! She's a really nice lady and she is really helpful in providing as much material
+                            as you need to practice.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="feedback">
+                            <div class="control">
+                                <a href="#">🙂Like</a>
+                                0
+                            </div>
+                            <div class="control">
+                                <a href="#">🙃Dislike</a>
+                                0
+                            </div>
+                            <div class="control" style="margin-left:auto;">
+                                <a href=" #">🖐Report</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--翻页器-->
+        <div class="page-selector-second">
+            <a href="#">
+                <div class="left-arrow"></div>
+            </a>
+            1 of 2
+            <a href="#">
+                <div class="right-arrow"></div>
+            </a>
+        </div>
+    </div>
+    </div>
+
+
+    <!--footer-->
+    <div class="footer">
+        <div style="width: 100%; text-align: center; margin:auto 0;">
+            <a href="https://github.com/JeffreytheCoder/vmawalk" style="text-decoration: none;">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+                    width="32" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                    </path>
+                </svg>
+            </a><br />
+            --- Created By 姐夫，🥔，QP ---
+        </div>
+    </div>
+
+</body>
+
+</html>
