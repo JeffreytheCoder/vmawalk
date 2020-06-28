@@ -1014,13 +1014,15 @@
     }
 ]
 
-alert(window.location.href)
+decodedURL = decodeURI(window.location.href)
+console.log(decodedURL)
 
 window.onload = function() {
-    alert(window.location.href)
     var query = getUrlQueryString();
     console.log(query)
     queryList = query.split("%20")
+    console.log(queryList)
+    queryResult = []
 };
 
 function getUrlQueryString() {
