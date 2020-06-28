@@ -68,5 +68,7 @@
 
 .radio-block {
     margin-top: 10px;
-    clear: both
+    display: flex;
+    justify-content: center;
+
 }
