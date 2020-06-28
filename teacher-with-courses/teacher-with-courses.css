@@ -23,6 +23,10 @@
     background-position: center;
 }
 
+.navigation{
+    padding-left: 0px;
+}
+
 .navigation li{
     display: inline;
     color: darkgray;

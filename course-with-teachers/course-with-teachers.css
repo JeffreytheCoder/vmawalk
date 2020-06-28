@@ -19,6 +19,9 @@
     height: 100px;
     line-height: 100px;
 }
+.navigation{
+    padding-left: 0px;
+}
 
 .navigation li{
     display: inline;
