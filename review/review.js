@@ -37,7 +37,7 @@ teachers = [{
     {
         "id": 98,
         "chineseName": null,
-        "englishName": "Nicholas Atwater",
+        "englishName": "Nick Atwater",
         "averageScore": null
     },
     {
@@ -2432,9 +2432,11 @@ courses = [{
     }
 ]
 
-window.onload = function() {
+window.onload = function () {
 
-    layui.use(['layer', 'jquery', 'form'], function() {
+    layui.use(['layer', 'jquery', 'form'], function () {
+
+        var $ = layui.jquery
 
         for (var i = 1; i < teachers.length; i++) {
             if (teachers[i].chineseName == null) {
@@ -2453,13 +2455,13 @@ window.onload = function() {
     })
 }
 
-layui.use(['layer', 'jquery', 'form'], function() {
+layui.use(['layer', 'jquery', 'form'], function () {
 
     var layer = layui.layer,
         $ = layui.jquery,
         form = layui.form;
 
-    form.on('select(watch)', function(data) {
+    form.on('select(watch)', function (data) {
         obj = document.getElementById("course");
         for (i = obj.options.length - 1; i >= 1; i--) {
             obj.options[i] = null;
@@ -2474,9 +2476,9 @@ layui.use(['layer', 'jquery', 'form'], function() {
     })
 })
 
-layui.use(['form'], function() {
+layui.use(['form'], function () {
     var form = layui.form
-    form.on('submit(submit)', function(data) {
+    form.on('submit(submit)', function (data) {
         layer.msg(JSON.stringify(data.field));
         //JSON.stringify(data.field)   这是表单中所有的数据
         var articleFrom = data.field.articleFrom;

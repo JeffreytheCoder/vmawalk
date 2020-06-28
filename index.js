@@ -180,8 +180,11 @@ teachers = [
     "李扬 Li Yang"
 ];
 
-layui.use(['jquery'],  function ()  {    
-    var  $  =  layui.$;    
-    $('#keyword').autocomplete({         // serviceUrl:'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json'
-                 lookup:  teachers,         lookupLimit: 5,         lookupFilter:   function (            suggestion,  query,             queryLowerCase)  {             if  (suggestion.value.toLowerCase().indexOf(queryLowerCase)  !=  -1  ||                 chineseToPinYin(suggestion.value).toLowerCase().indexOf(queryLowerCase)  !=  -1)                 return  true;         }     })
+layui.use(['jquery'], function () {
+    var $ = layui.$;
+    $('#keyword').autocomplete({ // serviceUrl:'https://jeffreythecoder.github.io/vmawalk/files/Teachers.json'
+        lookup: teachers,
+        lookupLimit: 5,
+        lookupFilter: function (suggestion, query, queryLowerCase) { if (suggestion.value.toLowerCase().indexOf(queryLowerCase) != -1 || chineseToPinYin(suggestion.value).toLowerCase().indexOf(queryLowerCase) != -1) return true; }
+    })
 });
