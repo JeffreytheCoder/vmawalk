@@ -1,4 +1,4 @@
-[{
+teachers = [{
         "id": 1,
         "chineseName": "王赫",
         "englishName": "Wang He",
@@ -1018,8 +1018,22 @@ decodedURL = decodeURI(window.location.href)
 console.log(decodedURL)
 var query = getUrlQueryString();
 console.log(query)
-searchResult = fuzzyQuery(query)
+searchResult = []
+fullResult = fullQuery(query)
+searchResult.push(fullResult)
+if (query.indexOf("%20") >= 0) {
+    queryList = query.split("%20")
+}
+if (query.indexOf(" ") >= 0) {
+    queryList = query.split(" ")
+}
+console.log(queryList)
+fuzzyResult = fuzzyQuery(queryList)
+for (var i = 0; i < list.length; i++) {
+    searchResult.push(fuzzyResult[i])
+}
 console.log(searchResult)
+
 
 function getUrlQueryString() {
     var equal = window.location.href.indexOf("=")
@@ -1027,13 +1041,28 @@ function getUrlQueryString() {
     return query;
 };
 
+
+function fullQuery(keyword) {
+    var list = teachers;
+    var result = "not found";
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].chineseNmae == null) {
+            continue;
+        }
+        fullName = list[i].chineseName + " " + list[i].englishName
+        if (fullName.indexOf(keyword) >= 0) {
+            result = list[i]
+        }
+    }
+    console.log(result)
+    return result;
+}
+
 function fuzzyQuery(keyword) {
     var list = teachers;
     var result = []
     var success = false;
     for (var i = 0; i < list.length; i++) {
-        // console.log(typeof(list[i]))
-        // console.log(typeof(list[i].Chinese))
         if (list[i].englishName.indexOf(keyword) >= 0) {
             result.push(list[i])
             var success = true;
