@@ -1021,7 +1021,7 @@ console.log(query)
 searchResult = []
 fullResult = fullQuery(query)
 searchResult.push(fullResult)
-if (query.indexOf("%20") >= 0) {
+if (query.indexOf("%2520") >= 0) {
     queryList = query.split("%20")
 }
 if (query.indexOf(" ") >= 0) {
