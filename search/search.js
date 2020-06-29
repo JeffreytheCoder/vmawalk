@@ -1014,22 +1014,20 @@ teachers = [{
     }
 ]
 
-decodedURL = decodeURI(window.location.href)
-console.log(decodedURL)
-var query = getUrlQueryString();
+var query = decodeURI(window.location.href);
 console.log(query)
 searchResult = []
 fullResult = fullQuery(query)
 searchResult.push(fullResult)
 if (query.indexOf("%2520") >= 0) {
-    queryList = query.split("%20")
+    queryList = query.split("%2520")
 }
 if (query.indexOf(" ") >= 0) {
     queryList = query.split(" ")
 }
 console.log(queryList)
 fuzzyResult = fuzzyQuery(queryList)
-for (var i = 0; i < list.length; i++) {
+for (var i = 0; i < fuzzyResult.length; i++) {
     searchResult.push(fuzzyResult[i])
 }
 console.log(searchResult)
