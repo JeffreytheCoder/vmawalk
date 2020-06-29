@@ -1016,14 +1016,10 @@
 
 decodedURL = decodeURI(window.location.href)
 console.log(decodedURL)
-
-window.onload = function() {
-    var query = getUrlQueryString();
-    console.log(query)
-    queryList = query.split("%20")
-    console.log(queryList)
-    queryResult = []
-};
+var query = getUrlQueryString();
+console.log(query)
+searchResult = fuzzyQuery(query)
+console.log(searchResult)
 
 function getUrlQueryString() {
     var equal = window.location.href.indexOf("=")
@@ -1038,14 +1034,14 @@ function fuzzyQuery(keyword) {
     for (var i = 0; i < list.length; i++) {
         // console.log(typeof(list[i]))
         // console.log(typeof(list[i].Chinese))
-        if (list[i].Chinese == null) {
-            continue;
-        }
-        if (list[i].chineseName.indexOf(keyword) >= 0) {
+        if (list[i].englishName.indexOf(keyword) >= 0) {
             result.push(list[i])
             var success = true;
         }
-        if (list[i].englishName.indexOf(keyword) >= 0) {
+        if (list[i].chineseNmae == null) {
+            continue;
+        }
+        if (list[i].chineseName.indexOf(keyword) >= 0) {
             result.push(list[i])
             var success = true;
         }
