@@ -100,7 +100,7 @@
 .card {
     border: 1px solid gray;
     padding: 30px;
-    height: 350px;
+    height: 400px;
 }
 
 .card-name {
@@ -166,6 +166,31 @@
 }
 
 .card-label {
-    float: left;
-    padding: 15px;
+    width: 300px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.icon-round {
+    /* border:1px solid red; */
+    background-color: #69BDC8;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word
+}
+
+.more {
+    float: right;
+    color: #69BDC8;
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+.course-label {
+    font-size: 16px
 }
