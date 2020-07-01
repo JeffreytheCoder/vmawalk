@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="review.css" />
 <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<script src="../lib/pinyin.js"></script>
+<script src="../lib/initials.js"></script>
 <script src="../layui/layui.js"></script>
 <script src="review.js"></script>
 
@@ -28,22 +30,22 @@
 
         <div class="question">
             <label>1. 你要点评哪个老师？</label>
-            <select id="teacher" lay-verify="required" lay-search class="layui-input layui-unselect">
+            <select name="teacher" id="teacher" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="teacher">
                 <option value="">请选择老师</option>
             </select>
         </div>
 
         <div class="question">
             <label>2. 你要点评这位老师教的哪门课程？</label>
-            <select lay-verify="required" lay-search id="course">
+            <select lay-verify="required" lay-search name="course" id="course">
                 <option value="">请选择课程</option>
             </select>
         </div>
 
-        <div id="semester" lay-search class="question">
+        <div id="semester" class="question">
             <label>3. 你在哪个学年上的这门课？</label>
 
-            <select lay-verify="required" lay-search id=semester>
+            <select lay-verify="required" lay-search name="year" id="semester">
                 <option value="">选择学年</option>
                 <option value="2019">2019-2020</option>
                 <option value="2018">2018-2019</option>
@@ -51,7 +53,7 @@
             </select>
         </div>
 
-        <div id="semester" lay-search class="question">
+        <div id="semester" name= "semester" lay-search class="question">
             <label>3. 你在哪个学期上的这门课？</label>
             <select lay-verify="required" lay-search id=semester>
                 <option value="">选择学期</option>
@@ -61,7 +63,7 @@
             </select>
         </div>
 
-        <div id="grade" class="question">
+        <div id="grade" name="grade" class="question">
             <label>4. 你在这门课的成绩是多少?</label>
             <select lay-verify="required" lay-search>
                 <option value="">选择成绩</option>
@@ -90,7 +92,7 @@
         <div name="scores">
             <div class="radio-block">
                 <label class="layui-form-label" style="padding-right: 50px; width: 50px;">不满意</label>
-                <div class="layui-input-block" lay-verify="required">
+                <div class="layui-input-block">
                     <input type="radio" name="overall" value="1" title="1">
                     <input type="radio" name="overall" value="2" title="2">
                     <input type="radio" name="overall" value="3" title="3">

@@ -2436,7 +2436,7 @@ window.onload = function () {
 
     layui.use(['layer', 'jquery', 'form'], function () {
 
-        var $ = layui.jquery
+        var $ = layui.jquery;
 
         for (var i = 1; i < teachers.length; i++) {
             if (teachers[i].chineseName == null) {
@@ -2461,12 +2461,12 @@ layui.use(['layer', 'jquery', 'form'], function () {
         $ = layui.jquery,
         form = layui.form;
 
-    form.on('select(watch)', function (data) {
+    form.on('select(teacher)', function (data) {
         obj = document.getElementById("course");
         for (i = obj.options.length - 1; i >= 1; i--) {
             obj.options[i] = null;
         }
-        var teacher_id = data.value
+        var teacher_id = data.value;
         for (var i = 1; i < courses.length; i++) {
             if (courses[i].teacherId == teacher_id) {
                 $("#course").append(new Option(courses[i].courseCode + " " + courses[i].courseName, courses[i].id));
@@ -2476,14 +2476,45 @@ layui.use(['layer', 'jquery', 'form'], function () {
     })
 })
 
-layui.use(['form'], function () {
-    var form = layui.form
+layui.use(['form', 'jquery'], function () {
+    var form = layui.form;
+    var $ = layui.$;
     form.on('submit(submit)', function (data) {
         layer.msg(JSON.stringify(data.field));
+        console.log(data)
         //JSON.stringify(data.field)   这是表单中所有的数据
         var articleFrom = data.field.articleFrom;
         var articleSummary = data.field.articleSummary;
         console.log(data);
+
+        var scores = [data.field.overall, data.field.easiness, data.field.workload, data.field.clarity, data.field.helpfulness].join("|");
+
+        $.ajax({
+            type: "POST",
+            url: "http://vmawalk.azurewebsites.net/api/Review",
+            contentType: "application/json",
+            data: JSON.stringify({
+                teacherId: data.field.teacher,
+                CourseId: data.field.course,
+                Year: data.field.year,
+                Semester: data.field.semester == "null" ? null : data.field.semester == "true",
+                Grade: data.field.grade,
+                Score: scores,
+                Text: data.field.review
+            }),
+            success: function (data) {
+                sessionStorage.setItem("token", data.token);
+            },
+            error: function (req) {
+                if (req.status == 400) {
+                    layer.msg("您输入的用户名或密码错误")
+                }
+            },
+            complete: function () {
+                layer.close(index)
+            },
+            dataType: "json"
+        });
         return false;
     });
 });
