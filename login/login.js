@@ -10,7 +10,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
         })
         $.ajax({
             type: "POST",
-            url: "http://vmawalk.azurewebsites.net/Auth/Login",
+            url: "https://vmawalk.azurewebsites.net/Auth/Login",
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
             success: function (data) {
