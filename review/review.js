@@ -2508,6 +2508,11 @@ layui.use(['form', 'jquery'], function () {
             Text: data.field.review
         }))
 
+        var index = layer.load({
+            shade: [0.4, '#def'],
+            icon: '&#xe63d'
+        })
+
         $.ajax({
             type: "POST",
             url: "https://vmawalk.azurewebsites.net/api/Review",
@@ -2532,12 +2537,14 @@ layui.use(['form', 'jquery'], function () {
             },
             error: function (req) {
                 if (req.status == 401) {
-                    layer.msg("请登录")
+                    window.location.href = location.origin + "/login/login.html"
                 } else {
                     console.log(req.responseText)
                 }
             },
-            complete: function () {},
+            complete: function () {
+                layer.close(index);
+            },
             dataType: "json"
         });
         return false;
