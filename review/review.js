@@ -1,3 +1,14 @@
+layui.use("layer", function () {
+    if (sessionStorage.getItem("token") == null) {
+        layer.msg("请登录");
+
+        setTimeout(() => {
+            window.location.href = window.location.origin + "D:/Document/VMAWalk/vmawalk/login/login.html";
+        }, 1000);
+    }
+});
+
+
 teachers = [{
         "id": 1,
         "chineseName": "王赫",
@@ -1018,7 +1029,7 @@ teachers = [{
         "englishName": "Maryann O'Brien",
         "averageScore": null
     }
-]
+];
 
 courses = [{
         "id": 26,
@@ -2430,7 +2441,7 @@ courses = [{
         "courseCode": "RE302",
         "teacherId": 238
     }
-]
+];
 
 window.onload = function () {
 
@@ -2480,8 +2491,6 @@ layui.use(['form', 'jquery'], function () {
     var form = layui.form;
     var $ = layui.$;
     form.on('submit(submit)', function (data) {
-        layer.msg(JSON.stringify(data.field));
-        console.log(data)
         //JSON.stringify(data.field)   这是表单中所有的数据
         var articleFrom = data.field.articleFrom;
         var articleSummary = data.field.articleSummary;
@@ -2489,30 +2498,46 @@ layui.use(['form', 'jquery'], function () {
 
         var scores = [data.field.overall, data.field.easiness, data.field.workload, data.field.clarity, data.field.helpfulness].join("|");
 
+        console.log(JSON.stringify({
+            teacherId: data.field.teacher,
+            CourseId: data.field.course,
+            Year: data.field.year,
+            Semester: data.field.semester == "null" ? null : data.field.semester == "true",
+            Grade: data.field.grade,
+            Score: scores,
+            Text: data.field.review
+        }))
+
         $.ajax({
             type: "POST",
-            url: "http://vmawalk.azurewebsites.net/api/Review",
+            url: "https://vmawalk.azurewebsites.net/api/Review",
             contentType: "application/json",
             data: JSON.stringify({
-                teacherId: data.field.teacher,
-                CourseId: data.field.course,
-                Year: data.field.year,
+                teacherId: Number(data.field.teacher),
+                CourseId: Number(data.field.course),
+                Year: Number(data.field.year),
                 Semester: data.field.semester == "null" ? null : data.field.semester == "true",
                 Grade: data.field.grade,
                 Score: scores,
                 Text: data.field.review
             }),
+            xhrFields: {
+                withCredentials: true
+            },
+            headers: {
+                Authorization: "Bearer " + sessionStorage.getItem("token")
+            },
             success: function (data) {
-                sessionStorage.setItem("token", data.token);
+                layer.alert(data)
             },
             error: function (req) {
-                if (req.status == 400) {
-                    layer.msg("您输入的用户名或密码错误")
+                if (req.status == 401) {
+                    layer.msg("请登录")
+                } else {
+                    console.log(req.responseText)
                 }
             },
-            complete: function () {
-                layer.close(index)
-            },
+            complete: function () {},
             dataType: "json"
         });
         return false;
