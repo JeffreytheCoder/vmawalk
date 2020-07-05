@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="index.css" />
 <link rel="stylesheet" href="layui/css/layui2.css" media="all">
+<script src="lib/pinyin.js"></script>
+<script src="/lib/initials.js"></script>
 <script src="layui/layui.js"></script>
 <script type="text/javascript" src="lib/jquery.autocomplete.js"></script>
-<script src="lib/pinyin.js"></script>
 <script src="index.js"></script>
 
 <!DOCTYPE html>
@@ -50,7 +51,7 @@
         <select name="teacher" id="teacher" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="teacher">
             <option value="">请选择老师</option>
         </select>
-        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="margin-top: 75px" onclick="toSearchPage()">提交</button>
+        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="margin-top: 75px">搜索</button>
     </form>
 </body>
 

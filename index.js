@@ -1043,9 +1043,13 @@ window.onload = function() {
     })
 }
 
-form.on('submit(submit)', function(data) {
-    query = data.field.teacher
-    link = "https://jeffreythecoder.github.io/vmawalk/teacher-with-courses/teacher-with-courses?query=" + encodeURI(encodeURI(query)) + ""
-    console.log(link)
-    window.location.href = link
+layui.use(['form', 'jquery'], function() {
+    var form = layui.form;
+    var $ = layui.$;
+    form.on('submit(submit)', function(data) {
+        query = data.field.teacher
+        link = "https://jeffreythecoder.github.io/vmawalk/teacher-with-courses/teacher-with-courses?query=" + encodeURI(encodeURI(query)) + ""
+        console.log(link)
+        window.location.href = link
+    })
 })
