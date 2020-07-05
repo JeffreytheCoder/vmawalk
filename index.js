@@ -1048,8 +1048,9 @@ layui.use(['form', 'jquery'], function() {
     var $ = layui.$;
     form.on('submit(submit)', function(data) {
         query = data.field.teacher
-        link = "https://jeffreythecoder.github.io/vmawalk/teacher-with-courses/teacher-with-courses?query=" + encodeURI(encodeURI(query)) + ""
+        link = "https://jeffreythecoder.github.io/vmawalk/menu/menu?query=" + encodeURI(encodeURI(query)) + ""
         console.log(link)
         window.location.href = link
+        return false;
     })
 })
