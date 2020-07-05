@@ -10,7 +10,7 @@ function getUrlQueryString() {
     return query;
 };
 
-layui.use(["jquery", "layer"], function () {
+layui.use(["jquery", "layer"], function() {
     var $ = layui.jquery;
     var url = "";
 
@@ -28,10 +28,10 @@ layui.use(["jquery", "layer"], function () {
         url: url,
         contentType: "application/json",
         data: data,
-        success: function (req) {
+        success: function(req) {
             console.log(req)
         },
-        error:function(req){
+        error: function(req) {
             console.log(req)
         }
     });
