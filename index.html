@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="index.css" />
 <link rel="stylesheet" href="layui/css/layui2.css" media="all">
+<script src="files/Information.js"></script>
 <script src="lib/pinyin.js"></script>
 <script src="lib/initials.js"></script>
 <script src="layui/layui.js"></script>
@@ -48,8 +49,8 @@
         Get the vma truth
     </p>
     <form class="layui-form" align="center" action="submit" style="padding-top: 60px; width: 60%; margin: 0 auto">
-        <select name="teacher" id="teacher" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="teacher">
-            <option value="">请选择老师</option>
+        <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="search">
+            <option value="">请选择课程和老师</option>
         </select>
         <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="margin-top: 75px" onclick="toMenuPage()">搜索</button>
     </form>
