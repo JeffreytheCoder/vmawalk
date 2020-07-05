@@ -23,6 +23,11 @@
     font-size: 18px;
     margin-left: 410px;
     margin-top: -10px;
+    cursor: pointer
+}
+
+.email {
+    float: left;
 }
 
 .layui-input {
