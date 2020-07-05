@@ -1,6 +1,8 @@
+console.log(decodeURI(window.location.href));
 var query = getUrlQueryString(decodeURI(window.location.href));
 console.log(query);
 id = query.substring(2)
+console.log(id)
 
 function getUrlQueryString() {
     var equal = window.location.href.indexOf("=")
