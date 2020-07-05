@@ -1,4 +1,4 @@
-layui.use("layer", function () {
+layui.use("layer", function() {
     if (sessionStorage.getItem("token") == null) {
         layer.msg("请登录");
 
@@ -2443,9 +2443,9 @@ courses = [{
     }
 ];
 
-window.onload = function () {
+window.onload = function() {
 
-    layui.use(['layer', 'jquery', 'form'], function () {
+    layui.use(['layer', 'jquery', 'form'], function() {
 
         var $ = layui.jquery;
 
@@ -2466,13 +2466,13 @@ window.onload = function () {
     })
 }
 
-layui.use(['layer', 'jquery', 'form'], function () {
+layui.use(['layer', 'jquery', 'form'], function() {
 
     var layer = layui.layer,
         $ = layui.jquery,
         form = layui.form;
 
-    form.on('select(teacher)', function (data) {
+    form.on('select(teacher)', function(data) {
         obj = document.getElementById("course");
         for (i = obj.options.length - 1; i >= 1; i--) {
             obj.options[i] = null;
@@ -2487,10 +2487,10 @@ layui.use(['layer', 'jquery', 'form'], function () {
     })
 })
 
-layui.use(['form', 'jquery'], function () {
+layui.use(['form', 'jquery'], function() {
     var form = layui.form;
     var $ = layui.$;
-    form.on('submit(submit)', function (data) {
+    form.on('submit(submit)', function(data) {
         //JSON.stringify(data.field)   这是表单中所有的数据
         var articleFrom = data.field.articleFrom;
         var articleSummary = data.field.articleSummary;
@@ -2532,17 +2532,17 @@ layui.use(['form', 'jquery'], function () {
             headers: {
                 Authorization: "Bearer " + sessionStorage.getItem("token")
             },
-            success: function (data) {
+            success: function(data) {
                 layer.alert(data)
             },
-            error: function (req) {
+            error: function(req) {
                 if (req.status == 401) {
                     window.location.href = location.origin + "/login/login.html"
                 } else {
                     console.log(req.responseText)
                 }
             },
-            complete: function () {
+            complete: function() {
                 layer.close(index);
             },
             dataType: "json"
