@@ -2,8 +2,8 @@ function toSearchPage() {
     var query = document.getElementById("keyword")
         .value;
     link = "https://jeffreythecoder.github.io/vmawalk/search/search?query=" + encodeURI(encodeURI(query)) + ""
-    console.log(link)
-    window.location.href = link
+    console.log(link);
+    window.location.href = link;
 }
 
 teachers = [
