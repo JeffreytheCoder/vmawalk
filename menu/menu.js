@@ -1,5 +1,5 @@
 console.log(decodeURI(window.location.href));
-var query = getUrlQueryString(decodeURI(window.location.href));
+var query = "2-MATH205" // getUrlQueryString(decodeURI(window.location.href));
 console.log(query);
 id = query.substring(2)
 console.log(id)
@@ -19,11 +19,20 @@ layui.use(["jquery", "layer"], function () {
         url = "https://vmawalk.azurewebsites.net/api/course/GetWithTeachers";
         data.id = Number(id);
     } else if (query[0] == "2") {
-        url = "https://vmawalk.azurewebsites.net/api/course/GetWithCodes";
+        url = "https://vmawalk.azurewebsites.net/api/course/GetWithCode";
         data.code = id;
     }
 
-    $.getJSON(url, { id: Number(id) }, function (data, state) {
-        layui.layer.alert(data);
+    $.ajax({
+        type: "GET",
+        url: url,
+        contentType: "application/json",
+        data: data,
+        success: function (req) {
+            console.log(req)
+        },
+        error:function(req){
+            console.log(req)
+        }
     });
 })
