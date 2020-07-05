@@ -10,6 +10,20 @@ function getUrlQueryString() {
     return query;
 };
 
-if (query[0] == "1") {
-    console.log("it's teacher")
-}
+layui.use(["jquery", "layer"], function () {
+    var $ = layui.jquery;
+    var url = "";
+
+    data = {}
+    if (query[0] == "1") {
+        url = "https://vmawalk.azurewebsites.net/api/course/GetWithTeachers";
+        data.id = Number(id);
+    } else if (query[0] == "2") {
+        url = "https://vmawalk.azurewebsites.net/api/course/GetWithCodes";
+        data.code = id;
+    }
+
+    $.getJSON(url, { id: Number(id) }, function (data, state) {
+        layui.layer.alert(data);
+    });
+})
