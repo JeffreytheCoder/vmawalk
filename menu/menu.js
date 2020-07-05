@@ -1,5 +1,5 @@
 console.log(decodeURI(window.location.href));
-var query = "2-MATH205" // getUrlQueryString(decodeURI(window.location.href));
+var query = getUrlQueryString(decodeURI(window.location.href));
 console.log(query);
 id = query.substring(2)
 console.log(id)
@@ -28,11 +28,19 @@ layui.use(["jquery", "layer"], function() {
         url: url,
         contentType: "application/json",
         data: data,
+<<<<<<< HEAD
         success: function(req) {
             console.log(req)
         },
         error: function(req) {
             console.log(req)
+=======
+        success: function (req) {
+            console.log(req);
+        },
+        error:function(req){
+            console.log(req);
+>>>>>>> ce107014cdd49ad70a0054bf0ea45fb1da4dcf99
         }
     });
 })
