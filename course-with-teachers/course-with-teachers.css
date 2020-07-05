@@ -1,9 +1,10 @@
-.content{
+.content {
     margin: 0 auto;
     width: 70%;
     height: 100%;
 }
-.name-with-picture{
+
+.name-with-picture {
     /* border:1px solid red; */
     padding-top: 20px;
     text-align: center;
@@ -11,7 +12,7 @@
     width: 100%;
 }
 
-.name-with-picture div{
+.name-with-picture div {
     border-radius: 50%;
     /* border:1px solid red; */
     margin: 0 auto;
@@ -19,29 +20,29 @@
     height: 100px;
     line-height: 100px;
 }
-.navigation{
+
+.navigation {
     padding-left: 0px;
 }
 
-.navigation li{
+.navigation li {
     display: inline;
     color: darkgray;
 }
 
-.navigation a{
+.navigation a {
     text-decoration: none;
     color: darkgray;
 }
 
-.navigation li:not(:last-child) a:after{
+.navigation li:not(:last-child) a:after {
     content: ' \00A0 \00A0 > \00A0';
-
 }
 
-.page-selector{
+.page-selector {
     /* border:1px solid red; */
-    width:100%; 
-    height: auto; 
+    width: 100%;
+    height: auto;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -49,7 +50,7 @@
     margin-bottom: 20px;
 }
 
-.left-arrow{
+.left-arrow {
     margin-right: 10px;
     width: 0;
     height: 0;
@@ -58,7 +59,7 @@
     border-bottom: .65rem solid transparent;
 }
 
-.right-arrow{
+.right-arrow {
     margin-left: 10px;
     width: 0;
     height: 0;
@@ -67,16 +68,16 @@
     border-bottom: .65rem solid transparent;
 }
 
-.courses-list-title{
-    margin-bottom:10px;
+.courses-list-title {
+    margin-bottom: 10px;
     width: 100%;
     height: auto;
     display: flex;
     justify-content: space-between;
 }
 
-.course{
-    border:1px solid darkgray;
+.course {
+    border: 1px solid darkgray;
     border-radius: 5px;
     border-bottom: 2px solid gray;
     margin-bottom: 10px;
@@ -84,23 +85,22 @@
     height: auto;
 }
 
-.course>div{
+.course>div {
     margin-bottom: 20px;
     margin-top: 10px;
     width: 100%;
     height: auto;
     display: flex;
-
 }
 
-.course table{
+.course table {
     /* border: 1px solid red; */
     margin: auto auto;
     width: 98%;
     height: 100%;
 }
 
-.course .icon-round{
+.course .icon-round {
     /* border:1px solid red; */
     background-size: cover;
     background-position: center;
@@ -110,19 +110,20 @@
     text-align: center;
     display: table-cell;
     vertical-align: middle;
-
 }
 
-.rating-cell:nth-child(3),.rating-cell:nth-child(5),.rating-cell:nth-child(7){
+.rating-cell:nth-child(3),
+.rating-cell:nth-child(5),
+.rating-cell:nth-child(7) {
     background-color: rgba(211, 211, 211, 0.5);
 }
 
-.rating-cell{
+.rating-cell {
     width: auto;
     text-align: center;
 }
 
-.footer{
+.footer {
     /* border:1px solid red; */
     margin-top: 50px;
     width: 100%;

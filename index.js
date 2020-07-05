@@ -1028,13 +1028,13 @@ window.onload = function() {
 
         for (var i = 1; i < teachers.length; i++) {
             if (teachers[i].chineseName == null) {
-                $("#teacher").append(new Option(teachers[i].englishName, teachers[i].id));
+                $("#teacher").append(new Option(teachers[i].englishName, "1-" + teachers[i].id));
             }
         }
 
         for (var i = 1; i < teachers.length; i++) {
             if (teachers[i].chineseName != null) {
-                $("#teacher").append(new Option(teachers[i].chineseName + " " + teachers[i].englishName, teachers[i].id));
+                $("#teacher").append(new Option(teachers[i].chineseName + " " + teachers[i].englishName, "1-" + teachers[i].id));
             }
         }
 
