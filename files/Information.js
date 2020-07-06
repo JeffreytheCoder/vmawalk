@@ -1,5 +1,4 @@
-var teachers = [
-    {
+var teachers = [{
         "id": 1,
         "chineseName": "王赫",
         "englishName": "Wang He",
@@ -1021,8 +1020,7 @@ var teachers = [
     }
 ];
 
-var Courses = [
-    {
+var Courses = [{
         "id": 26,
         "courseName": "English 2",
         "courseCode": "ENG207",
@@ -1930,8 +1928,7 @@ var Courses = [
     }
 ];
 
-var CoursesWithTeacher = [
-    {
+var CoursesWithTeacher = [{
         "id": 26,
         "courseName": "English 2",
         "courseCode": "ENG207",
