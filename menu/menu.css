@@ -1,6 +1,6 @@
 .content {
     margin: 0 auto;
-    width: 70%;
+    width: 90%;
     height: 100%;
 }
 
@@ -149,7 +149,7 @@
     width: 100%;
 }
 
-.name-with-picture div {
+.image {
     border-radius: 50%;
     /* border:1px solid red; */
     position: relative;
@@ -159,6 +159,15 @@
     height: 100px;
     background-size: 120px;
     background-position: center;
+}
+
+.code {
+    border-radius: 50%;
+    /* border:1px solid red; */
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
 }
 
 .navigation li {
@@ -213,10 +222,9 @@
 }
 
 .course {
-    border: 1px solid darkgray;
+    border: 0.5px solid darkgray;
     border-radius: 5px;
-    border-bottom: 2px solid gray;
-    margin-bottom: 10px;
+    border-bottom: 3px solid darkgray;
     width: 100%;
     height: auto;
 }
