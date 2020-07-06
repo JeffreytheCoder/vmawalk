@@ -6,6 +6,8 @@
 .header {
     background-color: #69BDC8;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 100px;
 }
 
@@ -193,4 +195,13 @@
 
 .course-label {
     font-size: 16px
+}
+
+.layui-form-item{
+    width: 300px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
 }
