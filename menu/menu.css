@@ -1,15 +1,10 @@
-.content {
-    margin: 0 auto;
-    width: 70%;
-    height: 100%;
-}
-
 .name-with-picture {
     /* border:1px solid red; */
     padding-top: 20px;
     text-align: center;
     height: auto;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .name-with-picture div {
@@ -25,6 +20,7 @@
 }
 
 .navigation {
+    margin-top: 10px;
     padding-left: 0px;
 }
 
@@ -137,7 +133,7 @@
 
 .content {
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     height: 100%;
 }
 
