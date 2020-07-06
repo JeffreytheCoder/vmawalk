@@ -1,12 +1,18 @@
 {
     "configurations": [
-    {
-        "name": "Launch Edge",
-        "request": "launch",
-        "type": "pwa-msedge",
-        "file": "${workspaceFolder}/home.html",
-        "webRoot": "${workspaceFolder}",
-        "runtimeExecutable": "dev"
-    }
+        {
+            "type": "vscode-edge-devtools.debug",
+            "request": "launch",
+            "name": "Launch Microsoft Edge and open the Elements tool",
+            "file": "${workspaceFolder}/index.html",
+        },
+        {
+            
+            "name": "Launch Edge",
+            "request": "launch",
+            "type": "edge",
+            "file": "${file}",
+            "version": "dev"
+        }
     ]
 }

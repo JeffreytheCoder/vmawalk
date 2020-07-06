@@ -15,20 +15,17 @@
 .name-with-picture div {
     border-radius: 50%;
     /* border:1px solid red; */
-    position: relative;
     margin: 0 auto;
-    top: center;
     width: 100px;
     height: 100px;
-    background-size: 120px;
-    background-position: center;
+    line-height: 100px;
 }
 
-.navigation{
+.navigation {
     padding-left: 0px;
 }
 
-.navigation li{
+.navigation li {
     display: inline;
     color: darkgray;
 }
@@ -105,7 +102,8 @@
 
 .course .icon-round {
     /* border:1px solid red; */
-    background-color: #69BDC8;
+    background-size: cover;
+    background-position: center;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -114,7 +112,9 @@
     vertical-align: middle;
 }
 
-.rating-cell:nth-child(3),.rating-cell:nth-child(5),.rating-cell:nth-child(7){
+.rating-cell:nth-child(3),
+.rating-cell:nth-child(5),
+.rating-cell:nth-child(7) {
     background-color: rgba(211, 211, 211, 0.5);
 }
 
