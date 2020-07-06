@@ -24,15 +24,11 @@
     background-position: center;
 }
 
-<<<<<<< HEAD
-.navigation li {
-=======
 .navigation{
     padding-left: 0px;
 }
 
 .navigation li{
->>>>>>> a2a7c8d19a1872835bc35b2e39fa28da08409d59
     display: inline;
     color: darkgray;
 }
@@ -118,15 +114,8 @@
     vertical-align: middle;
 }
 
-<<<<<<< HEAD
-.rating-cell:nth-child(3),
-.rating-cell:nth-child(5),
-.rating-cell:nth-child(7) {
-    background-color: lightgray;
-=======
 .rating-cell:nth-child(3),.rating-cell:nth-child(5),.rating-cell:nth-child(7){
     background-color: rgba(211, 211, 211, 0.5);
->>>>>>> a2a7c8d19a1872835bc35b2e39fa28da08409d59
 }
 
 .rating-cell {
