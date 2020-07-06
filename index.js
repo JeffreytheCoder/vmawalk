@@ -1,6 +1,6 @@
-window.onload = function () {
+window.onload = function() {
 
-    layui.use(['layer', 'jquery', 'form'], function () {
+    layui.use(['layer', 'jquery', 'form'], function() {
 
         var $ = layui.jquery;
 
@@ -17,7 +17,7 @@ window.onload = function () {
         }
 
         Courses.forEach(i => {
-            $("#search").append(new Option(i.courseName + " " + i.courseCode), "2-" + i.courseCode);
+            $("#search").append(new Option(i.courseName + " " + i.courseCode, "2-" + i.courseCode));
         })
 
         layui.form.render('select');
@@ -25,10 +25,10 @@ window.onload = function () {
     })
 }
 
-layui.use(['form', 'jquery'], function () {
+layui.use(['form', 'jquery'], function() {
     var form = layui.form;
     var $ = layui.$;
-    form.on('submit(submit)', function (data) {
+    form.on('submit(submit)', function(data) {
         query = data.field.teacher;
         link = "https://jeffreythecoder.github.io/vmawalk/menu/menu?query=" + encodeURI(encodeURI(query)) + "";
         window.location.href = link;
