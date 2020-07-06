@@ -15,22 +15,23 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-block">
-                    <input type="text" name="userName" required lay-verify="userName" placeholder="请输入用户名" autocomplete="off"
-                           class="layui-input">
+                    <input type="text" name="userName" required lay-verify="userName" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">学校邮箱</label>
-                <div class="layui-input-block">
-                    <input type="text" name="email" required lay-verify="email" placeholder="请输入你的学校邮箱" autocomplete="off"
-                           class="layui-input">
+                <div class="layui-input-block" style="display: flex; align-items: center;">
+                    <input type="text" name="email" required lay-verify="alphabet" placeholder="请输入你的学校邮箱"
+                        autocomplete="off" class="layui-input" style="width: 170px;">
+                    <label class="email">@.stu.vma.edu.cn</label>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">密 &nbsp;&nbsp;码</label>
                 <div class="layui-input-inline">
-                    <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off"
-                           class="layui-input">
+                    <input type="password" name="password" required lay-verify="password" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input">
                 </div>
                 <!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
             </div>

@@ -7,34 +7,50 @@
     <title>233</title>
     <link rel="stylesheet" href="../search/search.css" />
     <link rel="stylesheet" href="detail.css" />
+    <link rel="stylesheet" href="../layui/css/layui2.css" media="all">
+    <script src="../layui/layui.js"></script>
+
 </head>
 
 <body class="general">
     <!--header-->
     <div class="header">
-        <div class="title" style="padding-top: 30px; padding-right: 30px">
+        <div class="title">
             <a href="https://jeffreythecoder.github.io/vmawalk/" style="text-decoration: none; color: white;">
                 <strong>vma</strong>walk
             </a>
         </div>
-        <div align="center" class="search">
+        <form class="layui-form-item" align="center" action="submit" style="margin-bottom: 0">
+            <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
+                <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect"
+                    lay-filter="search">
+                    <option value="">请选择课程和老师</option>
+                </select>
+            </div>
+            <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit"
+                style="width: 70px; text-align: center; background-color: #0098ac;" onclick="toMenuPage()">搜索</button>
+        </form>
+        <!-- <div align="center" class="search">
             <input type="text" placeholder="搜索VMA课程或老师..." id="keyword" class="layui-input" autocomplete="off" />
             <button id="search" onclick="fuzzyQuery()"><i>搜索</i></button>
+        </div> -->
+        <div style="display: flex;">
+            <div style="padding-right: 10px">
+                <a href="../review/review.html">
+                    <button class="add-review">
+                        <text class="add-review-text">✚ 加点评</text>
+                    </button>
+                </a>
+            </div>
+            <div style="padding-right: 30px;">
+                <a href="../login/login.html">
+                    <button class="add-review">
+                        <text class="add-review-text">登 录</text>
+                    </button>
+                </a>
+            </div>
         </div>
-        <div style="padding-top: 30px; padding-right: 30px">
-            <a href="../review/review.html">
-                <button class="add-review">
-                    <text class="add-review-text">✚ 加点评</text>
-                </button>
-            </a>
-        </div>
-        <div style="padding-top: 30px; padding-right: 30px">
-            <a href="../login/login.html">
-                <button class="add-review">
-                    <text class="add-review-text">登 录</text>
-                </button>
-            </a>
-        </div>
+
     </div>
     <!--展示内容-->
     <div class="content">

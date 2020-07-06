@@ -5,7 +5,12 @@ layui.use(['form', 'layer', 'jquery'], function() {
 
     form.verify({
         userName: [
-            /^[\S]+$/
+            /^[\S]+$/,
+            "用户名中不能含有空格"
+        ],
+        alphabat:[
+            /[a-z]/i,
+            "学生邮箱前缀不得含有特殊字符"
         ],
         password: [
             /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
@@ -29,6 +34,7 @@ layui.use(['form', 'layer', 'jquery'], function() {
             error: function(req) {
 
                 var message = "";
+                console.log(req)
                 req.responseJSON.message.forEach(element => {
                     message += element.description + '</br>';
                 });
