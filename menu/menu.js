@@ -37,3 +37,9 @@ layui.use(["jquery", "layer"], function() {
 //动态加载
 //图片/课程代码、老师/课名称
 //每个profile里：课程代码/老师图片、课/老师名称、五个评分、最佳评论
+var namewithpic = document.getElementById("namewithpic");
+var name = document.createElement("label");
+var label_id = document.createAttribute("id");
+label_id.nodeValue = id;
+name.innerText = "Atwater";
+namewithpic.appendChild(name);

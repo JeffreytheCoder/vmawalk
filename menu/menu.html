@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wang He</title>
-    <link rel="stylesheet" href="../layui/layui2.css" />
     <link rel="stylesheet" href="../search/search.css" />
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="../layui/css/layui2.css" media="all">
@@ -23,13 +22,11 @@
         </div>
         <form class="layui-form-item" align="center" action="submit" style="margin-bottom: 0">
             <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
-                <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect"
-                    lay-filter="search">
+                <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="search">
                     <option value="">请选择课程和老师</option>
                 </select>
             </div>
-            <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit"
-                style="width: 70px; text-align: center; background-color: #0098ac;" onclick="toMenuPage()">搜索</button>
+            <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: 70px; text-align: center; background-color: #0098ac;" onclick="toMenuPage()">搜索</button>
         </form>
         <!-- <div align="center" class="search">
             <input type="text" placeholder="搜索VMA课程或老师..." id="keyword" class="layui-input" autocomplete="off" />
@@ -57,10 +54,10 @@
     <div class="content">
         <!--导航栏-->
         <!--头像人名-->
-        <div class="name-with-picture">
+        <div id="namewithpic" class="name-with-picture">
             <div style="background-image: url(https://github.com/JeffreytheCoder/vmawalk/blob/master/img/wanghe.jpg?raw=true);">
             </div>
-            <h2>Wang He</h2>
+            <!-- <h2>Wang He</h2> -->
         </div>
         <!--翻页器-->
         <div class="page-selector">
