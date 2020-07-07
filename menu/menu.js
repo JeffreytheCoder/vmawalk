@@ -73,7 +73,7 @@ window.onload = function() {
 
             len = 3;
             for (i = 0; i < len; i++) {
-                var image = document.createElement("div");
+                var profile = document.createElement("div");
             }
 
         }
