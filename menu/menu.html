@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="../layui/css/layui2.css" media="all">
     <script src="../layui/layui.js"></script>
-    <script src="menu.js" defer></script>
+    <!-- <script src="menu.js" defer></script> -->
 </head>
 
 <body class="general">
@@ -51,7 +51,6 @@
 
     </div>
     <!--展示内容-->
-    <br>
     <div class="content">
         <!--导航栏-->
         <div>
@@ -74,7 +73,7 @@
         <div id="namewithpic" class="name-with-picture">
             <div style="background-image: url(../img/wanghe.jpg);">
             </div>
-            <!-- <h2>Wang He</h2> -->
+            <h2>Wang He</h2>
         </div>
         <!--翻页器-->
         <div class="page-selector">
@@ -86,8 +85,6 @@
                 <div class="right-arrow"></div>
             </a>
         </div>
-        <br>
-        <br>
         <!--列表名称-->
         <div class="courses-list-title">
             <b>课程/老师</b>
@@ -96,25 +93,17 @@
         </div>
         <!--课程列表-->
         <div class="course">
-            <br>
-            <table>
-                <tr>
-                    <td width="90px">
-                        <a href="#" style="text-decoration: none; color: white;">
-                            <div class="icon-round">MATH502</div>
-                        </a>
-                    </td>
-                    <td width="110px">
-                        <a href="#" style="text-decoration: none;">
-                            <font color="black" size="3">AP Calculus BC</font><br />
-                            <font color="#69BDC8" size="2">Full Profile ></font>
-                        </a>
-                        <td class="rating-cell">
-                            <font size="5" color="black">N/A</font><br /> Overall
+            <div>
+                <table>
+                    <tr>
+                        <td width="90px">
+                            <a href="#" style="text-decoration: none; color: white;">
+                                <div class="icon-round">MATH502</div>
+                            </a>
                         </td>
                         <td width="110px">
                             <a href="#" style="text-decoration: none;">
-                                <font color="black">Mitochondria in Medicine, Biology, and Chemistry</font><br />
+                                <font color="black">AP Calculus BC</font><br />
                                 <font color="#69BDC8" size="4">Full Profile ></font>
                             </a>
                             <td class="rating-cell">
@@ -132,67 +121,62 @@
                             <td class="rating-cell">
                                 <font size="5" color="black">N/A</font><br /> Overall
                             </td>
-                            <td width="200px"></td>
-                </tr>
-            </table>
-            </br>
-            </td>
-            </tr>
+                            <td width="200px">
+                                No Reviews
+                            </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="course">
+            <div>
+                <table>
+                    <tr>
+                        <td width="90px">
+                            <a href="#" style="text-decoration: none; color: white;">
+                                <div class="icon-round">PHY504</div>
+                            </a>
+                        </td>
+                        <td width="110px">
+                            <a href="#" style="text-decoration: none;">
+                                <font color="black">AP Physics C: Electricity & Magnetism</font><br />
+                                <font color="#69BDC8" size="4">Full Profile ></font>
+                            </a>
+                            <td class="rating-cell">
+                                <font size="5" color="black">N/A</font><br /> Overall
+                            </td>
+                            <td class="rating-cell">
+                                <font size="5" color="black">N/A</font><br /> Overall
+                            </td>
+                            <td class="rating-cell">
+                                <font size="5" color="black">N/A</font><br /> Overall
+                            </td>
+                            <td class="rating-cell">
+                                <font size="5" color="black">N/A</font><br /> Overall
+                            </td>
+                            <td class="rating-cell">
+                                <font size="5" color="black">N/A</font><br /> Overall
+                            </td>
+                            <td width="200px">
+                                No Reviews
+                            </td>
+                    </tr>
 
-            </table>
+                </table>
 
+            </div>
+        </div>
+        <!--翻页器-->
+        <div class="page-selector">
+            <a href="#">
+                <div class="left-arrow"></div>
+            </a>
+            1 of 2
+            <a href="#">
+                <div class="right-arrow"></div>
+            </a>
         </div>
     </div>
-    <br>
-    <div class="course">
-        <br>
-        <table>
-            <tr>
-                <td width="90px">
-                    <a href="#" style="text-decoration: none; color: white;">
-                        <div class="icon-round">PHY504</div>
-                    </a>
-                </td>
-                <td width="110px">
-                    <a href="#" style="text-decoration: none;">
-                        <font color="black" size="3">AP Physics C: Electricity & Magnetism</font><br />
-                        <font color="#69BDC8" size="2">Full Profile ></font>
-                    </a>
-                    <td class="rating-cell">
-                        <font size="5" color="black">N/A</font><br /> Overall
-                    </td>
-                    <td width="110px">
-                        <a href="#" style="text-decoration: none;">
-                            <font color="black">Seminar: Research in Biochemistry--Biochemistry and Function of Ubiquinone in Yeast and Higher Eukaryotes</font><br />
-                            <font color="#69BDC8" size="4">Full Profile ></font>
-                        </a>
-                        <td class="rating-cell">
-                            <font size="5" color="black">N/A</font><br /> Overall
-                        </td>
-                        <td class="rating-cell">
-                            <font size="5" color="black">N/A</font><br /> Overall
-                        </td>
-                        <td class="rating-cell">
-                            <font size="5" color="black">N/A</font><br /> Overall
-                        </td>
-                        <td class="rating-cell">
-                            <font size="5" color="black">N/A</font><br /> Overall
-                        </td>
-                        <td class="rating-cell">
-                            <font size="5" color="black">N/A</font><br /> Overall
-                        </td>
-                        <td width="200px">No review </td>
-            </tr>
-            </td>
-            </tr>
-
-        </table>
-
-        </table>
-        </br>
-    </div>
-    </div>
-
     <!--页足-->
     <div class="footer">
         <div style="width: 100%; text-align: center; margin:auto 0;">
