@@ -1,5 +1,5 @@
 function toHomePage() {
-    window.location.href = link = "https://jeffreythecoder.github.io/vmawalk/"
+    window.location.href = "../index.html"
 }
 
 layui.use(['form', 'jquery', 'layer'], function() {
