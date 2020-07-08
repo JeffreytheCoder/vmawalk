@@ -44,7 +44,7 @@ layui.use(['layer', 'jquery', 'form'], function() {
             obj.options[i] = null;
         }
         var teacher_id = data.value;
-        for (var i = 1; i < courses.length; i++) {
+        for (var i = 1; i < CoursesWithTeacher.length; i++) {
             if (CoursesWithTeacher [i].teacherId == teacher_id) {
                 $("#course").append(new Option(CoursesWithTeacher[i].courseCode + " " + CoursesWithTeacher[i].courseName, courses[i].id));
             }
