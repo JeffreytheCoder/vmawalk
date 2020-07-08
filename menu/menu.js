@@ -1,7 +1,3 @@
-console.log(decodeURI(window.location.href));
-var query = getUrlQueryString(decodeURI(window.location.href));
-id = query.substring(2)
-
 function getUrlQueryString() {
     var equal = window.location.href.indexOf("=")
     var query = window.location.href.substring(equal + 1);
