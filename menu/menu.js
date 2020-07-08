@@ -106,7 +106,7 @@ window.onload = function() {
                             </td>
                     </tr>
                 </table>
-                <br>`
+                <br>`;
                 courseFrame.appendChild(course);
             }
 
@@ -123,8 +123,8 @@ window.onload = function() {
             namewithpic.appendChild(code);
 
             var courseName = document.createElement("h2");
-            courseNameText = courseList.courses[0].courseName
-            courseName.innerHTML = "<strong>" + courseNameText + "</strong>"
+            courseNameText = courseList.courses[0].courseName;
+            courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
             namewithpic.appendChild(courseName);
 
             //get teacher name

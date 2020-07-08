@@ -3,7 +3,7 @@ layui.use("layer", function() {
         layer.msg("请登录");
 
         setTimeout(() => {
-            window.location.href = window.location.host + "/login/login.html";
+            window.location.href = "../login/login.html";
         }, 1000);
     }
 });
