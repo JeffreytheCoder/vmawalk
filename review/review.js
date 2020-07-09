@@ -45,7 +45,7 @@ layui.use(['layer', 'jquery', 'form'], function() {
         }
         var teacher_id = data.value;
         for (var i = 1; i < CoursesWithTeacher.length; i++) {
-            if (CoursesWithTeacher [i].teacherId == teacher_id) {
+            if (CoursesWithTeacher[i].teacherId == teacher_id) {
                 $("#course").append(new Option(CoursesWithTeacher[i].courseCode + " " + CoursesWithTeacher[i].courseName, courses[i].id));
             }
         }
@@ -113,6 +113,7 @@ layui.use(['form', 'jquery'], function() {
             },
             dataType: "json"
         });
+        window.location.href = "../index.html"
         return false;
     });
 });
