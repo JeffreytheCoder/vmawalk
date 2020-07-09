@@ -46,16 +46,18 @@ layui.use(['layer', 'jquery', 'form'], function() {
         var teacher_id = data.value;
         for (var i = 1; i < CoursesWithTeacher.length; i++) {
             if (CoursesWithTeacher[i].teacherId == teacher_id) {
-                $("#course").append(new Option(CoursesWithTeacher[i].courseCode + " " + CoursesWithTeacher[i].courseName, courses[i].id));
+                $("#course").append(new Option(CoursesWithTeacher[i].courseCode + " " + CoursesWithTeacher[i].courseName, CoursesWithTeacher[i].id));
             }
         }
         layui.form.render("select");
     })
 })
 
-layui.use(['form', 'jquery'], function() {
-    var form = layui.form;
-    var $ = layui.$;
+layui.use(['form', 'jquery', 'layer'], function() {
+    var form = layui.form,
+        $ = layui.$,
+        layer = layui.layui;
+
     form.on('submit(submit)', function(data) {
         //JSON.stringify(data.field)   这是表单中所有的数据
         var articleFrom = data.field.articleFrom;
