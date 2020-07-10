@@ -17,6 +17,10 @@
     font-size: 16px;
 }
 
+.email {
+    float: left;
+}
+
 .close {
     background-color: white;
     border: none;

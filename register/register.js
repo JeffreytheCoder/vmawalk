@@ -8,13 +8,17 @@ layui.use(['form', 'layer', 'jquery'], function() {
             /^[\S]+$/,
             "用户名中不能含有空格"
         ],
-        alphabat:[
+        alphabat: [
             /[a-z]/i,
             "学生邮箱前缀不得含有特殊字符"
         ],
         password: [
             /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
-        ]
+        ],
+        confirmPass: function(value) {
+            if ($('input[name=password]').val() !== value)
+                return ('两次密码输入不一致！');
+        }
     })
 
     form.on('submit(register)', function(formdata) {

@@ -1,8 +1,8 @@
 .container {
     width: 420px;
-    height: 320px;
+    height: 350px;
     min-height: 320px;
-    max-height: 320px;
+    max-height: 400px;
     position: absolute;
     top: 0;
     left: 0;
