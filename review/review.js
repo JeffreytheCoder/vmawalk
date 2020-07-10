@@ -115,7 +115,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
             },
             dataType: "json"
         });
-        window.location.href = "../index.html"
+        window.location.href = "https://jeffreythecoder.github.io/vmawalk"
         return false;
     });
 });
