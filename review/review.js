@@ -113,8 +113,9 @@ layui.use(['form', 'jquery', 'layer'], function () {
                         window.location.href = "../../index.html";
                     }, 1000);
                 } else {
-                    console.log(req.responseText)
-                    layer.msg("失败")
+                    console.log(req.responseText);
+                    layer.msg("失败");
+                    layer.alert(req.responseText);
                 }
             },
             complete: function () {
