@@ -1,4 +1,4 @@
-layui.use("layer", function() {
+layui.use("layer", function () {
     if (sessionStorage.getItem("token") == null) {
         layer.msg("请登录");
 
@@ -9,9 +9,9 @@ layui.use("layer", function() {
 });
 
 
-window.onload = function() {
+window.onload = function () {
 
-    layui.use(['layer', 'jquery', 'form'], function() {
+    layui.use(['layer', 'jquery', 'form'], function () {
 
         var $ = layui.jquery;
 
@@ -32,13 +32,13 @@ window.onload = function() {
     })
 }
 
-layui.use(['layer', 'jquery', 'form'], function() {
+layui.use(['layer', 'jquery', 'form'], function () {
 
     var layer = layui.layer,
         $ = layui.jquery,
         form = layui.form;
 
-    form.on('select(teacher)', function(data) {
+    form.on('select(teacher)', function (data) {
         obj = document.getElementById("course");
         for (i = obj.options.length - 1; i >= 1; i--) {
             obj.options[i] = null;
@@ -53,12 +53,12 @@ layui.use(['layer', 'jquery', 'form'], function() {
     })
 })
 
-layui.use(['form', 'jquery', 'layer'], function() {
+layui.use(['form', 'jquery', 'layer'], function () {
     var form = layui.form,
         $ = layui.$,
-        layer = layui.layui;
+        layer = layui.layer;
 
-    form.on('submit(submit)', function(data) {
+    form.on('submit(submit)', function (data) {
         //JSON.stringify(data.field)   这是表单中所有的数据
         var articleFrom = data.field.articleFrom;
         var articleSummary = data.field.articleSummary;
@@ -76,11 +76,10 @@ layui.use(['form', 'jquery', 'layer'], function() {
             Text: data.field.review
         }))
 
-        //报错：load of undefined
-        /* var index = layer.load({
+        var index = layer.load({
             shade: [0.4, '#def'],
             icon: '&#xe63d'
-        })*/
+        })
 
         $.ajax({
             type: "POST",
@@ -101,23 +100,28 @@ layui.use(['form', 'jquery', 'layer'], function() {
             headers: {
                 Authorization: "Bearer " + sessionStorage.getItem("token")
             },
-            success: function(data) {
-                layer.alert(data)
-                window.location.href = "https://jeffreythecoder.github.io/vmawalk"
+            success: function (data) {
+                layer.alert(JSON.stringify(data))
+                setTimeout(() => {
+                    window.location.href = "../index.html";
+                }, 1000);
             },
-            error: function(req) {
+            error: function (req) {
                 if (req.status == 401) {
-                    window.location.href = location.origin + "/login/login.html"
+                    layer.msg("请登录")
+                    setTimeout(() => {
+                        window.location.href = "../../index.html";
+                    }, 1000);
                 } else {
                     console.log(req.responseText)
+                    layer.msg("失败")
                 }
             },
-            complete: function() {
-                window.location.href = "https://jeffreythecoder.github.io/vmawalk"
+            complete: function () {
+                index.close();
             },
             dataType: "json"
         });
-        window.location.href = "https://jeffreythecoder.github.io/vmawalk"
         return false;
     });
 });
