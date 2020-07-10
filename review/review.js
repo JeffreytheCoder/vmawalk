@@ -76,10 +76,11 @@ layui.use(['form', 'jquery', 'layer'], function() {
             Text: data.field.review
         }))
 
-        var index = layer.load({
+        //报错：load of undefined
+        /* var index = layer.load({
             shade: [0.4, '#def'],
             icon: '&#xe63d'
-        })
+        })*/
 
         $.ajax({
             type: "POST",
@@ -102,6 +103,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
             },
             success: function(data) {
                 layer.alert(data)
+                window.location.href = "https://jeffreythecoder.github.io/vmawalk"
             },
             error: function(req) {
                 if (req.status == 401) {
@@ -111,7 +113,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
                 }
             },
             complete: function() {
-                layer.close(index);
+                window.location.href = "https://jeffreythecoder.github.io/vmawalk"
             },
             dataType: "json"
         });
