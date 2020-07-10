@@ -36,7 +36,6 @@ function callData(query, callback) {
             success: function(req) {
                 courseList = req;
                 console.log(courseList)
-                console.log(req);
                 callback();
             },
             error: function(req) {
@@ -74,39 +73,39 @@ window.onload = function() {
                 var course = document.createElement("div");
                 course.className = "course";
                 course.innerHTML = `<br>
-                <table>
-                    <tr>
-                        <td width="90px">
-                            <a href="#" style="text-decoration: none; color: white;">
-                                <div class="icon-round">` + courseList[i].courseCode + `</div>
-                            </a>
-                        </td>
-                        <td width="110px">
-                            <a href="#" style="text-decoration: none;">
-                                <font color="black" size="3">` + courseList[i].courseName + `</font><br />
-                                <font color="#69BDC8" size="2">Full Profile ></font>
-                            </a>
-                            <td class="rating-cell">
-                                <font size="5" color="black">N/A</font><br /> Overall
-                            </td>
-                            <td class="rating-cell">
-                                <font size="5" color="black">N/A</font><br /> Overall
-                            </td>
-                            <td class="rating-cell">
-                                <font size="5" color="black">N/A</font><br /> Overall
-                            </td>
-                            <td class="rating-cell">
-                                <font size="5" color="black">N/A</font><br /> Overall
-                            </td>
-                            <td class="rating-cell">
-                                <font size="5" color="black">N/A</font><br /> Overall
-                            </td>
-                            <td width="200px">
-                                No Reviews
-                            </td>
-                    </tr>
-                </table>
-                <br>`;
+    <table>
+        <tr>
+            <td width="90px">
+                <a href="#" style="text-decoration: none; color: white;">
+                    <div class="icon-round">` + courseList[i].courseCode + `</div>
+                </a>
+            </td>
+            <td width="110px">
+                <a href="#" style="text-decoration: none;">
+                    <font color="black" size="3">` + courseList[i].courseName + `</font><br />
+                    <font color="#69BDC8" size="2">Full Profile ></font>
+                </a>
+                <td class="rating-cell">
+                    <font size="5" color="black">N/A</font><br /> Overall
+                </td>
+                <td class="rating-cell">
+                    <font size="5" color="black">N/A</font><br /> Overall
+                </td>
+                <td class="rating-cell">
+                    <font size="5" color="black">N/A</font><br /> Overall
+                </td>
+                <td class="rating-cell">
+                    <font size="5" color="black">N/A</font><br /> Overall
+                </td>
+                <td class="rating-cell">
+                    <font size="5" color="black">N/A</font><br /> Overall
+                </td>
+                <td width="200px">
+                    No Reviews
+                </td>
+        </tr>
+    </table>
+    <br>`;
                 courseFrame.appendChild(course);
             }
 
@@ -123,28 +122,67 @@ window.onload = function() {
             namewithpic.appendChild(code);
 
             var courseName = document.createElement("h2");
-            courseNameText = courseList.courses[0].courseName;
+            courseList = courseList.courses;
+            courseNameText = courseList[0].courseName;
             courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
             namewithpic.appendChild(courseName);
 
-            //get teacher name
-            /* var name = document.createElement("h2");
-            teacherID = courseList.courses[0].teacherId;
-            console.log(teacherID);
-            var teacherName;
-            for (i = 0; i < teachers.length; i++) {
-                if (teachers[i].id == teacherID) {
-                    if (teachers[i].chineseName == null) {
-                        teacherName = teachers[i].englishName
-                    } else {
-                        teacherName = teachers[i].chineseName + " " + teachers[i].englishName
+            // add courseframe
+            courseFrame = document.getElementById("course-frame")
+            teacherNameList = [];
+            for (i = 0; i < courseList.length; i++) {
+                teacherID = courseList[i].teacherId;
+                // search for teacher's name
+                for (j = 0; j < teachers.length; j++) {
+                    if (teachers[j].id == teacherID) {
+                        if (teachers[j].chineseName == null) {
+                            teacherName = teachers[j].englishName
+                        } else {
+                            teacherName = teachers[j].chineseName + " " + teachers[j].englishName
+                        }
                     }
                 }
+                teacherNameList.push(teacherName);
             }
-            if (!!teacherName) {
-                name.innerHTML = "<strong>" + teacherName + "</strong>";
-                namewithpic.appendChild(name);
-            }*/
+            for (i = 0; i < courseList.length; i++) {
+                var course = document.createElement("div");
+                course.className = "course";
+                course.innerHTML = `<br>
+        <table>
+            <tr>
+                <td width="90px">
+                    <a href="#">
+                    <div class="icon-round" style="background-image: url(../img/wanghe.jpg);"></div>
+                    </a>
+                </td>
+                <td width="110px">
+                    <a href="#" style="text-decoration: none;">
+                        <font color="black" size="3">` + teacherNameList[i] + `</font><br />
+                        <font color="#69BDC8" size="2">Full Profile ></font>
+                    </a>
+                    <td class="rating-cell">
+                        <font size="5" color="black">N/A</font><br /> Overall
+                    </td>
+                    <td class="rating-cell">
+                        <font size="5" color="black">N/A</font><br /> Overall
+                    </td>
+                    <td class="rating-cell">
+                        <font size="5" color="black">N/A</font><br /> Overall
+                    </td>
+                    <td class="rating-cell">
+                        <font size="5" color="black">N/A</font><br /> Overall
+                    </td>
+                    <td class="rating-cell">
+                        <font size="5" color="black">N/A</font><br /> Overall
+                    </td>
+                    <td width="200px">
+                        No Reviews
+                    </td>
+            </tr>
+        </table>
+        <br>`;
+                courseFrame.appendChild(course);
+            }
         }
     })
 }
