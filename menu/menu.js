@@ -69,6 +69,8 @@ window.onload = function() {
 
             // add courseframe
             courseFrame = document.getElementById("course-frame")
+            scoreList = courseList.averageScore.split("|")
+            console.log(scoreList);
             for (i = 0; i < courseList.length; i++) {
                 var course = document.createElement("div");
                 course.className = "course";
@@ -122,6 +124,7 @@ window.onload = function() {
             namewithpic.appendChild(code);
 
             var courseName = document.createElement("h2");
+            courseObj = courseList;
             courseList = courseList.courses;
             courseNameText = courseList[0].courseName;
             courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
@@ -144,7 +147,23 @@ window.onload = function() {
                 }
                 teacherNameList.push(teacherName);
             }
+            reviewList = courseObj.text
+            console.log(reviewList)
             for (i = 0; i < courseList.length; i++) {
+                // get each coursewithteacher's score
+                var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
+                if (courseList[i].averageScore != null) {
+                    scoreList = courseList[i].averageScore.split("|")
+                    console.log(scoreList);
+                }
+                // get each coursewithteacher's best review
+                console.log("here")
+                var bestReview = "No Review";
+                for (i = 0; i < reviewList.length; i++) {
+                    if (reviewList[i].courseId == courseList[i].id) {
+                        bestReview = reviewList[i].text
+                    }
+                }
                 var course = document.createElement("div");
                 course.className = "course";
                 course.innerHTML = `<br>
@@ -161,23 +180,21 @@ window.onload = function() {
                         <font color="#69BDC8" size="2">Full Profile ></font>
                     </a>
                     <td class="rating-cell">
-                        <font size="5" color="black">N/A</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">N/A</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[1] + `</font><br /> Overall
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">N/A</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[2] + `</font><br /> Overall
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">N/A</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[3] + `</font><br /> Overall
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">N/A</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[4] + `</font><br /> Overall
                     </td>
-                    <td width="200px">
-                        No Reviews
-                    </td>
+                    <td width="200px">` + bestReview + `</td>
             </tr>
         </table>
         <br>`;
