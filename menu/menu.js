@@ -199,16 +199,16 @@ window.onload = function() {
                         <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">` + scoreList[1] + `</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">` + scoreList[2] + `</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">` + scoreList[3] + `</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
                     </td>
                     <td class="rating-cell">
-                        <font size="5" color="black">` + scoreList[4] + `</font><br /> Overall
+                        <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
                     </td>
                     <td width="200px">` + bestReview + `</td>
             </tr>
