@@ -1,10 +1,10 @@
 var id; //把ID送过来
 
 layui.use(["jquery", "layer"], function () {
+
     /**
      * @type JQueryStatic
      */
-
     var $ = layui.$;
 
     $.get(
@@ -29,6 +29,19 @@ layui.use(["jquery", "layer"], function () {
         "https://vma-walk.azurewebsites.net/api/Review", {
             id: id
         },
+        /**
+         * @param {{
+         * Id:number,
+         * UserId:number,
+         * CourseId:number,
+         * TeacherId:number,
+         * Year:number,
+         * Semester:boolean,
+         * Grade:string,
+         * Score:string,
+         * Text:string
+         * }[]} result - 课程类型
+         */
         function (result) {
             // result 是一组Review
             console.log(result)
