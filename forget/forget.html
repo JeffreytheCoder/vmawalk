@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="../layui/css/layui.css" media="all">
 <link rel="stylesheet" href="forget.css" media="all">
 
+
 <head>
     <meta charset="utf-8">
 </head>
@@ -10,7 +11,7 @@
     <form class="layui-form" action="" method="post">
         <div class="container">
             <button class="close" title="关闭">X</button>
-            <div class="layui-form-mid layui-word-aux" style="margin-top: 30px;">
+            <div class="layui-form-mid layui-word-aux" style="margin-top: 10px;">
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">学生邮箱</label>
@@ -22,20 +23,27 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">新的密码</label>
                 <div class="layui-input-inline">
-                    <input type="password" name="password" required lay-verify="required" placeholder="请输入新的密码" autocomplete="off" class="layui-input">
+                    <input id="password" type="password" name="password" required lay-verify="required" placeholder="请输入新的密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">确认密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="confirm" required lay-verify="required|confirmPass" placeholder="请输入新的密码" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-mid layui-word-aux">
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">更改密码</button>
+                    <button class="layui-btn" id="forget" lay-submit lay-filter="forget">更改密码</button>
                 </div>
             </div>
             </a> <a href="../login/login.html" class="font-set" style="float: right; margin-right: 35px">返回登录</a>
         </div>
     </form>
-    <script type="text/javascript" src="layui/layui.js"></script>
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <script type="text/javascript" src="forget.js"></script>
     <script>
         layui.use(['form', 'layedit', 'laydate'], function() {
             var form = layui.form,

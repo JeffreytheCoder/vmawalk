@@ -1,9 +1,9 @@
-layui.use(['form', 'layer', 'jquery'], function () {
+layui.use(['form', 'layer', 'jquery'], function() {
     var form = layui.form,
         layer = layui.layer,
         $ = layui.$
 
-    $(document).keydown(function (e) {
+    $(document).keydown(function(e) {
         if (e.keyCode === 13) {
             $("#register").trigger("click");
             return false;
@@ -22,13 +22,13 @@ layui.use(['form', 'layer', 'jquery'], function () {
         password: [
             /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
         ],
-        confirmPass: function (value) {
+        confirmPass: function(value) {
             if ($('input[name=password]').val() !== value)
                 return ('两次密码输入不一致！');
         }
     })
 
-    form.on('submit(register)', function (formdata) {
+    form.on('submit(register)', function(formdata) {
         var index = layer.load({
             shade: [0.4, '#def'],
             icon: '&#xe63d'
@@ -38,11 +38,11 @@ layui.use(['form', 'layer', 'jquery'], function () {
             url: "https://vma-walk.azurewebsites.net/Auth/Registration",
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
-            success: function (data) {
+            success: function(data) {
                 sessionStorage.setItem("token", data.token);
                 alert("请查看学生邮箱并点击验证链接")
             },
-            error: function (req) {
+            error: function(req) {
 
                 var message = "";
                 console.log(req)
@@ -55,7 +55,7 @@ layui.use(['form', 'layer', 'jquery'], function () {
                     title: "请重试"
                 })
             },
-            complete: function () {
+            complete: function() {
                 layer.close(index)
             },
             dataType: "json"
