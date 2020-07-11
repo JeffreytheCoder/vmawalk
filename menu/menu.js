@@ -149,7 +149,8 @@ window.onload = function() {
             }
             reviewList = courseObj.text
             console.log(reviewList)
-            for (i = 0; i < courseList.length; i++) {
+            console.log(courseList.length)
+            for (i = 0; i < 5; i++) {
                 // get each coursewithteacher's score
                 var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
                 if (courseList[i].averageScore != null) {
