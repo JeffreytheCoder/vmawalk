@@ -1,0 +1,17 @@
+.navigation {
+    margin-top: 10px;
+    padding-left: 0px;
+}
+
+.navigation li {
+    display: inline;
+    color: darkgray;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: darkgray;
+}
+
+.navigation li:not(:last-child) a:after {
+    content: ' \00A0 \00A0 > \00A0';
