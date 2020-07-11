@@ -8,7 +8,7 @@ layui.use(["jquery", "layer"], function () {
     var $ = layui.$;
 
     $.get(
-        "https://vmawalk.azurewebsites.net/api/Course/" + id,
+        "https://vma-walk.azurewebsites.net/api/Course/" + id,
         /**
          * @param {{
          * Id:number,
@@ -26,7 +26,7 @@ layui.use(["jquery", "layer"], function () {
     )
 
     $.get(
-        "https://vmawalk.azurewebsites.net/api/Review", {
+        "https://vma-walk.azurewebsites.net/api/Review", {
             id: id
         },
         function (result) {

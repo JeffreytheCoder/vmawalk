@@ -16,15 +16,15 @@ function callData(query, callback) {
 
         data = {}
         if (query[0] == "1") {
-            $.get("https://vmawalk.azurewebsites.net/api/teacher/" + queryID, function(result) {
+            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
             });
-            url = "https://vmawalk.azurewebsites.net/api/course/GetWithTeachers";
+            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
             data.id = Number(queryID);
         } else if (query[0] == "2") {
-            url = "https://vmawalk.azurewebsites.net/api/course/GetWithCode";
+            url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
             data.code = queryID;
         }
 
