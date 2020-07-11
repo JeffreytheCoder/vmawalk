@@ -5,7 +5,6 @@ layui.use(['form', 'layer', 'jquery'], function () {
 
     $(document).keydown(function (e) {
         if (e.keyCode === 13) {
-
             $("#register").trigger("click");
             return false;
         }
