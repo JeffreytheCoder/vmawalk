@@ -1,0 +1,15 @@
+{
+    "globals": {
+        "window": false,
+        "document":false,
+        "layui":false,
+        "console":false
+    },
+    "noarg": true,
+    "quotmark": "double",
+    "undef": true,
+    "unused": true,
+    "esversion": 9,
+    "asi": true,
+    "jquery": true
+}

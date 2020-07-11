@@ -3,10 +3,10 @@ var id; //把ID送过来
 layui.use(["jquery", "layer"], function () {
 
     /**
-     * @type JQueryStatic
+     * @type {JQueryStatic}
      */
     var $ = layui.$;
-
+    
     $.get(
         "https://vma-walk.azurewebsites.net/api/Course/" + id,
         /**
@@ -15,13 +15,14 @@ layui.use(["jquery", "layer"], function () {
          * CourseName:string,
          * TeacherId:number,
          * AverageScore:number
-         * }} info - 课程类型
+         * }} info - 课程属性
          */
         function (info) {
             var averageScore = info.AverageScore.split("|").forEach(element => {
                 element = parseFloat(element)
             }) // 这个是告诉你怎么转 Average Score
             console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
+            var teacherName = teachers.find(teacher=>teacher.id==info.TeacherId);
         }
     )
 

@@ -1,4 +1,5 @@
-/** layui-v2.5.6 MIT License By https://www.layui.com */ ;
+// jshint ignore: start
+/** layui-v2.5.6 MIT License By https://www.layui.com */ 
 ! function (e, t) { "object" == typeof module && "object" == typeof module.exports ? module.exports = e.document ? t(e, !0) : function (e) { if (!e.document) throw new Error("jQuery requires a window with a document"); return t(e) } : t(e) }("undefined" != typeof window ? window : this, function (e, t) {
     function n(e) { var t = !!e && "length" in e && e.length,
             n = pe.type(e); return "function" !== n && !pe.isWindow(e) && ("array" === n || 0 === t || "number" == typeof t && t > 0 && t - 1 in e) }

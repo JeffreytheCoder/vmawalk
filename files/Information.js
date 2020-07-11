@@ -1,3 +1,9 @@
+/** @type {{
+ * id:number,
+ * chineseName:?string,
+ * englishName:string,
+ * averageScore:?number
+ * }[]} */
 var teachers = [{
         "id": 1,
         "chineseName": "王赫",
@@ -1020,6 +1026,12 @@ var teachers = [{
     }
 ];
 
+/** @type {{
+ * id:number,
+ * courseName:string,
+ * courseCode:string,
+ * teacherId:number
+ * }[]} */
 var Courses = [{
         "id": 26,
         "courseName": "English 2",
@@ -1928,6 +1940,12 @@ var Courses = [{
     }
 ];
 
+/** @type {{
+ * id:number,
+ * courseName:string,
+ * courseCode:string,
+ * teacherId:number
+ * }[]} */
 var CoursesWithTeacher = [{
         "id": 26,
         "courseName": "English 2",
