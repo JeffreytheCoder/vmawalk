@@ -1,3 +1,5 @@
+const { type } = require("jquery");
+
 layui.use("layer", function () {
     if (sessionStorage.getItem("token") == null) {
         layer.msg("请登录");
@@ -76,7 +78,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
             Text: data.field.review
         }))
 
-        var index = layer.load({
+        var loading = layer.load({
             shade: [0.4, '#def'],
             icon: '&#xe63d'
         })
@@ -119,7 +121,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
                 }
             },
             complete: function () {
-                index.close();
+                layer.close(loading);
             },
             dataType: "json"
         });
