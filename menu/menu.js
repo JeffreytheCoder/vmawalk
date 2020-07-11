@@ -157,12 +157,8 @@ window.onload = function () {
                 course => {
                     // find teacher with id
                     var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-
                     // parse the teacher name
-                    if (teacher.chineseName != null)
-                        teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ")
-                    else
-                        teacherNameList[teacher.id] = (teacher.englishName);
+                    teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
                 }
             )
 
