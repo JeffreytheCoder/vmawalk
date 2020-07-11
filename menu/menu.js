@@ -6,17 +6,17 @@ function getUrlQueryString() {
 
 //global variable
 var teacherObj;
-var courseList;
+var courseList = null;
 
 function callData(query, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
         var $ = layui.$;
         var url = "";
         var teacher = null;
 
         data = {}
         if (query[0] == "1") {
-            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
+            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function (result) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
@@ -33,12 +33,21 @@ function callData(query, callback) {
             url: url,
             contentType: "application/json",
             data: data,
-            success: function(req) {
+            /**
+             *
+             *
+             * @param {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number}[],
+             * text:{courseId:number,text:string}[]
+             * }} req
+             */
+            success: function (req) {
+
                 courseList = req;
+
                 console.log(courseList)
                 callback();
             },
-            error: function(req) {
+            error: function (req) {
                 console.log(req);
                 callback();
             }
@@ -46,14 +55,14 @@ function callData(query, callback) {
     })
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
     console.log(decodeURI(window.location.href));
     var query = "2-ENG207" //getUrlQueryString(decodeURI(window.location.href));
     queryID = query.substring(2)
 
-    callData(query, function() {
+    callData(query, function () {
         if (query[0] == "1") {
             //add namewithpic
             namewithpic = document.getElementById("namewithpic");
@@ -124,49 +133,60 @@ window.onload = function() {
             namewithpic.appendChild(code);
 
             var courseName = document.createElement("h2");
-            courseObj = courseList;
-            courseList = courseList.courses;
-            courseNameText = courseList[0].courseName;
+
+            /**
+             * @type {{
+             * courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
+             * text:{courseId:number,text:string}[]
+             * }} courseObj
+             */
+            var courseObj = courseList;
+            courseList = courseObj.courses;
+
+            var courseNameText = courseList[0].courseName;
+
             courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
             namewithpic.appendChild(courseName);
 
             // add courseframe
-            courseFrame = document.getElementById("course-frame")
-            teacherNameList = [];
-            for (i = 0; i < courseList.length; i++) {
-                teacherID = courseList[i].teacherId;
-                // search for teacher's name
-                for (j = 0; j < teachers.length; j++) {
-                    if (teachers[j].id == teacherID) {
-                        if (teachers[j].chineseName == null) {
-                            teacherName = teachers[j].englishName
-                        } else {
-                            teacherName = teachers[j].chineseName + " " + teachers[j].englishName
-                        }
-                    }
+            var courseFrame = document.getElementById("course-frame")
+            var teacherNameList = {};
+
+            // add teachers' name into the list
+            courseList.forEach(
+                course => {
+                    // find teacher with id
+                    var teacher = teachers.find(teacher => teacher.id === course.teacherId)
+
+                    // parse the teacher name
+                    if (teacher.chineseName != null)
+                        teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ")
+                    else
+                        teacherNameList[teacher.id] = (teacher.englishName);
                 }
-                teacherNameList.push(teacherName);
-            }
-            reviewList = courseObj.text
+            )
+
+
+            var reviewList = courseObj.text
             console.log(reviewList)
-            for (i = 0; i < courseList.length; i++) {
-                // get each coursewithteacher's score
-                var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
-                if (courseList[i].averageScore != null) {
-                    scoreList = courseList[i].averageScore.split("|")
-                    console.log(scoreList);
-                }
-                // get each coursewithteacher's best review
-                console.log("here")
-                var bestReview = "No Review";
-                for (i = 0; i < reviewList.length; i++) {
-                    if (reviewList[i].courseId == courseList[i].id) {
-                        bestReview = reviewList[i].text
+
+            courseList.forEach(
+                course => {
+                    var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
+                        bestReview = "No Review";
+                    if (course.averageScore != null) {
+                        scoreList = course.averageScore.split("|");
                     }
-                }
-                var course = document.createElement("div");
-                course.className = "course";
-                course.innerHTML = `<br>
+                    var review = reviewList.find(review =>
+                        review.courseId == course.id
+                    )
+                    if (review != undefined) {
+                        bestReview = review.text;
+                    }
+
+                    var courseElement = document.createElement("div");
+                    courseElement.className = "course";
+                    courseElement.innerHTML = `<br>
         <table>
             <tr>
                 <td width="90px">
@@ -176,7 +196,7 @@ window.onload = function() {
                 </td>
                 <td width="110px">
                     <a href="#" style="text-decoration: none;">
-                        <font color="black" size="3">` + teacherNameList[i] + `</font><br />
+                        <font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
                         <font color="#69BDC8" size="2">Full Profile ></font>
                     </a>
                     <td class="rating-cell">
@@ -198,8 +218,9 @@ window.onload = function() {
             </tr>
         </table>
         <br>`;
-                courseFrame.appendChild(course);
-            }
+                    courseFrame.appendChild(courseElement);
+                }
+            )
         }
     })
 }
