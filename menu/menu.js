@@ -69,6 +69,8 @@ window.onload = function() {
 
             // add courseframe
             courseFrame = document.getElementById("course-frame")
+            scoreList = courseList.averageScore.split("|")
+            console.log(scoreList);
             for (i = 0; i < courseList.length; i++) {
                 var course = document.createElement("div");
                 course.className = "course";
@@ -145,6 +147,12 @@ window.onload = function() {
                 teacherNameList.push(teacherName);
             }
             for (i = 0; i < courseList.length; i++) {
+                //get each coursewithteacher's score
+                if (courseList[i].averageScore != null) {
+                    scoreList = courseList[i].averageScore.split("|")
+                    console.log(scoreList);
+                }
+
                 var course = document.createElement("div");
                 course.className = "course";
                 course.innerHTML = `<br>

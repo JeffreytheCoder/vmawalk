@@ -8,7 +8,6 @@ layui.use("layer", function() {
     }
 });
 
-
 window.onload = function() {
 
     layui.use(['layer', 'jquery', 'form'], function() {
