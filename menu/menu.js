@@ -9,14 +9,14 @@ var teacherObj;
 var courseList = null;
 
 function callData(query, callback) {
-    layui.use(["jquery", "layer"], function () {
+    layui.use(["jquery", "layer"], function() {
         var $ = layui.$;
         var url = "";
         var teacher = null;
 
         data = {}
         if (query[0] == "1") {
-            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function (result) {
+            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
@@ -40,14 +40,14 @@ function callData(query, callback) {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function (req) {
+            success: function(req) {
 
                 courseList = req;
 
                 console.log(courseList)
                 callback();
             },
-            error: function (req) {
+            error: function(req) {
                 console.log(req);
                 callback();
             }
@@ -55,14 +55,14 @@ function callData(query, callback) {
     })
 }
 
-window.onload = function () {
+window.onload = function() {
 
     //init
     console.log(decodeURI(window.location.href));
     var query = "2-ENG207" //getUrlQueryString(decodeURI(window.location.href));
     queryID = query.substring(2)
 
-    callData(query, function () {
+    callData(query, function() {
         if (query[0] == "1") {
             //add namewithpic
             namewithpic = document.getElementById("namewithpic");
@@ -157,7 +157,7 @@ window.onload = function () {
                 course => {
                     // find teacher with id
                     var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                    // parse the teacher name
+                        // parse the teacher name
                     teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
                 }
             )
@@ -165,22 +165,6 @@ window.onload = function () {
 
             var reviewList = courseObj.text
             console.log(reviewList)
-<<<<<<< HEAD
-            console.log(courseList.length)
-            for (i = 0; i < 5; i++) {
-                // get each coursewithteacher's score
-                var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
-                if (courseList[i].averageScore != null) {
-                    scoreList = courseList[i].averageScore.split("|")
-                    console.log(scoreList);
-                }
-                // get each coursewithteacher's best review
-                console.log("here")
-                var bestReview = "No Review";
-                for (i = 0; i < reviewList.length; i++) {
-                    if (reviewList[i].courseId == courseList[i].id) {
-                        bestReview = reviewList[i].text
-=======
 
             courseList.forEach(
                 course => {
@@ -188,7 +172,6 @@ window.onload = function () {
                         bestReview = "No Review";
                     if (course.averageScore != null) {
                         scoreList = course.averageScore.split("|");
->>>>>>> 390282109b3d556b4675ff5ac468884999fe5ae2
                     }
                     var review = reviewList.find(review =>
                         review.courseId == course.id
