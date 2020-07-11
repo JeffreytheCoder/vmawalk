@@ -121,22 +121,6 @@
     text-align: center;
 }
 
-.footer {
-    /* border:1px solid red; */
-    margin-top: 50px;
-    width: 100%;
-    height: 100px;
-    background-color: #69BDC8;
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    margin: 0 auto;
-    width: 80%;
-    height: 100%;
-}
-
 .name-with-picture {
     /* border:1px solid red; */
     padding-top: 20px;

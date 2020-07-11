@@ -18,12 +18,6 @@
 
 }
 
-.content{
-    margin: 0 auto;
-    width: 80%;
-    height: 100%;
-}
-
 .display-box{
     border:1px solid darkgray;
     border-radius: 5px;
@@ -76,16 +70,6 @@
 .rating-cell{
     width: 100%;
     height: 60px;
-}
-
-.footer{
-    /* border:1px solid red; */
-    margin-top: 50px;
-    width: 100%;
-    height: 100px;
-    background-color: #69BDC8;
-    display: flex;
-    flex-direction: column;
 }
 
 .page-selector-first{
