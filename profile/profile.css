@@ -26,8 +26,8 @@
     border: 1px solid darkgray;
     border-radius: 5px;
     border-bottom: 2px solid gray;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     width: 100%;
     height: auto;
 }
@@ -54,10 +54,11 @@
 .name-with-picture .teacher-icon {
     border-radius: 50%;
     /* border:1px solid red; */
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     background-size: cover;
     background-position: center;
+    margin-right: 10px;
 }
 
 .ratings {
@@ -126,6 +127,7 @@
     margin-top: 10px;
     font-size: 15px;
     line-height: 150%;
+    margin-right: 40px
 }
 
 .feedback {
@@ -146,4 +148,33 @@
 .feedback .control {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.add-review-div {
+    align-items: center;
+}
+
+.add-review {
+    color: white;
+    margin-top: 10px;
+    margin-right: 15px;
+    width: 100px;
+    height: 30px;
+    background-color: #69BDC8;
+    border-radius: 12.5px;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+.add-review:hover {
+    background-color: rgb(84, 160, 170);
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+
+.add-review-text {
+    color: white;
+    font-family: "Microsoft Yahei";
 }

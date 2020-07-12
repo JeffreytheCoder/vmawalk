@@ -66,7 +66,7 @@ function callInfo(id, callback) {
 window.onload = function() {
 
     //init
-    var query = getUrlQueryString(window.location.href);
+    var query = 253 //getUrlQueryString(window.location.href);
     console.log(query);
 
     callInfo(query, function() {
@@ -189,19 +189,32 @@ window.onload = function() {
 
             //add reviews
             reviews = document.getElementById("reviews");
-            for (i = 0; i < reviewList.length; i++) {
-                //convert semester
-                var semester = " Full year";
-                if (reviewList[i].semester) {
-                    semester = "  Semester 1";
-                }
-                if (reviewList[i].semester == false) {
-                    semester = " Semester 2";
-                }
+            if (reviewList.length == 0) {
                 //add reviewBox
                 var reviewBox = document.createElement("div");
                 reviewBox.className = "display-box";
                 reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
+                <tr>
+                <td colspan="2">
+            <p class="review-content">There is no review yet, write the first one <a href="../review/review.html"> here!</a></p>
+        </td>
+    </tr>
+    </table>`
+                reviews.appendChild(reviewBox);
+            } else {
+                for (i = 0; i < reviewList.length; i++) {
+                    //convert semester
+                    var semester = " Full year";
+                    if (reviewList[i].semester) {
+                        semester = "  Semester 1";
+                    }
+                    if (reviewList[i].semester == false) {
+                        semester = " Semester 2";
+                    }
+                    //add reviewBox
+                    var reviewBox = document.createElement("div");
+                    reviewBox.className = "display-box";
+                    reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
         <td style="color: gray; float: right; margin-right: 40px">Submitted June 8, 2011</td>
@@ -232,7 +245,8 @@ window.onload = function() {
         </td>
     </tr>
 </table>`
-                reviews.appendChild(reviewBox);
+                    reviews.appendChild(reviewBox);
+                }
             }
         }
     })
