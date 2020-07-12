@@ -66,7 +66,7 @@ function callInfo(id, callback) {
 window.onload = function() {
 
     //init
-    var query = 253 //getUrlQueryString(window.location.href);
+    var query = 232 //getUrlQueryString(window.location.href);
     console.log(query);
 
     callInfo(query, function() {
@@ -91,7 +91,7 @@ window.onload = function() {
             namewithpicElement.innerHTML = `<table height="120px">
     <tr height="80px">
         <td rowspan="2" width="130px" height="100%">
-            <a href="#" style="text-decoration: none; color: white;">
+            <a href="#" style="font-size: 18px; text-decoration: none; color: white;">
                 <div class="icon-round">` + coursewithteacher.courseCode + `</div>
             </a>
         </td>
@@ -196,7 +196,8 @@ window.onload = function() {
                 reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
                 <tr>
                 <td colspan="2">
-            <p class="review-content">There is no review yet, write the first one <a href="../review/review.html"> here!</a></p>
+            <p class="review-content" style="margin-bottom: 20px; font-size: 16px">No reviews for ` + coursewithteacher.courseName + ` taught by ` + teacherName + ` so far.
+            Write the first one <a href="../review/review.html" style="color:#69BDC8"><strong>here!</strong></a></p>
         </td>
     </tr>
     </table>`

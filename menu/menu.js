@@ -55,8 +55,8 @@ function callData(query, queryID, callback) {
 window.onload = function() {
 
     //init
-    var query = getUrlQueryString(decodeURI(window.location.href));
-    console.log(decodeURI(query));
+    var query = "1-101" //getUrlQueryString(decodeURI(window.location.href));
+    console.log(query);
     queryID = query.substring(2)
 
     callData(query, queryID, function() {
@@ -66,7 +66,8 @@ window.onload = function() {
 
             var image = document.createElement("div");
             var imageURL = Imagelink[teacherObj.id];
-            image.style.cssText = 'background-image: url( + ' + imageURL + ');';
+            image.style.cssText = 'background-image: url(' + imageURL + ');';
+            console.log(imageURL);
             image.className = "image";
             namewithpic.appendChild(image);
 
