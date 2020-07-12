@@ -47,145 +47,25 @@
     </header>
     <!--展示内容-->
     <main class="content">
-        <!--导航栏-->
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Search</a>
-                </li>
-                <li>
-                    <a href="#">Wang He</a>
-                </li>
-                <li>
-                    <a href="#">233</a>
-                </li>
-            </ul>
-        </div>
         <!--头像名称-->
-        <div class="name-with-picture">
-            <table height="120px">
-                <tr height="80px">
-                    <td rowspan="2" width="130px" height="100%">
-                        <a href="#" style="text-decoration: none; color: white;">
-                            <div class="icon-round">233</div>
-                        </a>
-                    </td>
-                    <td>
-                        <font size="6">Biochemistry: Biosynthetic and Energy Metabolism and Its Regulation</font>
-                    </td>
-                </tr>
-                <tr height="40px">
-                    <td style="display: flex; align-items: center;">
-                        <div class="teacher-icon" style="background-image: url(../img/wanghe.jpg);">
-                        </div>
-                        <b>Wang He</b>
-                    </td>
-                </tr>
-            </table>
+        <div id="namewithpic" class="name-with-picture">
         </div>
         <!--评分-->
-        <div class="ratings">
+        <div class="ratings" id="ratings">
             <b>Ratings</b>
-            <div class="display-box">
-                <table width="100%">
-                    <tr class="rating-cell">
-                        <td align="center" width="20%">Bad</td>
-                        <td width="60%">
-                            <div style="display: flex; justify-content: space-between;">
-                                <font color="black">Overall</font>
-                                <font color="#69BDC8"><b>4.3</b></font>
-                            </div>
-                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
-                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
-                                </div>
-                            </div>
-                        </td>
-                        <td align=" center" width="20%">Good</td>
-                    </tr>
-                    <tr class="rating-cell">
-                        <td align="center" width="20%">Bad</td>
-                        <td width="60%">
-                            <div style="display: flex; justify-content: space-between;">
-                                <font color="black">Overall</font>
-                                <font color="#69BDC8"><b>4.3</b></font>
-                            </div>
-                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
-                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
-                                </div>
-                            </div>
-                        </td>
-                        <td align=" center" width="20%">Good</td>
-                    </tr>
-                    <tr class="rating-cell">
-                        <td align="center" width="20%">Bad</td>
-                        <td width="60%">
-                            <div style="display: flex; justify-content: space-between;">
-                                <font color="black">Overall</font>
-                                <font color="#69BDC8"><b>4.3</b></font>
-                            </div>
-                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
-                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
-                                </div>
-                            </div>
-                        </td>
-                        <td align=" center" width="20%">Good</td>
-                    </tr>
-                    <tr class="rating-cell">
-                        <td align="center" width="20%">Bad</td>
-                        <td width="60%">
-                            <div style="display: flex; justify-content: space-between;">
-                                <font color="black">Overall</font>
-                                <font color="#69BDC8"><b>4.3</b></font>
-                            </div>
-                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
-                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
-                                </div>
-                            </div>
-                        </td>
-                        <td align=" center" width="20%">Good</td>
-                    </tr>
-                    <tr class="rating-cell">
-                        <td align="center" width="20%">Bad</td>
-                        <td width="60%">
-                            <div style="display: flex; justify-content: space-between;">
-                                <font color="black">Overall</font>
-                                <font color="#69BDC8"><b>4.3</b></font>
-                            </div>
-                            <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
-                                <div style="width: 80%; height: 20px; background-color: #69BDC8; border-radius: 5px;">
-                                </div>
-                            </div>
-                        </td>
-                        <td align=" center" width="20%">Good</td>
-                    </tr>
-                </table>
-            </div>
         </div>
         <div style="display: flex; width: 100%;justify-content: space-between; align-items: center;">
             <b>Reviews</b>
-            <!--翻页器-->
-            <div class="page-selector-first">
-                <a href="#">
-                    <div class="left-arrow"></div>
-                </a>
-                1 of 2
-                <a href="#">
-                    <div class="right-arrow"></div>
-                </a>
-            </div>
         </div>
         <!--评论内容-->
         <div class="display-box">
             <table class="review-table">
                 <tr>
-                    <td style="color: gray;">Quarter Taken: N/A</td>
+                    <td style="color: gray; padding-bottom: 2px;">Semester: N/A</td>
                     <td style="color: gray; float: right;">Submitted June 8, 2011</td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="color: gray;">Grade Received: N/A</td>
+                    <td colspan="2" style="color: gray;">Grade: N/A</td>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -198,12 +78,12 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <div class="feedback">
+                        <div class="feedback" style="margin-top:15px; font-size: 15px;">
                             <div class="control">
-                                <a href="#">🙂Like</a> 0
+                                <a href="#">🙂Like </a>0
                             </div>
                             <div class="control">
-                                <a href="#">🙃Dislike</a> 0
+                                <a href="#">🙃Dislike </a>0
                             </div>
                             <div class="control" style="margin-left:auto;">
                                 <a href=" #">🖐Report</a>
@@ -212,121 +92,6 @@
                     </td>
                 </tr>
             </table>
-        </div>
-        <div class="display-box">
-            <table class="review-table">
-                <tr>
-                    <td style="color: gray;">Quarter Taken: N/A</td>
-                    <td style="color: gray; float: right;">Submitted June 8, 2011</td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="color: gray;">Grade Received: N/A</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p class="review-content">
-                            Took biochem 153C with Prof Clarke but haven't seen my final grade yet. 1. Do all of the old final exams you can find on VOH. they go back almost ten years and she repeats questions sometimes. 2. go to class. Podcasts don't help when you're trying to
-                            learn mechanisms! You need to be able to see what she writes. 3. There are a ton of mechanisms but most of them follow some really simple patterns. It always helps to think of biochem in terms of pathways and patterns! use
-                            analogies. Have fun! She's a really nice lady and she is really helpful in providing as much material as you need to practice.
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="feedback">
-                            <div class="control">
-                                <a href="#">🙂Like</a> 0
-                            </div>
-                            <div class="control">
-                                <a href="#">🙃Dislike</a> 0
-                            </div>
-                            <div class="control" style="margin-left:auto;">
-                                <a href=" #">🖐Report</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="display-box">
-            <table class="review-table">
-                <tr>
-                    <td style="color: gray;">Quarter Taken: N/A</td>
-                    <td style="color: gray; float: right;">Submitted June 8, 2011</td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="color: gray;">Grade Received: N/A</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p class="review-content">
-                            Took biochem 153C with Prof Clarke but haven't seen my final grade yet. 1. Do all of the old final exams you can find on VOH. they go back almost ten years and she repeats questions sometimes. 2. go to class. Podcasts don't help when you're trying to
-                            learn mechanisms! You need to be able to see what she writes. 3. There are a ton of mechanisms but most of them follow some really simple patterns. It always helps to think of biochem in terms of pathways and patterns! use
-                            analogies. Have fun! She's a really nice lady and she is really helpful in providing as much material as you need to practice.
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="feedback">
-                            <div class="control">
-                                <a href="#">🙂Like</a> 0
-                            </div>
-                            <div class="control">
-                                <a href="#">🙃Dislike</a> 0
-                            </div>
-                            <div class="control" style="margin-left:auto;">
-                                <a href=" #">🖐Report</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="display-box">
-            <table class="review-table">
-                <tr>
-                    <td style="color: gray;">Quarter Taken: N/A</td>
-                    <td style="color: gray; float: right;">Submitted June 8, 2011</td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="color: gray;">Grade Received: N/A</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p class="review-content">
-                            Took biochem 153C with Prof Clarke but haven't seen my final grade yet. 1. Do all of the old final exams you can find on VOH. they go back almost ten years and she repeats questions sometimes. 2. go to class. Podcasts don't help when you're trying to
-                            learn mechanisms! You need to be able to see what she writes. 3. There are a ton of mechanisms but most of them follow some really simple patterns. It always helps to think of biochem in terms of pathways and patterns! use
-                            analogies. Have fun! She's a really nice lady and she is really helpful in providing as much material as you need to practice.
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="feedback">
-                            <div class="control">
-                                <a href="#">🙂Like</a> 0
-                            </div>
-                            <div class="control">
-                                <a href="#">🙃Dislike</a> 0
-                            </div>
-                            <div class="control" style="margin-left:auto;">
-                                <a href=" #">🖐Report</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!--翻页器-->
-        <div class="page-selector-second">
-            <a href="#">
-                <div class="left-arrow"></div>
-            </a>
-            1 of 2
-            <a href="#">
-                <div class="right-arrow"></div>
-            </a>
         </div>
     </main>
     <!--footer-->
