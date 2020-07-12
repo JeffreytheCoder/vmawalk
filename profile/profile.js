@@ -7,7 +7,7 @@ function getUrlQueryString() {
 //global variable
 var count = 0;
 var coursewithteacher;
-var teacherName = "unknown";
+var teacherName;
 var reviewList;
 
 function callInfo(id, callback) {
@@ -21,10 +21,10 @@ function callInfo(id, callback) {
             "https://vma-walk.azurewebsites.net/api/Course/" + id,
             /**
              * @param {{
-             * Id:number,
-             * CourseName:string,
-             * TeacherId:number,
-             * AverageScore:number
+             * id:number,
+             * courseName:string,
+             * teacherId:number,
+             * averageScore:number
              * }} info - 课程属性
              */
             function(info) {
@@ -34,8 +34,8 @@ function callInfo(id, callback) {
                         }) // 这个是告诉你怎么转 Average Score
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
-                //var teacher = teachers.find(teacher => teacher.id == info.TeacherId);
-                //teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
+                var teacher = teachers.find(teacher => teacher.id == info.teacherId);
+                teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
                 callback();
             }
         )
@@ -46,15 +46,15 @@ function callInfo(id, callback) {
             },
             /**
              * @param {{
-             * Id:number,
-             * UserId:number,
-             * CourseId:number,
-             * TeacherId:number,
-             * Year:number,
-             * Semester:boolean,
-             * Grade:string,
-             * Score:string,
-             * Text:string
+             * id:number,
+             * userId:number,
+             * courseId:number,
+             * teacherId:number,
+             * year:number,
+             * semester:boolean,
+             * grade:string,
+             * score:string,
+             * text:string
              * }[]} result - 课程类型
              */
             function(result) {
@@ -70,7 +70,7 @@ function callInfo(id, callback) {
 window.onload = function() {
 
     //init
-    var query = 254 //getUrlQueryString(window.location.href);
+    var query = 265 //getUrlQueryString(window.location.href);
     console.log(query);
 
     callInfo(query, function() {
