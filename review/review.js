@@ -82,7 +82,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
 
         $.ajax({
             type: "POST",
-            url: "https://vma-walk.azurewebsites.net/api/Review",
+            url: "https://localhost:5001/api/Review",
             contentType: "application/json",
             data: JSON.stringify({
                 teacherId: Number(data.field.teacher),
