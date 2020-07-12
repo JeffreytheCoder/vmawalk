@@ -112,7 +112,7 @@ window.onload = function() {
     <table>
         <tr>
             <td width="90px">
-                <a href="` + queryLink + `" style="text-decoration: none; color: white;">
+                <a href="` + queryLink + `" class="icon-round-link">
                     <div class="icon-round">` + course.courseCode + `</div>
                 </a>
             </td>

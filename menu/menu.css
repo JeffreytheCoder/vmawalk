@@ -109,6 +109,12 @@
   vertical-align: middle;
 }
 
+.course .icon-round-link {
+  text-decoration: none;
+  color: white;
+  word-wrap: break-all;
+}
+
 .rating-cell:nth-child(3),
 .rating-cell:nth-child(5),
 .rating-cell:nth-child(7) {
@@ -116,7 +122,7 @@
 }
 
 .rating-cell {
-  width: auto;
+  width: 100px;
   text-align: center;
 }
 
