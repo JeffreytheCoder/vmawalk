@@ -82,6 +82,8 @@ window.onload = function() {
                     widthList[i] = "" + ((scoreList[i] / 5.0).toFixed(2) * 100).toFixed(0) + "%"
                 }
             }
+            //prepare teacher image
+            var imageURL = ImageLink[coursewithteacher.teacherId];
 
             //add namewithpic
             namewithpic = document.getElementById("namewithpic");
@@ -99,7 +101,7 @@ window.onload = function() {
     </tr>
     <tr height="40px">
         <td style="display: flex; align-items: center;">
-            <div class="teacher-icon" style="background-image: url(https://pic.downk.cc/item/5f084b5c14195aa594dc0921.jpg);">
+            <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
             </div>
             <font size="4">` + teacherName + `</font>
         </td>
