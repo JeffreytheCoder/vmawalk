@@ -203,10 +203,10 @@ window.onload = function() {
                 //add reviewBox
                 var reviewBox = document.createElement("div");
                 reviewBox.className = "display-box";
-                reviewBox.innerHTML = `<table class="review-table">
+                reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
-        <td style="color: gray; float: right;">Submitted June 8, 2011</td>
+        <td style="color: gray; float: right; margin-right: 40px">Submitted June 8, 2011</td>
     </tr>
     <tr>
         <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
@@ -218,7 +218,7 @@ window.onload = function() {
     </tr>
     <tr>
 </table>
-<table>
+<table class="review-table">
         <td colspan="2">
             <div class="feedback" style="margin-top:15px; font-size: 15px;">
                 <div class="control">
@@ -227,7 +227,7 @@ window.onload = function() {
                 <div class="control">
                     <a href="#">🙃Dislike </a>0
                 </div>
-                <div class="control" style="margin-left:auto;">
+                <div class="control" style="margin-left:auto; margin-right: 10px">
                     <a href=" #">🖐Report</a>
                 </div>
             </div>

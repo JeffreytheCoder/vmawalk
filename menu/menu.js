@@ -65,7 +65,8 @@ window.onload = function() {
             namewithpic = document.getElementById("namewithpic");
 
             var image = document.createElement("div");
-            image.style.cssText = 'background-image: url(https://github.com/JeffreytheCoder/vmawalk/blob/master/img/wanghe.jpg?raw=true);';
+            var imageURL = ImageLink[teacherObj.id];
+            image.style.cssText = 'background-image: url( + ' + imageURL + ');';
             image.className = "image";
             namewithpic.appendChild(image);
 
@@ -184,6 +185,7 @@ window.onload = function() {
 
             courseList.forEach(
                 course => {
+                    //prepare score list, best review, and image link
                     var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
                         bestReview = "No Review",
                         queryLink = "https://jeffreythecoder.github.io/vmawalk/profile/profile?query=" + course.id + "";
@@ -196,6 +198,7 @@ window.onload = function() {
                     if (review != undefined) {
                         bestReview = review.text;
                     }
+                    var imageURL = ImageLink[course.teacherId];
 
                     var courseElement = document.createElement("div");
                     courseElement.className = "course";
@@ -204,7 +207,7 @@ window.onload = function() {
             <tr>
                 <td width="90px">
                     <a href="` + queryLink + `">
-                    <div class="icon-round" style="background-image: url(../img/wanghe.jpg);"></div>
+                    <div class="icon-round" style="background-image: url(` + imageURL + `)></div>
                     </a>
                 </td>
                 <td width="110px">
