@@ -55,8 +55,8 @@ function callData(query, queryID, callback) {
 window.onload = function() {
 
     //init
-    console.log(decodeURI(window.location.href));
-    var query = getUrlQueryString(decodeURI(window.location.href));
+    var query = "1-101" //getUrlQueryString(decodeURI(window.location.href));
+    console.log(query);
     queryID = query.substring(2)
 
     callData(query, queryID, function() {
@@ -65,7 +65,9 @@ window.onload = function() {
             namewithpic = document.getElementById("namewithpic");
 
             var image = document.createElement("div");
-            image.style.cssText = 'background-image: url(https://github.com/JeffreytheCoder/vmawalk/blob/master/img/wanghe.jpg?raw=true);';
+            var imageURL = Imagelink[teacherObj.id];
+            image.style.cssText = 'background-image: url(' + imageURL + ');';
+            console.log(imageURL);
             image.className = "image";
             namewithpic.appendChild(image);
 
@@ -119,7 +121,6 @@ window.onload = function() {
                     <font color="black" size="3">` + course.courseName + `</font><br />
                     <font color="#69BDC8" size="2">Full Profile ></font>
                 </a>
-               <td class="rating-cell">
                <td class="rating-cell">
                <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
                 </td>
@@ -184,6 +185,7 @@ window.onload = function() {
 
             courseList.forEach(
                 course => {
+                    //prepare score list, best review, and image link
                     var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
                         bestReview = "No Review",
                         queryLink = "https://jeffreythecoder.github.io/vmawalk/profile/profile?query=" + course.id + "";
@@ -196,6 +198,7 @@ window.onload = function() {
                     if (review != undefined) {
                         bestReview = review.text;
                     }
+                    var imageURL = Imagelink[course.teacherId];
 
                     var courseElement = document.createElement("div");
                     courseElement.className = "course";
@@ -204,7 +207,7 @@ window.onload = function() {
             <tr>
                 <td width="90px">
                     <a href="` + queryLink + `">
-                    <div class="icon-round" style="background-image: url(../img/wanghe.jpg);"></div>
+                    <div class="icon-round" style="background-image: url(` + imageURL + `)></div>
                     </a>
                 </td>
                 <td width="110px">

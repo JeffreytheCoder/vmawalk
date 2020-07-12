@@ -66,7 +66,7 @@ function callInfo(id, callback) {
 window.onload = function() {
 
     //init
-    var query = getUrlQueryString(window.location.href);
+    var query = 232 //getUrlQueryString(window.location.href);
     console.log(query);
 
     callInfo(query, function() {
@@ -82,6 +82,8 @@ window.onload = function() {
                     widthList[i] = "" + ((scoreList[i] / 5.0).toFixed(2) * 100).toFixed(0) + "%"
                 }
             }
+            //prepare teacher image
+            var imageURL = Imagelink[coursewithteacher.teacherId];
 
             //add namewithpic
             namewithpic = document.getElementById("namewithpic");
@@ -89,7 +91,7 @@ window.onload = function() {
             namewithpicElement.innerHTML = `<table height="120px">
     <tr height="80px">
         <td rowspan="2" width="130px" height="100%">
-            <a href="#" style="text-decoration: none; color: white;">
+            <a href="#" style="font-size: 18px; text-decoration: none; color: white;">
                 <div class="icon-round">` + coursewithteacher.courseCode + `</div>
             </a>
         </td>
@@ -99,7 +101,7 @@ window.onload = function() {
     </tr>
     <tr height="40px">
         <td style="display: flex; align-items: center;">
-            <div class="teacher-icon" style="background-image: url(https://pic.downk.cc/item/5f084b5c14195aa594dc0921.jpg);">
+            <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
             </div>
             <font size="4">` + teacherName + `</font>
         </td>
@@ -187,22 +189,36 @@ window.onload = function() {
 
             //add reviews
             reviews = document.getElementById("reviews");
-            for (i = 0; i < reviewList.length; i++) {
-                //convert semester
-                var semester = " Full year";
-                if (reviewList[i].semester) {
-                    semester = "  Semester 1";
-                }
-                if (reviewList[i].semester == false) {
-                    semester = " Semester 2";
-                }
+            if (reviewList.length == 0) {
                 //add reviewBox
                 var reviewBox = document.createElement("div");
                 reviewBox.className = "display-box";
-                reviewBox.innerHTML = `<table class="review-table">
+                reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
+                <tr>
+                <td colspan="2">
+            <p class="review-content" style="margin-bottom: 20px; font-size: 16px">No reviews for ` + coursewithteacher.courseName + ` taught by ` + teacherName + ` so far.
+            Write the first one <a href="../review/review.html" style="color:#69BDC8"><strong>here!</strong></a></p>
+        </td>
+    </tr>
+    </table>`
+                reviews.appendChild(reviewBox);
+            } else {
+                for (i = 0; i < reviewList.length; i++) {
+                    //convert semester
+                    var semester = " Full year";
+                    if (reviewList[i].semester) {
+                        semester = "  Semester 1";
+                    }
+                    if (reviewList[i].semester == false) {
+                        semester = " Semester 2";
+                    }
+                    //add reviewBox
+                    var reviewBox = document.createElement("div");
+                    reviewBox.className = "display-box";
+                    reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
-        <td style="color: gray; float: right;">Submitted June 8, 2011</td>
+        <td style="color: gray; float: right; margin-right: 40px">Submitted June 8, 2011</td>
     </tr>
     <tr>
         <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
@@ -214,7 +230,7 @@ window.onload = function() {
     </tr>
     <tr>
 </table>
-<table>
+<table class="review-table">
         <td colspan="2">
             <div class="feedback" style="margin-top:15px; font-size: 15px;">
                 <div class="control">
@@ -223,14 +239,15 @@ window.onload = function() {
                 <div class="control">
                     <a href="#">🙃Dislike </a>0
                 </div>
-                <div class="control" style="margin-left:auto;">
+                <div class="control" style="margin-left:auto; margin-right: 10px">
                     <a href=" #">🖐Report</a>
                 </div>
             </div>
         </td>
     </tr>
 </table>`
-                reviews.appendChild(reviewBox);
+                    reviews.appendChild(reviewBox);
+                }
             }
         }
     })
