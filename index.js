@@ -30,7 +30,7 @@ layui.use(['form', 'jquery'], function() {
     var $ = layui.$;
     form.on('submit(submit)', function(data) {
         query = data.field.teacher;
-        link = "https://jeffreythecoder.github.io/vmawalk/menu/menu?query=" + encodeURI(encodeURI(query)) + "";
+        link = "menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
         window.location.href = link;
         return false;
     });
