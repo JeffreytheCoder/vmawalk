@@ -9,14 +9,14 @@ var teacherObj;
 var courseList = null;
 
 function callData(query, queryID, callback) {
-    layui.use(["jquery", "layer"], function () {
+    layui.use(["jquery", "layer"], function() {
         var $ = layui.$;
         var url = "";
         var teacher = null;
 
         data = {}
         if (query[0] == "1") {
-            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function (result) {
+            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
@@ -37,14 +37,14 @@ function callData(query, queryID, callback) {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function (req) {
+            success: function(req) {
 
                 courseList = req;
 
                 console.log(courseList)
                 callback();
             },
-            error: function (req) {
+            error: function(req) {
                 console.log(req);
                 callback();
             }
@@ -52,14 +52,14 @@ function callData(query, queryID, callback) {
     })
 }
 
-window.onload = function () {
+window.onload = function() {
 
     //init
     console.log(decodeURI(window.location.href));
     var query = getUrlQueryString(decodeURI(window.location.href));
     queryID = query.substring(2)
 
-    callData(query, queryID, function () {
+    callData(query, queryID, function() {
         if (query[0] == "1") {
             //add namewithpic
             namewithpic = document.getElementById("namewithpic");
@@ -70,7 +70,7 @@ window.onload = function () {
             namewithpic.appendChild(image);
 
             var teacherName = document.createElement("h2");
-            teacherName.innerHTML = "<strong>" + [teacherObj.chineseName,teacherObj.englishName].join(" ").trim() + "</strong>";
+            teacherName.innerHTML = "<strong>" + [teacherObj.chineseName, teacherObj.englishName].join(" ").trim() + "</strong>";
             namewithpic.appendChild(teacherName);
 
             // add courseframe
@@ -174,7 +174,7 @@ window.onload = function () {
                 course => {
                     // find teacher with id
                     var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                    // parse the teacher name
+                        // parse the teacher name
                     teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
                 }
             )

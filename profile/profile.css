@@ -25,7 +25,6 @@
     margin-top: 10px;
     width: 100%;
     height: auto;
-    padding: 15px;
 }
 
 .name-with-picture {
@@ -113,6 +112,8 @@
 
 .review-table {
     margin: 2px;
+    width: 100%;
+    margin: 20px;
 }
 
 .review-content {
