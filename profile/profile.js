@@ -28,10 +28,6 @@ function callInfo(id, callback) {
              * }} info - 课程属性
              */
             function(info) {
-                if (info.AverageScore != null)
-                    var averageScore = info.AverageScore.split("|").forEach(element => {
-                            element = parseFloat(element)
-                        }) // 这个是告诉你怎么转 Average Score
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -70,7 +66,7 @@ function callInfo(id, callback) {
 window.onload = function() {
 
     //init
-    var query = 265 //getUrlQueryString(window.location.href);
+    var query = getUrlQueryString(window.location.href);
     console.log(query);
 
     callInfo(query, function() {
