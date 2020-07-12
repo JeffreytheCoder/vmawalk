@@ -9,7 +9,7 @@ var teacherObj;
 var courseList = null;
 
 function callData(id, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
 
         /**
          * @type {JQueryStatic}
@@ -26,8 +26,10 @@ function callData(id, callback) {
              * AverageScore:number
              * }} info - 课程属性
              */
-            function(info) {
-                var averageScore = info.AverageScore.split("|").forEach(element => {
+            function (info) {
+                console.log(info)
+                if (info.AverageScore != null)
+                    var averageScore = info.AverageScore.split("|").forEach(element => {
                         element = parseFloat(element)
                     }) // 这个是告诉你怎么转 Average Score
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
@@ -52,7 +54,7 @@ function callData(id, callback) {
              * Text:string
              * }[]} result - 课程类型
              */
-            function(result) {
+            function (result) {
                 // result 是一组Review
                 console.log(result)
             }
@@ -60,13 +62,13 @@ function callData(id, callback) {
     })
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
     var query = getUrlQueryString(window.location.href);
     console.log(query);
 
-    callData(query, function() {
+    callData(query, function () {
         console.log("ok")
     })
 
