@@ -100,7 +100,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
                 Authorization: "Bearer " + sessionStorage.getItem("token")
             },
             success: function(data) {
-                layer.alert(JSON.stringify(data))
+                layer.msg("添加成功");
                 setTimeout(() => {
                     window.location.href = "../index.html";
                 }, 1000);
