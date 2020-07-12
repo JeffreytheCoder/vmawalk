@@ -88,12 +88,13 @@
 .home-header {
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.layui-form{
+.layui-form {
     display: flex;
     justify-content: space-between;
 }
