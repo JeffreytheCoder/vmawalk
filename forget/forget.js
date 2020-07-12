@@ -93,7 +93,7 @@ layui.use(['form', 'layer', 'jquery'], function() {
         }
     })
 
-    form.on('submit(register)', function(formdata) {
+    form.on('submit(forget)', function(formdata) {
         var index = layer.load({
             shade: [0.4, '#def'],
             icon: '&#xe63d'
