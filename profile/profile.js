@@ -83,7 +83,7 @@ window.onload = function() {
                 }
             }
             //prepare teacher image
-            var imageURL = ImageLink[coursewithteacher.teacherId];
+            var imageURL = Imagelink[coursewithteacher.teacherId];
 
             //add namewithpic
             namewithpic = document.getElementById("namewithpic");

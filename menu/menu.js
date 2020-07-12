@@ -55,8 +55,8 @@ function callData(query, queryID, callback) {
 window.onload = function() {
 
     //init
-    console.log(decodeURI(window.location.href));
     var query = getUrlQueryString(decodeURI(window.location.href));
+    console.log(decodeURI(query));
     queryID = query.substring(2)
 
     callData(query, queryID, function() {
@@ -65,7 +65,7 @@ window.onload = function() {
             namewithpic = document.getElementById("namewithpic");
 
             var image = document.createElement("div");
-            var imageURL = ImageLink[teacherObj.id];
+            var imageURL = Imagelink[teacherObj.id];
             image.style.cssText = 'background-image: url( + ' + imageURL + ');';
             image.className = "image";
             namewithpic.appendChild(image);
@@ -198,7 +198,7 @@ window.onload = function() {
                     if (review != undefined) {
                         bestReview = review.text;
                     }
-                    var imageURL = ImageLink[course.teacherId];
+                    var imageURL = Imagelink[course.teacherId];
 
                     var courseElement = document.createElement("div");
                     courseElement.className = "course";
