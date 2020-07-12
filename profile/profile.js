@@ -63,8 +63,12 @@ function callData(id, callback) {
 window.onload = function() {
 
     //init
-    var query = getUrlQueryString(decodeURI(window.location.href));
+    var query = getUrlQueryString(window.location.href);
     console.log(query);
+
+    callData(query, function() {
+        console.log("ok")
+    })
 
     //add namewithpic
     namewithpic = document.getElementById("namewithpic");
@@ -92,9 +96,9 @@ window.onload = function() {
 
     //add ratings
     ratings = document.getElementById("ratings");
-    var displayBox = document.createElement("div");
-    displayBox.className = "display-box";
-    displayBox.innerHTML = `<table width="100%">
+    var ratingBox = document.createElement("div");
+    ratingBox.className = "display-box";
+    ratingBox.innerHTML = `<table width="100%">
             <tr class="rating-cell">
                 <td align="center" width="20%">Bad</td>
                 <td width="60%">
@@ -166,5 +170,44 @@ window.onload = function() {
                 <td align=" center" width="20%">Helpful</td>
             </tr>
         </table>`
-    ratings.appendChild(displayBox);
+    ratings.appendChild(ratingBox);
+
+    //add reviews
+    reviews = document.getElementById("reviews");
+    var reviewBox = document.createElement("div");
+    reviewBox.className = "display-box";
+    reviewBox.innerHTML = `<table class="review-table">
+    <tr>
+        <td style="color: gray; padding-bottom: 2px;">Semester: N/A</td>
+        <td style="color: gray; float: right;">Submitted June 8, 2011</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color: gray;">Grade: N/A</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p class="review-content">
+                Took biochem 153C with Prof Clarke but haven't seen my final grade yet. 1. Do all of the old final exams you can find on VOH. they go back almost ten years and she repeats questions sometimes. 2. go to class. Podcasts don't help when you're trying to
+                learn mechanisms! You need to be able to see what she writes. 3. There are a ton of mechanisms but most of them follow some really simple patterns. It always helps to think of biochem in terms of pathways and patterns!
+                use analogies. Have fun! She's a really nice lady and she is really helpful in providing as much material as you need to practice.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="feedback" style="margin-top:15px; font-size: 15px;">
+                <div class="control">
+                    <a href="#">🙂Like </a>0
+                </div>
+                <div class="control">
+                    <a href="#">🙃Dislike </a>0
+                </div>
+                <div class="control" style="margin-left:auto;">
+                    <a href=" #">🖐Report</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>`
+    reviews.appendChild(reviewBox);
 }
