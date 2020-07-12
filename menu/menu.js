@@ -92,7 +92,8 @@ window.onload = function () {
             courseList.forEach(
                 course => {
                     var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
-                        bestReview = "No Review";
+                        bestReview = "No Review",
+                        queryLink = "../profile/profile.html?query=" + course.id + "";
                     if (course.averageScore != null) {
                         scoreList = course.averageScore.split("|");
                     }
@@ -109,12 +110,12 @@ window.onload = function () {
     <table>
         <tr>
             <td width="90px">
-                <a href="#" style="text-decoration: none; color: white;">
+                <a href="` + queryLink + `" style="text-decoration: none; color: white;">
                     <div class="icon-round">` + course.courseCode + `</div>
                 </a>
             </td>
             <td width="110px">
-                <a href="#" style="text-decoration: none;">
+                <a href="` + queryLink + `" style="text-decoration: none;">
                     <font color="black" size="3">` + course.courseName + `</font><br />
                     <font color="#69BDC8" size="2">Full Profile ></font>
                 </a>
@@ -184,7 +185,8 @@ window.onload = function () {
             courseList.forEach(
                 course => {
                     var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
-                        bestReview = "No Review";
+                        bestReview = "No Review",
+                        queryLink = "https://jeffreythecoder.github.io/vmawalk/profile/profile?query=" + course.id + "";
                     if (course.averageScore != null) {
                         scoreList = course.averageScore.split("|");
                     }
@@ -201,12 +203,12 @@ window.onload = function () {
         <table>
             <tr>
                 <td width="90px">
-                    <a href="#">
+                    <a href="` + queryLink + `">
                     <div class="icon-round" style="background-image: url(../img/wanghe.jpg);"></div>
                     </a>
                 </td>
                 <td width="110px">
-                    <a href="#" style="text-decoration: none;">
+                    <a href="` + queryLink + `" style="text-decoration: none;">
                         <font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
                         <font color="#69BDC8" size="2">Full Profile ></font>
                     </a>
