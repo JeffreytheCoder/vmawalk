@@ -35,7 +35,7 @@ layui.use(['form', 'layer', 'jquery'], function() {
         })
         $.ajax({
             type: "POST",
-            url: "https://vma-walk.azurewebsites.net/Auth/Registration",
+            url: "https://vma-walk.azurewebsites.net/Auth/ResetPassword",
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
             success: function(data) {
