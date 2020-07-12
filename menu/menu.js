@@ -8,7 +8,7 @@ function getUrlQueryString() {
 var teacherObj;
 var courseList = null;
 
-function callData(query, callback) {
+function callData(query, queryID, callback) {
     layui.use(["jquery", "layer"], function() {
         var $ = layui.$;
         var url = "";
@@ -59,10 +59,10 @@ window.onload = function() {
 
     //init
     console.log(decodeURI(window.location.href));
-    var query = "2-ENG207" //getUrlQueryString(decodeURI(window.location.href));
+    var query = getUrlQueryString(decodeURI(window.location.href));
     queryID = query.substring(2)
 
-    callData(query, function() {
+    callData(query, queryID, function() {
         if (query[0] == "1") {
             //add namewithpic
             namewithpic = document.getElementById("namewithpic");
@@ -77,13 +77,31 @@ window.onload = function() {
             namewithpic.appendChild(teacherName);
 
             // add courseframe
-            courseFrame = document.getElementById("course-frame")
-            scoreList = courseList.averageScore.split("|")
-            console.log(scoreList);
-            for (i = 0; i < courseList.length; i++) {
-                var course = document.createElement("div");
-                course.className = "course";
-                course.innerHTML = `<br>
+            var courseFrame = document.getElementById("course-frame")
+
+            var courseObj = courseList;
+            courseList = courseObj.courses;
+
+            var reviewList = courseObj.text
+            console.log(reviewList)
+
+            courseList.forEach(
+                course => {
+                    var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
+                        bestReview = "No Review";
+                    if (course.averageScore != null) {
+                        scoreList = course.averageScore.split("|");
+                    }
+                    var review = reviewList.find(review =>
+                        review.courseId == course.id
+                    )
+                    if (review != undefined) {
+                        bestReview = review.text;
+                    }
+
+                    var courseElement = document.createElement("div");
+                    courseElement.className = "course";
+                    courseElement.innerHTML = `<br>
     <table>
         <tr>
             <td width="90px">
@@ -96,30 +114,29 @@ window.onload = function() {
                     <font color="black" size="3">` + courseList[i].courseName + `</font><br />
                     <font color="#69BDC8" size="2">Full Profile ></font>
                 </a>
-                <td class="rating-cell">
-                    <font size="5" color="black">N/A</font><br /> Overall
+               <td class="rating-cell">
+               <td class="rating-cell">
+               <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
                 </td>
                 <td class="rating-cell">
-                    <font size="5" color="black">N/A</font><br /> Overall
+                    <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
                 </td>
                 <td class="rating-cell">
-                    <font size="5" color="black">N/A</font><br /> Overall
+                    <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
                 </td>
                 <td class="rating-cell">
-                    <font size="5" color="black">N/A</font><br /> Overall
+                    <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
                 </td>
                 <td class="rating-cell">
-                    <font size="5" color="black">N/A</font><br /> Overall
+                    <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
                 </td>
-                <td width="200px">
-                    No Reviews
-                </td>
+            <td width="200px">` + bestReview + `</td>
         </tr>
     </table>
     <br>`;
-                courseFrame.appendChild(course);
-            }
-
+                    courseFrame.appendChild(course);
+                }
+            )
         }
 
         if (query[0] == "2") {
@@ -161,7 +178,6 @@ window.onload = function() {
                     teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
                 }
             )
-
 
             var reviewList = courseObj.text
             console.log(reviewList)
