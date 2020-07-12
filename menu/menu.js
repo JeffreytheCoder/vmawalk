@@ -121,8 +121,8 @@ window.onload = function() {
                     <font color="black" size="3">` + course.courseName + `</font><br />
                     <font color="#69BDC8" size="2">Full Profile ></font>
                 </a>
-               <td class="rating-cell">
-               <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
+                <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
                 </td>
                 <td class="rating-cell">
                     <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
