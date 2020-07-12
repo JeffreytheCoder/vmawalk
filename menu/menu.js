@@ -111,12 +111,12 @@ window.onload = function() {
                     courseElement.innerHTML = `<br>
     <table>
         <tr>
-            <td width="110px">
+            <td width="90px">
                 <a href="` + queryLink + `" class="icon-round-link">
                     <div class="icon-round">` + course.courseCode + `</div>
                 </a>
             </td>
-            <td width="90px">
+            <td width="110px">
                 <a href="` + queryLink + `" style="text-decoration: none;">
                     <font color="black" size="3">` + course.courseName + `</font><br />
                     <font color="#69BDC8" size="2">Full Profile ></font>
@@ -136,7 +136,7 @@ window.onload = function() {
                 <td class="rating-cell">
                     <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
                 </td>
-            <td width="200px">` + bestReview + `</td>
+            <td width="200px" style="text-align: center;">` + bestReview + `</td>
         </tr>
     </table>
     <br>`;
