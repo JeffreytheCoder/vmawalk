@@ -114,6 +114,12 @@
     height: 100%;
 }
 
+.profile-link{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
 .course .icon-round {
     /* border:1px solid red; */
     background-size: cover;
@@ -124,6 +130,7 @@
     text-align: center;
     display: table-cell;
     vertical-align: middle;
+    margin-right: 10px;
     box-shadow: -7px -7px 20px 0px #fff9,
     -4px -4px 5px 0px #fff9,
     7px 7px 20px 0px #0002,
@@ -134,9 +141,9 @@
     inset 0px 0px 0px 0px #0001;
 }
 
-.rating-cell:nth-child(3),
-.rating-cell:nth-child(5),
-.rating-cell:nth-child(7) {
+.rating-cell:nth-child(2),
+.rating-cell:nth-child(4),
+.rating-cell:nth-child(6) {
     background-color: rgba(211, 211, 211, 0.5);
     box-shadow: -7px -7px 20px 0px #fff9,
     -4px -4px 5px 0px #fff9,
