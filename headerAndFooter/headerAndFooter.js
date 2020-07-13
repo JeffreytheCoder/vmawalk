@@ -20,15 +20,15 @@ function loadHeader(callback) {
 <div style="display: flex;">
     <div style="padding-right: 20px">
         <a href="../review/review.html">
-            <button class="add-review">
-                <text class="add-review-text">✚ 加点评</text>
+            <button class="add-review" style="background-color: white;">
+                <text class="add-review-text" style="color: #69BDC8;">✚ 加点评</text>
             </button>
         </a>
     </div>
     <div style="padding-right: 30px;">
         <a href="../login/login.html">
-            <button class="add-review">
-                <text class="add-review-text">登 录</text>
+            <button class="add-review" style="background-color: white;">
+                <text class="add-review-text" tyle="color: #69BDC8;">登 录</text>
             </button>
         </a>
     </div>

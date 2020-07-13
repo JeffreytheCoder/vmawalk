@@ -151,7 +151,7 @@ window.onload = function() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" style="text-align: center;">` + bestReview + `</td>
+            <td width="200px" style="text-align: center; margin-left: 10px;">` + bestReview + `</td>
         </tr>
     </table>
     <br>`;
