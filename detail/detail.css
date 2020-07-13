@@ -5,6 +5,7 @@
     height: auto;
     width: 100%;
     margin-bottom: 20px;
+    
 }
 
 .name-with-picture div {
@@ -14,6 +15,15 @@
     width: 100px;
     height: 100px;
     line-height: 100px;
+    margin-bottom: 10px;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
 .navigation {
@@ -73,12 +83,20 @@
 }
 
 .course {
-    border: 1px solid darkgray;
+    /* border: 1px solid darkgray; */
     border-radius: 5px;
-    border-bottom: 2px solid gray;
+    /* border-bottom: 2px solid gray; */
     margin-bottom: 10px;
     width: 100%;
     height: auto;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
 .course>div {
@@ -100,21 +118,37 @@
     /* border:1px solid red; */
     background-size: cover;
     background-position: center;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     text-align: center;
     display: table-cell;
     vertical-align: middle;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
 .rating-cell:nth-child(3),
 .rating-cell:nth-child(5),
 .rating-cell:nth-child(7) {
     background-color: rgba(211, 211, 211, 0.5);
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
 .rating-cell {
-    width: auto;
+    width: 100px;
     text-align: center;
 }

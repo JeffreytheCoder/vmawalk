@@ -109,7 +109,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
                 if (req.status == 401) {
                     layer.msg("请登录")
                     setTimeout(() => {
-                        window.location.href = "../../index.html";
+                        window.location.href = "../login/login.html";
                     }, 1000);
                 } else {
                     console.log(req.responseText);

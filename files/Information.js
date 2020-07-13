@@ -229,7 +229,7 @@ var teachers = [{
     {
         "id": 129,
         "chineseName": null,
-        "englishName": "Mogammad Zardad",
+        "englishName": "Mogammad Rifat Zardad",
         "averageScore": null
     },
     {
@@ -1937,6 +1937,13 @@ var Courses = [{
         "courseName": "IGCSE Mathematics",
         "courseCode": "MATHC0580A",
         "teacherId": 0
+    },
+    {
+        "id": 267,
+        "courseName": "AP English Literature and Composition",
+        "courseCode": "ENG501",
+        "teacherId": 227,
+        "averageScore": null
     }
 ];
 
@@ -3385,5 +3392,19 @@ var CoursesWithTeacher = [{
         "courseName": "Mathematical Modeling",
         "courseCode": "MATH218",
         "teacherId": 96
+    },
+    {
+        "id": 266,
+        "courseName": "English 3 Honors AP Preparation",
+        "courseCode": "ENG318",
+        "teacherId": 227,
+        "averageScore": null
+    },
+    {
+        "id": 267,
+        "courseName": "AP English Literature and Composition",
+        "courseCode": "ENG501",
+        "teacherId": 227,
+        "averageScore": null
     }
 ]

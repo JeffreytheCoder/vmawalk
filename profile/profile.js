@@ -66,7 +66,7 @@ function callInfo(id, callback) {
 window.onload = function() {
 
     //init
-    var query = 232 //getUrlQueryString(window.location.href);
+    var query = getUrlQueryString(window.location.href);
     console.log(query);
 
     callInfo(query, function() {
