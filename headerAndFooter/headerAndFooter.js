@@ -1,4 +1,14 @@
-function loadHeader(callback) {
+function loadHeader() {
+
+    //Judge if login or myreview
+    var logined = false; //这里加token
+    if (logined) {
+        var loginText = "我的点评";
+        var loginLink = "../myreview/myreview.html";
+    } else {
+        var loginText = "登 录";
+        var loginLink = "../login/login.html";
+    }
 
     //Load header elements
     headerDiv = document.getElementById("header-div");
@@ -26,9 +36,9 @@ function loadHeader(callback) {
         </a>
     </div>
     <div style="padding-right: 30px;">
-        <a href="../login/login.html">
+        <a href=` + loginLink + `>
             <button class="add-review" style="background-color: white;">
-                <text class="add-review-text" tyle="color: #69BDC8;">登 录</text>
+                <text class="add-review-text" style="color: #69BDC8;">` + loginText + `</text>
             </button>
         </a>
     </div>
@@ -58,11 +68,10 @@ function loadHeader(callback) {
         })
 
         layui.form.render('select');
-        callback();
     })
 }
 
-function loadFooter(callback) {
+function loadFooter() {
     //Load footer elements
     footerDiv = document.getElementById("footer-div");
     var footer = document.createElement("div");
@@ -96,5 +105,4 @@ function loadFooter(callback) {
     <br>
 </footer>`
     footerDiv.appendChild(footer);
-    callback();
 }
