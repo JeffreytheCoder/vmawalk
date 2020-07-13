@@ -1,4 +1,4 @@
-.navigation {
+/* .navigation {
     margin-top: 10px;
     padding-left: 0px;
 }
@@ -15,7 +15,7 @@
 
 .navigation li:not(:last-child) a:after {
     content: ' \00A0 \00A0 > \00A0';
-}
+} */
 
 .information{
     margin-top: 30px;
@@ -29,7 +29,7 @@
 .info-title{
     color:white;
     font-size: 30px;
-    background-color: #69bdc8bd; 
+    background-color: #69BDC8; 
     height: 50px; 
     padding: 0 25px;
     display: flex; 
@@ -38,6 +38,14 @@
     border-radius: 10px;
     /* border:1px solid red; */
     float: left;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
 .info-content{
@@ -49,9 +57,17 @@
     justify-content: center;
     border-radius: 10px;
     margin-top: -15px;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
-.info-content div{
+.info-content > div{
     margin: 20px;
     font-size: 20px;
     word-spacing: justify;
