@@ -229,7 +229,7 @@ var teachers = [{
     {
         "id": 129,
         "chineseName": null,
-        "englishName": "Mogammad Zardad",
+        "englishName": "Rifat Mogammad Zardad",
         "averageScore": null
     },
     {
