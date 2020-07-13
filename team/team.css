@@ -29,9 +29,9 @@
 
 .info-title{
     color:white;
-    font-size: 30px;
+    font-size: 50px;
     background-color: #69BDC8; 
-    height: 50px; 
+    height: 80px; 
     padding: 0 25px;
     display: flex; 
     align-items: center; 
@@ -54,7 +54,7 @@
     padding-left: 30px;
     padding-right: 30px;
     z-index: -1;
-    background-color: rgba(211, 211, 211, 0.5);
+    background-color: rgba(211, 211, 211, 0.3);
     width: 100%;
     display: flex; 
     flex-direction: column;
@@ -75,7 +75,7 @@
 .inside-content{
     margin: 20px;
     font-size: 20px;
-    /* font-weight: 300; */
+    font-weight: 300;
     display: flex;
     justify-content: space-between;
     align-items: center;

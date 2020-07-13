@@ -18,13 +18,21 @@
 }
 
 .display-box {
-    border: 1px solid darkgray;
+    /* border: 1px solid darkgray; */
     border-radius: 5px;
-    border-bottom: 2px solid gray;
+    /* border-bottom: 2px solid gray; */
     margin-bottom: 30px;
     margin-top: 20px;
     width: 100%;
     height: auto;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
 .name-with-picture {

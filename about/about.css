@@ -28,9 +28,9 @@
 
 .info-title{
     color:white;
-    font-size: 30px;
+    font-size: 50px;
     background-color: #69BDC8; 
-    height: 50px; 
+    height: 80px; 
     padding: 0 25px;
     display: flex; 
     align-items: center; 
@@ -49,8 +49,9 @@
 }
 
 .info-content{
+    padding-top: 10px;
     z-index: -1;
-    background-color: rgba(211, 211, 211, 0.5);
+    background-color: rgba(211, 211, 211, 0.3);
     width: 100%;
     display: flex; 
     align-items: center; 
@@ -72,5 +73,6 @@
     font-size: 20px;
     word-spacing: justify;
     word-break: justify;
-    font-weight: 200;
+    font-weight: 300;
+    line-height: 30px;
 }
