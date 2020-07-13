@@ -55,7 +55,7 @@ function callData(query, queryID, callback) {
 window.onload = function() {
 
     //init
-    var query = "1-101" //getUrlQueryString(decodeURI(window.location.href));
+    var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
     queryID = query.substring(2)
 

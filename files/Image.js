@@ -113,5 +113,5 @@ Imagelink = {
     257: "https://pic.downk.cc/item/5f084d8b14195aa594dcb77e.jpg",
     258: "https://pic.downk.cc/item/5f084ea014195aa594dd1291.jpg",
     259: "https://pic.downk.cc/item/5f084ea014195aa594dd1293.jpg",
-    260: "https://pic.downk.cc/item/5f084dde14195aa594dcd20a.jpg",
+    260: "https://pic.downk.cc/item/5f084dde14195aa594dcd20a.jpg"
 }
