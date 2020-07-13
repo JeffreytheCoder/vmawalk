@@ -63,14 +63,7 @@ window.onload = function() {
     console.log(query);
     queryID = query.substring(2)
 
-    loadHeader(function() {
-        console.log("header loaded")
-    })
-
-    //看看怎么才能执行完callData再执行这条
-    loadFooter(function() {
-        console.log("footer loaded")
-    })
+    loadHeader();
 
     callData(query, queryID, function() {
         count++;
@@ -252,6 +245,7 @@ window.onload = function() {
                     }
                 )
             }
+            loadFooter();
         }
     })
 }
