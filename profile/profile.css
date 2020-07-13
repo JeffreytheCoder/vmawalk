@@ -1,28 +1,35 @@
-.navigation {
+.navigation{
     margin-top: 10px;
     padding-left: 0px;
 }
 
-.navigation li {
+.navigation li{
     display: inline;
     color: darkgray;
 }
 
-.navigation a {
+.navigation a{
     text-decoration: none;
     color: darkgray;
 }
 
-.navigation li:not(:last-child) a:after {
+.navigation li:not(:last-child) a:after{
     content: ' \00A0 \00A0 > \00A0';
+
 }
 
-.display-box {
-    /* border: 1px solid darkgray; */
+.content{
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+
+.display-box{
+    /* border:1px solid darkgray; */
     border-radius: 5px;
     /* border-bottom: 2px solid gray; */
-    margin-bottom: 30px;
-    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
     width: 100%;
     height: auto;
     box-shadow: -7px -7px 20px 0px #fff9,
@@ -35,15 +42,15 @@
     inset 0px 0px 0px 0px #0001;
 }
 
-.name-with-picture {
+.name-with-picture{
     /* border: 1px solid red; */
     width: 100%;
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-top: 30px;
 }
 
-.name-with-picture .icon-round {
+.name-with-picture .icon-round{
     /* border:1px solid red; */
     background-color: #69BDC8;
     width: 120px;
@@ -52,57 +59,82 @@
     text-align: center;
     display: table-cell;
     vertical-align: middle;
-    font-size: 19;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
-.name-with-picture .teacher-icon {
+.name-with-picture .teacher-icon{
     border-radius: 50%;
     /* border:1px solid red; */
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     background-size: cover;
     background-position: center;
     margin-right: 10px;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
-.ratings {
+.ratings{
     width: 100%;
     height: auto;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-.rating-cell:nth-child(2),
-.rating-cell:nth-child(4) {
+.rating-cell:nth-child(2),.rating-cell:nth-child(4){
     background-color: rgba(211, 211, 211, 0.5);
+    
 }
 
-.rating-cell {
+.rating-cell{
     width: 100%;
-    height: 65px;
+    height: 60px;
 }
 
-.page-selector-first {
+.footer{
     /* border:1px solid red; */
-    width: 100px;
-    height: auto;
+    margin-top: 50px;
+    width: 100%;
+    height: 100px;
+    background-color: #69BDC8;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-selector-first{
+    /* border:1px solid red; */
+    width:100px; 
+    height: auto; 
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.page-selector-second {
+.page-selector-second{
     /* border:1px solid red; */
-    width: 100%;
-    height: auto;
+    width:100%; 
+    height: auto; 
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.left-arrow {
+.left-arrow{
     margin-right: 10px;
     width: 0;
     height: 0;
@@ -111,7 +143,7 @@
     border-bottom: .65rem solid transparent;
 }
 
-.right-arrow {
+.right-arrow{
     margin-left: 10px;
     width: 0;
     height: 0;
@@ -120,61 +152,41 @@
     border-bottom: .65rem solid transparent;
 }
 
-.review-table {
-    margin: 2px;
-    width: 100%;
+.review-table{
+    margin: 10px;
 }
 
-.review-content {
+.review-content{
     margin: 5px 0px;
+    font-size: 17px;
     text-align: justify;
-    margin-top: 10px;
-    font-size: 15px;
-    line-height: 150%;
-    margin-right: 40px
+    
 }
 
-.feedback {
+.feedback{
     width: 100%;
     height: 30px;
     background-color: #69bdc87a;
     display: flex;
     align-items: center;
     border-radius: 2px;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
 }
 
-.feedback a {
+.feedback a{
     line-height: 30px;
     text-decoration: none;
     color: black;
 }
 
-.feedback .control {
+.feedback .control{
     margin-left: 5px;
     margin-right: 5px;
-}
-
-.add-review {
-    color: white;
-    margin-top: 10px;
-    margin-right: 15px;
-    width: 100px;
-    height: 30px;
-    background-color: #69BDC8;
-    border-radius: 12.5px;
-    border-width: 0;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-}
-
-.add-review:hover {
-    background-color: rgb(84, 160, 170);
-    transition: background-color .25s ease-out, color .25s ease-out;
-}
-
-.add-review-text {
-    color: white;
-    font-family: "Microsoft Yahei";
 }
