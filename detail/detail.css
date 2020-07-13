@@ -120,6 +120,10 @@
     align-items: center;
 }
 
+.teacher-name{
+    width: 90px;
+}
+
 .course .icon-round {
     /* border:1px solid red; */
     background-size: cover;
