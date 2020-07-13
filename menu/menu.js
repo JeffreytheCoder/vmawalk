@@ -7,6 +7,8 @@ function getUrlQueryString() {
 //global variable
 var teacherObj;
 var courseList = null;
+var count = 0;
+var footerCount = 0;
 
 function callData(query, queryID, callback) {
     layui.use(["jquery", "layer"], function() {
@@ -20,12 +22,14 @@ function callData(query, queryID, callback) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
+                callback();
             });
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
             data.id = Number(queryID);
         } else if (query[0] == "2") {
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
             data.code = queryID;
+            callback();
         }
 
         $.ajax({
@@ -55,60 +59,67 @@ function callData(query, queryID, callback) {
 window.onload = function() {
 
     //init
-    var query = getUrlQueryString(decodeURI(window.location.href));
+    var query = "1-100" //getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
     queryID = query.substring(2)
 
+    loadHeader(function() {
+        console.log("header loaded")
+    })
+
     callData(query, queryID, function() {
-        if (query[0] == "1") {
-            //add namewithpic
-            namewithpic = document.getElementById("namewithpic");
+        count++;
+        console.log(count);
+        if (count == 2) {
+            if (query[0] == "1") {
+                //add namewithpic
+                namewithpic = document.getElementById("namewithpic");
 
-            var image = document.createElement("div");
-            var imageURL = Imagelink[teacherObj.id];
-            image.style.cssText = 'background-image: url(' + imageURL + ');';
-            console.log(imageURL);
-            image.className = "image";
-            namewithpic.appendChild(image);
+                var image = document.createElement("div");
+                var imageURL = Imagelink[teacherObj.id];
+                image.style.cssText = 'background-image: url(' + imageURL + ');';
+                console.log(imageURL);
+                image.className = "image";
+                namewithpic.appendChild(image);
 
-            var teacherName = document.createElement("h2");
-            teacherName.innerHTML = "<strong>" + [teacherObj.chineseName, teacherObj.englishName].join(" ").trim() + "</strong>";
-            namewithpic.appendChild(teacherName);
+                var teacherName = document.createElement("h2");
+                teacherName.innerHTML = "<strong>" + [teacherObj.chineseName, teacherObj.englishName].join(" ").trim() + "</strong>";
+                namewithpic.appendChild(teacherName);
 
-            // add courseframe
-            var courseFrame = document.getElementById("course-frame")
+                // add courseframe
+                var courseFrame = document.getElementById("course-frame")
 
-            /**
-             * @type {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
-             * text:{courseId:number,text:string}[]
-             * }} courseObj
-             */
+                /**
+                 * @type {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
+                 * text:{courseId:number,text:string}[]
+                 * }} courseObj
+                 */
 
-            var courseObj = courseList;
+                var courseObj = courseList;
 
-            courseList = courseObj.courses;
+                courseList = courseObj.courses;
 
-            var reviewList = courseObj.text
-            console.log(reviewList)
+                var reviewList = courseObj.text
+                console.log(reviewList)
 
-            courseList.forEach(
-                course => {
-                    var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
-                        bestReview = "No Review",
-                        queryLink = "../profile/profile.html?query=" + course.id + "";
-                    if (course.averageScore != null) {
-                        scoreList = course.averageScore.split("|");
-                    }
-                    var review = reviewList.find(review =>
-                        review.courseId == course.id
-                    )
-                    if (review != undefined) {
-                        bestReview = review.text;
-                    }
+                courseList.forEach(
+                    course => {
+                        var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
+                            bestReview = "No Review",
+                            queryLink = "../profile/profile.html?query=" + course.id + "";
+                        if (course.averageScore != null) {
+                            scoreList = course.averageScore.split("|");
+                        }
+                        var review = reviewList.find(review =>
+                            review.courseId == course.id
+                        )
+                        if (review != undefined) {
+                            bestReview = review.text;
+                        }
 
-                    var courseElement = document.createElement("div");
-                    courseElement.className = "course";
-                    courseElement.innerHTML = `<br>
+                        var courseElement = document.createElement("div");
+                        courseElement.className = "course";
+                        courseElement.innerHTML = `<br>
     <table>
         <tr>
             <td width="200px">
@@ -139,69 +150,69 @@ window.onload = function() {
         </tr>
     </table>
     <br>`;
-                    courseFrame.appendChild(courseElement);
-                }
-            )
-        }
-
-        if (query[0] == "2") {
-            //add namewithpic
-            namewithpic = document.getElementById("namewithpic");
-
-            var code = document.createElement("div");
-            code.style.cssText = "background-color: #69BDC8;";
-            code.innerHTML = "<font color='white'>" + queryID + "</font>";
-            code.className = "code";
-            namewithpic.appendChild(code);
-
-            var courseName = document.createElement("h2");
-
-
-            var courseObj = courseList;
-            courseList = courseObj.courses;
-
-            var courseNameText = courseList[0].courseName;
-
-            courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
-            namewithpic.appendChild(courseName);
-
-            // add courseframe
-            var courseFrame = document.getElementById("course-frame")
-            var teacherNameList = {};
-
-            // add teachers' name into the list
-            courseList.forEach(
-                course => {
-                    // find teacher with id
-                    var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                        // parse the teacher name
-                    teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
-                }
-            )
-
-            var reviewList = courseObj.text
-            console.log(reviewList)
-
-            courseList.forEach(
-                course => {
-                    //prepare score list, best review, and image link
-                    var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
-                        bestReview = "No Review",
-                        queryLink = "https://jeffreythecoder.github.io/vmawalk/profile/profile?query=" + course.id + "";
-                    if (course.averageScore != null) {
-                        scoreList = course.averageScore.split("|");
+                        courseFrame.appendChild(courseElement);
                     }
-                    var review = reviewList.find(review =>
-                        review.courseId == course.id
-                    )
-                    if (review != undefined) {
-                        bestReview = review.text;
-                    }
-                    var imageURL = Imagelink[course.teacherId];
+                )
+            }
 
-                    var courseElement = document.createElement("div");
-                    courseElement.className = "course";
-                    courseElement.innerHTML = `<br>
+            if (query[0] == "2") {
+                //add namewithpic
+                namewithpic = document.getElementById("namewithpic");
+
+                var code = document.createElement("div");
+                code.style.cssText = "background-color: #69BDC8;";
+                code.innerHTML = "<font color='white'>" + queryID + "</font>";
+                code.className = "code";
+                namewithpic.appendChild(code);
+
+                var courseName = document.createElement("h2");
+
+
+                var courseObj = courseList;
+                courseList = courseObj.courses;
+
+                var courseNameText = courseList[0].courseName;
+
+                courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
+                namewithpic.appendChild(courseName);
+
+                // add courseframe
+                var courseFrame = document.getElementById("course-frame")
+                var teacherNameList = {};
+
+                // add teachers' name into the list
+                courseList.forEach(
+                    course => {
+                        // find teacher with id
+                        var teacher = teachers.find(teacher => teacher.id === course.teacherId)
+                            // parse the teacher name
+                        teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
+                    }
+                )
+
+                var reviewList = courseObj.text
+                console.log(reviewList)
+
+                courseList.forEach(
+                    course => {
+                        //prepare score list, best review, and image link
+                        var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
+                            bestReview = "No Review",
+                            queryLink = "https://jeffreythecoder.github.io/vmawalk/profile/profile?query=" + course.id + "";
+                        if (course.averageScore != null) {
+                            scoreList = course.averageScore.split("|");
+                        }
+                        var review = reviewList.find(review =>
+                            review.courseId == course.id
+                        )
+                        if (review != undefined) {
+                            bestReview = review.text;
+                        }
+                        var imageURL = Imagelink[course.teacherId];
+
+                        var courseElement = document.createElement("div");
+                        courseElement.className = "course";
+                        courseElement.innerHTML = `<br>
         <table>
             <tr>
                 <td width="90px">
@@ -233,9 +244,10 @@ window.onload = function() {
             </tr>
         </table>
         <br>`;
-                    courseFrame.appendChild(courseElement);
-                }
-            )
+                        courseFrame.appendChild(courseElement);
+                    }
+                )
+            }
         }
     })
 }

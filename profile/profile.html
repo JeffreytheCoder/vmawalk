@@ -7,6 +7,7 @@
 <script src="../files/Information.js"></script>
 <script src="../files/Image.js"></script>
 <script src="../layui/layui.js"></script>
+<script src="../headerAndFooter/headerAndFooter.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -16,37 +17,8 @@
 
 <body class="general">
     <!--header-->
-    <header id="header" class="header">
-        <div class="title">
-            <a href="https://jeffreythecoder.github.io/vmawalk/" style="text-decoration: none; color: white;">
-                <strong>vma</strong>walk
-            </a>
-        </div>
-        <form class="layui-form-item" align="center" action="submit" style="margin-bottom: 0">
-            <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
-                <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="search">
-                    <option value="">请选择课程和老师</option>
-                </select>
-            </div>
-            <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: 70px; text-align: center; background-color: #0098ac;" onclick="toMenuPage()">搜索</button>
-        </form>
-        <div style="display: flex;">
-            <div style="padding-right: 20px">
-                <a href="../review/review.html">
-                    <button class="add-review">
-                        <text class="add-review-text">✚ 加点评</text>
-                    </button>
-                </a>
-            </div>
-            <div style="padding-right: 30px;">
-                <a href="../login/login.html">
-                    <button class="add-review">
-                        <text class="add-review-text">登 录</text>
-                    </button>
-                </a>
-            </div>
-        </div>
-    </header>
+    <div id="header-div">
+    </div>
     <!--展示内容-->
     <main class="content">
         <!--头像名称-->
