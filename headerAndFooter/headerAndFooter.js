@@ -1,4 +1,4 @@
-function loadHeader(callback) {
+function loadHeader() {
 
     //Load header elements
     headerDiv = document.getElementById("header-div");
@@ -58,11 +58,10 @@ function loadHeader(callback) {
         })
 
         layui.form.render('select');
-        callback();
     })
 }
 
-function loadFooter(callback) {
+function loadFooter() {
     //Load footer elements
     footerDiv = document.getElementById("footer-div");
     var footer = document.createElement("div");
@@ -96,5 +95,4 @@ function loadFooter(callback) {
     <br>
 </footer>`
     footerDiv.appendChild(footer);
-    callback();
 }
