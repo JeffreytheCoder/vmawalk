@@ -67,6 +67,11 @@ window.onload = function() {
         console.log("header loaded")
     })
 
+    //看看怎么才能执行完callData再执行这条
+    loadFooter(function() {
+        console.log("footer loaded")
+    })
+
     callData(query, queryID, function() {
         count++;
         console.log(count);
@@ -166,7 +171,6 @@ window.onload = function() {
                 namewithpic.appendChild(code);
 
                 var courseName = document.createElement("h2");
-
 
                 var courseObj = courseList;
                 courseList = courseObj.courses;
