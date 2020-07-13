@@ -122,31 +122,30 @@ window.onload = function() {
                         courseElement.innerHTML = `<br>
     <table>
         <tr>
-            <td width="90px">
-                <a href="` + queryLink + `" class="icon-round-link">
+            <td width="200px">
+                <a href="` + queryLink + `" class="profile-link">
                     <div class="icon-round">` + course.courseCode + `</div>
+                    <div>
+                        <font color="black" size="3">` + course.courseName + `</font><br />
+                        <font color="#69BDC8" size="2">Full Profile ></font>
+                    </div>
                 </a>
             </td>
-            <td width="110px">
-                <a href="` + queryLink + `" style="text-decoration: none;">
-                    <font color="black" size="3">` + course.courseName + `</font><br />
-                    <font color="#69BDC8" size="2">Full Profile ></font>
-                </a>
-                <td class="rating-cell">
-                <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
-                </td>
-                <td class="rating-cell">
-                    <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
-                </td>
-                <td class="rating-cell">
-                    <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
-                </td>
-                <td class="rating-cell">
-                    <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
-                </td>
-                <td class="rating-cell">
-                    <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
-                </td>
+            <td class="rating-cell">
+            <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
+            </td>
             <td width="200px" style="text-align: center;">` + bestReview + `</td>
         </tr>
     </table>
