@@ -82,7 +82,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
 
         $.ajax({
             type: "POST",
-            url: "https://localhost:5001/api/Review",
+            url: "https://vma-walk.azurewebsites.net/api/Review",
             contentType: "application/json",
             data: JSON.stringify({
                 teacherId: Number(data.field.teacher),
@@ -109,7 +109,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
                 if (req.status == 401) {
                     layer.msg("请登录")
                     setTimeout(() => {
-                        window.location.href = "../../index.html";
+                        window.location.href = "../login/login.html";
                     }, 1000);
                 } else {
                     console.log(req.responseText);
