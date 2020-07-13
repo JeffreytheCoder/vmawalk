@@ -121,7 +121,7 @@ window.onload = function() {
                         <font color="black">Overall</font>
                         <font color="#69BDC8"><b>` + scoreList[0] + `</b></font>
                     </div>
-                    <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                    <div class="rating-bar">
                         <div style="width: ` + widthList[0] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
                         </div>
                     </div>
@@ -135,7 +135,7 @@ window.onload = function() {
                         <font color="black">Easiness</font>
                         <font color="#69BDC8"><b>` + scoreList[1] + `</b></font>
                     </div>
-                    <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                    <div class="rating-bar">
                         <div style="width: ` + widthList[1] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
                         </div>
                     </div>
@@ -149,7 +149,7 @@ window.onload = function() {
                         <font color="black">Workload</font>
                         <font color="#69BDC8"><b>` + scoreList[2] + `</b></font>
                     </div>
-                    <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                    <div class="rating-bar">
                         <div style="width: ` + widthList[2] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
                         </div>
                     </div>
@@ -163,7 +163,7 @@ window.onload = function() {
                         <font color="black">Clarity</font>
                         <font color="#69BDC8"><b>` + scoreList[3] + `</b></font>
                     </div>
-                    <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                    <div class="rating-bar">
                         <div style="width: ` + widthList[3] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
                         </div>
                     </div>
@@ -177,7 +177,7 @@ window.onload = function() {
                         <font color="black">Helpfulness</font>
                         <font color="#69BDC8"><b>` + scoreList[4] + `</b></font>
                     </div>
-                    <div style="width: 100%; height: 20px; background-color: gray; border-radius: 5px;">
+                    <div class="rating-bar">
                         <div style="width: ` + widthList[4] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
                         </div>
                     </div>
