@@ -10,13 +10,16 @@
 .name-with-picture div {
   border-radius: 50%;
   /* border:1px solid red; */
-  position: relative;
+  /* position: relative; */
   margin: 0 auto;
-  top: center;
+  /* top: center; */
   width: 100px;
   height: 100px;
-  background-size: 120px;
+  /* background-size: 120px; */
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
 }
 
 .navigation {
@@ -76,12 +79,20 @@
 }
 
 .course {
-  border: 1px solid darkgray;
+  /* border: 1px solid darkgray; */
   border-radius: 5px;
-  border-bottom: 2px solid gray;
+  /* border-bottom: 2px solid gray; */
   margin-bottom: 10px;
   width: 100%;
   height: auto;
+  box-shadow: -7px -7px 20px 0px #fff9,
+  -4px -4px 5px 0px #fff9,
+  7px 7px 20px 0px #0002,
+  4px 4px 5px 0px #0001,
+  inset 0px 0px 0px 0px #fff9,
+  inset 0px 0px 0px 0px #0001,
+  inset 0px 0px 0px 0px #fff9,
+  inset 0px 0px 0px 0px #0001;
 }
 
 .course > div {
