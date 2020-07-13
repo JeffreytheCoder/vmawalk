@@ -96,7 +96,7 @@ window.onload = function() {
             </a>
         </td>
         <td height="100%">
-            <p style="font-size:30px"><strong>` + coursewithteacher.courseName + `</strong></p>
+            <p style="font-size:60px"><strong>` + coursewithteacher.courseName + `</strong></p>
         </td>
     </tr>
     <tr height="40px">
