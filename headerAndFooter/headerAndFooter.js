@@ -101,13 +101,13 @@ function loadFooter() {
     <div class="footer-navigator">
         <ul>
             <li>
-                <a href="#">About</a>
+                <a href="../about/about.html">About</a>
             </li>
             <li>
-                <a href="#">Team</a>
+                <a href="../team/team.html">Team</a>
             </li>
             <li>
-                <a href="#">Policy</a>
+                <a href="../about/about.html">Policy</a>
             </li>
         </ul>
     </div>
