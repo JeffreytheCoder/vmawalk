@@ -11,7 +11,7 @@ var teacherName;
 var reviewList;
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
 
         /**
          * @type {JQueryStatic}
@@ -27,7 +27,7 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function(info) {
+            function (info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -53,7 +53,7 @@ function callInfo(id, callback) {
              * text:string
              * }[]} result - 课程类型
              */
-            function(result) {
+            function (result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -207,22 +207,47 @@ function loadData() {
                     semester = " Semester 2";
                 }
                 //add reviewBox
-                var reviewBox = document.createElement("div");
-                reviewBox.className = "display-box";
-                reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
-<tr>
-    <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
-    <td style="color: gray; float: right; margin-right: 40px">Submitted June 8, 2011</td>
-</tr>
-<tr>
-    <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
-</tr>
-<tr>
-    <td colspan="2">
-        <p class="review-content">` + reviewList[i].text + `</p>
-    </td>
-</tr>
-<tr>
+
+                if (reviewList.length == 0) {
+                    var reviewBox = document.createElement("div");
+                    reviewBox.className = "display-box";
+                    reviewBox.innerHTML = `<table class="review-table" style="margin-bottom: 5px">
+                <tr>
+                <td colspan="2">
+            <p class="review-content" style="margin-bottom: 20px; font-size: 16px">No reviews for ` + coursewithteacher.courseName + ` taught by ` + teacherName + ` so far.
+            Write the first one <a href="../review/review.html" style="color:#69BDC8"><strong>here!</strong></a></p>
+        </td>
+    </tr>
+    </table>`
+                    reviews.appendChild(reviewBox);
+                } else {
+                    for (i = 0; i < reviewList.length; i++) {
+                        //convert semester
+                        var semester = " Full year";
+                        if (reviewList[i].semester) {
+                            semester = "  Semester 1";
+                        }
+                        if (reviewList[i].semester == false) {
+                            semester = " Semester 2";
+                        }
+                        //add reviewBox
+                        var reviewBox = document.createElement("div");
+                        reviewBox.className = "display-box";
+                        reviewBox.style.cssText = "padding: 10px;";
+                        reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
+    <tr>
+        <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
+        <td style="color: gray; float: right; margin-right: 40px">Submitted June 8, 2011</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p class="review-content">` + reviewList[i].text + `</p>
+        </td>
+    </tr>
+    <tr>
 </table>
 <table class="review-table">
     <td colspan="2">
@@ -240,14 +265,16 @@ function loadData() {
     </td>
 </tr>
 </table>`
-                reviews.appendChild(reviewBox);
+                        reviews.appendChild(reviewBox);
+                    }
+                }
+                loadFooter();
             }
         }
-        loadFooter();
     }
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
     var query = getUrlQueryString(window.location.href);

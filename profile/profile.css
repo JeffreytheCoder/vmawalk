@@ -30,7 +30,7 @@
     /* border-bottom: 2px solid gray; */
     margin-bottom: 20px;
     margin-top: 10px;
-    width: 100%;
+    width: auto;
     height: auto;
     box-shadow: -7px -7px 20px 0px #fff9,
     -4px -4px 5px 0px #fff9,
@@ -168,14 +168,13 @@
 }
 
 .review-table{
-    margin: 10px;
+    width: 100%;
 }
 
 .review-content{
     margin: 5px 0px;
     font-size: 17px;
     text-align: justify;
-    
 }
 
 .feedback{
