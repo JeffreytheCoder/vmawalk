@@ -62,7 +62,7 @@ function loadData() {
     if (count == 2) {
         if (query[0] == "1") {
             //add namewithpic
-            namewithpic = document.getElementById("namewithpic");
+            var namewithpic = document.getElementById("namewithpic");
 
             var image = document.createElement("div");
             var imageURL = Imagelink[teacherObj.id];
@@ -187,6 +187,7 @@ function loadData() {
                     var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
                         bestReview = "No Review",
                         queryLink = "../profile/profile?query=" + course.id + "";
+
                     if (course.averageScore != null) {
                         scoreList = course.averageScore.split("|");
                     }
