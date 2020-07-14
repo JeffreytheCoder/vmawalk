@@ -113,10 +113,10 @@
 }
 
 .review-title{
-    font-weight: 400;
-    font-size: 25px;
+    font-weight: 600;
+    font-size: 20px;
     margin-bottom: 5px;
-    color: rgba(0, 0, 0, 0.6);
+    color:gray;
 }
 
 table tr td{
