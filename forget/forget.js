@@ -70,7 +70,7 @@ layui.use(['form', 'layer', 'jquery'], function() {
 
     $(document).keydown(function(e) {
         if (e.keyCode === 13) {
-            $("#register").trigger("click");
+            $("#forget").trigger("click");
             return false;
         }
     });
@@ -100,7 +100,7 @@ layui.use(['form', 'layer', 'jquery'], function() {
         })
         $.ajax({
             type: "POST",
-            url: "https://vma-walk.azurewebsites.net/Auth/Registration",
+            url: "https://vma-walk.azurewebsites.net/Auth/ResetPassword",
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
             success: function(data) {
