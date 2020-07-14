@@ -30,7 +30,7 @@
     /* border-bottom: 2px solid gray; */
     margin-bottom: 20px;
     margin-top: 10px;
-    width: 100%;
+    width: auto;
     height: auto;
     box-shadow: -7px -7px 20px 0px #fff9,
     -4px -4px 5px 0px #fff9,
@@ -97,9 +97,16 @@
 .rating-bar{
     width: 100%; 
     height: 20px; 
-    background-color: lightgray; 
+    background-color: whitesmoke; 
     border-radius: 5px; 
-    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    box-shadow:inset 2px 2px 5px #BABECC, inset 5px -9px 12px #FFF;
+}
+
+.rating-inside-bar{
+    height: 20px; 
+    background-color: #69BDC8; 
+    border-radius: 5px;
+
 }
 
 .rating-cell:nth-child(2),.rating-cell:nth-child(4){
@@ -161,14 +168,13 @@
 }
 
 .review-table{
-    margin: 10px;
+    width: 100%;
 }
 
 .review-content{
     margin: 5px 0px;
     font-size: 17px;
     text-align: justify;
-    
 }
 
 .feedback{

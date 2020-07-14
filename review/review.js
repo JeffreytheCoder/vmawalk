@@ -107,7 +107,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
             },
             error: function(req) {
                 if (req.status == 401) {
-                    layer.msg("请登录")
+                    layer.msg("身份验证超时或登录出错，请重新登录")
                     setTimeout(() => {
                         window.location.href = "../login/login.html";
                     }, 1000);
