@@ -1,5 +1,15 @@
 function loadHeader() {
 
+    //Judge if login or myreview
+    var logined = false; //这里加token
+    if (logined) {
+        var loginText = "我的点评";
+        var loginLink = "../myreview/myreview.html";
+    } else {
+        var loginText = "登 录";
+        var loginLink = "../login/login.html";
+    }
+
     //Load header elements
     headerDiv = document.getElementById("header-div");
     var header = document.createElement("div");
@@ -20,15 +30,15 @@ function loadHeader() {
 <div style="display: flex;">
     <div style="padding-right: 20px">
         <a href="../review/review.html">
-            <button class="add-review">
-                <text class="add-review-text">✚ 加点评</text>
+            <button class="add-review" style="background-color: white;">
+                <text class="add-review-text" style="color: #69BDC8;">✚ 加点评</text>
             </button>
         </a>
     </div>
     <div style="padding-right: 30px;">
-        <a href="../login/login.html">
-            <button class="add-review">
-                <text class="add-review-text">登 录</text>
+        <a href=` + loginLink + `>
+            <button class="add-review" style="background-color: white;">
+                <text class="add-review-text" style="color: #69BDC8;">` + loginText + `</text>
             </button>
         </a>
     </div>

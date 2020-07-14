@@ -1,0 +1,124 @@
+.information{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-title{
+    color:white;
+    font-size: 40px;
+    background-color: #69BDC8; 
+    height: 60px; 
+    padding: 0 25px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    border-radius: 10px;
+    /* border:1px solid red; */
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
+}
+
+.info-content{
+    /* border: 1px solid red; */
+    z-index: -1;
+    background-color: rgba(211, 211, 211, 0.2);
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
+}
+
+.info-content > div{
+    margin: 20px;
+    font-size: 20px;
+    word-spacing: justify;
+    word-break: justify;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.rating-cell:nth-child(1),
+.rating-cell:nth-child(3),
+.rating-cell:nth-child(5) {
+    background-color: rgba(211, 211, 211, 0.5);
+    box-shadow: -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
+    /* border-radius: 10px; */
+}
+
+.rating-cell {
+    height: 100px;
+    width: 120px;
+    text-align: center;
+}
+
+.review-upper{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+    line-height: 18px;
+    font-size: 15px;
+    color: darkgray;
+}
+
+.review-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: auto;
+    border-radius: 10px;
+    background-color:white;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    padding: 10px;
+}
+
+.review-content p{
+    font-size: 15px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.review-title{
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color:gray;
+}
+
+table tr td{
+    /* border: 1px solid red; */
+}

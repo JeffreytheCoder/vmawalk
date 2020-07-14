@@ -69,6 +69,8 @@ window.onload = function() {
     var query = getUrlQueryString(window.location.href);
     console.log(query);
 
+    loadHeader();
+
     callInfo(query, function() {
         count++;
         console.log(count);
@@ -122,7 +124,7 @@ window.onload = function() {
                         <font color="#69BDC8"><b>` + scoreList[0] + `</b></font>
                     </div>
                     <div class="rating-bar">
-                        <div style="width: ` + widthList[0] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                        <div style="width: ` + widthList[0] + `;" class="rating-inside-bar">
                         </div>
                     </div>
                 </td>
@@ -136,7 +138,7 @@ window.onload = function() {
                         <font color="#69BDC8"><b>` + scoreList[1] + `</b></font>
                     </div>
                     <div class="rating-bar">
-                        <div style="width: ` + widthList[1] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                        <div style="width: ` + widthList[1] + `;" class="rating-inside-bar">
                         </div>
                     </div>
                 </td>
@@ -150,7 +152,7 @@ window.onload = function() {
                         <font color="#69BDC8"><b>` + scoreList[2] + `</b></font>
                     </div>
                     <div class="rating-bar">
-                        <div style="width: ` + widthList[2] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                        <div style="width: ` + widthList[2] + `;" class="rating-inside-bar">
                         </div>
                     </div>
                 </td>
@@ -164,7 +166,7 @@ window.onload = function() {
                         <font color="#69BDC8"><b>` + scoreList[3] + `</b></font>
                     </div>
                     <div class="rating-bar">
-                        <div style="width: ` + widthList[3] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                        <div style="width: ` + widthList[3] + `;" class="rating-inside-bar">
                         </div>
                     </div>
                 </td>
@@ -178,7 +180,7 @@ window.onload = function() {
                         <font color="#69BDC8"><b>` + scoreList[4] + `</b></font>
                     </div>
                     <div class="rating-bar">
-                        <div style="width: ` + widthList[4] + `; height: 20px; background-color: #69BDC8; border-radius: 5px;">
+                        <div style="width: ` + widthList[4] + `;" class="rating-inside-bar">
                         </div>
                     </div>
                 </td>
@@ -249,6 +251,7 @@ window.onload = function() {
                     reviews.appendChild(reviewBox);
                 }
             }
+            loadFooter();
         }
     })
 }

@@ -59,7 +59,7 @@ function callData(query, queryID, callback) {
 window.onload = function() {
 
     //init
-    var query = "1-100" //getUrlQueryString(decodeURI(window.location.href));
+    var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
     queryID = query.substring(2)
 
@@ -144,7 +144,7 @@ window.onload = function() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" style="text-align: center;">` + bestReview + `</td>
+            <td width="200px" style="text-align: center;"><span style="margin-left: 10px;">` + bestReview + `</span></td>
         </tr>
     </table>
     <br>`;
