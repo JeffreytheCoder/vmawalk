@@ -42,9 +42,7 @@ function callData(query, queryID, callback) {
              * }} req
              */
             success: function(req) {
-
                 courseList = req;
-
                 console.log(courseList)
                 callback();
             },
@@ -79,7 +77,6 @@ window.onload = function() {
                 console.log(imageURL);
                 image.className = "image";
                 namewithpic.appendChild(image);
-
                 var teacherName = document.createElement("h2");
                 teacherName.innerHTML = "<strong>" + [teacherObj.chineseName, teacherObj.englishName].join(" ").trim() + "</strong>";
                 namewithpic.appendChild(teacherName);
@@ -167,6 +164,7 @@ window.onload = function() {
 
                 var courseObj = courseList;
                 courseList = courseObj.courses;
+                console.log(courseList)
 
                 var courseNameText = courseList[0].courseName;
 

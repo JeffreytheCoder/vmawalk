@@ -69,6 +69,27 @@ function loadHeader() {
 
         layui.form.render('select');
     })
+
+    layui.use(['form', 'jquery'], function() {
+
+        var form = layui.form;
+        var $ = layui.$;
+
+        $(document).keydown(function(e) {
+            if (e.keyCode === 13) {
+
+                $("#submit").trigger("click");
+                return false;
+            }
+        });
+
+        form.on('submit(submit)', function(data) {
+            query = data.field.teacher;
+            link = "../menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
+            window.location.href = link;
+            return false;
+        });
+    })
 }
 
 function loadFooter() {
