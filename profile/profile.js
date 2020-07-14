@@ -69,6 +69,8 @@ window.onload = function() {
     var query = getUrlQueryString(window.location.href);
     console.log(query);
 
+    loadHeader();
+
     callInfo(query, function() {
         count++;
         console.log(count);
@@ -249,6 +251,7 @@ window.onload = function() {
                     reviews.appendChild(reviewBox);
                 }
             }
+            loadFooter();
         }
     })
 }
