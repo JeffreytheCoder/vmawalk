@@ -217,7 +217,7 @@ window.onload = function() {
                     //add reviewBox
                     var reviewBox = document.createElement("div");
                     reviewBox.className = "display-box";
-                    reviewBox.style.cssText = "padding: 10px;"
+                    reviewBox.style.cssText = "padding: 10px;";
                     reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
