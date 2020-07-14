@@ -9,16 +9,20 @@ var teacherObj;
 var courseList = null;
 var count = 0;
 var footerCount = 0;
+var query = getUrlQueryString(decodeURI(window.location.href));
+var queryID = query.substring(2)
+
+
 
 function callData(query, queryID, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
         var $ = layui.$;
         var url = "";
         var teacher = null;
 
         data = {}
         if (query[0] == "1") {
-            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
+            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function (result) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
@@ -41,14 +45,14 @@ function callData(query, queryID, callback) {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function(req) {
+            success: function (req) {
 
                 courseList = req;
 
                 console.log(courseList)
                 callback();
             },
-            error: function(req) {
+            error: function (req) {
                 console.log(req);
                 callback();
             }
@@ -173,7 +177,7 @@ function loadData() {
                 course => {
                     // find teacher with id
                     var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                        // parse the teacher name
+                    // parse the teacher name
                     teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
                 }
             )
@@ -191,8 +195,8 @@ function loadData() {
                     if (course.averageScore != null) {
                         scoreList = course.averageScore.split("|");
                     }
-                    var review = reviewList.find(review =>review.courseId == course.id)
-                    
+                    var review = reviewList.find(review => review.courseId == course.id)
+
                     if (review != undefined) {
                         bestReview = review.text;
                     }
@@ -240,12 +244,10 @@ function loadData() {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
-    var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
-    queryID = query.substring(2)
 
     loadHeader();
 
