@@ -28,7 +28,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
             success: function (data) {
-                sessionStorage.setItem("token", data.token);
+                localStorage.setItem("token", data.token);
                 layer.msg("登陆成功")
                 setTimeout(() => {
                     if (document.referrer.endsWith("review.html"))

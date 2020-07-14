@@ -28,7 +28,7 @@ function callData(query, queryID, callback) {
                 console.log(teacher)
                 callback();
             });
-            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
+            url = "https://localhost:5001/api/course/GetWithTeachers";
             data.id = Number(queryID);
         } else if (query[0] == "2") {
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
@@ -104,9 +104,9 @@ function loadData() {
                         scoreList = course.averageScore.split("|");
                     }
                     var review = reviewList.find(review =>
-                        review.courseId == course.id
+                        review !== null ? review.courseId == course.id : null
                     )
-                    if (review != undefined) {
+                    if (review !== undefined) {
                         bestReview = review.text;
                     }
 
