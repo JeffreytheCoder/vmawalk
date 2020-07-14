@@ -13,7 +13,6 @@ var query = getUrlQueryString(decodeURI(window.location.href));
 var queryID = query.substring(2)
 
 
-
 function callData(query, queryID, callback) {
     layui.use(["jquery", "layer"], function() {
         var $ = layui.$;
@@ -78,7 +77,10 @@ function loadData() {
             namewithpic.appendChild(teacherName);
 
             <<
-            << << < HEAD
+            <<
+            <<
+            <
+            HEAD
             callData(query, queryID, function() {
                         count++;
                         console.log(count);
@@ -162,7 +164,8 @@ function loadData() {
     </table>
     <br>`;
                                         courseFrame.appendChild(courseElement); ===
-                                        === =
+                                        ===
+                                        =
                                         // add courseframe
                                         var courseFrame = document.getElementById("course-frame")
 
@@ -186,7 +189,9 @@ function loadData() {
                                                     queryLink = "../profile/profile.html?query=" + course.id + "";
                                                 if (course.averageScore != null) {
                                                     scoreList = course.averageScore.split("|"); >>>
-                                                    >>> > 5 fffb4a96f415528254f81ee06033606b5f24bdd
+                                                    >>>
+                                                    >
+                                                    5 fffb4a96f415528254f81ee06033606b5f24bdd
                                                 }
                                                 var review = reviewList.find(review =>
                                                     review.courseId == course.id
@@ -246,14 +251,20 @@ function loadData() {
                                         var courseName = document.createElement("h2");
 
                                         <<
-                                        << << < HEAD
+                                        <<
+                                        <<
+                                        <
+                                        HEAD
                                         var courseObj = courseList;
                                         courseList = courseObj.courses;
                                         console.log(courseList) ===
-                                            === =
+                                            ===
+                                            =
                                             var courseObj = courseList;
                                         courseList = courseObj.courses; >>>
-                                        >>> > 5 fffb4a96f415528254f81ee06033606b5f24bdd
+                                        >>>
+                                        >
+                                        5 fffb4a96f415528254f81ee06033606b5f24bdd
 
                                         var courseNameText = courseList[0].courseName;
 
