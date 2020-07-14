@@ -80,6 +80,8 @@ window.onload = function() {
                 var teacherName = document.createElement("h2");
                 teacherName.innerHTML = "<strong>" + [teacherObj.chineseName, teacherObj.englishName].join(" ").trim() + "</strong>";
                 namewithpic.appendChild(teacherName);
+                //add header title
+                document.title = teacherName;
 
                 // add courseframe
                 var courseFrame = document.getElementById("course-frame")
@@ -170,6 +172,8 @@ window.onload = function() {
 
                 courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
                 namewithpic.appendChild(courseName);
+                //add header title
+                document.title = courseNameText;
 
                 // add courseframe
                 var courseFrame = document.getElementById("course-frame")
