@@ -1633,12 +1633,6 @@ var Courses = [{
         "teacherId": 0
     },
     {
-        "id": 177,
-        "courseName": "ELL English Language Development",
-        "courseCode": "ENG210",
-        "teacherId": 0
-    },
-    {
         "id": 179,
         "courseName": "Foundations of Art History",
         "courseCode": "HIS301",
@@ -2723,7 +2717,7 @@ var CoursesWithTeacher = [{
     },
     {
         "id": 154,
-        "courseName": "ELL English Language Development",
+        "courseName": "ELL English Language Development Honors",
         "courseCode": "ENG218",
         "teacherId": 235
     },
@@ -2858,12 +2852,6 @@ var CoursesWithTeacher = [{
         "courseName": "ELL English Language Development",
         "courseCode": "ENG209",
         "teacherId": 237
-    },
-    {
-        "id": 177,
-        "courseName": "ELL English Language Development",
-        "courseCode": "ENG210",
-        "teacherId": 177
     },
     {
         "id": 178,
