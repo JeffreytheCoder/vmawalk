@@ -1,19 +1,19 @@
 function loadHeader() {
+  //Judge if login or myreview
+  var logined = false; //这里加token
+  if (logined) {
+    var loginText = "我的点评";
+    var loginLink = "../myreview/myreview.html";
+  } else {
+    var loginText = "登 录";
+    var loginLink = "../login/login.html";
+  }
 
-    //Judge if login or myreview
-    var logined = false; //这里加token
-    if (logined) {
-        var loginText = "我的点评";
-        var loginLink = "../myreview/myreview.html";
-    } else {
-        var loginText = "登 录";
-        var loginLink = "../login/login.html";
-    }
-
-    //Load header elements
-    headerDiv = document.getElementById("header-div");
-    var header = document.createElement("div");
-    header.innerHTML = `<header id="header" class="header">
+  //Load header elements
+  headerDiv = document.getElementById("header-div");
+  var header = document.createElement("div");
+  header.innerHTML =
+    `<header id="header" class="header">
 <div class="title">
     <a href="https://jeffreythecoder.github.io/vmawalk/" style="text-decoration: none; color: white;">
         <strong>vma</strong>walk
@@ -40,67 +40,77 @@ function loadHeader() {
         </a>
     </div>
     <div style="padding-right: 30px;">
-        <a href=` + loginLink + `>
+        <a href=` +
+    loginLink +
+    `>
             <button class="add-review" style="background-color: white;">
-                <text class="add-review-text" style="color: #69BDC8;">` + loginText + `</text>
+                <text class="add-review-text" style="color: #69BDC8;">` +
+    loginText +
+    `</text>
             </button>
         </a>
     </div>
 </div>
 </header>`;
-    headerDiv.appendChild(header);
+  headerDiv.appendChild(header);
 
-    //Load select options
-    layui.use(['layer', 'jquery', 'form'], function() {
+  //Load select options
+  layui.use(["layer", "jquery", "form"], function () {
+    var $ = layui.jquery;
 
-        var $ = layui.jquery;
+    for (var i = 1; i < teachers.length; i++) {
+      if (teachers[i].chineseName == null) {
+        $("#search").append(
+          new Option(teachers[i].englishName, "1-" + teachers[i].id)
+        );
+      }
+    }
 
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName == null) {
-                $("#search").append(new Option(teachers[i].englishName, "1-" + teachers[i].id));
-            }
-        }
+    for (var i = 1; i < teachers.length; i++) {
+      if (teachers[i].chineseName != null) {
+        $("#search").append(
+          new Option(
+            teachers[i].chineseName + " " + teachers[i].englishName,
+            "1-" + teachers[i].id
+          )
+        );
+      }
+    }
 
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName != null) {
-                $("#search").append(new Option(teachers[i].chineseName + " " + teachers[i].englishName, "1-" + teachers[i].id));
-            }
-        }
+    Courses.forEach((i) => {
+      $("#search").append(
+        new Option(i.courseName + " " + i.courseCode, "2-" + i.courseCode)
+      );
+    });
 
-        Courses.forEach(i => {
-            $("#search").append(new Option(i.courseName + " " + i.courseCode, "2-" + i.courseCode));
-        })
+    layui.form.render("select");
+  });
 
-        layui.form.render('select');
-    })
+  layui.use(["form", "jquery"], function () {
+    var form = layui.form;
+    var $ = layui.$;
 
-    layui.use(['form', 'jquery'], function() {
+    $(document).keydown(function (e) {
+      if (e.keyCode === 13) {
+        $("#submit").trigger("click");
+        return false;
+      }
+    });
 
-        var form = layui.form;
-        var $ = layui.$;
-
-        $(document).keydown(function(e) {
-            if (e.keyCode === 13) {
-
-                $("#submit").trigger("click");
-                return false;
-            }
-        });
-
-        form.on('submit(submit)', function(data) {
-            query = data.field.teacher;
-            link = "../menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
-            window.location.href = link;
-            return false;
-        });
-    })
+    form.on("submit(submit)", function (data) {
+      query = data.field.teacher;
+      link = "../menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
+      window.location.href = link;
+      return false;
+    });
+  });
 }
 
 function loadFooter() {
-    //Load footer elements
-    footerDiv = document.getElementById("footer-div");
-    var footer = document.createElement("div");
-    footer.innerHTML = `<footer class="footer">
+  //Load footer elements
+  footerDiv = document.getElementById("footer-div");
+  var footer = document.createElement("div");
+  footer.innerHTML = `<footer class="footer">
     <br>
     <div class="footer-navigator">
         <ul>
@@ -125,9 +135,9 @@ function loadFooter() {
         </a>
     </div>
     <span class="footer-info">
-        VMAwalk is a public platform only provided for VMA students, created by VMA students since 2020.
+        Vmawalk is a public platform only provided for VMA students, created by VMA students since 2020.
     </span>
     <br>
-</footer>`
-    footerDiv.appendChild(footer);
+</footer>`;
+  footerDiv.appendChild(footer);
 }
