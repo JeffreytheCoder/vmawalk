@@ -43,7 +43,7 @@ function loadHeader() {
     inset 0px 0px 0px 0px #0001;">搜索</button>
     </form>
     <div style="display: flex;">
-        <div style="padding-right: 20px">
+        <div style="padding-right: 25px">
             <a href="../review/review.html">
                 <button class="add-review" style="background-color: white;">
                     <text class="add-review-text" style="color: #69BDC8;">✚ 加点评</text>
