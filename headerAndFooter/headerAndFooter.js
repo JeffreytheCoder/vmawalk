@@ -25,7 +25,7 @@ function loadHeader() {
             <option value="">请选择课程和老师</option>
         </select>
     </div>
-    <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: 70px; text-align: center; background-color: #0098ac;" onclick="toMenuPage()">搜索</button>
+    <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: 70px; text-align: center; background-color: #0098ac;">搜索</button>
 </form>
 <div style="display: flex;">
     <div style="padding-right: 20px">
