@@ -185,7 +185,7 @@ function loadCourseMenu() {
             //prepare score list, best review, and image link
             var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
                 bestReview = "No Review",
-                queryLink = "https://jeffreythecoder.github.io/vmawalk/profile/profile?query=" + course.id + "";
+                queryLink = "../profile/profile.html?query=" + course.id + "";
             if (course.averageScore != null) {
                 scoreList = course.averageScore.split("|");
             }

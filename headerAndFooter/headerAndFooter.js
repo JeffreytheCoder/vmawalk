@@ -24,7 +24,7 @@ function loadHeader() {
     header.innerHTML =
         `<header id="header" class="header">
     <div class="title">
-        <a href="https://jeffreythecoder.github.io/vmawalk/" style="text-decoration: none; color: rgb(255, 255, 255);">
+        <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
             <strong>vma</strong>walk
         </a>
     </div>
