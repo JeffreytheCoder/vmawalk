@@ -110,7 +110,7 @@ function loadTeacherMenu() {
             <td width="200px">
                 <a href="` + queryLink + `" class="profile-link">
                     <div class="icon-round">` + course.courseCode + `</div>
-                    <div class="course-name">
+                    <div class="teacher-name">
                         <font color="black" size="3">` + course.courseName + `</font><br />
                         <font color="#69BDC8" size="2">Full Profile ></font>
                     </div>
