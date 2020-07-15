@@ -94,16 +94,13 @@ function loadData() {
     </td>
 </tr>
 <tr height="40px">
-
-
-
-
-
+    <a href="../menu/menu.html?query=1-"` + coursewithteacher.teacherId + `>
     <td style="display: flex; align-items: center;">
         <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
         </div>
         <font size="4">` + teacherName + `</font>
     </td>
+    </a>
 </tr>
 </table>`
         namewithpic.appendChild(namewithpicElement);
