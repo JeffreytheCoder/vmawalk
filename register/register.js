@@ -34,7 +34,7 @@ layui.use(['form', 'layer', 'jquery'], function() {
             icon: '&#xe63d'
         })
         $.ajax({
-            type: "POST",
+            type: "PUT",
             url: "https://vma-walk.azurewebsites.net/Auth/Registration",
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
