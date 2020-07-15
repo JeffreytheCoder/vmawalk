@@ -1,5 +1,5 @@
 var token = localStorage.getItem("token")
-if (token && token) {
+if (token) {
     var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
     if (user.exp > Date.now() / 1000) {
         console.log(true)
