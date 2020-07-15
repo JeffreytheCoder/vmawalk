@@ -227,7 +227,7 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px">` + bestReview + `</td>
+            <td width="200px" style="margin-left: 10px; text-align: center;">` + bestReview + `</td>
             </tr>
             </table>
             <br>`;

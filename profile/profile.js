@@ -239,10 +239,10 @@ function loadData() {
                         var reviewBox = document.createElement("div");
                         reviewBox.className = "display-box";
                         reviewBox.style.cssText = "padding: 10px;";
-                        reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
+                        reviewBox.innerHTML = `<table class="review-table">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
-        <td style="color: gray; float: right; margin-right: 40px">Submitted June 8, 2011</td>
+        <td style="color: gray; float: right;">Submitted June 8, 2011</td>
     </tr>
     <tr>
         <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
