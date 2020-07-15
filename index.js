@@ -1,5 +1,4 @@
-window.onload = function() {
-
+function setLogin(callback) {
     // Judge if login or myreview
     var token = localStorage.getItem("token")
     if (token) {
@@ -8,22 +7,17 @@ window.onload = function() {
             console.log("token未过期且已获取")
             var loginText = "我的点评";
             var loginLink = "myreview/myreview.html";
+            callback();
         }
     } else {
         console.log("未检测到token")
         var loginText = "登 录";
         var loginLink = "login/login.html";
+        callback();
     }
+}
 
-    //Load login button
-    loginDiv = document.getElementById("login-div");
-    var login = document.createElement("a");
-    login.setAttribute('href', loginLink);
-    login.innerHTML = `<button class="add-review">
-        <text class="add-review-text">` + loginText + `</text>
-    </button>`;
-    loginDiv.appendChild(login);
-
+window.onload = function() {
     // Load options of select
     layui.use(['layer', 'jquery', 'form'], function() {
 
@@ -41,8 +35,6 @@ window.onload = function() {
             }
         }
 
-
-
         Courses.forEach(i => {
             $("#search").append(new Option(i.courseName + " " + i.courseCode, "2-" + i.courseCode));
         })
@@ -50,7 +42,19 @@ window.onload = function() {
         layui.form.render('select');
 
     })
+
+    //Load login button
+    setLogin(function() {
+        loginDiv = document.getElementById("login-div");
+        var login = document.createElement("a");
+        login.setAttribute('href', loginLink);
+        login.innerHTML = `<button class="add-review">
+                <text class="add-review-text">` + loginText + `</text>
+            </button>`;
+        loginDiv.appendChild(login);
+    })
 }
+
 
 // Set submit button click
 layui.use(['form', 'jquery'], function() {

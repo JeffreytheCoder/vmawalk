@@ -11,14 +11,14 @@ var count = 0;
 var footerCount = 0;
 
 function callData(query, queryID, callback) {
-    layui.use(["jquery", "layer"], function () {
+    layui.use(["jquery", "layer"], function() {
         var $ = layui.$;
         var url = "";
         var teacher = null;
 
         data = {}
         if (query[0] == "1") {
-            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function (result) {
+            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
@@ -41,12 +41,12 @@ function callData(query, queryID, callback) {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function (req) {
+            success: function(req) {
                 courseList = req;
                 console.log(courseList)
                 callback();
             },
-            error: function (req) {
+            error: function(req) {
                 console.log(req);
                 callback();
             }
@@ -82,7 +82,6 @@ function loadTeacherMenu() {
      */
 
     var courseObj = courseList;
-
     courseList = courseObj.courses;
 
     var reviewList = courseObj.text
@@ -173,7 +172,7 @@ function loadCourseMenu() {
         course => {
             // find teacher with id
             var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-            // parse the teacher name
+                // parse the teacher name
             teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
         }
     )
@@ -237,7 +236,7 @@ function loadCourseMenu() {
     )
 }
 
-window.onload = function () {
+window.onload = function() {
 
     //init
     var query = getUrlQueryString(decodeURI(window.location.href));
@@ -245,7 +244,7 @@ window.onload = function () {
     queryID = query.substring(2);
 
     loadHeader();
-    callData(query, queryID, function () {
+    callData(query, queryID, function() {
         count++;
         console.log(count);
         if (count == 2) {
