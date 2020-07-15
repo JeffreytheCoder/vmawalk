@@ -34,12 +34,12 @@ layui.use(['form', 'layer', 'jquery'], function() {
             icon: '&#xe63d'
         })
         $.ajax({
-            type: "POST",
+            type: "PUT",
             url: "https://vma-walk.azurewebsites.net/Auth/ResetPassword",
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
             success: function(data) {
-                sessionStorage.setItem("token", data.token);
+                localStorage.setItem("token", data.token);
                 alert("请查看学生邮箱并点击验证链接")
             },
             error: function(req) {
@@ -104,7 +104,7 @@ layui.use(['form', 'layer', 'jquery'], function() {
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
             success: function(data) {
-                sessionStorage.setItem("token", data.token);
+                localStorage.setItem("token", data.token);
                 alert("请查看学生邮箱并点击验证链接")
             },
             error: function(req) {

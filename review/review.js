@@ -1,5 +1,5 @@
 layui.use("layer", function() {
-    if (sessionStorage.getItem("token") == null) {
+    if (localStorage.getItem("token") == null) {
         layer.msg("请登录");
 
         setTimeout(() => {
@@ -97,7 +97,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
                 withCredentials: true
             },
             headers: {
-                Authorization: "Bearer " + sessionStorage.getItem("token")
+                Authorization: "Bearer " + localStorage.getItem("token")
             },
             success: function(data) {
                 layer.msg("添加成功");

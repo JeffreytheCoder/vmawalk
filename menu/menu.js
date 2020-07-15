@@ -11,20 +11,20 @@ var count = 0;
 var footerCount = 0;
 
 function callData(query, queryID, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
         var $ = layui.$;
         var url = "";
         var teacher = null;
 
         data = {}
         if (query[0] == "1") {
-            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
+            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function (result) {
                 teacher = result;
                 teacherObj = teacher;
                 console.log(teacher)
                 callback();
             });
-            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
+            url = "https://localhost:5001/api/course/GetWithTeachers";
             data.id = Number(queryID);
         } else if (query[0] == "2") {
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
@@ -41,12 +41,12 @@ function callData(query, queryID, callback) {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function(req) {
+            success: function (req) {
                 courseList = req;
                 console.log(courseList)
                 callback();
             },
-            error: function(req) {
+            error: function (req) {
                 console.log(req);
                 callback();
             }
@@ -106,36 +106,36 @@ function loadTeacherMenu() {
             var courseElement = document.createElement("div");
             courseElement.className = "course";
             courseElement.innerHTML = `<br>
-<table>
-<tr>
-<td width="200px">
-    <a href="` + queryLink + `" class="profile-link">
-        <div class="icon-round">` + course.courseCode + `</div>
-        <div class="course-name">
-            <font color="black" size="3">` + course.courseName + `</font><br />
-            <font color="#69BDC8" size="2">Full Profile ></font>
-        </div>
-    </a>
-</td>
-<td class="rating-cell">
-<font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
-</td>
-<td class="rating-cell">
-    <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
-</td>
-<td class="rating-cell">
-    <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
-</td>
-<td class="rating-cell">
-    <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
-</td>
-<td class="rating-cell">
-    <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
-</td>
-<td width="200px" style="text-align: center; margin-left: 10px;">` + bestReview + `</td>
-</tr>
-</table>
-<br>`;
+            <table>
+            <tr>
+            <td width="200px">
+                <a href="` + queryLink + `" class="profile-link">
+                    <div class="icon-round">` + course.courseCode + `</div>
+                    <div class="course-name">
+                        <font color="black" size="3">` + course.courseName + `</font><br />
+                        <font color="#69BDC8" size="2">Full Profile ></font>
+                    </div>
+                </a>
+            </td>
+            <td class="rating-cell">
+            <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
+            </td>
+            <td class="rating-cell">
+                <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
+            </td>
+            <td width="200px" style="text-align: center; margin-left: 10px;">` + bestReview + `</td>
+            </tr>
+            </table>
+            <br>`;
             courseFrame.appendChild(courseElement);
         }
     )
@@ -173,7 +173,7 @@ function loadCourseMenu() {
         course => {
             // find teacher with id
             var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                // parse the teacher name
+            // parse the teacher name
             teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
         }
     )
@@ -201,43 +201,43 @@ function loadCourseMenu() {
             var courseElement = document.createElement("div");
             courseElement.className = "course";
             courseElement.innerHTML = `<br>
-<table>
-<tr>
-<td width="90px">
-<a href="` + queryLink + `">
-<div class="icon-round" style="background-image: url(` + imageURL + `)></div>
-</a>
-</td>
-<td width="110px">
-<a href="` + queryLink + `" style="text-decoration: none;">
-<font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
-<font color="#69BDC8" size="2">Full Profile ></font>
-</a>
-<td class="rating-cell">
-<font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
-</td>
-<td class="rating-cell">
-<font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
-</td>
-<td class="rating-cell">
-<font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
-</td>
-<td class="rating-cell">
-<font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
-</td>
-<td class="rating-cell">
-<font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
-</td>
-<td width="200px">` + bestReview + `</td>
-</tr>
-</table>
-<br>`;
+            <table>
+            <tr>
+            <td width="90px">
+            <a href="` + queryLink + `">
+            <div class="icon-round" style="background-image: url(` + imageURL + `)></div>
+            </a>
+            </td>
+            <td width="110px">
+            <a href="` + queryLink + `" style="text-decoration: none;">
+            <font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
+            <font color="#69BDC8" size="2">Full Profile ></font>
+            </a>
+            <td class="rating-cell">
+            <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
+            </td>
+            <td class="rating-cell">
+            <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
+            </td>
+            <td class="rating-cell">
+            <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
+            </td>
+            <td class="rating-cell">
+            <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
+            </td>
+            <td class="rating-cell">
+            <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
+            </td>
+            <td width="200px">` + bestReview + `</td>
+            </tr>
+            </table>
+            <br>`;
             courseFrame.appendChild(courseElement);
         }
     )
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
     var query = getUrlQueryString(decodeURI(window.location.href));
@@ -245,7 +245,7 @@ window.onload = function() {
     queryID = query.substring(2);
 
     loadHeader();
-    callData(query, queryID, function() {
+    callData(query, queryID, function () {
         count++;
         console.log(count);
         if (count == 2) {
