@@ -8,12 +8,12 @@ window.onload = function() {
             console.log(true)
             console.log("token未过期且已获取")
             var loginText = "我的点评";
-            var loginLink = "../myreview/myreview.html";
+            var loginLink = "myreview/myreview.html";
         }
     } else {
         console.log("未检测到token")
         var loginText = "登 录";
-        var loginLink = "../login/login.html";
+        var loginLink = "login/login.html";
     }
 
     //Load login button
