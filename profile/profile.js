@@ -238,7 +238,7 @@ function loadData() {
                         //add reviewBox
                         var reviewBox = document.createElement("div");
                         reviewBox.className = "display-box";
-                        reviewBox.style.cssText = "padding: 10px;";
+                        reviewBox.style.cssText = "padding: 15px;";
                         reviewBox.innerHTML = `<table class="review-table">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
