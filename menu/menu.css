@@ -89,11 +89,12 @@
 
 .course {
   /* border: 1px solid darkgray; */
-  border-radius: 5px;
+  border-radius: 10px;
   /* border-bottom: 2px solid gray; */
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   width: 100%;
   height: auto;
+  background-color: rgba(211, 211, 211, 0.2);
   box-shadow: -7px -7px 20px 0px #fff9,
   -4px -4px 5px 0px #fff9,
   7px 7px 20px 0px #0002,
@@ -102,6 +103,7 @@
   inset 0px 0px 0px 0px #0001,
   inset 0px 0px 0px 0px #fff9,
   inset 0px 0px 0px 0px #0001;
+  overflow: hidden; 
 }
 
 .course > div {
@@ -129,7 +131,7 @@
 }
 
 .course-name{
-  width: 90px;
+  width: auto;
 }
 
 .course .icon-round {
@@ -157,8 +159,9 @@
 .rating-cell:nth-child(4),
 .rating-cell:nth-child(6) {
   background-color: rgba(211, 211, 211, 0.5);
-  box-shadow: -7px -7px 20px 0px #fff9,
-  -4px -4px 5px 0px #fff9,
+  box-shadow: 
+  /* -7px -7px 20px 0px #fff9,
+  -4px -4px 5px 0px #fff9, */
   7px 7px 20px 0px #0002,
   4px 4px 5px 0px #0001,
   inset 0px 0px 0px 0px #fff9,
@@ -170,6 +173,7 @@
 .rating-cell {
   width: 100px;
   text-align: center;
+  border-radius: 10px;
 }
 
 .name-with-picture {
