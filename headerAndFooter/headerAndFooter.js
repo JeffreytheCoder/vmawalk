@@ -69,6 +69,27 @@ function loadHeader() {
 
         layui.form.render('select');
     })
+
+    layui.use(['form', 'jquery'], function() {
+
+        var form = layui.form;
+        var $ = layui.$;
+
+        $(document).keydown(function(e) {
+            if (e.keyCode === 13) {
+
+                $("#submit").trigger("click");
+                return false;
+            }
+        });
+
+        form.on('submit(submit)', function(data) {
+            query = data.field.teacher;
+            link = "../menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
+            window.location.href = link;
+            return false;
+        });
+    })
 }
 
 function loadFooter() {
@@ -80,13 +101,13 @@ function loadFooter() {
     <div class="footer-navigator">
         <ul>
             <li>
-                <a href="#">About</a>
+                <a href="../about/about.html">About</a>
             </li>
             <li>
-                <a href="#">Team</a>
+                <a href="../team/team.html">Team</a>
             </li>
             <li>
-                <a href="#">Policy</a>
+                <a href="../about/about.html">Policy</a>
             </li>
         </ul>
     </div>

@@ -11,7 +11,7 @@ var teacherName;
 var reviewList;
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function () {
+    layui.use(["jquery", "layer"], function() {
 
         /**
          * @type {JQueryStatic}
@@ -27,7 +27,7 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function (info) {
+            function(info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -53,7 +53,7 @@ function callInfo(id, callback) {
              * text:string
              * }[]} result - 课程类型
              */
-            function (result) {
+            function(result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -102,6 +102,9 @@ function loadData() {
 </tr>
 </table>`
         namewithpic.appendChild(namewithpicElement);
+
+        //add header title
+        document.title = teacherName + " - " + coursewithteacher.courseName + " | Vmawalk";
 
         //add ratings
         ratings = document.getElementById("ratings");
@@ -274,7 +277,7 @@ function loadData() {
     }
 }
 
-window.onload = function () {
+window.onload = function() {
 
     //init
     var query = getUrlQueryString(window.location.href);
