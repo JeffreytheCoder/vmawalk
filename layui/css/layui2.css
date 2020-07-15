@@ -2407,6 +2407,7 @@ hr {
 }
 
 .layui-form-select dl dd:hover {
+    border-radius: 10px;
     background-color: #f2f2f2;
     -webkit-transition: .5s all;
     transition: .5s all
