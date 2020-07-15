@@ -17,7 +17,7 @@
     content: ' \00A0 \00A0 > \00A0';
 } */
 
-.information{
+.information {
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -26,48 +26,34 @@
     justify-content: center;
 }
 
-.info-title{
-    color:white;
+.info-title {
+    color: white;
     font-size: 40px;
-    background-color: #69BDC8; 
-    height: 60px; 
+    background-color: #69BDC8;
+    height: 60px;
     padding: 0 25px;
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
     justify-content: center;
     border-radius: 10px;
     /* border:1px solid red; */
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
 
-.info-content{
+.info-content {
     padding-top: 10px;
     z-index: -1;
     background-color: rgba(211, 211, 211, 0.3);
     width: 100%;
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
     justify-content: center;
     border-radius: 10px;
     margin-top: -15px;
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
 
-.info-content > div{
+.info-content>div {
     margin: 20px;
     font-size: 20px;
     word-spacing: justify;
