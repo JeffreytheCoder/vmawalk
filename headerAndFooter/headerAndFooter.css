@@ -15,7 +15,7 @@
 .header {
     position: relative;
     top: 0px;
-    background-color: #69BDC8;
+    background-color: #69bdc8;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,10 +42,10 @@
 .add-review {
     align-items: right;
     width: 100px;
-    height: 30px;
-    background-color: #69BDC8;
+    height: 38px;
+    background-color: #69bdc8;
     border: 0px solid white;
-    border-radius: 12.5px;
+    border-radius: 15px;
     text-align: center;
     cursor: pointer;
     outline: none;
@@ -58,7 +58,7 @@
 
 .add-review:hover {
     background-color: rgb(84, 160, 170);
-    transition: background-color .25s ease-out, color .25s ease-out;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
 .add-review-text {
@@ -96,7 +96,7 @@
 }
 
 .footer-navigator li:not(:last-child) a:after {
-    content: ' \00A0 \00A0 | \00A0';
+    content: " \00A0 \00A0 | \00A0";
 }
 
 .logo-link {
