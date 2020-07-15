@@ -2043,6 +2043,11 @@ hr {
 }
 
 .layui-btn {
+    box-shadow: /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001;
     display: inline-block;
     height: 38px;
     line-height: 38px;
@@ -2341,6 +2346,7 @@ hr {
 }
 
 .layui-form-select .layui-input {
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
     padding-right: 30px;
     cursor: pointer
 }
@@ -2363,15 +2369,22 @@ hr {
     position: absolute;
     left: 0;
     top: 42px;
-    padding: 5px 0;
+    padding: 5px;
     z-index: 899;
     min-width: 100%;
     border: 1px solid #d2d2d2;
     max-height: 300px;
     overflow-y: auto;
     background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .12);
+    border-radius: 15px;
+    box-shadow: 
+    /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, 
+    /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001, 
+    /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001;
     box-sizing: border-box
 }
 
@@ -2401,6 +2414,7 @@ hr {
 
 .layui-form-select .layui-select-group dd {
     padding-left: 20px
+
 }
 
 .layui-form-select dl dd.layui-select-tips {
@@ -2409,6 +2423,7 @@ hr {
 }
 
 .layui-form-select dl dd.layui-this {
+    border-radius: 10px;
     background-color: #69BDC8;
     color: #fff
 }
