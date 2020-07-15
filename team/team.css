@@ -49,7 +49,7 @@
   padding-left: 30px;
   padding-right: 30px;
   z-index: -1;
-  background-color: rgba(211, 211, 211, 0.3);
+  background-color: rgba(211, 211, 211, 0.2);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -80,15 +80,17 @@
   height: 200px;
   background-color: white;
   background-position: center;
-  background-size: cover;
+  background-size: 150%;
   background-repeat: no-repeat;
   /* margin-right: 60px; */
   box-shadow: 
-    /* -7px -7px 20px 0px #fff9, */
-    /* -4px -4px 5px 0px #fff9, */ 7px
-      7px 20px 0px #0002,
-    4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9, 
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001, 
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001, 
+    inset 0px 0px 0px 0px #fff9,
     inset 0px 0px 0px 0px #0001;
     float: left;
 }
