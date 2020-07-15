@@ -10,7 +10,7 @@
 .info-title {
     color: white;
     font-size: 40px;
-    background-color: #69BDC8;
+    background-color: #69bdc8;
     height: 60px;
     padding: 0 25px;
     display: flex;
@@ -82,7 +82,7 @@
     width: auto;
     border-radius: 10px;
     background-color: white;
-    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
     padding: 10px;
 }
 
@@ -93,8 +93,8 @@
 }
 
 .review-title {
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 17px;
     margin-bottom: 5px;
     color: gray;
 }
