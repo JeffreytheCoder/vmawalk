@@ -26,12 +26,13 @@
 
 .display-box{
     /* border:1px solid darkgray; */
-    border-radius: 5px;
+    border-radius: 10px;
     /* border-bottom: 2px solid gray; */
     margin-bottom: 20px;
     margin-top: 10px;
     width: auto;
     height: auto;
+    background-color: rgba(211, 211, 211, 0.2);
     box-shadow: -7px -7px 20px 0px #fff9,
     -4px -4px 5px 0px #fff9,
     7px 7px 20px 0px #0002,
@@ -183,7 +184,7 @@
     background-color: #69bdc87a;
     display: flex;
     align-items: center;
-    border-radius: 2px;
+    border-radius: 5px;
     box-shadow: -7px -7px 20px 0px #fff9,
     -4px -4px 5px 0px #fff9,
     7px 7px 20px 0px #0002,
@@ -197,7 +198,7 @@
 .feedback a{
     line-height: 30px;
     text-decoration: none;
-    color: black;
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .feedback .control{
