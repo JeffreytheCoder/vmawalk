@@ -24,7 +24,7 @@ function callData(query, queryID, callback) {
                 console.log(teacher)
                 callback();
             });
-            url = "https://localhost:5001/api/course/GetWithTeachers";
+            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
             data.id = Number(queryID);
         } else if (query[0] == "2") {
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
