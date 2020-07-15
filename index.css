@@ -27,11 +27,12 @@
     font-family: "Microsoft Yahei";
 }
 
-.title {
+.index-title {
     color: #69BDC8;
     font-weight: normal;
     font-size: 100px;
-    margin-top: 130px;
+    margin-top: 140px;
+    width: 100%;
     /* margin-bottom: 0px; */
 }
 
