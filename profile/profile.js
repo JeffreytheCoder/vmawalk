@@ -258,10 +258,10 @@ function loadData() {
     <td colspan="2">
         <div class="feedback" style="margin-top:15px; font-size: 15px;">
             <div class="control">
-                <a href="#">🙂Like </a>0
+                <a href="#">🙂Like 0</a>
             </div>
             <div class="control">
-                <a href="#">🙃Dislike </a>0
+                <a href="#">🙃Dislike 0</a>
             </div>
             <div class="control" style="margin-left:auto; margin-right: 10px">
                 <a href=" #">🖐Report</a>
