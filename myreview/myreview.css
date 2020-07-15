@@ -1,4 +1,4 @@
-.information{
+.information {
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -7,45 +7,32 @@
     justify-content: center;
 }
 
-.info-title{
-    color:white;
+.info-title {
+    color: white;
     font-size: 40px;
-    background-color: #69BDC8; 
-    height: 60px; 
+    background-color: #69BDC8;
+    height: 60px;
     padding: 0 25px;
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
     justify-content: center;
     border-radius: 10px;
     /* border:1px solid red; */
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
 
-.info-content{
+.info-content {
     /* border: 1px solid red; */
     z-index: -1;
     background-color: rgba(211, 211, 211, 0.2);
     width: 100%;
     border-radius: 10px;
     margin-top: 20px;
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    margin-bottom: 15px;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
 
-.info-content > div{
+.info-content>div {
     margin: 20px;
     font-size: 20px;
     word-spacing: justify;
@@ -58,14 +45,7 @@
 .rating-cell:nth-child(3),
 .rating-cell:nth-child(5) {
     background-color: rgba(211, 211, 211, 0.5);
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     /* border-radius: 10px; */
 }
 
@@ -75,7 +55,7 @@
     text-align: center;
 }
 
-.review-upper{
+.review-upper {
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -87,7 +67,7 @@
     justify-content: space-between;
 }
 
-.date{
+.date {
     display: flex;
     flex-direction: column;
     line-height: 18px;
@@ -95,26 +75,32 @@
     color: darkgray;
 }
 
-.review-content{
+.review-content {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     width: auto;
     border-radius: 10px;
-    background-color:white;
+    background-color: white;
     box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
     padding: 10px;
 }
 
-.review-content p{
+.review-content p {
     font-size: 15px;
     line-height: 20px;
     text-align: justify;
 }
 
-.review-title{
+.review-title {
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 5px;
-    color:gray;
+    color: gray;
+}
+
+.my-review-title {
+    width: 100%;
+    height: auto;
+    align-items: center;
 }
