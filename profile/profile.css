@@ -169,7 +169,7 @@
 .feedback a {
     line-height: 30px;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.6);
+    color: white;
 }
 
 .feedback .control {
