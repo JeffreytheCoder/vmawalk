@@ -202,16 +202,16 @@ function loadCourseMenu() {
             courseElement.innerHTML = `<br>
             <table>
             <tr>
-            <td width="90px">
-            <a href="` + queryLink + `">
-            <div class="icon-round" style="background-image: url(` + imageURL + `)></div>
+            <td width="200px">
+            <a href=` + queryLink + ` class="profile-link">
+                <div class="icon-round2" style="background-image: url(` + imageURL + `);">
+                </div>
+                <div class="teacher-name">
+                    <font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
+                    <font color=" #69BDC8" size="2">Full Profile ></font>
+                </div>
             </a>
-            </td>
-            <td width="110px">
-            <a href="` + queryLink + `" style="text-decoration: none;">
-            <font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
-            <font color="#69BDC8" size="2">Full Profile ></font>
-            </a>
+        </td>
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
             </td>
