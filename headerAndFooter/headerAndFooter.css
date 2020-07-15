@@ -63,7 +63,7 @@
 
 .add-review-text {
     color: white;
-    font-family: "Microsoft Yahei";
+    font-family: inherit;
 }
 
 

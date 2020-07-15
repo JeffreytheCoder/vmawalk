@@ -5,7 +5,6 @@
     height: auto;
     width: 100%;
     margin-bottom: 20px;
-    
 }
 
 .name-with-picture div {
@@ -16,14 +15,7 @@
     height: 100px;
     line-height: 100px;
     margin-bottom: 10px;
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
 
 .navigation {
@@ -90,15 +82,8 @@
     width: 100%;
     height: auto;
     background-color: rgba(211, 211, 211, 0.2);
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;  
-    overflow: hidden; 
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    overflow: hidden;
 }
 
 .course>div {
@@ -114,16 +99,15 @@
     margin: auto auto;
     width: 98%;
     height: 100%;
-    
 }
 
-.profile-link{
+.profile-link {
     text-decoration: none;
     display: flex;
     align-items: center;
 }
 
-.teacher-name{
+.teacher-name {
     width: auto;
 }
 
@@ -138,29 +122,16 @@
     display: table-cell;
     vertical-align: middle;
     margin-right: 10px;
-    box-shadow: -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
 
 .rating-cell:nth-child(2),
 .rating-cell:nth-child(4),
 .rating-cell:nth-child(6) {
     background-color: rgba(211, 211, 211, 0.5);
-    box-shadow: 
-    /* -7px -7px 20px 0px #fff9,
+    box-shadow: /* -7px -7px 20px 0px #fff9,
     -4px -4px 5px 0px #fff9, */
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
 
 .rating-cell {

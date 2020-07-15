@@ -6,4 +6,3 @@ function loadingChange() {
 }
 
 document.onreadystatechange = loadingChange;
-count++;
