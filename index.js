@@ -1,16 +1,6 @@
-var token = localStorage.getItem("token")
-if (token && token) {
-    var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
-    if (user.exp > Date.now() / 1000) {
-        console.log(true)
-        console.log("token 未过期且已获取")
-    }
+window.onload = function() {
 
-}
-
-window.onload = function () {
-
-    layui.use(['layer', 'jquery', 'form'], function () {
+    layui.use(['layer', 'jquery', 'form'], function() {
 
         var $ = layui.jquery;
 
@@ -35,12 +25,12 @@ window.onload = function () {
     })
 }
 
-layui.use(['form', 'jquery'], function () {
+layui.use(['form', 'jquery'], function() {
 
     var form = layui.form;
     var $ = layui.$;
 
-    $(document).keydown(function (e) {
+    $(document).keydown(function(e) {
         if (e.keyCode === 13) {
 
             $("#submit").trigger("click");
@@ -48,7 +38,7 @@ layui.use(['form', 'jquery'], function () {
         }
     });
 
-    form.on('submit(submit)', function (data) {
+    form.on('submit(submit)', function(data) {
         query = data.field.teacher;
         link = "menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
         window.location.href = link;
