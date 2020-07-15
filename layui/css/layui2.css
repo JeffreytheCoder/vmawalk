@@ -2238,6 +2238,7 @@ hr {
 
 .layui-input,
 .layui-textarea {
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
     display: block;
     width: 100%;
     padding-left: 10px;

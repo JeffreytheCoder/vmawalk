@@ -20,7 +20,7 @@
 }
 
 .question label {
-    font-family: "Microsoft Yahei";
+    /* font-family: "Microsoft Yahei"; */
     display: block;
     margin-bottom: 15px;
 }
@@ -69,5 +69,11 @@
 .radio-block {
     margin-top: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.radio-points {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
