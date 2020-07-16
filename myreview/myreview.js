@@ -1,7 +1,7 @@
 //global variable
 var reviewObj;
 
-function getUserReviews() {
+function getUserReviews(callback) {
     /**
      * @type {JQueryStatic}
      */
@@ -108,6 +108,9 @@ function loadReview() {
 
 
 window.onload = function() {
+    getUserReviews(function() {
+        console.log(reviewObj);
+    })
     reviewNum = 3;
     for (i = 0; i < reviewNum; i++) {
         loadReview();
