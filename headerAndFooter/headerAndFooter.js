@@ -72,7 +72,7 @@ function loadHeader() {
     headerDiv.appendChild(header);
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], function () {
+    layui.use(["layer", "jquery", "form"], function() {
         var $ = layui.jquery;
 
         for (var i = 1; i < teachers.length; i++) {
@@ -95,18 +95,18 @@ function loadHeader() {
         layui.form.render("select");
     });
 
-    layui.use(["form", "jquery"], function () {
+    layui.use(["form", "jquery"], function() {
         var form = layui.form;
         var $ = layui.$;
 
-        $(document).keydown(function (e) {
+        $(document).keydown(function(e) {
             if (e.keyCode === 13) {
                 $("#submit").trigger("click");
                 return false;
             }
         });
 
-        form.on("submit(submit)", function (data) {
+        form.on("submit(submit)", function(data) {
             query = data.field.teacher;
             link = "../menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
             window.location.href = link;
@@ -117,9 +117,13 @@ function loadHeader() {
 
 function loadFooter() {
     //Load footer elements
-    footerDiv = document.getElementById("footer-div");
+    var contentHeight = document.body.scrollHeight; //网页正文全文高度
+    var winHeight = window.innerHeight; //可视窗口高度，不包括浏览器顶部工具栏
+    var footerDiv = document.getElementById("footer-div");
     var footer = document.createElement("div");
-    footer.innerHTML = `<footer class="footer">
+
+
+    footer.innerHTML = `<footer id="realfooter" class="footer">
         <br>
         <div class="footer-navigator">
             <ul>
@@ -150,4 +154,20 @@ function loadFooter() {
         <br>
     </footer>`;
     footerDiv.appendChild(footer);
+
+    var realFooter = document.getElementById("realfooter")
+    realFooter.classList.add("fixed-bottom");
+    console.log("contentHeight");
+    console.log(contentHeight);
+    console.log("winHeight");
+    console.log(winHeight);
+    if (contentHeight <= winHeight) {
+        //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
+        console.log("添加了");
+        realFooter.classList.add("fixed-bottom");
+    } else {
+        console.log("删除了");
+        realFooter.classList.remove("fixed-bottom");
+    }
+
 }
