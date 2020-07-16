@@ -1,3 +1,8 @@
+document.write(`
+    <script src="../lib/pinyin.js"></script>
+    <script src="../lib/initials.js"></script>
+`)
+
 function loadHeader() {
     // Judge if login or myreview
     var loginText = "登 录";
@@ -5,14 +10,17 @@ function loadHeader() {
     var token = localStorage.getItem("token")
     if (token) {
         console.log("检测到token")
-        var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
-
-        if (user.exp > Date.now() / 1000) {
-            console.log("token未过期, 已登录")
-            loginText = "我的点评";
-            loginLink = "../myreview/myreview.html";
-        } else {
-            console.log("token已过期, 请重新登录")
+        try {
+            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+            if (user.exp > Date.now() / 1000) {
+                console.log("token未过期, 已登录")
+                loginText = "我的点评";
+                loginLink = "../myreview/myreview.html";
+            } else {
+                console.log("token已过期, 请重新登录")
+            }
+        } catch (ess) {
+            localStorage.removeItem("token")
         }
     } else {
         console.log("未检测到token, 请登录")
@@ -64,7 +72,7 @@ function loadHeader() {
     headerDiv.appendChild(header);
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], function() {
+    layui.use(["layer", "jquery", "form"], function () {
         var $ = layui.jquery;
 
         for (var i = 1; i < teachers.length; i++) {
@@ -87,18 +95,18 @@ function loadHeader() {
         layui.form.render("select");
     });
 
-    layui.use(["form", "jquery"], function() {
+    layui.use(["form", "jquery"], function () {
         var form = layui.form;
         var $ = layui.$;
 
-        $(document).keydown(function(e) {
+        $(document).keydown(function (e) {
             if (e.keyCode === 13) {
                 $("#submit").trigger("click");
                 return false;
             }
         });
 
-        form.on("submit(submit)", function(data) {
+        form.on("submit(submit)", function (data) {
             query = data.field.teacher;
             link = "../menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
             window.location.href = link;
