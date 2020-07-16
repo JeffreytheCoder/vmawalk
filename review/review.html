@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="review.css" />
-<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<link rel="stylesheet" href="../layui/css/layui2.css" media="all">
 <script src="../files/Information.js"></script>
 <script src="../lib/pinyin.js"></script>
 <script src="../lib/initials.js"></script>
@@ -24,10 +24,10 @@
 <body class="general">
 
     <h1 align="center" class="title">
-        <strong>点评</strong>课程/老师
+        点评课程与老师
     </h1>
 
-    <form class="layui-form" align="center" action="submit" style="margin-top: 30px; width: 80%; margin: 0 auto">
+    <form class="layui-form" align="center" action="submit" style="margin-top: 30px; width: 80%; margin: 0 auto;">
 
         <div class="question">
             <label>1. 你要点评哪个老师？</label>
@@ -84,16 +84,14 @@
                 <option value="withdrawn">Withdrawn</option>
             </select>
         </div>
-
+        <hr style="margin-top: 40px">
         <label class="subtitle" style="margin-top: 15px;">5. 给出你对该老师教这门课的评分</label>
-
-        <hr style="margin-top: 20px">
         <label class="subtitle"><strong>总体满意度 Overall</strong></label>
 
         <div name="scores">
             <div class="radio-block">
                 <label class="layui-form-label" style="width: 50px; text-align: center;">不满意</label>
-                <div>
+                <div class="radio-points">
                     <input type="radio" name="overall" value="1" title="1">
                     <input type="radio" name="overall" value="2" title="2">
                     <input type="radio" name="overall" value="3" title="3">
@@ -106,7 +104,7 @@
             <label class="subtitle"><strong>课程难易度 Easiness</strong></label>
             <div class="radio-block">
                 <label class="layui-form-label" style="width: 50px; text-align: center;">困难</label>
-                <div>
+                <div class="radio-points">
                     <input type="radio" name="easiness" value="1" title="1">
                     <input type="radio" name="easiness" value="2" title="2">
                     <input type="radio" name="easiness" value="3" title="3">
@@ -119,7 +117,7 @@
             <label class="subtitle"><strong>功课轻重度 Workload</strong></label>
             <div class="radio-block">
                 <label class="layui-form-label" style="width: 50px; text-align: center;">繁重</label>
-                <div>
+                <div class="radio-points">
                     <input type="radio" name="workload" value="1" title="1">
                     <input type="radio" name="workload" value="2" title="2">
                     <input type="radio" name="workload" value="3" title="3">
@@ -132,7 +130,7 @@
             <label class="subtitle"><strong>上课理解度 Clarity</strong></label>
             <div class="radio-block">
                 <label class="layui-form-label" style="width: 50px; text-align: center;">费解</label>
-                <div>
+                <div class="radio-points">
                     <input type="radio" name="clarity" value="1" title="1">
                     <input type="radio" name="clarity" value="2" title="2">
                     <input type="radio" name="clarity" value="3" title="3">
@@ -145,7 +143,7 @@
             <label class="subtitle"><strong>老师帮助度 Helpfulness</strong></label>
             <div class="radio-block">
                 <label class="layui-form-label" style="width: 50px; text-align: center;">草率</label>
-                <div style="padding-bottom: 40px">
+                <div class="radio-points">
                     <input type="radio" name="helpfulness" value="1" title="1">
                     <input type="radio" name="helpfulness" value="2" title="2">
                     <input type="radio" name="helpfulness" value="3" title="3">
@@ -155,11 +153,11 @@
                 <label class="layui-form-label" style="width: 50px; text-align: center;">用心</label>
             </div>
         </div>
-        <hr>
+        <hr style="margin-top: 40px;">
 
         <label class="subtitle" style="margin-top: 15px;">6. 用<strong>自己的话</strong>点评一下这位老师教的这门课吧！</label>
 
-        <textarea name="review" placeholder="在这门课上你有什么经历？你想改变这门课的什么？你会给后面想上这位老师教的这门课的学生什么建议？" class="layui-textarea" style="width: 60%; margin: 0 auto; height: 250px; margin-top: 30px"></textarea>
+        <textarea name="review" placeholder="在这门课上你有什么经历？你想改变这门课的什么？你会给后面想上这位老师教的这门课的学生什么建议？" class="layui-textarea" style="width: 100%; margin: 0 auto; height: 250px; margin-top: 30px"></textarea>
 
         <button type="button" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="margin-top: 75px; margin-bottom: 50px">提交</button>
 

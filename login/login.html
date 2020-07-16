@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<link rel="stylesheet" href="../layui/css/layui2.css" media="all">
 <link rel="stylesheet" href="login.css" media="all">
 <script type="text/javascript" src=../layui/layui.js></script>
 <script type="text/javascript " src="login.js "></script>
@@ -12,7 +12,7 @@
 <body>
     <form class="layui-form" action="">
         <div class="container" id="Login">
-            <button class="close" title="关闭" onclick="toHomePage()">X</button>
+            <button class="close" title="关闭" onclick="toHomePage()" style="background: none;">✖️</button>
             <div class="layui-form-mid layui-word-aux" style="margin-top: 30px;"></div>
             <div class="layui-form-item">
                 <label class="layui-form-label">学生邮箱</label>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">密 &nbsp;&nbsp;码</label>
+                <label class="layui-form-label">密 &nbsp &nbsp &nbsp 码</label>
                 <div class="layui-input-inline">
                     <input type="password" name="password" lay-verify="pass|required" placeholder="请输入密码" autocomplete="off" class="layui-input">
                 </div>
@@ -34,8 +34,10 @@
                     <button type="submit" id="loginbtn" class="layui-btn" lay-submit lay-filter="form">登陆</button>
                 </div>
             </div>
-            <a href="../forget/forget.html" class="font-set">忘记密码?</a>
-            <a href="../register/register.html" class="font-set">立即注册</a>
+            <div style="width: 100%; display: flex; justify-content: space-evenly;">
+                <a href="../forget/forget.html" class="font-set">忘记密码</a>
+                <a href="../register/register.html" class="font-set">立即注册</a>
+            </div>
         </div>
     </form>
 </body>

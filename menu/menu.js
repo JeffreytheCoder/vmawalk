@@ -110,7 +110,7 @@ function loadTeacherMenu() {
             <td width="200px">
                 <a href="` + queryLink + `" class="profile-link">
                     <div class="icon-round">` + course.courseCode + `</div>
-                    <div class="course-name">
+                    <div class="teacher-name">
                         <font color="black" size="3">` + course.courseName + `</font><br />
                         <font color="#69BDC8" size="2">Full Profile ></font>
                     </div>
@@ -131,7 +131,7 @@ function loadTeacherMenu() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" style="text-align: center; margin-left: 10px;">` + bestReview + `</td>
+            <td width="200px" style="text-align: center;"><span style="margin-left: 10px;">` + bestReview + `</span></td>
             </tr>
             </table>
             <br>`;
@@ -227,7 +227,7 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" style="margin-left: 10px; text-align: center;">` + bestReview + `</td>
+            <td width="200px" style="text-align: center;"><span style="margin-left: 10px;">` + bestReview + `</span></td>
             </tr>
             </table>
             <br>`;

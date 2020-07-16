@@ -3,7 +3,7 @@
 }
 
 .title {
-    color: #69BDC8;
+    color: #69bdc8;
     font-weight: normal;
     font-size: 40px;
     margin-top: 40px;
@@ -16,11 +16,11 @@
 
 .question {
     margin-top: 30px;
-    clear: both
+    clear: both;
 }
 
 .question label {
-    font-family: "Microsoft Yahei";
+    /* font-family: "Microsoft Yahei"; */
     display: block;
     margin-bottom: 15px;
 }
@@ -30,7 +30,7 @@
     height: 28px;
     width: 280px;
     line-height: 28px;
-    border: 1px solid #69BDC8;
+    border: 1px solid #69bdc8;
     border-radius: 3px;
 }
 
@@ -40,23 +40,23 @@
     margin-right: 15px;
     width: 100px;
     height: 30px;
-    background-color: #69BDC8;
+    background-color: #69bdc8;
     border-radius: 12.5px;
     border-width: 0;
     text-align: center;
     cursor: pointer;
     outline: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .add-review:hover {
     background-color: rgb(84, 160, 170);
-    transition: background-color .25s ease-out, color .25s ease-out;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
 .add-review-text {
     color: white;
-    font-family: "Microsoft Yahei";
+    /* font-family: "Microsoft Yahei"; */
 }
 
 .subtitle {
@@ -69,5 +69,11 @@
 .radio-block {
     margin-top: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.radio-points {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }

@@ -12,8 +12,12 @@
     padding: 20px;
     z-index: 130;
     border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 3px 18px rgba(100, 0, 0, .5);
+    background-color: rgba(211, 211, 211, 0.2);
+    box-shadow: /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001;
     font-size: 16px;
 }
 
@@ -26,9 +30,9 @@
 }
 
 .layui-input {
-    border-radius: 5px;
+    /* border-radius: 5px; */
     width: 300px;
-    height: 40px;
+    /* height: 40px; */
     font-size: 15px;
 }
 
@@ -43,10 +47,10 @@
 }
 
 .layui-btn {
-    margin-left: -50px;
-    border-radius: 5px;
+    margin-left: -55px;
+    /* border-radius: 5px; */
     width: 350px;
-    height: 40px;
+    /* height: 40px; */
     font-size: 15px;
 }
 
