@@ -18,6 +18,7 @@ function setLogin(callback) {
             }
         } catch {
             localStorage.removeItem("token")
+            console.log("token 无效")
         }
     } else {
         console.log("未检测到token, 请登录")
