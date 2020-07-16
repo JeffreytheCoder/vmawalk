@@ -12,7 +12,7 @@ function setLogin(callback) {
             if (user.exp > Date.now() / 1000) {
                 console.log("token未过期, 已登录")
                 loginText = "我的点评";
-                loginLink = "../myreview/myreview.html";
+                loginLink = "myreview/myreview.html";
             } else {
                 console.log("token已过期, 请重新登录")
             }
