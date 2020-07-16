@@ -113,3 +113,9 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,42 +1,44 @@
 layui.use["jquery"] {
-    function getUserReviews() {
-        /**
-         * @type {JQueryStatic}
-         */
-        var $ = layui.$;
-
-        $.get("http://vma-walk.azurewebsites.net/api/Reviews/GetUserReviews",
+        function getUserReviews() {
             /**
-             * @param {{
-             * id:number,
-             * userId:number,
-             * courseId:number,
-             * teacherId:number,
-             * year:number,
-             * semester:boolean,
-             * grade:string,
-             * score:string,
-             * text:string
-             * }[]} data - 课程类型
+             * @type {JQueryStatic}
              */
-            function (data) {
-                console.log(data)
-            })
-function loadingChange() {
-    if (document.readyState == "complete") {
-        loadHeader();
-        loadFooter();
-    }
-}
+            var $ = layui.$;
 
-document.onreadystatechange = loadingChange;
+            $.get("http://vma-walk.azurewebsites.net/api/Reviews/GetUserReviews",
+                /**
+                 * @param {{
+                 * id:number,
+                 * userId:number,
+                 * courseId:number,
+                 * teacherId:number,
+                 * year:number,
+                 * semester:boolean,
+                 * grade:string,
+                 * score:string,
+                 * text:string
+                 * }[]} data - 课程类型
+                 */
+                function(data) {
+                    console.log(data)
+                }
+            }
 
-function loadReview() {
-    // add a review block
-    reviewDiv = document.getElementById("review-div");
-    var review = document.createElement("div");
-    review.className = "info-content";
-    review.innerHTML = `<div>
+            function loadingChange() {
+                if (document.readyState == "complete") {
+                    loadHeader();
+                    loadFooter();
+                }
+            }
+
+            document.onreadystatechange = loadingChange;
+
+            function loadReview() {
+                // add a review block
+                reviewDiv = document.getElementById("review-div");
+                var review = document.createElement("div");
+                review.className = "info-content";
+                review.innerHTML = `<div>
         <table width="100%">
             <tr>
                 <td class="review-upper">
@@ -98,13 +100,13 @@ function loadReview() {
             </tr>
         </table>
     </div>`;
-    reviewDiv.appendChild(review);
-}
+                reviewDiv.appendChild(review);
+            }
 
 
-window.onload = function() {
-    reviewNum = 3;
-    for (i = 0; i < reviewNum; i++) {
-        loadReview();
-    }
-}
+            window.onload = function() {
+                reviewNum = 3;
+                for (i = 0; i < reviewNum; i++) {
+                    loadReview();
+                }
+            }
