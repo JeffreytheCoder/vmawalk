@@ -18,7 +18,8 @@ function getUserReviews(callback) {
          * semester:boolean,
          * grade:string,
          * score:string,
-         * text:string
+         * text:string,
+         * likes:number
          * }[]} data - 课程类型
          */
         function(data) {

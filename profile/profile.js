@@ -50,7 +50,8 @@ function callInfo(id, callback) {
              * semester:boolean,
              * grade:string,
              * score:string,
-             * text:string
+             * text:string,
+             * likes:number
              * }[]} result - 课程类型
              */
             function(result) {
@@ -62,6 +63,7 @@ function callInfo(id, callback) {
         )
     })
 }
+
 
 function loadData() {
     count++;
