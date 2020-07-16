@@ -102,10 +102,17 @@
 }
 
 .step-pic {
+    position: relative;
     width: 50%;
     margin-right: 20px;
     border-radius: 10px;
     background-color: white;
     box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
     padding: 10px;
+}
+
+.step-pic:hover img {
+    position: absolute;
+    top: 100px;
+    width: 100px;
 }
