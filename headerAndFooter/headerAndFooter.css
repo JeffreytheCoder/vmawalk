@@ -43,7 +43,7 @@
     align-items: right;
     width: 100px;
     height: 38px;
-    background-color: #69bdc8;
+    background-color: white;
     border: 0px solid white;
     border-radius: 15px;
     text-align: center;
@@ -61,8 +61,12 @@
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
-.add-review-text {
+.add-review:hover .add-review-text {
     color: white;
+}
+
+.add-review-text {
+    color: #69bdc8;
     font-family: inherit;
 }
 

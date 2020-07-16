@@ -3,32 +3,36 @@
 }
 
 .add-review {
-    color: white;
+    /* color: white; */
     margin-top: 10px;
     margin-right: 15px;
     width: 100px;
     height: 30px;
-    background-color: #69BDC8;
+    background-color: white;
     border-radius: 12.5px;
     border-width: 0;
     text-align: center;
     cursor: pointer;
     outline: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    /* text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); */
+}
+
+.add-review:hover .add-review-text {
+    color: white;
 }
 
 .add-review:hover {
-    background-color: rgb(84, 160, 170);
-    transition: background-color .25s ease-out, color .25s ease-out;
+    background-color: #69bdc8;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
 .add-review-text {
-    color: white;
-    font-family: "Microsoft Yahei";
+    color: #69bdc8;
+    /* font-family: "Microsoft Yahei"; */
 }
 
 .index-title {
-    color: #69BDC8;
+    color: #69bdc8;
     font-weight: normal;
     font-size: 100px;
     margin-top: 140px;
@@ -66,14 +70,14 @@
     float: right;
     flex: 1;
     height: 50px;
-    background-color: #69BDC8;
+    background-color: #69bdc8;
     color: white;
     border-style: none;
     outline: none;
     margin-left: 10px;
     border-radius: 15px;
     cursor: pointer;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     font-family: "Microsoft Yahei";
 }
 
@@ -83,7 +87,7 @@
 
 .search button:hover {
     background-color: rgb(84, 160, 170);
-    transition: background-color .25s ease-out, color .25s ease-out;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
 .home-header {
