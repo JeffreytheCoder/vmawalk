@@ -41,7 +41,7 @@
 }
 
 .info-content {
-    padding-top: 10px;
+    padding-top: 20px;
     z-index: -1;
     background-color: rgba(211, 211, 211, 0.3);
     width: 100%;
@@ -63,10 +63,49 @@
 }
 
 .step-box {
-    border: 1px solid red;
+    position: relative;
     width: 100%;
-    margin: 20px;
+    /* border: 1px solid red; */
+    margin: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.step-title {
+    color: white;
+    margin-top: 10px;
+    background-color: #69bdc8;
+    border-radius: 10px;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    padding: 5px 10px;
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+
+.step-box:not(:last-child)::after {
+    position: absolute;
+    bottom: -20px;
+    margin-bottom: 10px;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #69bdc836;
+}
+
+.step-content {
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.step-pic {
+    width: 50%;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    padding: 10px;
 }
