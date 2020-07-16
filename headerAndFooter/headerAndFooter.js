@@ -19,7 +19,7 @@ function loadHeader() {
             } else {
                 console.log("token已过期, 请重新登录")
             }
-        } catch {
+        } catch (ess) {
             localStorage.removeItem("token")
         }
     } else {
