@@ -7,21 +7,22 @@ function setLogin(callback) {
     var token = localStorage.getItem("token")
     if (token) {
         console.log("检测到token")
-        var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
-
-        if (user.exp > Date.now() / 1000) {
-            console.log("token未过期, 已登录")
-            loginText = "我的点评";
-            loginLink = "myreview/myreview.html";
-            callback();
-        } else {
-            console.log("token已过期, 请重新登录")
-            callback();
+        try {
+            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+            if (user.exp > Date.now() / 1000) {
+                console.log("token未过期, 已登录")
+                loginText = "我的点评";
+                loginLink = "../myreview/myreview.html";
+            } else {
+                console.log("token已过期, 请重新登录")
+            }
+        } catch {
+            localStorage.removeItem("token")
         }
     } else {
         console.log("未检测到token, 请登录")
-        callback();
     }
+    callback()
 }
 
 window.onload = function() {
