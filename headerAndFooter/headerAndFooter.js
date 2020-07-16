@@ -50,7 +50,7 @@ function loadHeader() {
     inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
     inset 0px 0px 0px 0px #0001;">搜索</button>
     </form>
-    <div style="display: flex;">
+    <div style="display: flex; overflow: hidden;">
         <div style="padding-right: 25px">
             <a href="../review/review.html">
                 <button class="add-review">
@@ -128,13 +128,10 @@ function loadFooter() {
         <div class="footer-navigator">
             <ul>
                 <li>
-                    <a href="../about/about.html">About</a>
+                    <a href="../about/about.html">About Us</a>
                 </li>
                 <li>
-                    <a href="../team/team.html">Team</a>
-                </li>
-                <li>
-                    <a href="../about/about.html">Policy</a>
+                    <a href="../team/team.html">Our Team</a>
                 </li>
             </ul>
         </div>
