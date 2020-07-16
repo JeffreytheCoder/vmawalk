@@ -2242,6 +2242,7 @@ hr {
     display: block;
     width: 100%;
     padding-left: 10px;
+    border: 0;
 }
 
 .layui-input:hover,

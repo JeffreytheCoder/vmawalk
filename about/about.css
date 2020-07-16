@@ -27,6 +27,7 @@
 }
 
 .info-title {
+    z-index: 1;
     color: white;
     font-size: 40px;
     background-color: #69bdc8;
@@ -42,7 +43,6 @@
 
 .info-content {
     padding-top: 20px;
-    z-index: -1;
     background-color: rgba(211, 211, 211, 0.3);
     width: 100%;
     display: flex;
@@ -111,8 +111,34 @@
     padding: 10px;
 }
 
-.step-pic:hover img {
+.step-pic img {
+    position: relative;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.hint {
+    z-index: 1;
     position: absolute;
-    top: 100px;
-    width: 100px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: transparent;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.step-pic:hover .hint {
+    background-color: #69bdc8;
+    color: white;
+}
+
+.step-pic:active img {
+    position: relative;
+    right: 100%;
+    width: 200%;
 }
