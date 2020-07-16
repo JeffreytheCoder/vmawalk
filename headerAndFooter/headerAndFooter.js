@@ -118,7 +118,7 @@ function loadHeader() {
 function loadFooter() {
     //Load footer elements
     var contentHeight = document.body.scrollHeight; //网页正文全文高度
-    var winHeight = window.innerHeight; //可视窗口高度，不包括浏览器顶部工具栏
+    var winHeight = window.innerHeight + 1; //可视窗口高度，不包括浏览器顶部工具栏
     var footerDiv = document.getElementById("footer-div");
     var footer = document.createElement("div");
 
