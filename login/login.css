@@ -11,7 +11,7 @@
     margin: auto;
     padding: 20px;
     z-index: 130;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: rgba(211, 211, 211, 0.2);
     box-shadow: /* -7px -7px 20px 0px #fff9, */
     /* -4px -4px 5px 0px #fff9, */
@@ -35,7 +35,7 @@
 }
 
 .layui-input {
-    /* border-radius: 5px; */
+    border-radius: 10px;
     width: 300px;
     /* height: 40px; */
     font-size: 15px;
@@ -53,7 +53,7 @@
 
 .layui-btn {
     margin-left: -55px;
-    /* border-radius: 5px; */
+    border-radius: 10px;
     width: 350px;
     /* height: 40px; */
     font-size: 15px;
