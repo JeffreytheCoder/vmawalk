@@ -2,7 +2,6 @@ function toHomePage() {
     window.location.href = "../index.html"
 }
 
-
 layui.use(['form', 'jquery', 'layer'], function() {
 
     var form = layui.form,
