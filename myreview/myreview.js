@@ -50,15 +50,6 @@ function getUserReviews(callback) {
     })
 }
 
-function loadingChange() {
-    if (document.readyState == "complete") {
-        loadHeader();
-        loadFooter();
-    }
-}
-
-document.onreadystatechange = loadingChange;
-
 function loadReview() {
     for (i = 0; i < reviewList.length; i++) {
         // get teacher name
@@ -145,7 +136,9 @@ function loadReview() {
 
 
 window.onload = function() {
+    loadHeader();
     getUserReviews(function() {
         loadReview();
+        loadFooter();
     })
 }
