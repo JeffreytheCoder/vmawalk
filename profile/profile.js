@@ -18,7 +18,7 @@ function Like(reviewId) {
         }
     }).then(res => {
         if (res.status === 400) {
-            layui.use("layer", function () {
+            layui.use("layer", function() {
                 layui.layer.alert("You can only give one Like for each review");
             })
         }
@@ -27,7 +27,7 @@ function Like(reviewId) {
 
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function () {
+    layui.use(["jquery", "layer"], function() {
 
         /**
          * @type {JQueryStatic}
@@ -43,7 +43,7 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function (info) {
+            function(info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -70,7 +70,7 @@ function callInfo(id, callback) {
              * likes:number
              * }[]} result - 课程类型
              */
-            function (result) {
+            function(result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -86,7 +86,7 @@ function callInfo(id, callback) {
             /**
              * @param {number[]} data
              */
-            success: function (data) {
+            success: function(data) {
                 console.log(data);
                 callback();
             },
@@ -111,6 +111,9 @@ function loadData() {
         }
         //prepare teacher image
         var imageURL = Imagelink[coursewithteacher.teacherId];
+        if (imageURL == undefined) {
+            imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
+        }
 
         //add namewithpic
         namewithpic = document.getElementById("namewithpic");
@@ -295,7 +298,7 @@ function loadData() {
     <td colspan="2">
         <div class="feedback" style="margin-top:15px; font-size: 15px;">
             <div class="control">
-                <a href="#">🙂Like ` + reviewList[i].likes + `</a>
+                <a href="javascript:Like(` + reviewList[i].id + `)">🙂Like ` + reviewList[i].likes + `</a>
             </div>
             <div class="control" style="margin-left:auto; margin-right: 10px">
                 <a href="">🖐Report</a>
@@ -313,7 +316,7 @@ function loadData() {
     }
 }
 
-window.onload = function () {
+window.onload = function() {
 
     //init
     var query = getUrlQueryString(window.location.href);
