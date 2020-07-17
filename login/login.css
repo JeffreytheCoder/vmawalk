@@ -1,8 +1,8 @@
 .container {
     width: 420px;
     height: 320px;
-    min-height: 320px;
-    max-height: 320px;
+    /* min-height: 320px;
+    max-height: 320px; */
     position: absolute;
     top: 0;
     left: 0;
@@ -10,23 +10,36 @@
     right: 0;
     margin: auto;
     padding: 20px;
-    z-index: 130;
+    z-index: 1;
     border-radius: 10px;
-    background-color: rgba(211, 211, 211, 0.2);
-    box-shadow: /* -7px -7px 20px 0px #fff9, */
-    /* -4px -4px 5px 0px #fff9, */
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001;
+    background-color: white;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     font-size: 16px;
+}
+
+.container::after {
+    position: absolute;
+    z-index: -1;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    width: auto;
+    height: auto;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    background-color: 0;
 }
 
 .close {
     background-color: white;
     border: none;
     font-size: 18px;
-    margin-left: 410px;
-    margin-top: -10px;
+    float: right;
+    margin-bottom: 50px;
     cursor: pointer;
 }
 

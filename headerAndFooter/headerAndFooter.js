@@ -50,7 +50,7 @@ function loadHeader() {
     inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
     inset 0px 0px 0px 0px #0001;">搜索</button>
     </form>
-    <div style="display: flex; overflow: hidden;">
+    <div style="display: flex; overflow: hidden;height: 100%;align-items: center;">
         <div style="padding-right: 25px">
             <a href="../review/review.html">
                 <button class="add-review">

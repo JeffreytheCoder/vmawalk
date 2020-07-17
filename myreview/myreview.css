@@ -50,6 +50,7 @@
 }
 
 .rating-cell {
+    border-radius: 10px;
     height: 100px;
     width: 120px;
     text-align: center;
