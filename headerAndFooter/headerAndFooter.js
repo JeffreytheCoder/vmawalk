@@ -5,7 +5,7 @@ document.write(`
 
 function loadHeader() {
     // Judge if login or myreview
-    var loginText = "登 录";
+    var loginText = "Login";
     var loginLink = "../login/login.html";
     var token = localStorage.getItem("token")
     if (token) {
@@ -40,21 +40,21 @@ function loadHeader() {
         <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
             <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
                 lay-filter="search">
-                <option value="">请选择课程和老师
+                <option value="">Find a course or a teacher
                 </option>
             </select>
         </div>
-        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: 70px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: auto; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
     /* -4px -4px 5px 0px #fff9, */
     7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
     inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001;">搜索</button>
+    inset 0px 0px 0px 0px #0001;">Search</button>
     </form>
     <div style="display: flex; overflow: hidden;height: 100%;align-items: center;">
         <div style="padding-right: 25px">
             <a href="../review/review.html">
                 <button class="add-review">
-                    <text class="add-review-text">✚ 加点评</text>
+                    <text class="add-review-text">✚ Review</text>
                 </button>
             </a>
         </div>

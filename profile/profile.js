@@ -68,6 +68,9 @@ function callInfo(id, callback) {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
             },
+            /**
+             * @param {number[]} data
+             */
             success: function (data) {
                 console.log(data)
             },
@@ -80,7 +83,7 @@ function callInfo(id, callback) {
 function loadData() {
     count++;
     console.log(count);
-    if (count == 2) {
+    if (count == 3) {
         //prepare scoreList and widthList of rating cells
         var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
         var widthList = ["0%", "0%", "0%", "0%", "0%"];
@@ -219,7 +222,7 @@ function loadData() {
         } else {
             for (i = 0; i < reviewList.length; i++) {
                 //convert semester
-                var semester = " Full year";
+                var semester = " Full Year";
                 if (reviewList[i].semester) {
                     semester = "  Semester 1";
                 }
