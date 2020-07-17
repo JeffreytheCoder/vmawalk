@@ -20,8 +20,6 @@ function getUserReviews(callback) {
          */
         var $ = layui.$;
 
-
-
         $.get({
             url: "https://vma-walk.azurewebsites.net/api/Review/GetUserReviews",
             /**

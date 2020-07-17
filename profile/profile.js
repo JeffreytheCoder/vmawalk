@@ -12,19 +12,34 @@ var reviewList;
 var likeList;
 
 function Like(reviewId) {
-    fetch("https://vma-walk.azurewebsites.net/api/Review/Like", {
-        headers: {
-            Authorization: "Bearer " + localStorage.getItem("token")
-        }
-    }).then(res => {
-        if (res.status === 400) {
+    var token = localStorage.getItem("token")
+    if (!token) {
+        layui.use("layer", function() {
+            layer.msg("您暂未登录，请先登录!");
+            setTimeout(() => {}, 1000);
+        });
+    } else {
+        var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+        if (user.exp < Date.now() / 1000) {
             layui.use("layer", function() {
-                layui.layer.alert("You can only give one Like for each review");
+                layer.msg("您暂未登录，请先登录!");
+                setTimeout(() => {}, 1000);
+            });
+        } else {
+            fetch("https://vma-walk.azurewebsites.net/api/Review/Like", {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token")
+                }
+            }).then(res => {
+                if (res.status === 400) {
+                    layui.use("layer", function() {
+                        layui.layer.alert("You can only give one Like for each review");
+                    })
+                }
             })
         }
-    })
+    }
 }
-
 
 function callInfo(id, callback) {
     layui.use(["jquery", "layer"], function() {
@@ -78,21 +93,27 @@ function callInfo(id, callback) {
             }
         )
 
-        if (localStorage.getItem("token")) {
-            $.get({
-                url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
-                headers: {
-                    Authorization: "Bearer " + localStorage.getItem("token")
-                },
-                /**
-                 * @param {number[]} data
-                 */
-                success: function(data) {
-                    console.log(data);
-                    callback();
-                },
-                dataType: "json"
-            })
+        var token = localStorage.getItem("token")
+        if (token) {
+            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+            if (user.exp > Date.now() / 1000) {
+                $.get({
+                    url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("token")
+                    },
+                    /**
+                     * @param {number[]} data
+                     */
+                    success: function(data) {
+                        console.log(data);
+                        callback();
+                    },
+                    dataType: "json"
+                })
+            } else {
+                callback();
+            }
         } else {
             callback();
         }
