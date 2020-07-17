@@ -3,14 +3,14 @@ var reviewObj;
 
 
 function getUserReviews(callback) {
-    layui.use(["jquery"], function () {
+    layui.use(["jquery"], function() {
         /**
          * @type {JQueryStatic}
          */
         var $ = layui.$;
 
         $.get({
-            url: "http://vma-walk.azurewebsites.net/api/Review/GetUserReviews",
+            url: "https://vma-walk.azurewebsites.net/api/Review/GetUserReviews",
             /**
              * @param {{
              * id:number,
@@ -25,7 +25,7 @@ function getUserReviews(callback) {
              * likes:number
              * }[]} data - 课程类型
              */
-            success: function (data) {
+            success: function(data) {
                 reviewObj = data;
                 console.log(data)
             },
@@ -120,8 +120,8 @@ function loadReview() {
 }
 
 
-window.onload = function () {
-    getUserReviews(function () {
+window.onload = function() {
+    getUserReviews(function() {
         console.log(reviewObj);
     })
     reviewNum = 3;
