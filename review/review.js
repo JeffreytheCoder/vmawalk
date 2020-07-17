@@ -9,7 +9,6 @@ layui.use("layer", function() {
 });
 
 window.onload = function() {
-
     layui.use(['layer', 'jquery', 'form'], function() {
 
         var $ = layui.jquery;
@@ -125,3 +124,17 @@ layui.use(['form', 'jquery', 'layer'], function() {
         return false;
     });
 });
+
+function toPreviousPage() {
+    var a = document.referrer;
+    var b = a.split("/");
+    var c = b.slice(b.length - 1, b.length).toString(String).split(".");
+    var previousPage = c.slice(0, 1);
+    if (previousPage[0] === "login") {
+        console.log("对了");
+        history.go(-3);
+    } else {
+        console.log(previousPage[0]);
+        self.location = document.referrer;
+    }
+}
