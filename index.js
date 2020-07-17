@@ -1,5 +1,5 @@
 // Global Login Button
-var loginText = "登 录";
+var loginText = "Login";
 var loginLink = "login/login.html";
 
 function setLogin(callback) {
@@ -11,12 +11,12 @@ function setLogin(callback) {
             var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
             if (user.exp > Date.now() / 1000) {
                 console.log("token未过期, 已登录")
-                loginText = "我的点评";
+                loginText = "My Review";
                 loginLink = "myreview/myreview.html";
             } else {
                 console.log("token已过期, 请重新登录")
             }
-        } catch (err){
+        } catch (err) {
             localStorage.removeItem("token")
             console.log("token 无效")
             console.log(err)
@@ -27,9 +27,9 @@ function setLogin(callback) {
     callback()
 }
 
-window.onload = function () {
+window.onload = function() {
     // Load options of select
-    layui.use(['layer', 'jquery', 'form'], function () {
+    layui.use(['layer', 'jquery', 'form'], function() {
 
         var $ = layui.jquery;
 
@@ -54,7 +54,7 @@ window.onload = function () {
     })
 
     //Load login button
-    setLogin(function () {
+    setLogin(function() {
         loginDiv = document.getElementById("login-div");
         var login = document.createElement("a");
         login.setAttribute('href', loginLink);
@@ -67,12 +67,12 @@ window.onload = function () {
 
 
 // Set submit button click
-layui.use(['form', 'jquery'], function () {
+layui.use(['form', 'jquery'], function() {
 
     var form = layui.form;
     var $ = layui.$;
 
-    $(document).keydown(function (e) {
+    $(document).keydown(function(e) {
         if (e.keyCode === 13) {
 
             $("#submit").trigger("click");
@@ -80,7 +80,7 @@ layui.use(['form', 'jquery'], function () {
         }
     });
 
-    form.on('submit(submit)', function (data) {
+    form.on('submit(submit)', function(data) {
         query = data.field.teacher;
         link = "menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
         window.location.href = link;

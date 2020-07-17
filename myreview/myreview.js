@@ -143,7 +143,9 @@ function loadReview() {
 
 
 window.onload = function() {
+    loadHeader();
     getUserReviews(function() {
         loadReview();
     })
+    loadFooter();
 }
