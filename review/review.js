@@ -101,7 +101,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
             success: function(data) {
                 layer.msg("添加成功");
                 setTimeout(() => {
-                    window.location.href = "../index.html";
+                    toPreviousPage();
                 }, 1000);
             },
             error: function(req) {
