@@ -219,7 +219,7 @@ function loadData() {
         } else {
             for (i = 0; i < reviewList.length; i++) {
                 //convert semester
-                var semester = " Full year";
+                var semester = " Full Year";
                 if (reviewList[i].semester) {
                     semester = "  Semester 1";
                 }
