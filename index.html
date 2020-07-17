@@ -10,8 +10,8 @@
             text-decoration: none;
         }
     </style>
-    <link rel="stylesheet" href="headerAndFooter/headerAndFooter.css" />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="headerAndFooter/headerAndFooter.css" />
     <link rel="stylesheet" href="layui/css/layui2.css" media="all">
     <script src="files/Information.js"></script>
     <script src="lib/pinyin.js"></script>
@@ -43,24 +43,26 @@
             </a>
         </div>
     </div>
-    <div style="width: fit-content; margin: 0 auto;">
-        <a href="https://jeffreythecoder.github.io/vmawalk/">
-            <h1 align="center" class="index-title"><strong>vma</strong>walk</h1>
-        </a>
-    </div>
-
-    <p align="center" class="subtitle">
-        Get the vma truth
-    </p>
-    <form class="layui-form" align="center" action="submit" style="padding-top: 30px; width: 60%; margin: 0 auto">
-        <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
-            <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="search">
-                <option value="">Find a course or a teacher</option>
-            </select>
+    <main class="content">
+        <div style="width: fit-content; margin: 0 auto;">
+            <a href="https://jeffreythecoder.github.io/vmawalk/">
+                <h1 align="center" class="index-title"><strong>vma</strong>walk</h1>
+            </a>
         </div>
-        <button id="submit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: auto; text-align: center;">Search</button>
-    </form>
-    <footer class="footer" style="position: fixed; bottom: 0; background: none;">
+
+        <p align="center" class="subtitle">
+            Get the vma truth
+        </p>
+        <form class="layui-form" align="center" action="submit" style="padding-top: 30px; width: 60%; margin: 0 auto">
+            <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
+                <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="search">
+                    <option value="">Find a course or a teacher</option>
+                </select>
+            </div>
+            <button id="submit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: auto; text-align: center;">Search</button>
+        </form>
+    </main>
+    <footer class="footer fixed-bottom" style="background: none;">
         <br>
         <!-- <div class="footer-navigator">
             <ul>
