@@ -10,7 +10,7 @@
 <body>
     <form class="layui-form" action="" method="post">
         <div class="container">
-            <a class="close" href="javascript:" onclick="self.location = document.referrer;" style="text-decoration: none;">✖️</a>
+            <a class="close" href="javascript:" onclick="history.go(-1)" style="text-decoration: none;">✖️</a>
             <table class="input-table">
                 <tr>
                     <td>
@@ -53,7 +53,7 @@
                     </td>
                 </tr>
             </table>
-            <a href="../login/login.html" class="font-set">Login</a>
+            <a href="javascript:" onclick="history.go(-1)" class="font-set">Login</a>
         </div>
     </form>
     <script type="text/javascript" src="../layui/layui.js"></script>
