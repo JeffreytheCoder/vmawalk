@@ -23,7 +23,6 @@
 
 .info-content {
     /* border: 1px solid red; */
-    z-index: -1;
     background-color: rgba(211, 211, 211, 0.2);
     width: 100%;
     border-radius: 10px;
@@ -45,7 +44,7 @@
 .rating-cell:nth-child(3),
 .rating-cell:nth-child(5) {
     background-color: rgba(211, 211, 211, 0.5);
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    box-shadow: 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     /* border-radius: 10px; */
 }
 
