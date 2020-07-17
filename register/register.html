@@ -10,40 +10,50 @@
 <body>
     <form class="layui-form" action="" method="post">
         <div class="container">
-            <a class="close" title="返回主页" href="../index.html" style="text-decoration: none;">✖️</a>
-            <div class="layui-form-item">
-                <label class="layui-form-label">用户名</label>
-                <div class="layui-input-block">
-                    <input type="text" name="userName" required lay-verify="userName" placeholder="请输入用户名" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">学校邮箱</label>
-                <div class="layui-input-block" style="display: flex; align-items: center;">
-                    <input type="text" name="email" required lay-verify="alphabet" placeholder="请输入你的学校邮箱" autocomplete="off" class="layui-input" style="width: 170px;">
-                    <label class="email">@.stu.vma.edu.cn</label>
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">密 &nbsp;&nbsp;码</label>
-                <div class="layui-input-inline">
-                    <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">确认密码</label>
-                <div class="layui-input-inline">
-                    <input type="password" name="confirm" required lay-verify="required|confirmPass" placeholder="请输入新的密码" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-mid layui-word-aux">
-            </div>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button type="submit" id="register" class="layui-btn" lay-submit lay-filter="register">注册</button>
-                </div>
-            </div>
-            </a> <a href="../login/login.html" class="font-set" style="float: right; margin-right: 35px">返回登录</a>
+            <a class="close" title="Home Page" href="../index.html" style="text-decoration: none;">✖️</a>
+            <table class="input-table">
+                <tr>
+                    <td>
+                        <label class="layui-form-label">User Name</label>
+                    </td>
+                    <td colspan="2 ">
+                        <input type="text" name="userName" required lay-verify="userName" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="layui-form-label">Email</label>
+                    </td>
+                    <td>
+                        <input type="text" name="email" required lay-verify="alphabet" placeholder="请输入你的学校邮箱" autocomplete="off" class="layui-input">
+                    </td>
+                    <td>
+                        <label class="email">&nbsp@stu.vma.edu.cn</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="layui-form-label">Password</label>
+                    </td>
+                    <td colspan="2 ">
+                        <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="layui-form-label">Comfirm Password</label>
+                    </td>
+                    <td colspan="2 ">
+                        <input type="password" name="confirm" required lay-verify="required|confirmPass" placeholder="请输入新的密码" autocomplete="off" class="layui-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button type="submit" id="register" class="layui-btn" lay-submit lay-filter="register">Register</button>
+                    </td>
+                </tr>
+            </table>
+            <a href="../login/login.html" class="font-set">Login</a>
         </div>
     </form>
     <script type="text/javascript" src="../layui/layui.js"></script>

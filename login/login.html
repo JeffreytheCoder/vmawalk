@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="../layui/css/layui2.css" media="all">
-<link rel="stylesheet" href="login.css" media="all">
-<script type="text/javascript" src=../layui/layui.js></script>
-<script type="text/javascript " src="login.js "></script>
 
 <head>
+    <link rel="stylesheet" href="../layui/css/layui2.css" media="all">
+    <link rel="stylesheet" href="login.css" media="all">
+    <script type="text/javascript" src=../layui/layui.js></script>
+    <script type="text/javascript " src="login.js "></script>
     <meta charset="utf-8">
     <title>Login | Vmawalk</title>
 </head>
@@ -12,30 +12,36 @@
 <body>
     <form class="layui-form" action="">
         <div class="container" id="Login">
-            <a class="close" title="返回主页" href="../index.html" style="text-decoration: none;">✖️</a>
-            <div class="layui-form-item">
-                <label class="layui-form-label">学生邮箱</label>
-                <div class="layui-input-block" style="display: flex; align-items: center;">
-                    <input type="text" name="Email" lay-verify="Email|required" placeholder="请输入学生邮箱" autocomplete="off" class="layui-input" style="width: 50%; float: left">
-                    <label class="email">@.stu.vma.edu.cn</label>
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">密 &nbsp &nbsp &nbsp 码</label>
-                <div class="layui-input-inline">
-                    <input type="password" name="password" lay-verify="pass|required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-mid layui-word-aux">
-            </div>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button type="submit" id="loginbtn" class="layui-btn" lay-submit lay-filter="form">登陆</button>
-                </div>
-            </div>
+            <a class="close" title="Home Page" href="../index.html" style="text-decoration: none;">✖️</a>
+            <table class="input-table">
+                <tr>
+                    <td>
+                        <label class="layui-form-label">Email</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Email" lay-verify="Email|required" placeholder="请输入学生邮箱" autocomplete="off" class="layui-input">
+                    </td>
+                    <td>
+                        <label class="email">&nbsp@stu.vma.edu.cn</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="layui-form-label">Password</label>
+                    </td>
+                    <td colspan="2 ">
+                        <input type="password" name="password" lay-verify="pass|required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button type="submit" id="loginbtn" class="layui-btn" lay-submit lay-filter="form">Login</button>
+                    </td>
+                </tr>
+            </table>
             <div style="width: 100%; display: flex; justify-content: space-evenly;">
-                <a href="../forget/forget.html" class="font-set">忘记密码</a>
-                <a href="../register/register.html" class="font-set">立即注册</a>
+                <a href="../forget/forget.html" class="font-set">Forget Passward</a>
+                <a href="../register/register.html" class="font-set">Register Now</a>
             </div>
         </div>
     </form>
