@@ -29,7 +29,8 @@ layui.use(['form', 'jquery', 'layer'], function() {
                     if (document.referrer.endsWith("review.html"))
                         location.href = "../review/review.html";
                     else {
-                        location.href = "../index.html"
+                        self.location = document.referrer;
+                        // location.href = "javascript:history.back(-1)"
                     }
                 }, 1000);
             },
