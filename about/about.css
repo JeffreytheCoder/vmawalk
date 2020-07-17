@@ -112,6 +112,7 @@
 }
 
 .step-pic img {
+    border-radius: 5px;
     position: relative;
     right: 0;
     width: 100%;
@@ -120,6 +121,7 @@
 }
 
 .hint {
+    box-shadow: none;
     z-index: 1;
     position: absolute;
     border-radius: 10px;
@@ -133,12 +135,18 @@
 }
 
 .step-pic:hover .hint {
+    box-shadow: 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     background-color: #69bdc8;
     color: white;
 }
 
+.step-pic:active .hint {
+    box-shadow: none;
+}
+
 .step-pic:active img {
     position: relative;
-    right: 100%;
-    width: 200%;
+    right: 103%;
+    width: 203%;
+    box-shadow: 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
 }
