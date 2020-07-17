@@ -25,30 +25,30 @@
     </a>
 
     <h1 align="center" class="title">
-        点评课程与老师
+        Rate a Teacher & His or Her Course
     </h1>
 
     <form class="layui-form" align="center" action="submit" style="margin-top: 30px; width: 80%; margin: 0 auto;">
 
         <div class="question">
-            <label>1. 你要点评哪个老师？</label>
+            <label>1. Who is your teacher？</label>
             <select name="teacher" id="teacher" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="teacher">
-                <option value="">请输入/选择老师</option>
+                <option value="">Please select the teacher</option>
             </select>
         </div>
 
         <div class="question">
-            <label>2. 你要点评这位老师教的哪门课程？</label>
+            <label>2. Which course did your teacher teach?</label>
             <select lay-verify="required" lay-search name="course" id="course">
-                <option value="">请选择课程</option>
+                <option value="">Please select the course</option>
             </select>
         </div>
 
         <div id="semester" class="question">
-            <label>3. 你在哪个学年上的这门课？</label>
+            <label>3. In which academic year did you take this course?</label>
 
             <select lay-verify="required" lay-search name="year">
-                <option value="">选择学年</option>
+                <option value="">Please select the academic year</option>
                 <option value="2019">2019-2020</option>
                 <option value="2018">2018-2019</option>
                 <option value="2017">2017-2018</option>
@@ -56,19 +56,19 @@
         </div>
 
         <div id="semester" name="semester" lay-search class="question">
-            <label>3. 你在哪个学期上的这门课？</label>
+            <label>3. On which semester did you take this course?</label>
             <select lay-verify="required" lay-search name="semester">
-                <option value="">选择学期</option>
-                <option value="true">上学期</option>
-                <option value="false">下学期</option>
-                <option value="null">全年课</option>
+                <option value="">Please select the semester</option>
+                <option value="true">First semester</option>
+                <option value="false">Second semester</option>
+                <option value="null">Full year</option>
             </select>
         </div>
 
         <div id="grade" name="grade" class="question">
-            <label>4. 你在这门课的成绩是多少?</label>
+            <label>4. What grade you got in this course?</label>
             <select lay-verify="required" lay-search name="grade">
-                <option value="">选择成绩</option>
+                <option value="">Please select the grade</option>
                 <option value="A+">A+</option>
                 <option value="A">A</option>
                 <option value="A-">A-</option>
@@ -86,12 +86,12 @@
             </select>
         </div>
         <hr style="margin-top: 40px">
-        <label class="subtitle" style="margin-top: 15px;">5. 给出你对该老师教这门课的评分</label>
+        <label class="subtitle" style="margin-top: 15px;">5. Rate your course and your teacher</label>
         <label class="subtitle"><strong>总体满意度 Overall</strong></label>
 
         <div name="scores">
             <div class="radio-block">
-                <label class="layui-form-label" style="width: 50px; text-align: center;">不满意</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">不满意 Dissatisfied</label>
                 <div class="radio-points">
                     <input type="radio" name="overall" value="1" title="1">
                     <input type="radio" name="overall" value="2" title="2">
@@ -99,12 +99,12 @@
                     <input type="radio" name="overall" value="4" title="4">
                     <input type="radio" name="overall" value="5" title="5">
                 </div>
-                <label class="layui-form-label" style="width: 50px; text-align: center;">满意</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">满意 Satisfied</label>
             </div>
 
             <label class="subtitle"><strong>课程难易度 Easiness</strong></label>
             <div class="radio-block">
-                <label class="layui-form-label" style="width: 50px; text-align: center;">困难</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">困难 Hard</label>
                 <div class="radio-points">
                     <input type="radio" name="easiness" value="1" title="1">
                     <input type="radio" name="easiness" value="2" title="2">
@@ -112,12 +112,12 @@
                     <input type="radio" name="easiness" value="4" title="4">
                     <input type="radio" name="easiness" value="5" title="5">
                 </div>
-                <label class="layui-form-label" style="width: 50px; text-align: center;">简单</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">简单 Easy</label>
             </div>
 
             <label class="subtitle"><strong>功课轻重度 Workload</strong></label>
             <div class="radio-block">
-                <label class="layui-form-label" style="width: 50px; text-align: center;">繁重</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">繁重 Heavy</label>
                 <div class="radio-points">
                     <input type="radio" name="workload" value="1" title="1">
                     <input type="radio" name="workload" value="2" title="2">
@@ -125,12 +125,12 @@
                     <input type="radio" name="workload" value="4" title="4">
                     <input type="radio" name="workload" value="5" title="5">
                 </div>
-                <label class="layui-form-label" style="width: 50px; text-align: center;">轻松</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">轻松 Light</label>
             </div>
 
             <label class="subtitle"><strong>上课理解度 Clarity</strong></label>
             <div class="radio-block">
-                <label class="layui-form-label" style="width: 50px; text-align: center;">费解</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">费解 Confusing</label>
                 <div class="radio-points">
                     <input type="radio" name="clarity" value="1" title="1">
                     <input type="radio" name="clarity" value="2" title="2">
@@ -138,12 +138,12 @@
                     <input type="radio" name="clarity" value="4" title="4">
                     <input type="radio" name="clarity" value="5" title="5">
                 </div>
-                <label class="layui-form-label" style="width: 50px; text-align: center;">清晰</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">清晰 Clear</label>
             </div>
 
             <label class="subtitle"><strong>老师帮助度 Helpfulness</strong></label>
             <div class="radio-block">
-                <label class="layui-form-label" style="width: 50px; text-align: center;">草率</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">草率 Helpless</label>
                 <div class="radio-points">
                     <input type="radio" name="helpfulness" value="1" title="1">
                     <input type="radio" name="helpfulness" value="2" title="2">
@@ -151,14 +151,15 @@
                     <input type="radio" name="helpfulness" value="4" title="4">
                     <input type="radio" name="helpfulness" value="5" title="5">
                 </div>
-                <label class="layui-form-label" style="width: 50px; text-align: center;">用心</label>
+                <label class="layui-form-label" style="width: 50px; text-align: center;">用心 Helpful</label>
             </div>
         </div>
         <hr style="margin-top: 40px;">
 
-        <label class="subtitle" style="margin-top: 15px;">6. 用<strong>自己的话</strong>点评一下这位老师教的这门课吧！</label>
+        <label class="subtitle" style="margin-top: 15px;">6. Use<strong>your own words</strong>describe your experience
+            in this course taught by this teacher</label>
 
-        <textarea name="review" placeholder="在这门课上你有什么经历？你想改变这门课的什么？你会给后面想上这位老师教的这门课的学生什么建议？" class="layui-textarea" style="width: 100%; margin: 0 auto; height: 250px; margin-top: 30px; padding: 10px;"></textarea>
+        <textarea name="review" placeholder="What is your experience in this course? What do you want to change in this course? What advice would you give to students who want to take this course taught by this teacher later?" class="layui-textarea" style="width: 100%; margin: 0 auto; height: 250px; margin-top: 30px; padding: 10px;"></textarea>
 
         <button type="button" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="margin-top: 75px; margin-bottom: 50px">提交</button>
 
