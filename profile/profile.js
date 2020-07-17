@@ -111,6 +111,9 @@ function loadData() {
         }
         //prepare teacher image
         var imageURL = Imagelink[coursewithteacher.teacherId];
+        if (imageURL == undefined) {
+            imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
+        }
 
         //add namewithpic
         namewithpic = document.getElementById("namewithpic");

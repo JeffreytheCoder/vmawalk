@@ -60,6 +60,9 @@ function loadTeacherMenu() {
 
     var image = document.createElement("div");
     var imageURL = Imagelink[teacherObj.id];
+    if (imageURL == undefined) {
+        imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
+    }
     image.style.cssText = 'background-image: url(' + imageURL + ');';
     console.log(imageURL);
     image.className = "image";
