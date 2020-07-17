@@ -9,6 +9,7 @@ var count = 0;
 var coursewithteacher;
 var teacherName;
 var reviewList;
+var likeList;
 
 function callInfo(id, callback) {
     layui.use(["jquery", "layer"], function() {
@@ -50,7 +51,8 @@ function callInfo(id, callback) {
              * semester:boolean,
              * grade:string,
              * score:string,
-             * text:string
+             * text:string,
+             * likes:number
              * }[]} result - 课程类型
              */
             function(result) {
@@ -60,13 +62,25 @@ function callInfo(id, callback) {
                 callback();
             }
         )
+
+        $.get("https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
+            /**
+             * @param {number[]} req
+             */
+            function(req) {
+                likeList = req;
+                console.log(req);
+                callback();
+            }
+        )
     })
 }
+
 
 function loadData() {
     count++;
     console.log(count);
-    if (count == 2) {
+    if (count == 3) {
         //prepare scoreList and widthList of rating cells
         var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
         var widthList = ["0%", "0%", "0%", "0%", "0%"];
@@ -186,6 +200,7 @@ function loadData() {
     </table>`
         ratings.appendChild(ratingBox);
 
+
         //add reviews
         reviews = document.getElementById("reviews");
         if (reviewList.length == 0) {
@@ -204,7 +219,7 @@ function loadData() {
         } else {
             for (i = 0; i < reviewList.length; i++) {
                 //convert semester
-                var semester = " Full year";
+                var semester = " Full Year";
                 if (reviewList[i].semester) {
                     semester = "  Semester 1";
                 }
@@ -235,6 +250,9 @@ function loadData() {
                         if (reviewList[i].semester == false) {
                             semester = " Semester 2";
                         }
+                        //convert insertDate
+                        var date = reviewList[i].insertDate.split("T")[0];
+                        console.log(date);
                         //add reviewBox
                         var reviewBox = document.createElement("div");
                         reviewBox.className = "display-box";
@@ -242,7 +260,7 @@ function loadData() {
                         reviewBox.innerHTML = `<table class="review-table">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
-        <td style="color: gray; float: right;">Submitted June 8, 2011</td>
+        <td style="color: gray; float: right;">` + date + `</td>
     </tr>
     <tr>
         <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
@@ -258,13 +276,10 @@ function loadData() {
     <td colspan="2">
         <div class="feedback" style="margin-top:15px; font-size: 15px;">
             <div class="control">
-                <a href="#">🙂Like 0</a>
-            </div>
-            <div class="control">
-                <a href="#">🙃Dislike 0</a>
+                <a href="#">🙂Like ` + reviewList[i].likes + `</a>
             </div>
             <div class="control" style="margin-left:auto; margin-right: 10px">
-                <a href=" #">🖐Report</a>
+                <a href="">🖐Report</a>
             </div>
         </div>
     </td>
