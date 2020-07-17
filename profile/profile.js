@@ -11,7 +11,7 @@ var teacherName;
 var reviewList;
 var likeList;
 
-function Like(reviewId) {
+function Like(reviewId, reviewIndex) {
     var token = localStorage.getItem("token")
     if (!token) {
         layui.use("layer", function() {
@@ -26,6 +26,12 @@ function Like(reviewId) {
                 setTimeout(() => {}, 1000);
             });
         } else {
+            // change like number on page
+            var reviewLike = document.getElementById(reviewIndex);
+            reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
+            reviewLike.style = "color: #1e8997; font-weight: bold"
+
+            // post like number change to dataset
             fetch("https://vma-walk.azurewebsites.net/api/Review/Like", {
                 headers: {
                     Authorization: "Bearer " + localStorage.getItem("token")
@@ -323,7 +329,7 @@ function loadData() {
     <td colspan="2">
         <div class="feedback" style="margin-top:15px; font-size: 15px;">
             <div class="control">
-                <a href="javascript:Like(` + reviewList[i].id + `)">🙂Like ` + reviewList[i].likes + `</a>
+                <a href="javascript:Like(` + reviewList[i].id + `,` + i + `)" id=` + i + `>🙂Like ` + reviewList[i].likes + `</a>
             </div>
             <div class="control" style="margin-left:auto; margin-right: 10px">
                 <a href="">🖐Report</a>
