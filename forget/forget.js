@@ -1,4 +1,5 @@
 layui.use(['form', 'layer', 'jquery'], function() {
+
     var form = layui.form,
         layer = layui.layer,
         $ = layui.$
@@ -63,3 +64,22 @@ layui.use(['form', 'layer', 'jquery'], function() {
         return false;
     });
 });
+
+document.onreadystatechange = function() {
+    console.log("233");
+    var token = localStorage.getItem("token")
+    if (token) {
+        console.log(token)
+        try {
+            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+            if (user.exp > Date.now() / 1000) {
+                console.log("token未过期, 已登录")
+                self.location = document.referrer;
+            } else {
+                console.log("token已过期, 请重新登录")
+            }
+        } catch (ess) {
+            localStorage.removeItem("token")
+        }
+    }
+}
