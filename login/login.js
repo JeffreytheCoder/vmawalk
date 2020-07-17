@@ -57,7 +57,7 @@ function toPreviousPage() {
     var previousPage = c.slice(0, 1);
     if (previousPage[0] === "myreview" || previousPage[0] === "review") {
         console.log("对了");
-        history.go(-3);
+        history.go(-2);
     } else {
         console.log(previousPage[0]);
         self.location = document.referrer;
