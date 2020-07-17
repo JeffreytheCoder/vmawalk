@@ -14,7 +14,7 @@ function loadHeader() {
             var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
             if (user.exp > Date.now() / 1000) {
                 console.log("token未过期, 已登录")
-                loginText = "我的点评";
+                loginText = "My Review";
                 loginLink = "../myreview/myreview.html";
             } else {
                 console.log("token已过期, 请重新登录")
