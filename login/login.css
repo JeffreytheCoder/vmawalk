@@ -28,7 +28,7 @@
     content: "";
     width: auto;
     height: auto;
-    border: 1px solid white;
+    border: 5px solid white;
     border-radius: 10px;
     box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
     background-color: 0;
