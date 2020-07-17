@@ -1,4 +1,14 @@
 //global variable
+layui.use("layer", function() {
+    if (localStorage.getItem("token") == null) {
+        layer.msg("请登录");
+
+        setTimeout(() => {
+            window.location.href = "../login/login.html";
+        }, 1000);
+    }
+});
+
 var reviewList;
 
 function logOut() {
