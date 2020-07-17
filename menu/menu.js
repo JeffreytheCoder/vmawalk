@@ -256,6 +256,13 @@ window.onload = function() {
                 }
             }
         })
-        // console.log(document.body.clientHeight);
-    loadFooter();
+        // loadFooter();
+}
+
+document.onreadystatechange = function() {
+    if (doucument.readyState == 'complete') {
+        // 页面加载完毕
+        console.log(document.body.clientHeight);
+
+    }
 }

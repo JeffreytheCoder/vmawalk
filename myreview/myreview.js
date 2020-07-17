@@ -19,7 +19,7 @@ function getUserReviews(callback) {
          */
         var $ = layui.$;
 
-        
+
 
         $.get({
             url: "https://vma-walk.azurewebsites.net/api/Review/GetUserReviews",
@@ -145,9 +145,7 @@ function loadReview() {
 
 
 window.onload = function() {
-    loadHeader();
     getUserReviews(function() {
         loadReview();
     })
-    loadFooter();
 }
