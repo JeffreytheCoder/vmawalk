@@ -12,13 +12,13 @@ var reviewList;
 var likeList;
 
 function Like(reviewId) {
-    fetch("https://vma-walk.azurewebsites.net/api/Review/Like", {
+    fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
         headers: {
             Authorization: "Bearer " + localStorage.getItem("token")
         }
     }).then(res => {
         if (res.status === 400) {
-            layui.use("layer", function() {
+            layui.use("layer", function () {
                 layui.layer.alert("You can only give one Like for each review");
             })
         }
@@ -27,7 +27,7 @@ function Like(reviewId) {
 
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
 
         /**
          * @type {JQueryStatic}
@@ -43,7 +43,7 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function(info) {
+            function (info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -70,7 +70,7 @@ function callInfo(id, callback) {
              * likes:number
              * }[]} result - 课程类型
              */
-            function(result) {
+            function (result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -87,7 +87,7 @@ function callInfo(id, callback) {
                 /**
                  * @param {number[]} data
                  */
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                     callback();
                 },
@@ -320,7 +320,7 @@ function loadData() {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
     var query = getUrlQueryString(window.location.href);
