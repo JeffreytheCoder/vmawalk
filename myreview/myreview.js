@@ -1,32 +1,44 @@
 //global variable
 var reviewObj;
 
-function getUserReviews(callback) {
-    /**
-     * @type {JQueryStatic}
-     */
-    var $ = layui.$;
 
-    $.get("http://vma-walk.azurewebsites.net/api/Reviews/GetUserReviews",
+function getUserReviews(callback) {
+    layui.use(["jquery"], function () {
         /**
-         * @param {{
-         * id:number,
-         * userId:number,
-         * courseId:number,
-         * teacherId:number,
-         * year:number,
-         * semester:boolean,
-         * grade:string,
-         * score:string,
-         * text:string,
-         * likes:number
-         * }[]} data - 课程类型
+         * @type {JQueryStatic}
          */
-        function(data) {
-            reviewObj = data;
-            console.log(data)
+        var $ = layui.$;
+
+        $.get({
+            url: "http://vma-walk.azurewebsites.net/api/Review/GetUserReviews",
+            /**
+             * @param {{
+             * id:number,
+             * userId:number,
+             * courseId:number,
+             * teacherId:number,
+             * year:number,
+             * semester:boolean,
+             * grade:string,
+             * score:string,
+             * text:string,
+             * likes:number
+             * }[]} data - 课程类型
+             */
+            success: function (data) {
+                reviewObj = data;
+                console.log(data)
+            },
+            dataType: "json",
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token")
+            }
         })
+    })
 }
+
+
+
 
 function loadingChange() {
     if (document.readyState == "complete") {
@@ -108,8 +120,8 @@ function loadReview() {
 }
 
 
-window.onload = function() {
-    getUserReviews(function() {
+window.onload = function () {
+    getUserReviews(function () {
         console.log(reviewObj);
     })
     reviewNum = 3;

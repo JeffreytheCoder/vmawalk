@@ -11,7 +11,7 @@
             "name": "Launch Edge",
             "request": "launch",
             "type": "edge",
-            "file": "${file}",
+            "file": "${workspaceFolder}/index.html",
             "version": "dev"
         },
         {
