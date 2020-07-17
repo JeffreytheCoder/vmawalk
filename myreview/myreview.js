@@ -79,7 +79,7 @@ function loadReview() {
         //convert insertDate
         var date = reviewList[i].insertDate.split("T")[0];
         // get scores
-        var scoreList = reviewList[i].score.split("|");
+        var scoreList = reviewList[i].score.split("|").trimend();
 
         // add a review block
         reviewDiv = document.getElementById("review-div");
@@ -111,16 +111,16 @@ function loadReview() {
                                     <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
                                 </td>
                                 <td class="rating-cell">
-                                    <font size="5" color="black">` + scoreList[1] + `</font><br /> Overall
+                                    <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
                                 </td>
                                 <td class="rating-cell">
-                                    <font size="5" color="black">` + scoreList[2] + `</font><br /> Overall
+                                    <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
                                 </td>
                                 <td class="rating-cell">
-                                    <font size="5" color="black">` + scoreList[3] + `</font><br /> Overall
+                                    <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
                                 </td>
                                 <td class="rating-cell">
-                                    <font size="5" color="black">` + scoreList[4] + `</font><br /> Overall
+                                    <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
                                 </td>
                             </tr>
                         </table>
