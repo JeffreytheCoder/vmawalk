@@ -27,6 +27,7 @@
 }
 
 .info-title {
+    text-align: center;
     z-index: 1;
     color: white;
     font-size: 40px;
@@ -42,6 +43,7 @@
 }
 
 .info-content {
+    overflow: hidden;
     padding-top: 20px;
     background-color: rgba(211, 211, 211, 0.3);
     width: 100%;
