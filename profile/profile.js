@@ -273,9 +273,10 @@ function loadData() {
                         reviews.appendChild(reviewBox);
                     }
                 }
-                loadFooter();
+
             }
         }
+        loadFooter()
     }
 }
 
@@ -288,4 +289,6 @@ window.onload = function() {
     loadHeader();
 
     callInfo(query, loadData)
+
+
 }
