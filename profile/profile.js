@@ -72,7 +72,8 @@ function callInfo(id, callback) {
              * @param {number[]} data
              */
             success: function(data) {
-                console.log(data)
+                console.log(data);
+                callback();
             },
             dataType: "json"
         })
