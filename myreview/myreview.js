@@ -1,6 +1,7 @@
 //global variable
 layui.use("layer", function() {
     if (localStorage.getItem("token") == null) {
+        toPreviousPage();
         layer.msg("请登录");
 
         setTimeout(() => {
@@ -140,6 +141,18 @@ function loadReview() {
         </table>
     </div>`;
         reviewDiv.appendChild(review);
+    }
+}
+
+function toPreviousPage() {
+    var a = document.referrer;
+    var b = a.split("/");
+    var c = b.slice(b.length - 1, b.length).toString(String).split(".");
+    var previousPage = c.slice(0, 1);
+    if (previousPage[0] === "myreview") {
+        console.log("对了");
+        // sefl.location = document.referrer;
+        history.go(-1);
     }
 }
 
