@@ -2,6 +2,26 @@
     font-family: sans-serif;
 }
 
+.back-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-right: 10px;
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid transparent;
+    border-left: 100px solid #69BDC8;
+    border-right: 100px solid transparent;
+}
+
+.back-button-title {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    color: white;
+    font-weight: bold;
+}
+
 .title {
     color: #69bdc8;
     font-weight: normal;
