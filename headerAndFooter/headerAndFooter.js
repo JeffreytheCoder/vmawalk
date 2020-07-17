@@ -123,7 +123,7 @@ function loadFooter() {
     var footer = document.createElement("div");
 
 
-    footer.innerHTML = `<footer id="realfooter" class="footer">
+    footer.innerHTML = `<footer id="realfooter" class="footer fixed-bottom">
         <br>
         <div class="footer-navigator">
             <ul>
@@ -152,19 +152,19 @@ function loadFooter() {
     </footer>`;
     footerDiv.appendChild(footer);
 
-    var realFooter = document.getElementById("realfooter")
-    realFooter.classList.add("fixed-bottom");
-    console.log("contentHeight");
-    console.log(contentHeight);
-    console.log("winHeight");
-    console.log(winHeight);
-    if (contentHeight <= winHeight) {
-        //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
-        console.log("添加了");
-        realFooter.classList.add("fixed-bottom");
-    } else {
-        console.log("删除了");
-        realFooter.classList.remove("fixed-bottom");
-    }
+    // var realFooter = document.getElementById("realfooter")
+    // realFooter.classList.add("fixed-bottom");
+    // console.log("contentHeight");
+    // console.log(contentHeight);
+    // console.log("winHeight");
+    // console.log(winHeight);
+    // if (contentHeight <= winHeight) {
+    //     //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
+    //     console.log("添加了");
+    //     realFooter.classList.add("fixed-bottom");
+    // } else {
+    //     console.log("删除了");
+    //     realFooter.classList.remove("fixed-bottom");
+    // }
 
 }

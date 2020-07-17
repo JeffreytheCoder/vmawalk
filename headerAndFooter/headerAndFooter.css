@@ -1,13 +1,15 @@
 .general {
+    position: relative;
     font-family: sans-serif;
     margin: 0%;
 }
 
 .content {
     margin: 0 auto;
+    height: auto;
     width: 80%;
-    padding-top: 30px;
-    padding-bottom: 120px;
+    /* padding-top: 30px; */
+    padding-bottom: 200px;
     /* overflow: hidden; */
 }
 
@@ -121,7 +123,7 @@
 }
 
 .fixed-bottom {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 0px;
     width: 100%;
 }

@@ -245,16 +245,17 @@ window.onload = function() {
 
     loadHeader();
     callData(query, queryID, function() {
-        count++;
-        console.log(count);
-        if (count == 2) {
-            if (query[0] == "1") {
-                loadTeacherMenu();
+            count++;
+            console.log(count);
+            if (count == 2) {
+                if (query[0] == "1") {
+                    loadTeacherMenu();
+                }
+                if (query[0] == "2") {
+                    loadCourseMenu();
+                }
             }
-            if (query[0] == "2") {
-                loadCourseMenu();
-            }
-            loadFooter();
-        }
-    })
+        })
+        // console.log(document.body.clientHeight);
+    loadFooter();
 }
