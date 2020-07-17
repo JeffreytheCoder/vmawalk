@@ -1,18 +1,15 @@
 .general {
-    height: 100%;
-    position: relative;
     font-family: sans-serif;
     height: auto;
     margin: 0;
 }
 
 .content {
-    height: 100%;
     margin: 0 auto;
     height: auto;
     width: 80%;
     /* padding-top: 50px; */
-    padding-bottom: 230px;
+    padding-bottom: 30px;
     /* overflow: hidden; */
 }
 
@@ -126,7 +123,7 @@
 }
 
 .fixed-bottom {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     width: 100%;
 }

@@ -19,7 +19,7 @@ function getUserReviews(callback) {
          */
         var $ = layui.$;
 
-        
+
 
         $.get({
             url: "https://vma-walk.azurewebsites.net/api/Review/GetUserReviews",
@@ -49,15 +49,6 @@ function getUserReviews(callback) {
         })
     })
 }
-
-function loadingChange() {
-    if (document.readyState == "complete") {
-        loadHeader();
-        loadFooter();
-    }
-}
-
-document.onreadystatechange = loadingChange;
 
 function loadReview() {
     for (i = 0; i < reviewList.length; i++) {
@@ -148,6 +139,6 @@ window.onload = function() {
     loadHeader();
     getUserReviews(function() {
         loadReview();
+        loadFooter();
     })
-    loadFooter();
 }

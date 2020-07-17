@@ -242,20 +242,19 @@ window.onload = function() {
     var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
     queryID = query.substring(2);
-
     loadHeader();
     callData(query, queryID, function() {
-            count++;
-            console.log(count);
-            if (count == 2) {
-                if (query[0] == "1") {
-                    loadTeacherMenu();
-                }
-                if (query[0] == "2") {
-                    loadCourseMenu();
-                }
+        count++;
+        console.log(count);
+        if (count == 2) {
+            if (query[0] == "1") {
+                loadTeacherMenu();
             }
-        })
-        // console.log(document.body.clientHeight);
-    loadFooter();
+            if (query[0] == "2") {
+                loadCourseMenu();
+            }
+            console.log(document.body.clientHeight);
+            loadFooter();
+        }
+    })
 }

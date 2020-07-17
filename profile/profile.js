@@ -309,7 +309,7 @@ function loadData() {
                 }
             }
         }
-        loadFooter();
+        // loadFooter();
     }
 }
 
@@ -322,6 +322,8 @@ window.onload = function () {
     loadHeader();
 
     callInfo(query, loadData)
+
+    loadFooter();
 
 
 }
