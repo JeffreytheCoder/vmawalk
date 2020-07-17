@@ -5,10 +5,11 @@ function logOut() {
     // var token = localStorage.getItem("token")
     localStorage.removeItem("token");
     layui.use("layer", function() {
-        layer.msg("您已退出登录，正在跳转至主页...");
+        layer.msg("退出登录成功");
     });
     setTimeout(() => {
-        window.location.href = "../index.html";
+        self.location = document.referrer;
+        // window.location.href = "javascript:history.back(-1)";
     }, 1000);
 }
 
