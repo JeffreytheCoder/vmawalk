@@ -78,20 +78,24 @@ function callInfo(id, callback) {
             }
         )
 
-        $.get({
-            url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
-            },
-            /**
-             * @param {number[]} data
-             */
-            success: function(data) {
-                console.log(data);
-                callback();
-            },
-            dataType: "json"
-        })
+        if (localStorage.getItem("token")) {
+            $.get({
+                url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token")
+                },
+                /**
+                 * @param {number[]} data
+                 */
+                success: function(data) {
+                    console.log(data);
+                    callback();
+                },
+                dataType: "json"
+            })
+        } else {
+            callback();
+        }
     })
 }
 
