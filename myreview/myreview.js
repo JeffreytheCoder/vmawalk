@@ -1,6 +1,16 @@
 //global variable
 var reviewObj;
 
+function logOut() {
+    // var token = localStorage.getItem("token")
+    localStorage.removeItem("token");
+    layui.use("layer", function() {
+        layer.msg("您已退出登录，正在跳转至主页...");
+    });
+    setTimeout(() => {
+        window.location.href = "../index.html";
+    }, 1000);
+}
 
 function getUserReviews(callback) {
     layui.use(["jquery"], function() {
@@ -101,11 +111,6 @@ function loadReview() {
                     <div class="review-content">
                         <div style="display: flex; justify-content: space-between;">
                             <div class="review-title">Review</div>
-                            <a href="#">
-                                <button class="add-review" style="margin-top: 0px; width: 60px; height: 25px; border-radius: 10px;">
-                                <text class="add-review-text" style="font-size: 17px;">Edit</text>
-                                </button>
-                            </a>
                         </div>
                         <p>
                             Vmawalk is operated by VMA students. It takes its name from VMA Walk, the main campus thoroughfare VMA students use to walk to class each day. Vmawalk is run for students, by students, and features anonymous professor reviews and reviews of apartments

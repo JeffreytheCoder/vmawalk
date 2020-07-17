@@ -63,14 +63,16 @@ function callInfo(id, callback) {
             }
         )
 
-        /* $.get("https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
-
+        $.get("https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
+            /**
+             * @param {number[]} req
+             */
             function(req) {
                 likeList = req;
                 console.log(req);
                 callback();
             }
-        ) */
+        )
     })
 }
 
@@ -78,7 +80,7 @@ function callInfo(id, callback) {
 function loadData() {
     count++;
     console.log(count);
-    if (count == 2) {
+    if (count == 3) {
         //prepare scoreList and widthList of rating cells
         var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
         var widthList = ["0%", "0%", "0%", "0%", "0%"];
