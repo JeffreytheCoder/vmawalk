@@ -14,14 +14,14 @@ var likeList;
 function Like(reviewId, reviewIndex) {
     var token = localStorage.getItem("token")
     if (!token) {
-        layui.use("layer", function() {
+        layui.use("layer", function () {
             layer.msg("您暂未登录，请先登录!");
             setTimeout(() => {}, 1000);
         });
     } else {
         var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
         if (user.exp < Date.now() / 1000) {
-            layui.use("layer", function() {
+            layui.use("layer", function () {
                 layer.msg("您暂未登录，请先登录!");
                 setTimeout(() => {}, 1000);
             });
@@ -32,13 +32,14 @@ function Like(reviewId, reviewIndex) {
             reviewLike.style = "color: #1e8997; font-weight: bold"
 
             // post like number change to dataset
-            fetch("https://vma-walk.azurewebsites.net/api/Review/Like", {
+            fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
                 headers: {
                     Authorization: "Bearer " + localStorage.getItem("token")
                 }
             }).then(res => {
+                // 400 代表已经点过赞
                 if (res.status === 400) {
-                    layui.use("layer", function() {
+                    layui.use("layer", function () {
                         layui.layer.alert("You can only give one Like for each review");
                     })
                 }
@@ -48,7 +49,7 @@ function Like(reviewId, reviewIndex) {
 }
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
 
         /**
          * @type {JQueryStatic}
@@ -64,7 +65,7 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function(info) {
+            function (info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -91,7 +92,7 @@ function callInfo(id, callback) {
              * likes:number
              * }[]} result - 课程类型
              */
-            function(result) {
+            function (result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -111,7 +112,7 @@ function callInfo(id, callback) {
                     /**
                      * @param {number[]} data
                      */
-                    success: function(data) {
+                    success: function (data) {
                         console.log(data);
                         callback();
                     },
@@ -347,7 +348,7 @@ function loadData() {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
     var query = getUrlQueryString(window.location.href);
