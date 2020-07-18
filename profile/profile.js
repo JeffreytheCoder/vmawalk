@@ -140,7 +140,7 @@ function loadData() {
                 widthList[i] = "" + ((scoreList[i] / 5.0).toFixed(2) * 100).toFixed(0) + "%"
             }
         }
-        //prepare teacher image
+        //prepare teacher image        
         var imageURL = Imagelink[coursewithteacher.teacherId];
         if (imageURL == undefined) {
             imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
@@ -304,10 +304,10 @@ function loadData() {
                             semester = " Semester 2";
                         }
                         //convert insertDate
-                        var date = reviewList[i].insertDate.split("T")[0];
+                        let date = reviewList[i].insertDate.split("T")[0];
                         console.log(date);
                         //add reviewBox
-                        var reviewBox = document.createElement("div");
+                        let reviewBox = document.createElement("div");
                         reviewBox.className = "display-box";
                         reviewBox.style.cssText = "padding: 15px;";
                         reviewBox.innerHTML = `<table class="review-table">
