@@ -9,43 +9,43 @@ var count = 0;
 var coursewithteacher;
 var teacherName;
 var reviewList;
-var likeList;
 
 function Like(reviewId, reviewIndex) {
-    var token = localStorage.getItem("token")
-    if (!token) {
-        layui.use("layer", function() {
+    layui.use("layer", function() {
+        var layer = layui.layer;
+        var token = localStorage.getItem("token")
+        if (!token) {
             layer.msg("您暂未登录，请先登录!");
-            setTimeout(() => {}, 1000);
-        });
-    } else {
-        var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
-        if (user.exp < Date.now() / 1000) {
-            layui.use("layer", function() {
+            setTimeout(() => {}, 1000);;
+        } else {
+            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+            if (user.exp < Date.now() / 1000) {
+
                 layer.msg("您暂未登录，请先登录!");
                 setTimeout(() => {}, 1000);
-            });
-        } else {
-            // change like number on page
-            var reviewLike = document.getElementById(reviewIndex);
-            reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
-            reviewLike.style = "color: #1e8997; font-weight: bold"
 
-            // post like number change to dataset
-            fetch("https://vma-walk.azurewebsites.net/api/Review/Like", {
-                headers: {
-                    Authorization: "Bearer " + localStorage.getItem("token")
-                }
-            }).then(res => {
-                if (res.status === 400) {
-                    layui.use("layer", function() {
-                        layui.layer.alert("You can only give one Like for each review");
-                    })
-                }
-            })
+            } else {
+                // change like number on page
+                var reviewLike = document.getElementById(reviewIndex);
+                reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
+                reviewLike.style = "color: #1e8997; font-weight: bold"
+
+                // post like number change to dataset
+                fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("token")
+                    }
+                }).then(res => {
+                    // 400 代表已经点过赞
+                    if (res.status === 400) {
+                        layer.alert("You can only give one Like for each review");
+                    }
+                })
+            }
         }
-    }
+    })
 }
+
 
 function callInfo(id, callback) {
     layui.use(["jquery", "layer"], function() {
@@ -131,23 +131,24 @@ function loadData() {
     count++;
     console.log(count);
     if (count == 3) {
+        console.log(new Date().getTime());
         //prepare scoreList and widthList of rating cells
         var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
         var widthList = ["0%", "0%", "0%", "0%", "0%"];
         if (coursewithteacher.averageScore != null) {
             scoreList = coursewithteacher.averageScore.split("|")
-            for (i = 0; i < scoreList.length; i++) {
+            for (let i = 0; i < scoreList.length; i++) {
                 widthList[i] = "" + ((scoreList[i] / 5.0).toFixed(2) * 100).toFixed(0) + "%"
             }
         }
-        //prepare teacher image
+        //prepare teacher image        
         var imageURL = Imagelink[coursewithteacher.teacherId];
         if (imageURL == undefined) {
             imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
         }
 
         //add namewithpic
-        namewithpic = document.getElementById("namewithpic");
+        var namewithpic = document.getElementById("namewithpic");
         var namewithpicElement = document.createElement("div");
         namewithpicElement.innerHTML = `<table height="120px">
 <tr height="80px">
@@ -176,7 +177,7 @@ function loadData() {
         document.title = teacherName + " - " + coursewithteacher.courseName + " | Vmawalk";
 
         //add ratings
-        ratings = document.getElementById("ratings");
+        var ratings = document.getElementById("ratings");
         var ratingBox = document.createElement("div");
         ratingBox.className = "display-box";
         ratingBox.innerHTML = `<table width="100%">
@@ -255,10 +256,10 @@ function loadData() {
 
 
         //add reviews
-        reviews = document.getElementById("reviews");
+        var reviews = document.getElementById("reviews");
         if (reviewList.length == 0) {
             //add reviewBox
-            var reviewBox = document.createElement("div");
+            let reviewBox = document.createElement("div");
             reviewBox.className = "display-box";
             reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
             <tr>
@@ -270,9 +271,9 @@ function loadData() {
 </table>`
             reviews.appendChild(reviewBox);
         } else {
-            for (i = 0; i < reviewList.length; i++) {
+            for (let i = 0; i < reviewList.length; i++) {
                 //convert semester
-                var semester = " Full Year";
+                let semester = " Full Year";
                 if (reviewList[i].semester) {
                     semester = "  Semester 1";
                 }
@@ -282,7 +283,7 @@ function loadData() {
                 //add reviewBox
 
                 if (reviewList.length == 0) {
-                    var reviewBox = document.createElement("div");
+                    let reviewBox = document.createElement("div");
                     reviewBox.className = "display-box";
                     reviewBox.innerHTML = `<table class="review-table" style="margin-bottom: 5px">
                 <tr>
@@ -294,9 +295,9 @@ function loadData() {
     </table>`
                     reviews.appendChild(reviewBox);
                 } else {
-                    for (i = 0; i < reviewList.length; i++) {
+                    for (let i = 0; i < reviewList.length; i++) {
                         //convert semester
-                        var semester = " Full year";
+                        let semester = " Full year";
                         if (reviewList[i].semester) {
                             semester = "  Semester 1";
                         }
@@ -304,10 +305,10 @@ function loadData() {
                             semester = " Semester 2";
                         }
                         //convert insertDate
-                        var date = reviewList[i].insertDate.split("T")[0];
+                        let date = reviewList[i].insertDate.split("T")[0];
                         console.log(date);
                         //add reviewBox
-                        var reviewBox = document.createElement("div");
+                        let reviewBox = document.createElement("div");
                         reviewBox.className = "display-box";
                         reviewBox.style.cssText = "padding: 15px;";
                         reviewBox.innerHTML = `<table class="review-table">

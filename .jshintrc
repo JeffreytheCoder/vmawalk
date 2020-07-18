@@ -3,7 +3,9 @@
         "window": false,
         "document":false,
         "layui":false,
-        "console":false
+        "console":false,
+        "localStorage":false,
+        "fetch":false
     },
     "noarg": true,
     "quotmark": "double",

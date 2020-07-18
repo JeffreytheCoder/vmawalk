@@ -16,7 +16,7 @@ function logOut() {
     // var token = localStorage.getItem("token")
     localStorage.removeItem("token");
     layui.use("layer", function() {
-        layer.msg("退出登录成功");
+        layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
         self.location = document.referrer;
@@ -61,7 +61,7 @@ function getUserReviews(callback) {
 }
 
 function loadReview() {
-    for (i = 0; i < reviewList.length; i++) {
+    for (let i = 0; i < reviewList.length; i++) {
         // get teacher name
         var teacher = teachers.find(teacher => teacher.id === reviewList[i].teacherId);
         var teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim();
@@ -78,13 +78,13 @@ function loadReview() {
             semester = " Semester 2";
         }
         //convert insertDate
-        var date = reviewList[i].insertDate.split("T")[0];
+        let date = reviewList[i].insertDate.split("T")[0];
         // get scores
-        var scoreList = reviewList[i].score.trimEnd().split("|");
+        let scoreList = reviewList[i].score.trimEnd().split("|");
 
         // add a review block
-        reviewDiv = document.getElementById("review-div");
-        var review = document.createElement("div");
+        let reviewDiv = document.getElementById("review-div");
+        let review = document.createElement("div");
         review.className = "info-content";
         review.innerHTML = `<div>
         <table width="100%">
