@@ -64,13 +64,22 @@ function loadTeacherMenu() {
         imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
     }
     image.style.cssText = "background-image: url(" + imageURL + ");";
-    console.log(imageURL);
     image.className = "image";
     namewithpic.appendChild(image);
     var teacherName = document.createElement("h2");
     var teacherNameText = [teacherObj.chineseName, teacherObj.englishName].join(" ").trim()
+    teacherName.style = "margin-bottom: 5px";
     teacherName.innerHTML = "<strong>" + teacherNameText + "</strong>";
     namewithpic.appendChild(teacherName);
+    var teacherScore = document.createElement("font");
+    teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
+    if (teacherObj.averageScore == null) {
+        teacherObj.averageScore = "N/A";
+        teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
+    } else {
+        teacherScore.innerHTML = `<b>` + teacherObj.averageScore.toFixed(2) + `</b>`;
+    }
+    namewithpic.appendChild(teacherScore);
 
     //add header title
     document.title = teacherNameText + " | Vmawalk";
@@ -88,7 +97,6 @@ function loadTeacherMenu() {
     courseList = courseObj.courses;
 
     var reviewList = courseObj.text
-    console.log(reviewList)
 
     courseList.forEach(
         course => {
@@ -147,24 +155,32 @@ function loadCourseMenu() {
     //add namewithpic
     var namewithpic = document.getElementById("namewithpic");
 
+    var courseObj = courseList;
+    courseList = courseObj.courses;
+
     var code = document.createElement("div");
     code.style.cssText = "background-color: #69BDC8;";
-    code.innerHTML = "<font color='white'>" + queryID + "</font>";
+    code.innerHTML = "<font color='white'>" + courseList[0].courseCode + "</font>";
     code.className = "code";
     namewithpic.appendChild(code);
 
     var courseName = document.createElement("h2");
-
-    var courseObj = courseList;
-    courseList = courseObj.courses;
-    console.log(courseList)
-
+    courseName.style = "margin-bottom: 5px";
     var courseNameText = courseList[0].courseName;
-
     courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
     namewithpic.appendChild(courseName);
     //add header title
     document.title = courseNameText + " | Vmawalk";
+
+    var teacherScore = document.createElement("font");
+    teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
+    if (courseObj.average == null) {
+        courseObj.average = "N/A";
+        teacherScore.innerHTML = `<b>` + courseObj.average + `</b>`;
+    } else {
+        teacherScore.innerHTML = `<b>` + courseObj.average.toFixed(2) + `</b>`;
+    }
+    namewithpic.appendChild(teacherScore);
 
     // add courseframe
     var courseFrame = document.getElementById("course-frame")
@@ -181,7 +197,6 @@ function loadCourseMenu() {
     )
 
     var reviewList = courseObj.text
-    console.log(reviewList)
 
     courseList.forEach(
         course => {
@@ -246,16 +261,20 @@ window.onload = function() {
     console.log(query);
     var queryID = query.substring(2);
     loadHeader();
+    var callStart = new Date().getTime();
     callData(query, queryID, function() {
         count++;
-        console.log(count);
         if (count == 2) {
+            var callEnd = new Date().getTime();
+            console.log("Call time (s): " + (callEnd - callStart) / 1000);
             if (query[0] == "1") {
                 loadTeacherMenu();
             }
             if (query[0] == "2") {
                 loadCourseMenu();
             }
+            var loadEnd = new Date().getTime();
+            console.log("Load time (s): " + (loadEnd - callEnd) / 1000);
             console.log(document.body.clientHeight);
             loadFooter();
         }
