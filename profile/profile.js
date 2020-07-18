@@ -129,9 +129,7 @@ function callInfo(id, callback) {
 
 function loadData() {
     count++;
-    console.log(count);
     if (count == 3) {
-        console.log(new Date().getTime());
         //prepare scoreList and widthList of rating cells
         var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
         var widthList = ["0%", "0%", "0%", "0%", "0%"];
@@ -306,7 +304,6 @@ function loadData() {
                         }
                         //convert insertDate
                         let date = reviewList[i].insertDate.split("T")[0];
-                        console.log(date);
                         //add reviewBox
                         let reviewBox = document.createElement("div");
                         reviewBox.className = "display-box";
