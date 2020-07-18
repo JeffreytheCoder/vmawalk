@@ -154,16 +154,10 @@ function loadFooter() {
 
     var realFooter = document.getElementById("realfooter")
     realFooter.classList.add("fixed-bottom");
-    console.log("contentHeight");
-    console.log(contentHeight);
-    console.log("winHeight");
-    console.log(winHeight);
     if (contentHeight <= (winHeight - 150)) {
         //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
-        console.log("添加了");
         realFooter.classList.add("fixed-bottom");
     } else {
-        console.log("删除了");
         realFooter.classList.remove("fixed-bottom");
     }
 }
