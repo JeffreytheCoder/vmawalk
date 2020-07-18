@@ -338,8 +338,9 @@ layui.define('layer', function (exports) {
                                     }
                                 });
 
+                                var chineseFilter = /\p{Unified_Ideograph}*/u
+
                                 var pinyinFilter = function (value, text) {
-                                    let chineseFilter = /\p{Unified_Ideograph}*/u
                                     let chineseText = text.match(chineseFilter)[0]
 
                                     if (chineseText === "") {
