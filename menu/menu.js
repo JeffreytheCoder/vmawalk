@@ -2,7 +2,7 @@ function getUrlQueryString() {
     var equal = window.location.href.indexOf("=")
     var query = window.location.href.substring(equal + 1);
     return query;
-};
+}
 
 //global variable
 var teacherObj;
@@ -16,7 +16,7 @@ function callData(query, queryID, callback) {
         var url = "";
         var teacher = null;
 
-        data = {}
+        var data = {}
         if (query[0] == "1") {
             $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
                 teacher = result;
@@ -56,14 +56,14 @@ function callData(query, queryID, callback) {
 
 function loadTeacherMenu() {
     //add namewithpic
-    namewithpic = document.getElementById("namewithpic");
+    let namewithpic = document.getElementById("namewithpic");
 
     var image = document.createElement("div");
     var imageURL = Imagelink[teacherObj.id];
     if (imageURL == undefined) {
         imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
     }
-    image.style.cssText = 'background-image: url(' + imageURL + ');';
+    image.style.cssText = "background-image: url(" + imageURL + ");";
     console.log(imageURL);
     image.className = "image";
     namewithpic.appendChild(image);
@@ -145,7 +145,7 @@ function loadTeacherMenu() {
 
 function loadCourseMenu() {
     //add namewithpic
-    namewithpic = document.getElementById("namewithpic");
+    var namewithpic = document.getElementById("namewithpic");
 
     var code = document.createElement("div");
     code.style.cssText = "background-color: #69BDC8;";
@@ -244,7 +244,7 @@ window.onload = function() {
     //init
     var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
-    queryID = query.substring(2);
+    var queryID = query.substring(2);
     loadHeader();
     callData(query, queryID, function() {
         count++;
