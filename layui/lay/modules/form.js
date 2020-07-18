@@ -339,12 +339,16 @@ layui.define('layer', function (exports) {
                                 });
 
                                 var pinyinFilter = function (value, text) {
-                                    if (escape(value).indexOf("%u") !== -1) {
-                                        return text.indexOf(value) === -1;
+                                    let chineseFilter = /\p{Unified_Ideograph}*/u
+                                    let chineseText = text.match(chineseFilter)[0]
+
+                                    if (chineseText === "") {
+                                        return text.toLowerCase().indexOf(value.toLowerCase()) === -1;
                                     } else {
-                                        var pinyinText = ConvertPinyin(text);
+                                        let pinyinText = ConvertPinyin(chineseText);
                                         return pinyinText.toLowerCase().replace(/[\s-]/g, "").indexOf(value.toLowerCase().replace(/[\s]/g, "")) === -1 &&
-                                            makePy(text)[0].toLowerCase().substring(0, value.length) !== value;
+                                            makePy(chineseText)[0].toLowerCase().substring(0, value.length) !== value.trim() &&
+                                            text.toLowerCase().indexOf(value.toLowerCase().trim()) === -1;
                                     }
                                 }
                                 //检测值是否不属于 select 项
