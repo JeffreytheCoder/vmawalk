@@ -16,7 +16,7 @@ function logOut() {
     // var token = localStorage.getItem("token")
     localStorage.removeItem("token");
     layui.use("layer", function() {
-        layer.msg("退出登录成功");
+        layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
         self.location = document.referrer;
