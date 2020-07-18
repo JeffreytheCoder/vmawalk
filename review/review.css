@@ -15,9 +15,30 @@
     border-right: 100px solid transparent;
 }
 
+.home-button {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid transparent;
+    border-left: 100px solid transparent;
+    border-right: 100px solid #69BDC8;
+}
+
 .back-button-title {
     position: fixed;
     left: 10px;
+    color: white;
+    font-size: 40px;
+    line-height: 50px;
+}
+
+.home-button-title {
+    position: fixed;
+    right: 20px;
     color: white;
     font-size: 40px;
     line-height: 50px;
