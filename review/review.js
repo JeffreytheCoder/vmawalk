@@ -98,10 +98,11 @@ layui.use(['form', 'jquery', 'layer'], function() {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
             },
-            success: function(data) {
+            success: function() {
                 layer.msg("添加成功");
                 setTimeout(() => {
-                    toPreviousPage();
+                    // toPreviousPage();
+                    location.href = "../profile/profile.html?query="+data.field.course;
                 }, 1000);
             },
             error: function(req) {
