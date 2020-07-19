@@ -823,7 +823,7 @@ var teachers = [{
     {
         "id": 228,
         "chineseName": null,
-        "englishName": "Nicolas McNamara",
+        "englishName": "Mac (Nicolas McNamara)",
         "averageScore": null
     },
     {
