@@ -16,20 +16,17 @@ function Like(reviewId, reviewIndex) {
         var token = localStorage.getItem("token")
         if (!token) {
             layer.msg("您暂未登录，请先登录!");
-            setTimeout(() => {}, 1000);;
+            setTimeout(() => {
+                self.location = "../login/login.html";
+            }, 1000);
         } else {
             var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
             if (user.exp < Date.now() / 1000) {
-
                 layer.msg("您暂未登录，请先登录!");
-                setTimeout(() => {}, 1000);
-
+                setTimeout(() => {
+                    self.location = "../login/login.html";
+                }, 1000);
             } else {
-                // change like number on page
-                var reviewLike = document.getElementById(reviewIndex);
-                reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
-                reviewLike.style = "color: #1e8997; font-weight: bold"
-
                 // post like number change to dataset
                 fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
                     headers: {
@@ -38,7 +35,12 @@ function Like(reviewId, reviewIndex) {
                 }).then(res => {
                     // 400 代表已经点过赞
                     if (res.status === 400) {
-                        layer.alert("You can only give one Like for each review");
+                        layer.msg("You can only give one Like for each review");
+                    } else {
+                        // change like number on page
+                        var reviewLike = document.getElementById(reviewIndex);
+                        reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
+                        reviewLike.style = "color: #1e8997; font-weight: bold"
                     }
                 })
             }

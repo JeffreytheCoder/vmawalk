@@ -87,7 +87,7 @@
     /* border-bottom: 2px solid gray; */
     margin-bottom: 15px;
     width: 100%;
-    height: auto;
+    height: 132px;
     background-color: rgba(211, 211, 211, 0.2);
     box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     overflow: hidden;
@@ -191,4 +191,10 @@
     width: 100px;
     height: 100px;
     line-height: 100px;
+}
+
+.review {
+    text-align: center;
+    padding-left: 10px;
+    word-break: break-all;
 }

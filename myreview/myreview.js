@@ -19,7 +19,8 @@ function logOut() {
         layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
-        self.location = document.referrer;
+        self.location = "../index/index.html";
+        // self.location = document.referrer;
         // window.location.href = "javascript:history.back(-1)";
     }, 1000);
 }
@@ -80,7 +81,7 @@ function loadReview() {
         //convert insertDate
         let date = reviewList[i].insertDate.split("T")[0];
         // get scores
-        let scoreList = reviewList[i].score.trimEnd().split("|");
+        let scoreList = reviewList[i].score.trim().split("|");
 
         // add a review block
         let reviewDiv = document.getElementById("review-div");

@@ -73,7 +73,7 @@ function loadTeacherMenu() {
     namewithpic.appendChild(teacherName);
     var teacherScore = document.createElement("font");
     teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
-    if (teacherObj.averageScore == null) {
+    if (teacherObj.averageScore == null || teacherObj.averageScore == 5) {
         teacherObj.averageScore = "N/A";
         teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
     } else {
@@ -142,7 +142,7 @@ function loadTeacherMenu() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" style="text-align: center;"><span style="margin-left: 10px; word-break:break-all;">` + bestReview + `</span></td>
+            <td width="200px" class="review"><div style="height: 100px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
             </tr>
             </table>
             <br>`;
@@ -217,8 +217,9 @@ function loadCourseMenu() {
 
             var courseElement = document.createElement("div");
             courseElement.className = "course";
-            courseElement.innerHTML = `<br>
-            <table>
+            courseElement.innerHTML = `
+        <br>
+        <table>
             <tr>
             <td width="200px">
             <a href=` + queryLink + ` class="profile-link">
@@ -245,7 +246,7 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" style="text-align: center;"><span style="margin-left: 10px; word-break:break-all;">` + bestReview + `</span></td>
+            <td width="200px" class="review"><div style="height: 100px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
             </tr>
             </table>
             <br>`;
@@ -255,7 +256,6 @@ function loadCourseMenu() {
 }
 
 window.onload = function() {
-
     //init
     var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
