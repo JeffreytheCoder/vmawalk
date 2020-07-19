@@ -344,12 +344,12 @@ layui.define('layer', function (exports) {
                                     let chineseText = text.match(chineseFilter)[0]
 
                                     if (chineseText === "") {
-                                        return text.toLowerCase().indexOf(value.toLowerCase()) === -1;
+                                        return text.toLowerCase().replace(/[\s]/g, "").indexOf(value.toLowerCase().replace(/[\s]/g, "")) === -1;
                                     } else {
                                         let pinyinText = ConvertPinyin(chineseText);
                                         return pinyinText.toLowerCase().replace(/[\s-]/g, "").indexOf(value.toLowerCase().replace(/[\s]/g, "")) === -1 &&
                                             makePy(chineseText)[0].toLowerCase().substring(0, value.length) !== value.trim() &&
-                                            text.toLowerCase().indexOf(value.toLowerCase().trim()) === -1;
+                                            text.toLowerCase().replace(/[\s]/g, "").indexOf(value.toLowerCase().replace(/[\s]/g, "")) === -1;
                                     }
                                 }
                                 //检测值是否不属于 select 项
