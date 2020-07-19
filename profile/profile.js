@@ -273,44 +273,20 @@ function loadData() {
         } else {
             for (let i = 0; i < reviewList.length; i++) {
                 //convert semester
-                let semester = " Full Year";
+                let semester = " Full year";
                 if (reviewList[i].semester) {
                     semester = "  Semester 1";
                 }
                 if (reviewList[i].semester == false) {
                     semester = " Semester 2";
                 }
+                //convert insertDate
+                let date = reviewList[i].insertDate.split("T")[0];
                 //add reviewBox
-
-                if (reviewList.length == 0) {
-                    let reviewBox = document.createElement("div");
-                    reviewBox.className = "display-box";
-                    reviewBox.innerHTML = `<table class="review-table" style="margin-bottom: 5px">
-                <tr>
-                <td colspan="2">
-            <p class="review-content" style="margin-bottom: 20px; font-size: 16px">No reviews for ` + coursewithteacher.courseName + ` taught by ` + teacherName + ` so far.
-            Write the first one <a href="../review/review.html" style="color:#69BDC8"><strong>here!</strong></a></p>
-        </td>
-    </tr>
-    </table>`
-                    reviews.appendChild(reviewBox);
-                } else {
-                    for (let i = 0; i < reviewList.length; i++) {
-                        //convert semester
-                        let semester = " Full year";
-                        if (reviewList[i].semester) {
-                            semester = "  Semester 1";
-                        }
-                        if (reviewList[i].semester == false) {
-                            semester = " Semester 2";
-                        }
-                        //convert insertDate
-                        let date = reviewList[i].insertDate.split("T")[0];
-                        //add reviewBox
-                        let reviewBox = document.createElement("div");
-                        reviewBox.className = "display-box";
-                        reviewBox.style.cssText = "padding: 15px;";
-                        reviewBox.innerHTML = `<table class="review-table">
+                let reviewBox = document.createElement("div");
+                reviewBox.className = "display-box";
+                reviewBox.style.cssText = "padding: 15px;";
+                reviewBox.innerHTML = `<table class="review-table">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
         <td style="color: gray; float: right;">` + date + `</td>
@@ -338,13 +314,11 @@ function loadData() {
     </td>
 </tr>
 </table>`
-                        reviews.appendChild(reviewBox);
-                    }
-                }
+                reviews.appendChild(reviewBox);
             }
         }
-        loadFooter();
     }
+    loadFooter();
 }
 
 window.onload = function() {
