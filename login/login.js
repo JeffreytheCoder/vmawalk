@@ -1,10 +1,10 @@
-layui.use(['form', 'jquery', 'layer'], function() {
+layui.use(['form', 'jquery', 'layer'], function () {
 
     var form = layui.form,
         $ = layui.$,
         layer = layui.layer;
 
-    $(document).keydown(function(e) {
+    $(document).keydown(function (e) {
         if (e.keyCode === 13) {
 
             $("#loginbtn").trigger("click");
@@ -12,7 +12,7 @@ layui.use(['form', 'jquery', 'layer'], function() {
         }
     });
 
-    form.on('submit(form)', function(formdata) {
+    form.on('submit(form)', function (formdata) {
         var index = layer.load({
             shade: [0.4, '#def'],
             icon: '&#xe63d'
@@ -22,25 +22,28 @@ layui.use(['form', 'jquery', 'layer'], function() {
             url: "https://vma-walk.azurewebsites.net/Auth/Login",
             contentType: "application/json",
             data: JSON.stringify(formdata.field),
-            success: function(data) {
+            success: function (data) {
                 localStorage.setItem("token", data.token);
                 layer.msg("登陆成功")
                 setTimeout(() => {
                     if (document.referrer.endsWith("review.html"))
                         location.href = "../review/review.html";
-                    else {
-                        self.location = document.referrer;
+                    else if (document.referrer.endsWith("register.html") || document.referrer.endsWith("forget.html")) {
+                        self.location.href = "../index.html"
+                    } else {
+                        
+                        self.location.href = document.referrer;
                         // location.href = "javascript:history.back(-1)"
                     }
                 }, 1000);
             },
-            error: function(req) {
+            error: function (req) {
                 if (req.status == 400) {
                     layer.msg("您输入的用户名或密码错误");
                     console.log(req)
                 }
             },
-            complete: function() {
+            complete: function () {
                 layer.close(index)
             },
             dataType: "json"

@@ -1,32 +1,40 @@
 //global variable
-layui.use("layer", function() {
-    if (localStorage.getItem("token") == null) {
-        toPreviousPage();
-        layer.msg("请登录");
-
+layui.use("layer", function () {
+    var token = localStorage.getItem("token")
+    if (!localStorage.getItem("token")) {
+        layui.layer.msg("您暂未登录，请先登录!");
         setTimeout(() => {
-            window.location.href = "../login/login.html";
+            self.location = "../login/login.html";
         }, 1000);
+    } else {
+        var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+        if (user.exp < Date.now() / 1000) {
+            layui.layer.msg("您的登录已超时，请重新登录");
+            setTimeout(() => {
+                self.location = "../login/login.html";
+            }, 1000);
+        }
     }
 });
+
 
 var reviewList;
 
 function logOut() {
     // var token = localStorage.getItem("token")
     localStorage.removeItem("token");
-    layui.use("layer", function() {
+    layui.use("layer", function () {
         layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
-        self.location = "../index/index.html";
+        self.location = "../index.html";
         // self.location = document.referrer;
         // window.location.href = "javascript:history.back(-1)";
     }, 1000);
 }
 
 function getUserReviews(callback) {
-    layui.use(["jquery"], function() {
+    layui.use(["jquery"], function () {
         /**
          * @type {JQueryStatic}
          */
@@ -48,7 +56,7 @@ function getUserReviews(callback) {
              * likes:number
              * }[]} data - 课程类型
              */
-            success: function(data) {
+            success: function (data) {
                 reviewList = data;
                 console.log(data);
                 callback();
@@ -158,9 +166,9 @@ function toPreviousPage() {
 }
 
 
-window.onload = function() {
+window.onload = function () {
     loadHeader();
-    getUserReviews(function() {
+    getUserReviews(function () {
         loadReview();
         loadFooter();
     })

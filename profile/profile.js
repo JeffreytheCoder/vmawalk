@@ -11,7 +11,7 @@ var teacherName;
 var reviewList;
 
 function Like(reviewId, reviewIndex) {
-    layui.use("layer", function() {
+    layui.use("layer", function () {
         var layer = layui.layer;
         var token = localStorage.getItem("token")
         if (!token) {
@@ -50,7 +50,7 @@ function Like(reviewId, reviewIndex) {
 
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function() {
+    layui.use(["jquery", "layer"], function () {
 
         /**
          * @type {JQueryStatic}
@@ -66,7 +66,7 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function(info) {
+            function (info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -93,7 +93,7 @@ function callInfo(id, callback) {
              * likes:number
              * }[]} result - 课程类型
              */
-            function(result) {
+            function (result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -113,7 +113,7 @@ function callInfo(id, callback) {
                     /**
                      * @param {number[]} data
                      */
-                    success: function(data) {
+                    success: function (data) {
                         console.log(data);
                         callback();
                     },
@@ -153,7 +153,7 @@ function loadData() {
         namewithpicElement.innerHTML = `<table height="120px">
 <tr height="80px">
     <td rowspan="2" width="130px" height="100%">
-        <a href="#" style="font-size: 18px; text-decoration: none; color: white;">
+        <a href="../menu/menu.html?query=2-` + coursewithteacher.courseCode + `" style="font-size: 18px; text-decoration: none; color: white;">
             <div class="icon-round">` + coursewithteacher.courseCode + `</div>
         </a>
     </td>
@@ -162,13 +162,13 @@ function loadData() {
     </td>
 </tr>
 <tr height="40px">
-    <a href="../menu/menu.html?query=1-"` + coursewithteacher.teacherId + `>
-    <td style="display: flex; align-items: center;">
-        <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
-        </div>
-        <font size="4">` + teacherName + `</font>
-    </td>
-    </a>
+        <td style="display: flex; align-items: center;">
+            <a style="white-space:nowrap;" href="../menu/menu.html?query=1-` + coursewithteacher.teacherId + `">
+                <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
+                </div>
+                <font size="4">` + teacherName + `</font>
+            </a>
+        </td>
 </tr>
 </table>`
         namewithpic.appendChild(namewithpicElement);
@@ -273,44 +273,20 @@ function loadData() {
         } else {
             for (let i = 0; i < reviewList.length; i++) {
                 //convert semester
-                let semester = " Full Year";
+                let semester = " Full year";
                 if (reviewList[i].semester) {
                     semester = "  Semester 1";
                 }
                 if (reviewList[i].semester == false) {
                     semester = " Semester 2";
                 }
+                //convert insertDate
+                let date = reviewList[i].insertDate.split("T")[0];
                 //add reviewBox
-
-                if (reviewList.length == 0) {
-                    let reviewBox = document.createElement("div");
-                    reviewBox.className = "display-box";
-                    reviewBox.innerHTML = `<table class="review-table" style="margin-bottom: 5px">
-                <tr>
-                <td colspan="2">
-            <p class="review-content" style="margin-bottom: 20px; font-size: 16px">No reviews for ` + coursewithteacher.courseName + ` taught by ` + teacherName + ` so far.
-            Write the first one <a href="../review/review.html" style="color:#69BDC8"><strong>here!</strong></a></p>
-        </td>
-    </tr>
-    </table>`
-                    reviews.appendChild(reviewBox);
-                } else {
-                    for (let i = 0; i < reviewList.length; i++) {
-                        //convert semester
-                        let semester = " Full year";
-                        if (reviewList[i].semester) {
-                            semester = "  Semester 1";
-                        }
-                        if (reviewList[i].semester == false) {
-                            semester = " Semester 2";
-                        }
-                        //convert insertDate
-                        let date = reviewList[i].insertDate.split("T")[0];
-                        //add reviewBox
-                        let reviewBox = document.createElement("div");
-                        reviewBox.className = "display-box";
-                        reviewBox.style.cssText = "padding: 15px;";
-                        reviewBox.innerHTML = `<table class="review-table">
+                let reviewBox = document.createElement("div");
+                reviewBox.className = "display-box";
+                reviewBox.style.cssText = "padding: 15px;";
+                reviewBox.innerHTML = `<table class="review-table">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
         <td style="color: gray; float: right;">` + date + `</td>
@@ -338,16 +314,14 @@ function loadData() {
     </td>
 </tr>
 </table>`
-                        reviews.appendChild(reviewBox);
-                    }
-                }
+                reviews.appendChild(reviewBox);
             }
         }
         loadFooter();
     }
 }
 
-window.onload = function() {
+window.onload = function () {
 
     //init
     var query = getUrlQueryString(window.location.href);
