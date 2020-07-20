@@ -345,7 +345,7 @@ layui.define('layer', function (exports) {
                                 var fuzzysearch = function (needle, haystack) {
                                     var hlen = haystack.length;
                                     var nlen = needle.length;
-                                    
+
                                     if (nlen > hlen) {
                                         return false;
                                     }
@@ -369,12 +369,11 @@ layui.define('layer', function (exports) {
                                     let chineseText = text.match(chineseFilter)[0]
                                     value = value.toLowerCase()
                                     if (chineseText === "") {
-                                        return !fuzzysearch(value,text.toLowerCase());
+                                        return !fuzzysearch(value, text.toLowerCase());
                                     } else {
                                         let pinyinText = ConvertPinyin(chineseText);
                                         return !fuzzysearch(value, pinyinText) &&
-                                            !fuzzysearch(value, makePy(chineseText)[0]) &&
-                                            !fuzzysearch(value,text.toLowerCase());
+                                            !fuzzysearch(value, text.toLowerCase());
                                     }
                                 }
                                 // end of modify
