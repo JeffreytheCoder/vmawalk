@@ -136,7 +136,7 @@ function loadFooter() {
             </ul>
         </div>
         <div class="logo-link">
-            <a href="https://github.com/JeffreytheCoder/vmawalk" style="text-decoration: none;">
+            <a href="https://github.com/JeffreytheCoder/vmawalk" style="text-decoration: none;" target="_blank">
                 <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
                     width="32" aria-hidden="true">
                     <path fill-rule="evenodd"
