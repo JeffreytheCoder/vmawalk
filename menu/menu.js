@@ -122,7 +122,7 @@ function loadTeacherMenu() {
                 <a href="` + queryLink + `" class="profile-link">
                     <div class="icon-round">` + course.courseCode + `</div>
                     <div class="teacher-name">
-                        <font color="black" size="3">` + course.courseName + `</font><br />
+                        <font color="black" size="3" style="margin-bottom: 5px;">` + course.courseName + `</font>
                         <font color="#69BDC8" size="2">Full Profile ></font>
                     </div>
                 </a>
@@ -226,7 +226,7 @@ function loadCourseMenu() {
                 <div class="icon-round2" style="background-image: url(` + imageURL + `);">
                 </div>
                 <div class="teacher-name">
-                    <font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
+                    <font color="black" size="3" style="margin-bottom: 5px;">` + teacherNameList[course.teacherId] + `</font>
                     <font color=" #69BDC8" size="2">Full Profile ></font>
                 </div>
             </a>
