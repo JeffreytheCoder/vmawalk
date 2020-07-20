@@ -338,20 +338,46 @@ layui.define('layer', function (exports) {
                                     }
                                 });
 
+                                // modify for search
+
                                 var chineseFilter = /\p{Unified_Ideograph}*/u
+
+                                var fuzzysearch = function (needle, haystack) {
+                                    var hlen = haystack.length;
+                                    var nlen = needle.length;
+
+                                    if (nlen > hlen) {
+                                        return false;
+                                    }
+                                    if (nlen === hlen) {
+                                        return needle === haystack;
+                                    }
+                                    outer: for (var i = 0, j = 0; i < nlen; i++) {
+                                        var nch = needle.charCodeAt(i);
+                                        while (j < hlen) {
+                                            if (haystack.charCodeAt(j++) === nch) {
+                                                continue outer;
+                                            }
+                                        }
+                                        return false;
+                                    }
+                                    return true;
+                                }
+
 
                                 var pinyinFilter = function (value, text) {
                                     let chineseText = text.match(chineseFilter)[0]
-
+                                    value = value.toLowerCase()
                                     if (chineseText === "") {
-                                        return text.toLowerCase().replace(/[\s]/g, "").indexOf(value.toLowerCase().replace(/[\s]/g, "")) === -1;
+                                        return !fuzzysearch(value, text.toLowerCase());
                                     } else {
                                         let pinyinText = ConvertPinyin(chineseText);
-                                        return pinyinText.toLowerCase().replace(/[\s-]/g, "").indexOf(value.toLowerCase().replace(/[\s]/g, "")) === -1 &&
-                                            makePy(chineseText)[0].toLowerCase().substring(0, value.length) !== value.trim() &&
-                                            text.toLowerCase().replace(/[\s]/g, "").indexOf(value.toLowerCase().replace(/[\s]/g, "")) === -1;
+                                        return !fuzzysearch(value, pinyinText) &&
+                                            !fuzzysearch(value, text.toLowerCase());
                                     }
                                 }
+                                // end of modify
+
                                 //检测值是否不属于 select 项
                                 var notOption = function (value, callback, origin) {
                                     var num = 0;

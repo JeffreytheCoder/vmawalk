@@ -122,7 +122,7 @@ function loadTeacherMenu() {
                 <a href="` + queryLink + `" class="profile-link">
                     <div class="icon-round">` + course.courseCode + `</div>
                     <div class="teacher-name">
-                        <font color="black" size="3">` + course.courseName + `</font><br />
+                        <font color="black" size="3" style="margin-bottom: 5px;">` + course.courseName + `</font>
                         <font color="#69BDC8" size="2">Full Profile ></font>
                     </div>
                 </a>
@@ -142,7 +142,7 @@ function loadTeacherMenu() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="height: 100px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
             </tr>
             </table>
             <br>`;
@@ -226,7 +226,7 @@ function loadCourseMenu() {
                 <div class="icon-round2" style="background-image: url(` + imageURL + `);">
                 </div>
                 <div class="teacher-name">
-                    <font color="black" size="3">` + teacherNameList[course.teacherId] + `</font><br />
+                    <font color="black" size="3" style="margin-bottom: 5px;">` + teacherNameList[course.teacherId] + `</font>
                     <font color=" #69BDC8" size="2">Full Profile ></font>
                 </div>
             </a>
@@ -246,7 +246,7 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="height: 100px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
             </tr>
             </table>
             <br>`;
