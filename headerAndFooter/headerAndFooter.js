@@ -78,7 +78,6 @@ function loadHeader() {
         teachers.filter(teacher => {
             if (teacher.chineseName == null) {
                 $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
-
                 return false;
             } else
                 return true
@@ -88,7 +87,7 @@ function loadHeader() {
 
         Courses.forEach((i) => {
             $("#search").append(
-                new Option(i.courseName + " " + i.courseCode, "2-" + i.courseCode)
+                new Option(`${i.courseName} ${i.courseCode}`, `2-${i.courseCode}`)
             );
         });
 
