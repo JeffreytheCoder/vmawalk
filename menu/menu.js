@@ -142,7 +142,7 @@ function loadTeacherMenu() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="height: 100px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
             </tr>
             </table>
             <br>`;
@@ -246,7 +246,7 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="height: 100px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
             </tr>
             </table>
             <br>`;
