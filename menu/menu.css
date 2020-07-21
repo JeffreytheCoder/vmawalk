@@ -86,11 +86,12 @@
     border-radius: 10px;
     /* border-bottom: 2px solid gray; */
     margin-bottom: 15px;
-    width: 100%;
+    width: auto;
     height: auto;
     background-color: rgba(211, 211, 211, 0.2);
     box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     overflow: hidden;
+    padding: 15px;
 }
 
 .course>div {
@@ -103,7 +104,7 @@
 
 .course table {
     /* border: 1px solid red; */
-    margin: 15px auto;
+    margin: 0 auto;
     width: 100%;
 }
 
@@ -124,7 +125,6 @@
 }
 
 .course .icon-round {
-    margin-left: 15px;
     /* border:1px solid red; */
     background-color: #69bdc8;
     width: 100px;
@@ -142,7 +142,6 @@
 }
 
 .course .icon-round2 {
-    margin-left: 15px;
     /* border:1px solid red; */
     background-size: cover;
     background-position: center;
@@ -204,5 +203,4 @@
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
-    margin-right: 15px;
 }

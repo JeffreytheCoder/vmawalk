@@ -145,9 +145,8 @@ function loadTeacherMenu() {
             <td class="rating-cell" >
                 <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
             </td>
-            <td width="15px">
-            </td>
-            </table>`;
+            </table>
+            <span style="width: 15px"></span>`;
                 courseFrame.appendChild(courseElement);
             } else {
                 var courseElement = document.createElement("div");

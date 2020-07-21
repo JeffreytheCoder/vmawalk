@@ -1,5 +1,5 @@
 .content {
-    width: 60%;
+    width: 100%;
     margin: auto auto;
     position: absolute;
     top: 0;
@@ -9,6 +9,20 @@
     /* width: fit-content; */
     height: fit-content;
     padding-bottom: 180px;
+}
+
+.add-review {
+    box-shadow: none;
+    width: fit-content;
+    margin-right: 20px;
+}
+
+.add-review:hover {
+    background: none;
+}
+
+.add-review:hover .add-review-text {
+    color: gray;
 }
 
 .index-title {
