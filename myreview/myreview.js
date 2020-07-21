@@ -70,7 +70,7 @@ function getUserReviews(callback) {
 }
 
 function loadReview() {
-    for (let i = 0; i < reviewList.length; i++) {
+    for (let i = reviewList.length - 1; i >= 0; i--) {
         // get teacher name
         var teacher = teachers.find(teacher => teacher.id === reviewList[i].teacherId);
         var teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim();
