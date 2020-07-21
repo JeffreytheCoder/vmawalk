@@ -293,7 +293,7 @@ function loadCourseMenu() {
     )
 }
 
-window.onload = function() {
+function load() {
     //init
     var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
@@ -319,3 +319,12 @@ window.onload = function() {
         }
     })
 }
+window.onload = load;
+// window.onresize = function() {
+//     document.getElementById("header-div").innerHTML = "";
+//     document.getElementById("namewithpic").innerHTML = "";
+//     document.getElementById("course-list-title").innerHTML = "";
+//     document.getElementById("course-frame").innerHTML = "";
+//     document.getElementById("footer-div").innerHTML = "";
+//     load();
+// }
