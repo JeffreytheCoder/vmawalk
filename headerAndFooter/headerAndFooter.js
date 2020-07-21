@@ -31,9 +31,9 @@ function loadHeader() {
     if (document.documentElement.clientWidth <= 700) {
         console.log(document.documentElement.clientWidth);
         //Load header elements
-        headerDiv = document.getElementById("header-div");
-        var header = document.createElement("div");
-        header.innerHTML =
+        var headerDiv = document.getElementById("header-div");
+        // var header = document.createElement("div");
+        headerDiv.innerHTML =
             `<header id="header" class="header">
             <div style="font-size: 20px; padding-left: 10px;">
             <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
@@ -73,13 +73,13 @@ function loadHeader() {
     </div>
     </div>
 </header>`;
-        headerDiv.innerHTML = header.innerHTML
+        // headerDiv.innerHTML = header.innerHTML;
 
     } else {
         //Load header elements
-        headerDiv = document.getElementById("header-div");
-        var header = document.createElement("div");
-        header.innerHTML =
+        var headerDiv = document.getElementById("header-div");
+        // var header = document.createElement("div");
+        headerDiv.innerHTML =
             `<header id="header" class="header">
     <div class="title">
         <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
@@ -120,7 +120,7 @@ function loadHeader() {
     </div>
 </header>`;
         // headerDiv.appendChild(header);
-        headerDiv.innerHTML = header.innerHTML
+        // headerDiv.innerHTML = header.innerHTML;
     }
 
     //Load select options
