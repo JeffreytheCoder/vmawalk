@@ -40,9 +40,7 @@
 }
 
 .home-header {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
+    margin: 1%;
     display: flex;
     justify-content: space-between;
     align-items: center;
