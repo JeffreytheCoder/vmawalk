@@ -168,8 +168,9 @@ function loadData() {
 </tr>
 <tr height="40px">
         <td style="display: flex; align-items: center;">
-            <a style="white-space:nowrap;" href="../menu/menu.html?query=1-` + coursewithteacher.teacherId + `">
-                <div class="teacher-icon" style="background-image: url(` + imageURL + `);"></div>
+            <a style="white-space:nowrap; display:flex; align-items: center;" href="../menu/menu.html?query=1-` + coursewithteacher.teacherId + `">
+                <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
+                </div>
                 <font size="4">` + teacherName + `</font>
             </a>
         </td>
