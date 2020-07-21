@@ -1,3 +1,15 @@
+.content {
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    /* width: fit-content; */
+    height: fit-content;
+    padding-bottom: 180px;
+}
+
 .index-title {
     color: #69bdc8;
     font-weight: normal;
