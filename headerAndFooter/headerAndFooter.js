@@ -4,6 +4,7 @@ document.write(`
 `)
 
 function loadHeader() {
+
     // Judge if login or myreview
     var loginText = "Login";
     var loginLink = "../login/login.html";
@@ -26,11 +27,53 @@ function loadHeader() {
         console.log("未检测到token, 请登录")
     }
 
-    //Load header elements
-    headerDiv = document.getElementById("header-div");
-    var header = document.createElement("div");
-    header.innerHTML =
-        `<header id="header" class="header">
+    if (document.documentElement.clientWidth <= 700) {
+        //Load header elements
+        headerDiv = document.getElementById("header-div");
+        var header = document.createElement("div");
+        header.innerHTML =
+            `<header id="header" class="header">
+    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin-left: 5%;">
+        <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
+            <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
+                lay-filter="search">
+                <option value="">Find a course or a teacher
+                </option>
+            </select>
+        </div>
+        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: auto; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001;"></button>
+    </form>
+    <div style="display: flex; overflow: hidden;height: 100%;align-items: center;">
+        <div style="padding-right: 25px">
+            <a href="../review/review.html">
+                <button class="add-review">
+                    <text class="add-review-text">✚ Review</text>
+                </button>
+            </a>
+        </div>
+        <div style="padding-right: 30px;">
+            <a href=` + loginLink + `>
+                <button class="add-review">
+                    <text class="add-review-text">` +
+            loginText +
+            `</text>
+                </button>
+            </a>
+        </div>
+    </div>
+</header>`;
+        headerDiv.appendChild(header);
+
+    } else {
+        //Load header elements
+        headerDiv = document.getElementById("header-div");
+        var header = document.createElement("div");
+        header.innerHTML =
+            `<header id="header" class="header">
     <div class="title">
         <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
             <strong>vma</strong>walk
@@ -62,14 +105,15 @@ function loadHeader() {
             <a href=` + loginLink + `>
                 <button class="add-review">
                     <text class="add-review-text">` +
-        loginText +
-        `</text>
+            loginText +
+            `</text>
                 </button>
             </a>
         </div>
     </div>
 </header>`;
-    headerDiv.appendChild(header);
+        headerDiv.appendChild(header);
+    }
 
     //Load select options
     layui.use(["layer", "jquery", "form"], function() {
@@ -146,7 +190,7 @@ function loadFooter() {
             </a>
         </div>
         <span class="footer-info">
-            Vmawalk is a public platform only provided for VMA students, created by VMA students since 2020.
+            Vmawalk is only provided for VMAers, created by VMAers since 2020.
         </span>
         <br>
     </footer>`;
