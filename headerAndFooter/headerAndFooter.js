@@ -27,34 +27,45 @@ function loadHeader() {
         console.log("未检测到token, 请登录")
     }
 
+
     if (document.documentElement.clientWidth <= 700) {
+        console.log(document.documentElement.clientWidth);
         //Load header elements
         headerDiv = document.getElementById("header-div");
         var header = document.createElement("div");
         header.innerHTML =
             `<header id="header" class="header">
-    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin-left: 5%;">
-        <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
+    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin: 10px; width: 100%">
+        <div class="layui-form-block" style="margin-right: 10px; width: 100%">
             <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
                 lay-filter="search">
                 <option value="">Find a course or a teacher
                 </option>
             </select>
         </div>
-        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: auto; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style=" padding: 0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
     /* -4px -4px 5px 0px #fff9, */
     7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
     inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001;">Search</button>
+    inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
     </form>
-    <div style="display: flex; height: 100%;align-items: center;">
-        <div style="padding-right: 25px">
+    <div style="display: flex; height: 100%; align-items: center;">
+        <div style="padding-right: 10px">
             <a href="../review/review.html">
-                <button class="add-review">
-                    <text class="add-review-text">✚ Review</text>
+                <button class="add-review" style="width: 40px; padding:" >
+                    <text class="add-review-text">✚</text>
                 </button>
             </a>
         </div>
+        <div style="padding-right: 10px;">
+        <a href=` + loginLink + `>
+            <button class="add-review">
+                <text class="add-review-text">` +
+            loginText +
+            `</text>
+            </button>
+        </a>
+    </div>
     </div>
 </header>`;
         headerDiv.appendChild(header);
@@ -70,7 +81,7 @@ function loadHeader() {
             <strong>vma</strong>walk
         </a>
     </div>
-    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0">
+    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0;">
         <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
             <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
                 lay-filter="search">

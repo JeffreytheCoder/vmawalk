@@ -37,6 +37,7 @@
 }
 
 .layui-form {
+    width: 40%;
     margin-right: 30px;
     display: flex;
     justify-content: space-between;

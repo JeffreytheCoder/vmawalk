@@ -59,7 +59,7 @@ function loadCourseListTitle() {
     var title = document.createElement("div");
     title.className = "courses-list-title";
     if (document.documentElement.clientWidth <= 700) {
-        title.innerHTML = `<b>Courses / Teachers</b>`
+        title.innerHTML = `<b>Courses / Teachers</b> <b>Ratings</b>`
     } else {
         title.innerHTML = `<b>Courses / Teachers</b>
         <b>Ratings</b>
@@ -130,7 +130,7 @@ function loadTeacherMenu() {
             if (document.documentElement.clientWidth <= 700) {
                 var courseElement = document.createElement("div");
                 courseElement.className = "course";
-                courseElement.innerHTML = `<br>
+                courseElement.innerHTML = `
             <table>
             <tr>
             <td width="200px">
@@ -142,16 +142,17 @@ function loadTeacherMenu() {
                     </div>
                 </a>
             </td>
-            <td class="rating-cell">
-            <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
+            <td class="rating-cell" >
+                <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
             </td>
-            </table>
-            <br>`;
+            <td width="15px">
+            </td>
+            </table>`;
                 courseFrame.appendChild(courseElement);
             } else {
                 var courseElement = document.createElement("div");
                 courseElement.className = "course";
-                courseElement.innerHTML = `<br>
+                courseElement.innerHTML = `
             <table>
             <tr>
             <td width="200px">
@@ -178,10 +179,10 @@ function loadTeacherMenu() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px"><div class="review">` + bestReview + `</div></td>
             </tr>
             </table>
-            <br>`;
+            `;
                 courseFrame.appendChild(courseElement);
             }
         }
@@ -256,7 +257,7 @@ function loadCourseMenu() {
             var courseElement = document.createElement("div");
             courseElement.className = "course";
             courseElement.innerHTML = `
-        <br>
+        
         <table>
             <tr>
             <td width="200px">
@@ -284,10 +285,10 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px"><div class="review">` + bestReview + `</div></td>
             </tr>
             </table>
-            <br>`;
+            `;
             courseFrame.appendChild(courseElement);
         }
     )
