@@ -87,9 +87,9 @@ function loadTeacherMenu() {
     namewithpic.appendChild(teacherName);
     var teacherScore = document.createElement("font");
     teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
-    if (teacherObj.averageScore == null || teacherObj.averageScore == 5) {
+    if (teacherObj.averageScore == null) {
         teacherObj.averageScore = "N/A";
-        teacherScore.innerHTML = ` < b > ` + teacherObj.averageScore + ` < /b>`;
+        teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
     } else {
         teacherScore.innerHTML = `<b>` + teacherObj.averageScore.toFixed(2) + `</b>`;
     }

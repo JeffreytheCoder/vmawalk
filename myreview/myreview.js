@@ -1,5 +1,5 @@
 //global variable
-layui.use("layer", function () {
+layui.use("layer", function() {
     var token = localStorage.getItem("token")
     if (!localStorage.getItem("token")) {
         layui.layer.msg("您暂未登录，请先登录!");
@@ -23,7 +23,7 @@ var reviewList;
 function logOut() {
     // var token = localStorage.getItem("token")
     localStorage.removeItem("token");
-    layui.use("layer", function () {
+    layui.use("layer", function() {
         layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
@@ -34,7 +34,7 @@ function logOut() {
 }
 
 function getUserReviews(callback) {
-    layui.use(["jquery"], function () {
+    layui.use(["jquery"], function() {
         /**
          * @type {JQueryStatic}
          */
@@ -56,7 +56,7 @@ function getUserReviews(callback) {
              * likes:number
              * }[]} data - 课程类型
              */
-            success: function (data) {
+            success: function(data) {
                 reviewList = data;
                 console.log(data);
                 callback();
@@ -95,13 +95,66 @@ function loadReview() {
         let reviewDiv = document.getElementById("review-div");
         let review = document.createElement("div");
         review.className = "info-content";
-        review.innerHTML = `<div>
+
+        // mobile adjustment
+        if (document.documentElement.clientWidth <= 700) {
+            review.innerHTML = `<div>
+            <table width="100%">
+                <tr>
+                    <td class="review-upper">
+                        <div class="review-info">
+                            <div>
+                                <div class="review-title">` + ` ` + courseName + `</font>
+                                </div>
+                                <div>
+                                    <font size="4">` + teacherName + `</font>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-table">
+                            <div class="review-title"> </div>
+                            <table width="auto">
+                                <tr>
+                                    <td class="rating-cell">
+                                        <font size="5" color="black">` + scoreList[0] + `</font><br />
+                                    </td>
+                                    <td class="rating-cell">
+                                        <font size="5" color="black">` + scoreList[1] + `</font><br />
+                                    </td>
+                                    <td class="rating-cell">
+                                        <font size="5" color="black">` + scoreList[2] + `</font><br />
+                                    </td>
+                                    <td class="rating-cell">
+                                        <font size="5" color="black">` + scoreList[3] + `</font><br />
+                                    </td>
+                                    <td class="rating-cell">
+                                        <font size="5" color="black">` + scoreList[4] + `</font><br />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="review-content">
+                            <div style="display: flex; justify-content: space-between;">
+                                <div class="review-title">Review</div>
+                            </div>
+                            <p>` + reviewList[i].text + `</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>`;
+        } else {
+            review.innerHTML = `<div>
         <table width="100%">
             <tr>
                 <td class="review-upper">
                     <div class="review-info">
                         <div>
-                            <div class="review-title">` + courseCode + ` ` + courseName + `</font>
+                            <div class="review-title">` + courseName + `</font>
                             </div>
                             <div>
                                 <font size="4">` + teacherName + `</font>
@@ -149,6 +202,7 @@ function loadReview() {
             </tr>
         </table>
     </div>`;
+        }
         reviewDiv.appendChild(review);
     }
 }
@@ -166,9 +220,9 @@ function toPreviousPage() {
 }
 
 
-window.onload = function () {
+window.onload = function() {
     loadHeader();
-    getUserReviews(function () {
+    getUserReviews(function() {
         loadReview();
         loadFooter();
     })
