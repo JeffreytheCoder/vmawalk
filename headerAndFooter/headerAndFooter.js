@@ -72,43 +72,42 @@ function loadHeader() {
     headerDiv.appendChild(header);
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], function() {
+    layui.use(["layer", "jquery", "form"], function () {
         var $ = layui.jquery;
 
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName == null) {
-                $("#search").append(new Option(teachers[i].englishName, "1-" + teachers[i].id));
-            }
-        }
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName != null) {
-                $("#search").append(new Option(teachers[i].chineseName + " " +
-                    teachers[i].englishName, "1-" + teachers[i].id));
-            }
-        }
+        teachers.filter(teacher => {
+            if (teacher.chineseName == null) {
+                $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
+                return false;
+            } else
+                return true
+        }).forEach(teacher =>
+            $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
+        )
+
         Courses.forEach((i) => {
             $("#search").append(
-                new Option(i.courseName + " " + i.courseCode, "2-" + i.courseCode)
+                new Option(`${i.courseName} ${i.courseCode}`, `2-${i.courseCode}`)
             );
         });
 
         layui.form.render("select");
     });
 
-    layui.use(["form", "jquery"], function() {
+    layui.use(["form", "jquery"], function () {
         var form = layui.form;
         var $ = layui.$;
 
-        $(document).keydown(function(e) {
+        $(document).keydown(function (e) {
             if (e.keyCode === 13) {
                 $("#submit").trigger("click");
                 return false;
             }
         });
 
-        form.on("submit(submit)", function(data) {
-            query = data.field.teacher;
-            link = "../menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
+        form.on("submit(submit)", function (data) {
+            let query = data.field.teacher;
+            let link = `../menu/menu.html?query=${query}`;
             window.location.href = link;
             return false;
         });

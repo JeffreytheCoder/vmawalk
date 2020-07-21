@@ -19,45 +19,58 @@ layui.use("layer", function () {
 window.onload = function () {
     layui.use(['layer', 'jquery', 'form'], function () {
 
-        var $ = layui.jquery;
+        /**
+         * @type {JQueryStatic}
+         */
+        var $ = layui.jquery,
+            form = layui.form;
 
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName == null) {
-                $("#teacher").append(new Option(teachers[i].englishName, teachers[i].id));
-            }
+        teachers.filter(teacher => {
+            if (teacher.chineseName == null) {
+                $("#teacher").append(new Option(teacher.englishName, teacher.id))
+
+                return false;
+            } else
+                return true
+        }).forEach(teacher =>
+            $("#teacher").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, teacher.id))
+        )
+
+        // default value
+        var Params = new URLSearchParams(location.search)
+        if (Params.has("code")) {
+            var course = CoursesWithTeacher.find(x => x.id === Number(Params.get("code")))
+
+            $("#teacher").val(course.teacherId)
+            CoursesWithTeacher.forEach(
+                _course => {
+                    if (_course.teacherId === course.teacherId)
+                        $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
+                }
+            )
+            $('#course').val(course.id)
+
         }
 
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName != null) {
-                $("#teacher").append(new Option(teachers[i].chineseName + " " + teachers[i].englishName, teachers[i].id));
-            }
-        }
+        form.render('select');
 
-        layui.form.render('select');
+        // listener of select
+        form.on('select(teacher)', function (data) {
+            let obj = document.getElementById("course");
+            for (i = obj.options.length - 1; i >= 1; i--) {
+                obj.options[i] = null;
+            }
+            var teacher_id = data.value;
+            for (var i = 1; i < CoursesWithTeacher.length; i++) {
+                if (CoursesWithTeacher[i].teacherId == teacher_id) {
+                    $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, CoursesWithTeacher[i].id));
+                }
+            }
+            form.render("select");
+        })
 
     })
 }
-
-layui.use(['layer', 'jquery', 'form'], function () {
-
-    var layer = layui.layer,
-        $ = layui.jquery,
-        form = layui.form;
-
-    form.on('select(teacher)', function (data) {
-        obj = document.getElementById("course");
-        for (i = obj.options.length - 1; i >= 1; i--) {
-            obj.options[i] = null;
-        }
-        var teacher_id = data.value;
-        for (var i = 1; i < CoursesWithTeacher.length; i++) {
-            if (CoursesWithTeacher[i].teacherId == teacher_id) {
-                $("#course").append(new Option(CoursesWithTeacher[i].courseCode + " " + CoursesWithTeacher[i].courseName, CoursesWithTeacher[i].id));
-            }
-        }
-        layui.form.render("select");
-    })
-})
 
 layui.use(['form', 'jquery', 'layer'], function () {
     var form = layui.form,
@@ -70,7 +83,13 @@ layui.use(['form', 'jquery', 'layer'], function () {
         var articleSummary = data.field.articleSummary;
         console.log(data);
 
-        var scores = [data.field.overall, data.field.easiness, data.field.workload, data.field.clarity, data.field.helpfulness].join("|");
+        var scores = [
+            data.field.overall,
+            data.field.easiness,
+            data.field.workload,
+            data.field.clarity,
+            data.field.helpfulness
+        ].join("|");
 
         console.log(JSON.stringify({
             teacherId: data.field.teacher,
@@ -104,13 +123,13 @@ layui.use(['form', 'jquery', 'layer'], function () {
                 withCredentials: true
             },
             headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             },
             success: function () {
                 layer.msg("添加成功");
                 setTimeout(() => {
                     // toPreviousPage();
-                    location.href = "../profile/profile.html?query=" + data.field.course;
+                    location.href = `../profile/profile.html?query=${data.field.course}`;
                 }, 1000);
             },
             error: function (req) {
