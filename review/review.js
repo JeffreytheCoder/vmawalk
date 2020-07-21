@@ -33,19 +33,19 @@ window.onload = function () {
             } else
                 return true
         }).forEach(teacher =>
-            $("#teacher").append(new Option([teacher.chineseName, teacher.englishName].join(" "), teacher.id))
+            $("#teacher").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, teacher.id))
         )
 
         // default value
-        if (location.search.length != 0) {
-            var course = CoursesWithTeacher.find(x => x.id === Number(
-                location.search.substr(1).split("&")[0].split("=")[1]))
+        var Params = new URLSearchParams(location.search)
+        if (Params.has("code")) {
+            var course = CoursesWithTeacher.find(x => x.id === Number(Params.get("code")))
 
             $("#teacher").val(course.teacherId)
             CoursesWithTeacher.forEach(
                 _course => {
                     if (_course.teacherId === course.teacherId)
-                        $("#course").append(new Option([_course.courseName, _course.courseCode].join(" "), _course.id))
+                        $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
                 }
             )
             $('#course').val(course.id)
@@ -63,7 +63,7 @@ window.onload = function () {
             var teacher_id = data.value;
             for (var i = 1; i < CoursesWithTeacher.length; i++) {
                 if (CoursesWithTeacher[i].teacherId == teacher_id) {
-                    $("#course").append(new Option(CoursesWithTeacher[i].courseCode + " " + CoursesWithTeacher[i].courseName, CoursesWithTeacher[i].id));
+                    $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, CoursesWithTeacher[i].id));
                 }
             }
             form.render("select");
@@ -123,13 +123,13 @@ layui.use(['form', 'jquery', 'layer'], function () {
                 withCredentials: true
             },
             headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             },
             success: function () {
                 layer.msg("添加成功");
                 setTimeout(() => {
                     // toPreviousPage();
-                    location.href = "../profile/profile.html?query=" + data.field.course;
+                    location.href = `../profile/profile.html?query=${data.field.course}`;
                 }, 1000);
             },
             error: function (req) {

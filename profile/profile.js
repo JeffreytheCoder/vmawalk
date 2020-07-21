@@ -264,8 +264,8 @@ function loadData() {
             reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px">
             <tr>
             <td colspan="2">
-        <p class="review-content" style="margin-bottom: 15px; font-size: 16px;margin-top: 15px;">No reviews for ` + coursewithteacher.courseName + ` taught by ` + teacherName + ` so far.
-        Write the first one <a href="../review/review.html?code=`+coursewithteacher.id+`" style="color:#69BDC8"><strong>here!</strong></a></p>
+        <p class="review-content" style="margin-bottom: 15px; font-size: 16px;margin-top: 15px;">No reviews for ${coursewithteacher.courseName} taught by ${teacherName} so far.
+        Write the first one <a href="../review/review.html?code=${coursewithteacher.id}" style="color:#69BDC8"><strong>here!</strong></a></p>
     </td>
 </tr>
 </table>`
