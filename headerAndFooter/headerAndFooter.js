@@ -35,6 +35,11 @@ function loadHeader() {
         var header = document.createElement("div");
         header.innerHTML =
             `<header id="header" class="header">
+            <div style="font-size: 20px; padding-left: 10px;">
+            <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
+                <strong>vma</strong><br />walk
+            </a>
+        </div>
     <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin: 10px; width: 100%">
         <div class="layui-form-block" style="margin-right: 10px; width: 100%">
             <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
