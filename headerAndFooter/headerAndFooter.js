@@ -73,7 +73,7 @@ function loadHeader() {
     </div>
     </div>
 </header>`;
-        headerDiv.appendChild(header);
+        headerDiv.innerHTML = header.innerHTML
 
     } else {
         //Load header elements
@@ -108,7 +108,7 @@ function loadHeader() {
                 </button>
             </a>
         </div>
-        <div style="padding-right: 30px;">
+        <div style="margin-right: 30px">
             <a href=` + loginLink + `>
                 <button class="add-review">
                     <text class="add-review-text">` +
@@ -119,7 +119,8 @@ function loadHeader() {
         </div>
     </div>
 </header>`;
-        headerDiv.appendChild(header);
+        // headerDiv.appendChild(header);
+        headerDiv.innerHTML = header.innerHTML
     }
 
     //Load select options
@@ -200,7 +201,7 @@ function loadFooter() {
         </span>
         <br>
     </footer>`;
-    footerDiv.appendChild(footer);
+    footerDiv.innerHTML = footer.innerHTML;
 
     var realFooter = document.getElementById("realfooter")
     realFooter.classList.add("fixed-bottom");

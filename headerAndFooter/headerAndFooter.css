@@ -29,11 +29,10 @@
 }
 
 .title {
+    margin-left: 30px;
     color: white;
     font-weight: normal;
     font-size: 40px;
-    padding: 20px;
-    padding-left: 50px;
 }
 
 .layui-form {
