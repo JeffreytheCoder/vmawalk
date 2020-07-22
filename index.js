@@ -4,7 +4,11 @@ var loginLink = "login/login.html";
 
 function setLogin(callback) {
     // Judge if login or myreview
+    var param = new URL(location)
     var token = localStorage.getItem("token")
+    if (param.searchParams.has("token")) {
+        localStorage.setItem("token", param.searchParams.get("token"))
+    }
     if (token) {
         console.log("检测到token")
         try {

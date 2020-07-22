@@ -2,901 +2,1442 @@
         "id": 26,
         "courseName": "English 2",
         "courseCode": "ENG207",
-        "teacherId": 0
+        "teacherId": 175
     },
     {
         "id": 27,
         "courseName": "IGCSE Chemistry",
         "courseCode": "CHEC0620",
-        "teacherId": 0
+        "teacherId": 105
     },
     {
         "id": 28,
         "courseName": "AP Chemistry",
         "courseCode": "CHE501",
-        "teacherId": 0
+        "teacherId": 105
     },
     {
         "id": 29,
         "courseName": "Chemistry",
         "courseCode": "CHE203",
-        "teacherId": 0
+        "teacherId": 105
     },
     {
         "id": 30,
         "courseName": "Biotechnology Practices",
         "courseCode": "BIO302",
-        "teacherId": 0
+        "teacherId": 108
     },
     {
         "id": 31,
         "courseName": "AP Human Geography",
         "courseCode": "GEO501",
-        "teacherId": 0
+        "teacherId": 127
     },
     {
         "id": 32,
         "courseName": "Mathematics",
         "courseCode": "MATH207",
-        "teacherId": 0
+        "teacherId": 110
     },
     {
         "id": 33,
         "courseName": "German 1",
         "courseCode": "GER201",
-        "teacherId": 0
+        "teacherId": 164
     },
     {
         "id": 34,
         "courseName": "German 2",
         "courseCode": "GER301",
-        "teacherId": 0
+        "teacherId": 164
+    },
+    {
+        "id": 35,
+        "courseName": "Essential Mathematics",
+        "courseCode": "MATH207",
+        "teacherId": 129
     },
     {
         "id": 36,
         "courseName": "Financial Mathematics",
         "courseCode": "MATH604",
-        "teacherId": 0
+        "teacherId": 129
     },
     {
         "id": 37,
         "courseName": "Basic Algebra and Number Theory",
         "courseCode": "MATH205",
-        "teacherId": 0
+        "teacherId": 129
     },
     {
         "id": 38,
         "courseName": "AP Calculus BC",
         "courseCode": "MATH502",
-        "teacherId": 0
+        "teacherId": 129
     },
     {
         "id": 39,
         "courseName": "AP Calculus AB",
         "courseCode": "MATH501",
-        "teacherId": 0
+        "teacherId": 129
     },
     {
         "id": 40,
         "courseName": "Geography and World History",
         "courseCode": "GEO201",
-        "teacherId": 0
+        "teacherId": 128
     },
     {
         "id": 41,
         "courseName": "Painting II",
         "courseCode": "ART212",
-        "teacherId": 0
+        "teacherId": 171
     },
     {
         "id": 42,
         "courseName": "History of Chinese Culture",
         "courseCode": "HIS403",
-        "teacherId": 0
+        "teacherId": 116
     },
     {
         "id": 43,
         "courseName": "Chinese & World History",
         "courseCode": "HIS203",
-        "teacherId": 0
+        "teacherId": 116
     },
     {
         "id": 44,
         "courseName": "Language and Literature in Contexts",
         "courseCode": "CHI403",
-        "teacherId": 0
+        "teacherId": 225
     },
     {
         "id": 45,
         "courseName": "Chinese 3",
         "courseCode": "CHI302",
-        "teacherId": 0
+        "teacherId": 225
     },
     {
         "id": 46,
         "courseName": "Politics and International Relations",
         "courseCode": "HIS302",
-        "teacherId": 0
+        "teacherId": 206
+    },
+    {
+        "id": 47,
+        "courseName": "Basica Algebra and Number Theory",
+        "courseCode": "MATH205",
+        "teacherId": 94
+    },
+    {
+        "id": 48,
+        "courseName": "AP Calculus AB",
+        "courseCode": "MATH501",
+        "teacherId": 94
     },
     {
         "id": 49,
         "courseName": "IGCSE Additional English",
         "courseCode": "ENGC0511",
-        "teacherId": 0
+        "teacherId": 175
     },
     {
         "id": 50,
         "courseName": "IGCSE Economics",
         "courseCode": "ECOC0455",
-        "teacherId": 0
+        "teacherId": 122
     },
     {
         "id": 51,
         "courseName": "Portfolio Development",
         "courseCode": "ARTA410",
-        "teacherId": 0
+        "teacherId": 122
     },
     {
         "id": 52,
         "courseName": "Martial Arts Level 1",
         "courseCode": "PE202",
-        "teacherId": 0
+        "teacherId": 163
     },
     {
         "id": 53,
         "courseName": "Martial Arts Level 2",
         "courseCode": "PE302",
-        "teacherId": 0
+        "teacherId": 163
     },
     {
         "id": 54,
         "courseName": "Print III",
         "courseCode": "ART313",
-        "teacherId": 0
+        "teacherId": 170
     },
     {
         "id": 55,
         "courseName": "Print II",
         "courseCode": "ART213",
-        "teacherId": 0
+        "teacherId": 170
     },
     {
         "id": 56,
         "courseName": "IGCSE Physics",
         "courseCode": "PHYC0625",
-        "teacherId": 0
+        "teacherId": 99
     },
     {
         "id": 57,
         "courseName": "Art Research III",
         "courseCode": "ARTA409",
-        "teacherId": 0
+        "teacherId": 142
     },
     {
         "id": 58,
         "courseName": "Ceramic II",
         "courseCode": "ART219",
-        "teacherId": 0
+        "teacherId": 142
     },
     {
         "id": 59,
         "courseName": "Asian Literature",
         "courseCode": "ENG609",
-        "teacherId": 0
+        "teacherId": 229
     },
     {
         "id": 60,
         "courseName": "Public Speaking & Debate",
         "courseCode": "ENG211",
-        "teacherId": 0
+        "teacherId": 229
     },
     {
         "id": 61,
         "courseName": "Table Tennis",
         "courseCode": "PE203",
-        "teacherId": 0
+        "teacherId": 165
+    },
+    {
+        "id": 62,
+        "courseName": "Politics and International Relations",
+        "courseCode": "HIS302",
+        "teacherId": 118
     },
     {
         "id": 63,
         "courseName": "Politics/International Relations Honors",
         "courseCode": "HIS308",
-        "teacherId": 0
+        "teacherId": 118
     },
     {
         "id": 64,
         "courseName": "Psychology",
         "courseCode": "PSY303",
-        "teacherId": 0
+        "teacherId": 215
     },
     {
         "id": 65,
         "courseName": "Biology 2",
         "courseCode": "BIO203",
-        "teacherId": 0
+        "teacherId": 157
     },
     {
         "id": 66,
         "courseName": "Integrated Science",
         "courseCode": "SCIC0653",
-        "teacherId": 0
+        "teacherId": 157
     },
     {
         "id": 67,
         "courseName": "English 2",
         "courseCode": "ENG208",
-        "teacherId": 0
+        "teacherId": 203
+    },
+    {
+        "id": 68,
+        "courseName": "IGCSE Economics",
+        "courseCode": "ECOC0455",
+        "teacherId": 237
     },
     {
         "id": 69,
         "courseName": "AP English Language and Composition",
         "courseCode": "ENG502",
-        "teacherId": 0
+        "teacherId": 203
+    },
+    {
+        "id": 70,
+        "courseName": "IGCSE Economics",
+        "courseCode": "ECOC0455",
+        "teacherId": 202
+    },
+    {
+        "id": 71,
+        "courseName": "Chinese 3",
+        "courseCode": "CHI302",
+        "teacherId": 221
     },
     {
         "id": 72,
         "courseName": "Intercultural Communication and Studies",
         "courseCode": "CHI405",
-        "teacherId": 0
+        "teacherId": 221
     },
     {
         "id": 73,
         "courseName": "Volleyball",
         "courseCode": "PE206",
-        "teacherId": 0
+        "teacherId": 174
     },
     {
         "id": 74,
         "courseName": "Badminton Level 1",
         "courseCode": "PE204",
-        "teacherId": 0
+        "teacherId": 174
     },
     {
         "id": 75,
         "courseName": "High School General Physical Education",
         "courseCode": "PE211",
-        "teacherId": 0
+        "teacherId": 174
     },
     {
         "id": 76,
         "courseName": "Chinese 2",
         "courseCode": "CHI202",
-        "teacherId": 0
+        "teacherId": 222
     },
     {
         "id": 77,
         "courseName": "IGCSE Chinese First Language",
         "courseCode": "CHIC0509",
-        "teacherId": 0
+        "teacherId": 222
+    },
+    {
+        "id": 78,
+        "courseName": "Psychology",
+        "courseCode": "PSY303",
+        "teacherId": 213
     },
     {
         "id": 79,
         "courseName": "Physics",
         "courseCode": "PHY203",
-        "teacherId": 0
+        "teacherId": 102
+    },
+    {
+        "id": 80,
+        "courseName": "IGCSE Physics",
+        "courseCode": "PHYC0625",
+        "teacherId": 102
     },
     {
         "id": 81,
         "courseName": "AP Physics C: Electricity",
         "courseCode": "PHY504",
-        "teacherId": 0
+        "teacherId": 102
     },
     {
         "id": 82,
         "courseName": "Detective Literature Honors",
         "courseCode": "ENG408",
-        "teacherId": 0
+        "teacherId": 203
     },
     {
         "id": 83,
         "courseName": "AP Physics 1",
         "courseCode": "PHY501",
-        "teacherId": 0
+        "teacherId": 99
+    },
+    {
+        "id": 84,
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410",
+        "teacherId": 145
     },
     {
         "id": 85,
         "courseName": "College Readiness",
         "courseCode": "RE202",
-        "teacherId": 0
+        "teacherId": 240
     },
     {
         "id": 86,
         "courseName": "College Readiness",
         "courseCode": "RE402",
-        "teacherId": 0
+        "teacherId": 256
     },
     {
         "id": 87,
         "courseName": "US History 2",
         "courseCode": "HIS504B",
-        "teacherId": 0
+        "teacherId": 230
+    },
+    {
+        "id": 88,
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410",
+        "teacherId": 169
     },
     {
         "id": 89,
         "courseName": "Sports Team – Girls Soccer",
         "courseCode": "PE326",
-        "teacherId": 0
+        "teacherId": 168
+    },
+    {
+        "id": 90,
+        "courseName": "College Readiness",
+        "courseCode": "RE402",
+        "teacherId": 255
+    },
+    {
+        "id": 91,
+        "courseName": "IGCSE Chemistry",
+        "courseCode": "CHEC0620",
+        "teacherId": 106
     },
     {
         "id": 92,
         "courseName": "Sports Leadership Level 1",
         "courseCode": "PE214",
-        "teacherId": 0
+        "teacherId": 161
     },
     {
         "id": 93,
         "courseName": "Sports Team-Tennis",
         "courseCode": "PE321",
-        "teacherId": 0
+        "teacherId": 161
     },
     {
         "id": 94,
         "courseName": "Sports Team-Boy's Volleyball",
         "courseCode": "PE322",
-        "teacherId": 0
+        "teacherId": 161
     },
     {
         "id": 95,
         "courseName": "Sports Team-Cross Country",
         "courseCode": "PE323",
-        "teacherId": 0
+        "teacherId": 161
     },
     {
         "id": 96,
         "courseName": "Sports Team – Girls Volleyball",
         "courseCode": "PE327",
-        "teacherId": 0
+        "teacherId": 161
     },
     {
         "id": 97,
         "courseName": "Sports Team – Girls Basketball",
         "courseCode": "PE324",
-        "teacherId": 0
+        "teacherId": 161
+    },
+    {
+        "id": 98,
+        "courseName": "IGCSE Physics",
+        "courseCode": "PHYC0625",
+        "teacherId": 99
+    },
+    {
+        "id": 99,
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410",
+        "teacherId": 142
     },
     {
         "id": 100,
         "courseName": "Applied Music 4",
         "courseCode": "MUSA415",
-        "teacherId": 0
+        "teacherId": 151
     },
     {
         "id": 101,
         "courseName": "Applied Music B",
         "courseCode": "MUSA225",
-        "teacherId": 0
+        "teacherId": 151
     },
     {
         "id": 102,
         "courseName": "Applied Music 3 B",
         "courseCode": "MUSA325",
-        "teacherId": 0
+        "teacherId": 151
     },
     {
         "id": 103,
         "courseName": "Applied Music 3",
         "courseCode": "MUSA315",
-        "teacherId": 0
+        "teacherId": 151
     },
     {
         "id": 104,
         "courseName": "Applied Music A",
         "courseCode": "MUSA215",
-        "teacherId": 0
+        "teacherId": 151
     },
     {
         "id": 105,
         "courseName": "Applied Music 4 B",
         "courseCode": "MUSA425",
-        "teacherId": 0
+        "teacherId": 151
     },
     {
         "id": 106,
         "courseName": "Chorus",
         "courseCode": "MUSA410",
-        "teacherId": 0
+        "teacherId": 151
+    },
+    {
+        "id": 107,
+        "courseName": "IGCSE Economics",
+        "courseCode": "ECOC0455",
+        "teacherId": 202
+    },
+    {
+        "id": 108,
+        "courseName": "IGCSE Physics",
+        "courseCode": "PHYC0625",
+        "teacherId": 102
     },
     {
         "id": 109,
         "courseName": "Sports Team-Badminton",
         "courseCode": "PE318",
-        "teacherId": 0
+        "teacherId": 163
+    },
+    {
+        "id": 110,
+        "courseName": "College Readiness",
+        "courseCode": "RE202",
+        "teacherId": 253
+    },
+    {
+        "id": 111,
+        "courseName": "Applied Music A",
+        "courseCode": "MUSA215",
+        "teacherId": 137
+    },
+    {
+        "id": 112,
+        "courseName": "Applied Music 4",
+        "courseCode": "MUSA415",
+        "teacherId": 137
+    },
+    {
+        "id": 113,
+        "courseName": "Applied Music 4 B",
+        "courseCode": "MUSA425",
+        "teacherId": 137
+    },
+    {
+        "id": 114,
+        "courseName": "Applied Music 3 B",
+        "courseCode": "MUSA325",
+        "teacherId": 137
+    },
+    {
+        "id": 115,
+        "courseName": "Applied Music 4",
+        "courseCode": "MUSA415",
+        "teacherId": 148
+    },
+    {
+        "id": 116,
+        "courseName": "Applied Music B",
+        "courseCode": "MUSA225",
+        "teacherId": 148
+    },
+    {
+        "id": 117,
+        "courseName": "Applied Music 3 B",
+        "courseCode": "MUSA325",
+        "teacherId": 148
+    },
+    {
+        "id": 118,
+        "courseName": "Applied Music 3",
+        "courseCode": "MUSA315",
+        "teacherId": 148
+    },
+    {
+        "id": 119,
+        "courseName": "Applied Music A",
+        "courseCode": "MUSA215",
+        "teacherId": 148
+    },
+    {
+        "id": 120,
+        "courseName": "Applied Music 4 B",
+        "courseCode": "MUSA425",
+        "teacherId": 148
     },
     {
         "id": 121,
         "courseName": "College Readiness",
         "courseCode": "RE302",
-        "teacherId": 0
+        "teacherId": 258
+    },
+    {
+        "id": 122,
+        "courseName": "College Readiness",
+        "courseCode": "RE402",
+        "teacherId": 258
+    },
+    {
+        "id": 123,
+        "courseName": "College Readiness",
+        "courseCode": "RE202",
+        "teacherId": 258
     },
     {
         "id": 124,
         "courseName": "Sports Team- Boy's Basketball",
         "courseCode": "PE319",
-        "teacherId": 0
+        "teacherId": 162
+    },
+    {
+        "id": 125,
+        "courseName": "Applied Music 3 B",
+        "courseCode": "MUSA325",
+        "teacherId": 147
+    },
+    {
+        "id": 126,
+        "courseName": "Applied Music 3",
+        "courseCode": "MUSA315",
+        "teacherId": 147
+    },
+    {
+        "id": 127,
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410",
+        "teacherId": 143
+    },
+    {
+        "id": 128,
+        "courseName": "Chorus",
+        "courseCode": "MUSA410",
+        "teacherId": 147
+    },
+    {
+        "id": 129,
+        "courseName": "US History 2",
+        "courseCode": "HIS504B",
+        "teacherId": 115
+    },
+    {
+        "id": 130,
+        "courseName": "College Readiness",
+        "courseCode": "RE302",
+        "teacherId": 241
+    },
+    {
+        "id": 131,
+        "courseName": "College Readiness",
+        "courseCode": "RE402",
+        "teacherId": 257
+    },
+    {
+        "id": 132,
+        "courseName": "College Readiness",
+        "courseCode": "RE302",
+        "teacherId": 239
     },
     {
         "id": 133,
         "courseName": "IGCSE Additional English",
         "courseCode": "ENGC0511",
-        "teacherId": 0
+        "teacherId": 235
     },
     {
         "id": 134,
         "courseName": "Chorus",
         "courseCode": "MUS410",
-        "teacherId": 0
+        "teacherId": 173
+    },
+    {
+        "id": 135,
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410",
+        "teacherId": 146
+    },
+    {
+        "id": 136,
+        "courseName": "College Readiness",
+        "courseCode": "RE202",
+        "teacherId": 254
+    },
+    {
+        "id": 137,
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410",
+        "teacherId": 144
+    },
+    {
+        "id": 138,
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410",
+        "teacherId": 141
+    },
+    {
+        "id": 139,
+        "courseName": "Applied Music B",
+        "courseCode": "MUSA225",
+        "teacherId": 137
+    },
+    {
+        "id": 140,
+        "courseName": "Applied Music 3",
+        "courseCode": "MUSA315",
+        "teacherId": 137
     },
     {
         "id": 141,
         "courseName": "US History 1",
         "courseCode": "HIS504A",
-        "teacherId": 0
+        "teacherId": 115
+    },
+    {
+        "id": 142,
+        "courseName": "IGCSE Chemistry",
+        "courseCode": "CHEC0620",
+        "teacherId": 105
     },
     {
         "id": 143,
         "courseName": "Hip Hop",
         "courseCode": "DAN205",
-        "teacherId": 0
+        "teacherId": 152
     },
     {
         "id": 144,
         "courseName": "Dance II",
         "courseCode": "DAN203",
-        "teacherId": 0
+        "teacherId": 152
     },
     {
         "id": 145,
         "courseName": "Physics: USIYPT Competition",
         "courseCode": "PHY602",
-        "teacherId": 0
+        "teacherId": 103
     },
     {
         "id": 146,
         "courseName": "Physics: USIYPT Competition  Part I",
         "courseCode": "PHY409",
-        "teacherId": 0
+        "teacherId": 103
     },
     {
         "id": 147,
         "courseName": "Research Seminar II",
         "courseCode": "RE303",
-        "teacherId": 0
+        "teacherId": 117
     },
     {
         "id": 148,
         "courseName": "AP Computer Science Principles",
         "courseCode": "CSE502",
-        "teacherId": 0
+        "teacherId": 132
     },
     {
         "id": 149,
         "courseName": "Website Design",
         "courseCode": "CSE303",
-        "teacherId": 0
+        "teacherId": 132
     },
     {
         "id": 150,
         "courseName": "Introduction to Artificial Intelligence",
         "courseCode": "CSE400",
-        "teacherId": 0
+        "teacherId": 132
     },
     {
         "id": 151,
         "courseName": "AP Computer Science",
         "courseCode": "CSE501",
-        "teacherId": 0
+        "teacherId": 132
     },
     {
         "id": 152,
         "courseName": "AP Biology",
         "courseCode": "BIO501",
-        "teacherId": 0
+        "teacherId": 107
     },
     {
         "id": 153,
         "courseName": "Botany",
         "courseCode": "BIO301",
-        "teacherId": 0
+        "teacherId": 107
     },
     {
         "id": 154,
-        "courseName": "ELL English Language Development",
+        "courseName": "ELL English Language Development Honors",
         "courseCode": "ENG218",
-        "teacherId": 0
+        "teacherId": 235
     },
     {
         "id": 155,
         "courseName": "IGCSE English ENGC",
         "courseCode": "ENGC0510A",
-        "teacherId": 0
+        "teacherId": 235
+    },
+    {
+        "id": 156,
+        "courseName": "IGCSE Additional English",
+        "courseCode": "ENGC0511",
+        "teacherId": 235
     },
     {
         "id": 157,
         "courseName": "Vocal Performance",
         "courseCode": "MUS403",
-        "teacherId": 0
+        "teacherId": 173
     },
     {
         "id": 158,
         "courseName": "Vocal Music II",
         "courseCode": "MUS203",
-        "teacherId": 0
+        "teacherId": 173
     },
     {
         "id": 159,
         "courseName": "Functions and Mathematical Modeling",
         "courseCode": "MATH218",
-        "teacherId": 0
+        "teacherId": 97
+    },
+    {
+        "id": 160,
+        "courseName": "Basica Algebra and Number Theory",
+        "courseCode": "MATH205",
+        "teacherId": 97
     },
     {
         "id": 161,
         "courseName": "AP Macroeconomics",
         "courseCode": "ECO502",
-        "teacherId": 0
+        "teacherId": 119
     },
     {
         "id": 162,
         "courseName": "AP Research",
         "courseCode": "RE505",
-        "teacherId": 0
+        "teacherId": 119
     },
     {
         "id": 163,
         "courseName": "AP Seminar",
         "courseCode": "RE504",
-        "teacherId": 0
+        "teacherId": 119
     },
     {
         "id": 164,
         "courseName": "Animation Studio",
         "courseCode": "ARTA406",
-        "teacherId": 0
+        "teacherId": 146
     },
     {
         "id": 165,
         "courseName": "Photo and Film Studio",
         "courseCode": "ARTA402",
-        "teacherId": 0
+        "teacherId": 146
     },
     {
         "id": 166,
         "courseName": "Seminar in Competitive Mathematics",
         "courseCode": "MATH309",
-        "teacherId": 0
+        "teacherId": 112
     },
     {
         "id": 167,
         "courseName": "AP Statistics",
         "courseCode": "MATH503",
-        "teacherId": 0
+        "teacherId": 112
     },
     {
         "id": 168,
         "courseName": "Introduction to Linear Algebra",
         "courseCode": "MATH606",
-        "teacherId": 0
+        "teacherId": 112
     },
     {
         "id": 169,
         "courseName": "Programming with Python",
         "courseCode": "CSE205",
-        "teacherId": 0
+        "teacherId": 134
     },
     {
         "id": 170,
         "courseName": "Engineering & Programming with Electronic",
         "courseCode": "EGR309",
-        "teacherId": 0
+        "teacherId": 103
+    },
+    {
+        "id": 171,
+        "courseName": "Research Seminar II",
+        "courseCode": "RE303",
+        "teacherId": 114
+    },
+    {
+        "id": 172,
+        "courseName": "Basica Algebra and Number Theory",
+        "courseCode": "MATH205",
+        "teacherId": 131
+    },
+    {
+        "id": 173,
+        "courseName": "AP Statistics",
+        "courseCode": "MATH503",
+        "teacherId": 131
+    },
+    {
+        "id": 174,
+        "courseName": "IGCSE Additional English",
+        "courseCode": "ENGC0511",
+        "teacherId": 175
     },
     {
         "id": 175,
         "courseName": "3D Print II",
         "courseCode": "ART210",
-        "teacherId": 0
+        "teacherId": 145
     },
     {
         "id": 176,
         "courseName": "ELL English Language Development",
         "courseCode": "ENG209",
-        "teacherId": 0
+        "teacherId": 237
+    },
+    {
+        "id": 178,
+        "courseName": "English 2",
+        "courseCode": "ENG207",
+        "teacherId": 177
     },
     {
         "id": 179,
         "courseName": "Foundations of Art History",
         "courseCode": "HIS301",
-        "teacherId": 0
+        "teacherId": 155
     },
     {
         "id": 180,
         "courseName": "Theatre 2 Honors",
         "courseCode": "TH208",
-        "teacherId": 0
+        "teacherId": 155
     },
     {
         "id": 181,
         "courseName": "Theatre Topics",
         "courseCode": "TH402",
-        "teacherId": 0
+        "teacherId": 155
     },
     {
         "id": 182,
         "courseName": "Theatre Production Honors",
         "courseCode": "TH203",
-        "teacherId": 0
+        "teacherId": 155
     },
     {
         "id": 183,
         "courseName": "Research Seminar I",
         "courseCode": "RE203",
-        "teacherId": 0
+        "teacherId": 125
     },
     {
         "id": 184,
         "courseName": "AP Microeconomics",
         "courseCode": "ECO501",
-        "teacherId": 0
+        "teacherId": 121
     },
     {
         "id": 185,
         "courseName": "Digital Painting",
         "courseCode": "ART316",
-        "teacherId": 0
+        "teacherId": 143
     },
     {
         "id": 186,
         "courseName": "Information Technology",
         "courseCode": "CSE202",
-        "teacherId": 0
+        "teacherId": 134
     },
     {
         "id": 187,
         "courseName": "Fashion Studio",
         "courseCode": "ARTA403",
-        "teacherId": 0
+        "teacherId": 143
+    },
+    {
+        "id": 188,
+        "courseName": "English 2 Honors",
+        "courseCode": "ENG208",
+        "teacherId": 219
+    },
+    {
+        "id": 189,
+        "courseName": "Politics and International Relations",
+        "courseCode": "HIS302",
+        "teacherId": 205
     },
     {
         "id": 190,
         "courseName": "Girl's Basketball Level",
         "courseCode": "PE215",
-        "teacherId": 0
+        "teacherId": 162
+    },
+    {
+        "id": 191,
+        "courseName": "High School General Physical Education",
+        "courseCode": "PE211",
+        "teacherId": 162
     },
     {
         "id": 192,
         "courseName": "AP Music Theory",
         "courseCode": "MUSA501",
-        "teacherId": 0
+        "teacherId": 147
     },
     {
         "id": 193,
         "courseName": "Composition",
         "courseCode": "MUSA301",
-        "teacherId": 0
+        "teacherId": 147
     },
     {
         "id": 194,
         "courseName": "Advanced Music Theory",
         "courseCode": "MUSA202",
-        "teacherId": 0
+        "teacherId": 147
     },
     {
         "id": 195,
         "courseName": "Literature and Film Honors",
         "courseCode": "ENG428",
-        "teacherId": 0
+        "teacherId": 226
+    },
+    {
+        "id": 196,
+        "courseName": "Physics",
+        "courseCode": "PHY203",
+        "teacherId": 100
+    },
+    {
+        "id": 197,
+        "courseName": "AP Physics",
+        "courseCode": "PHY501",
+        "teacherId": 100
     },
     {
         "id": 198,
         "courseName": "AP Physics C Mechanics",
         "courseCode": "PHY503",
-        "teacherId": 0
+        "teacherId": 100
+    },
+    {
+        "id": 199,
+        "courseName": "AP Seminar",
+        "courseCode": "RE504",
+        "teacherId": 115
+    },
+    {
+        "id": 200,
+        "courseName": "Biology 2",
+        "courseCode": "BIO203",
+        "teacherId": 159
     },
     {
         "id": 201,
         "courseName": "Music and Popular Culture",
         "courseCode": "MUS402",
-        "teacherId": 0
+        "teacherId": 152
+    },
+    {
+        "id": 202,
+        "courseName": "AP Computer Science",
+        "courseCode": "CSE501",
+        "teacherId": 134
     },
     {
         "id": 203,
         "courseName": "Design Thinking",
         "courseCode": "EGR303",
-        "teacherId": 0
+        "teacherId": 156
+    },
+    {
+        "id": 204,
+        "courseName": "basic algebra and number theory",
+        "courseCode": "MATH205",
+        "teacherId": 113
     },
     {
         "id": 205,
         "courseName": "Mathematical Analysis",
         "courseCode": "MATH318",
-        "teacherId": 0
+        "teacherId": 130
+    },
+    {
+        "id": 206,
+        "courseName": "AP Calculus AB",
+        "courseCode": "MATH501",
+        "teacherId": 130
+    },
+    {
+        "id": 207,
+        "courseName": "Functions and Mathematical Modeling",
+        "courseCode": "MATH218",
+        "teacherId": 130
     },
     {
         "id": 208,
         "courseName": "Electone Performance",
         "courseCode": "MUS318",
-        "teacherId": 0
+        "teacherId": 154
     },
     {
         "id": 209,
         "courseName": "Introduction to Western Music",
         "courseCode": "MUS207",
-        "teacherId": 0
+        "teacherId": 154
     },
     {
         "id": 210,
         "courseName": "Piano II",
         "courseCode": "MUS217",
-        "teacherId": 0
+        "teacherId": 154
     },
     {
         "id": 211,
         "courseName": "Piano Performance Honors",
         "courseCode": "MUS408",
-        "teacherId": 0
+        "teacherId": 154
     },
     {
         "id": 212,
         "courseName": "Badminton Level 2",
         "courseCode": "PE304",
-        "teacherId": 0
+        "teacherId": 167
+    },
+    {
+        "id": 213,
+        "courseName": "Badminton Level 1",
+        "courseCode": "PE204",
+        "teacherId": 167
+    },
+    {
+        "id": 214,
+        "courseName": "English 2",
+        "courseCode": "ENG207",
+        "teacherId": 231
     },
     {
         "id": 215,
         "courseName": "English 3",
         "courseCode": "ENG318",
-        "teacherId": 0
+        "teacherId": 236
     },
     {
         "id": 216,
         "courseName": "English 3",
         "courseCode": "ENG305",
-        "teacherId": 0
+        "teacherId": 236
     },
     {
         "id": 217,
         "courseName": "Journalism Writing",
         "courseCode": "ENG310",
-        "teacherId": 0
+        "teacherId": 232
+    },
+    {
+        "id": 218,
+        "courseName": "English 3",
+        "courseCode": "ENG318",
+        "teacherId": 232
+    },
+    {
+        "id": 219,
+        "courseName": "English 2",
+        "courseCode": "ENG207",
+        "teacherId": 230
+    },
+    {
+        "id": 220,
+        "courseName": "Research Seminar I",
+        "courseCode": "RE203",
+        "teacherId": 230
     },
     {
         "id": 221,
         "courseName": "Botany",
         "courseCode": "BIO303",
-        "teacherId": 0
+        "teacherId": 109
+    },
+    {
+        "id": 222,
+        "courseName": "Biology 2",
+        "courseCode": "BIO203",
+        "teacherId": 109
     },
     {
         "id": 223,
         "courseName": "AP 3",
         "courseCode": "ART502",
-        "teacherId": 0
+        "teacherId": 169
+    },
+    {
+        "id": 224,
+        "courseName": "High School General Physical Education",
+        "courseCode": "PE211",
+        "teacherId": 168
     },
     {
         "id": 225,
         "courseName": "Tennis",
         "courseCode": "PE316",
-        "teacherId": 0
+        "teacherId": 168
+    },
+    {
+        "id": 226,
+        "courseName": "Psychology",
+        "courseCode": "PSY303",
+        "teacherId": 214
+    },
+    {
+        "id": 227,
+        "courseName": "Chemistry",
+        "courseCode": "CHE203",
+        "teacherId": 106
+    },
+    {
+        "id": 228,
+        "courseName": "IGCSE Chemistry",
+        "courseCode": "CHEC0620",
+        "teacherId": 106
+    },
+    {
+        "id": 229,
+        "courseName": "AP Calculus BC",
+        "courseCode": "MATH502",
+        "teacherId": 113
+    },
+    {
+        "id": 230,
+        "courseName": "AP Calculus AB",
+        "courseCode": "MATH501",
+        "teacherId": 113
     },
     {
         "id": 231,
         "courseName": "AP US History",
         "courseCode": "HIS501",
-        "teacherId": 0
+        "teacherId": 123
     },
     {
         "id": 232,
         "courseName": "AP World History",
         "courseCode": "HIS503",
-        "teacherId": 0
+        "teacherId": 123
+    },
+    {
+        "id": 233,
+        "courseName": "Chinese 3",
+        "courseCode": "CHI302",
+        "teacherId": 224
     },
     {
         "id": 234,
         "courseName": "Introduction to Linguistics",
         "courseCode": "CHI404",
-        "teacherId": 0
+        "teacherId": 224
     },
     {
         "id": 235,
         "courseName": "AP 2D Studio Art",
         "courseCode": "ART501",
-        "teacherId": 0
+        "teacherId": 144
     },
     {
         "id": 236,
         "courseName": "Graphic Studio",
         "courseCode": "ARTA401",
-        "teacherId": 0
+        "teacherId": 144
+    },
+    {
+        "id": 237,
+        "courseName": "AP Macroeconomics",
+        "courseCode": "ECO502",
+        "teacherId": 120
+    },
+    {
+        "id": 238,
+        "courseName": "AP Microeconomics",
+        "courseCode": "ECO501",
+        "teacherId": 120
     },
     {
         "id": 239,
         "courseName": "Wood Art III",
         "courseCode": "ART314",
-        "teacherId": 0
+        "teacherId": 172
     },
     {
         "id": 240,
         "courseName": "Wood Art II",
         "courseCode": "ART214",
-        "teacherId": 0
+        "teacherId": 172
     },
     {
         "id": 241,
         "courseName": "AP Drawing",
         "courseCode": "ART503",
-        "teacherId": 0
+        "teacherId": 141
     },
     {
         "id": 242,
         "courseName": "Interpretation",
         "courseCode": "MUSA600",
-        "teacherId": 0
+        "teacherId": 137
     },
     {
         "id": 243,
         "courseName": "Soccer",
         "courseCode": "PE309",
-        "teacherId": 0
+        "teacherId": 245
     },
     {
         "id": 244,
         "courseName": "Aquatics and Fitness Level 1",
         "courseCode": "PE200",
-        "teacherId": 0
+        "teacherId": 245
     },
     {
         "id": 245,
         "courseName": "Computer Science",
         "courseCode": "CSE302",
-        "teacherId": 0
+        "teacherId": 134
     },
     {
         "id": 246,
         "courseName": "Flag Football",
         "courseCode": "PE310",
-        "teacherId": 0
+        "teacherId": 245
+    },
+    {
+        "id": 247,
+        "courseName": "Chinese 3",
+        "courseCode": "CHI302",
+        "teacherId": 223
     },
     {
         "id": 248,
         "courseName": "Show Choir",
         "courseCode": "MUS310",
-        "teacherId": 0
+        "teacherId": 153
     },
     {
         "id": 249,
         "courseName": "AP Physics",
         "courseCode": "PHY502",
-        "teacherId": 0
+        "teacherId": 101
+    },
+    {
+        "id": 250,
+        "courseName": "Computer Science",
+        "courseCode": "CSE302",
+        "teacherId": 101
+    },
+    {
+        "id": 251,
+        "courseName": "Website Design",
+        "courseCode": "CSE303",
+        "teacherId": 101
+    },
+    {
+        "id": 252,
+        "courseName": "AP Psychology",
+        "courseCode": "PHY501",
+        "teacherId": 124
     },
     {
         "id": 253,
         "courseName": "IGCSE Additional Mathematics",
         "courseCode": "MATHC0606",
-        "teacherId": 0
+        "teacherId": 95
+    },
+    {
+        "id": 254,
+        "courseName": "AP Calculus BC",
+        "courseCode": "MATH502",
+        "teacherId": 95
+    },
+    {
+        "id": 255,
+        "courseName": "AP Calculus AB",
+        "courseCode": "MATH501",
+        "teacherId": 95
     },
     {
         "id": 256,
         "courseName": "English 4",
         "courseCode": "ENG401",
-        "teacherId": 0
+        "teacherId": 228
     },
     {
         "id": 257,
         "courseName": "Introduction to Creative Writing",
         "courseCode": "ENG309",
-        "teacherId": 0
+        "teacherId": 228
+    },
+    {
+        "id": 258,
+        "courseName": "English 4",
+        "courseCode": "ENG401",
+        "teacherId": 176
+    },
+    {
+        "id": 259,
+        "courseName": "Chinese 2",
+        "courseCode": "CHI202",
+        "teacherId": 223
+    },
+    {
+        "id": 260,
+        "courseName": "College Readiness",
+        "courseCode": "RE302",
+        "teacherId": 238
     },
     {
         "id": 261,
         "courseName": "Intro to Nuclear Chemistry",
         "courseCode": "CHE601",
-        "teacherId": 0
+        "teacherId": 98
+    },
+    {
+        "id": 262,
+        "courseName": "AP Chemistry",
+        "courseCode": "CHE501",
+        "teacherId": 98
     },
     {
         "id": 263,
         "courseName": "Technology",
         "courseCode": "MATH401",
-        "teacherId": 0
+        "teacherId": 96
     },
     {
         "id": 264,
         "courseName": "IGCSE Mathematics",
         "courseCode": "MATHC0580A",
-        "teacherId": 0
+        "teacherId": 96
+    },
+    {
+        "id": 265,
+        "courseName": "Mathematical Modeling",
+        "courseCode": "MATH218",
+        "teacherId": 96
+    },
+    {
+        "id": 266,
+        "courseName": "English 3 Honors AP Preparation",
+        "courseCode": "ENG318",
+        "teacherId": 227,
+        "averageScore": null
     },
     {
         "id": 267,

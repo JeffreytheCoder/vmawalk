@@ -204,3 +204,11 @@
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
 }
+
+.td-small {
+    width: 70%;
+}
+
+.td-large {
+    width: 25%;
+}
