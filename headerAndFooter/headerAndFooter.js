@@ -207,7 +207,3 @@ function loadFooter() {
         realFooter.classList.remove("fixed-bottom");
     }
 }
-
-window.onresize = function() {
-    loadHeader();
-}

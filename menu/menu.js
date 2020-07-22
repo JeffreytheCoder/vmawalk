@@ -320,11 +320,7 @@ function load() {
     })
 }
 window.onload = load;
-// window.onresize = function() {
-//     document.getElementById("header-div").innerHTML = "";
-//     document.getElementById("namewithpic").innerHTML = "";
-//     document.getElementById("course-list-title").innerHTML = "";
-//     document.getElementById("course-frame").innerHTML = "";
-//     document.getElementById("footer-div").innerHTML = "";
-//     load();
-// }
+
+window.onresize = function() {
+    location.reload();
+}
