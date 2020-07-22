@@ -288,8 +288,8 @@ function loadData() {
                 reviewBox.style.cssText = "padding: 15px;";
                 reviewBox.innerHTML = `<table class="review-table">
     <tr>
-        <td style="color: gray; padding-bottom: 2px;">Semester: ` + reviewList[i].year + `~` + (reviewList[i].year + 1) + semester + `</td>
-        <td style="color: gray; float: right;">` + date + `</td>
+        <td style="color: gray; padding-bottom: 2px;">Semester: ${reviewList[i].year} ~ ${(reviewList[i].year + 1) + semester}</td>
+        <td style="color: gray; float: right;">${date}</td>
     </tr>
     <tr>
         <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
