@@ -133,7 +133,7 @@ function loadTeacherMenu() {
                 courseElement.innerHTML = `
             <table>
             <tr>
-            <td width="200px">
+            <td class="td-small">
                 <a href="` + queryLink + `" class="profile-link">
                     <div class="icon-round">` + course.courseCode + `</div>
                     <div class="teacher-name">
@@ -154,7 +154,7 @@ function loadTeacherMenu() {
                 courseElement.innerHTML = `
             <table>
             <tr>
-            <td width="200px">
+            <td class="td-large">
                 <a href="` + queryLink + `" class="profile-link">
                     <div class="icon-round">` + course.courseCode + `</div>
                     <div class="teacher-name">
@@ -178,7 +178,7 @@ function loadTeacherMenu() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px"><div class="review">` + bestReview + `</div></td>
+            <td class="td-large"><div class="review">` + bestReview + `</div></td>
             </tr>
             </table>
             `;
@@ -258,8 +258,8 @@ function loadCourseMenu() {
             courseElement.innerHTML = `
         
         <table>
-            <tr>
-            <td width="200px">
+        <tr>
+            <td class="td-large">
             <a href=` + queryLink + ` class="profile-link">
                 <div class="icon-round2" style="background-image: url(` + imageURL + `);">
                 </div>
@@ -284,7 +284,7 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px"><div class="review">` + bestReview + `</div></td>
+            <td class="td-large"><div class="review">` + bestReview + `</div></td>
             </tr>
             </table>
             `;
