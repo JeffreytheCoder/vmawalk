@@ -1,5 +1,4 @@
-[
-    {
+[{
         "id": 1,
         "chineseName": "王赫",
         "englishName": "Wang He",
@@ -224,7 +223,7 @@
     {
         "id": 129,
         "chineseName": null,
-        "englishName": "Mogammad Zardad",
+        "englishName": "Mogammad Rifat Zardad",
         "averageScore": null
     },
     {
@@ -818,7 +817,7 @@
     {
         "id": 228,
         "chineseName": null,
-        "englishName": "Nicolas McNamara",
+        "englishName": "Mac (Nicolas McNamara)",
         "averageScore": null
     },
     {
