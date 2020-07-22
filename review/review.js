@@ -63,7 +63,7 @@ window.onload = function() {
             var teacher_id = data.value;
             for (var i = 1; i < CoursesWithTeacher.length; i++) {
                 if (CoursesWithTeacher[i].teacherId == teacher_id) {
-                    $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, CoursesWithTeacher[i].id));
+                    $("#course").append(new Option(`${CoursesWithTeacher[i].courseName} ${CoursesWithTeacher[i].courseCode}`, CoursesWithTeacher[i].id));
                 }
             }
             form.render("select");
