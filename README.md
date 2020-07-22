@@ -1,5 +1,5 @@
 # vmawalk
-A public platform for Vanke Meisha Academy course and teacher ratings.
+A public platform for Vanke Meisha Academy course and teacher ratings. </br>
 Website link: www.vmawalk.com
 
 ## Intro
@@ -13,6 +13,10 @@ Created by Vanke Meisha Academy (VMA) students, Vmawalk is the only public platf
 - Caperis </br>
   cofounder, web designer </br> 
 
-## 
-
-
+## Features
+1. Search for the ratings and reviews of a specific teacher or course
+2. View a teacher teaching which courses or a course taught by which teachers
+3. Submit a review with 5 rating categoies: overall, easiness, workload, clarity, helpfulness
+4. Register with email confirmation & Login with forget password
+5. Responsive mobile-friendly framework
+6. About & Team pages
