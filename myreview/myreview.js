@@ -13,7 +13,7 @@ layui.use("layer", function() {
             setTimeout(() => {
                 self.location = "../login/login.html";
             }, 1000);
-            
+
         }
     }
 });
