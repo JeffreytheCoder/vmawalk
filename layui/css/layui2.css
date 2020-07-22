@@ -2386,6 +2386,7 @@ hr {
     inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
     inset 0px 0px 0px 0px #0001;
     box-sizing: border-box;
+    width: 100%
 }
 
 .layui-form-select dl dd,
