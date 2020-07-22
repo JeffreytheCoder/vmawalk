@@ -17,13 +17,15 @@ layui.use("layer", function() {
 });
 
 window.onload = function() {
-    layui.use(['layer', 'jquery', 'form'], function() {
+    layui.use(['layer', 'jquery', 'form'], async function() {
 
         /**
          * @type {JQueryStatic}
          */
         var $ = layui.jquery,
             form = layui.form;
+
+        await loadInfo;
 
         teachers.filter(teacher => {
             if (teacher.chineseName == null) {

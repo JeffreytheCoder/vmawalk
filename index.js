@@ -2,6 +2,8 @@
 var loginText = "Login";
 var loginLink = "login/login.html";
 
+
+
 function setLogin(callback) {
     // Judge if login or myreview
     var param = new URL(location)
@@ -44,9 +46,12 @@ window.onload = function () {
     }
 
     // Load options of select
-    layui.use(['layer', 'jquery', 'form'], function () {
+    layui.use(['layer', 'jquery', 'form'], async function () {
 
         var $ = layui.jquery;
+
+        await loadInfo;
+    
 
         for (var i = 1; i < teachers.length; i++) {
             if (teachers[i].chineseName == null) {

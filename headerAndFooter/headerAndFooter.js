@@ -3,7 +3,7 @@ document.write(`
     <script src="../lib/initials.js"></script>
 `)
 
-function loadHeader() {
+async function loadHeader() {
 
     // Judge if login or myreview
     var loginText = "Login";
@@ -119,8 +119,10 @@ function loadHeader() {
     }
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], function() {
+    layui.use(["layer", "jquery", "form"], async function() {
         var $ = layui.jquery;
+
+        await loadInfo;
 
         teachers.filter(teacher => {
             if (teacher.chineseName == null) {
