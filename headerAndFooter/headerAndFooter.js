@@ -4,6 +4,7 @@ document.write(`
 `)
 
 function loadHeader() {
+
     // Judge if login or myreview
     var loginText = "Login";
     var loginLink = "../login/login.html";
@@ -26,17 +27,61 @@ function loadHeader() {
         console.log("未检测到token, 请登录")
     }
 
-    //Load header elements
-    headerDiv = document.getElementById("header-div");
-    var header = document.createElement("div");
-    header.innerHTML =
-        `<header id="header" class="header">
+
+    if (document.documentElement.clientWidth <= 700) {
+        console.log(document.documentElement.clientWidth);
+        //Load header elements
+        var headerDiv = document.getElementById("header-div");
+        // var header = document.createElement("div");
+        headerDiv.innerHTML =
+            `<header id="header" class="header">
+    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin: 10px; width: 100%">
+        <div class="layui-form-block" style="margin-right: 10px; width: 100%">
+            <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
+                lay-filter="search">
+                <option value="">Find a course or a teacher
+                </option>
+            </select>
+        </div>
+        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
+    </form>
+    <div style="display: flex; height: 100%; align-items: center;">
+        <div style="padding-right: 10px">
+            <a href="../review/review.html">
+                <button class="add-review" style="width: 40px; padding:" >
+                    <text class="add-review-text">✚</text>
+                </button>
+            </a>
+        </div>
+        <div style="padding-right: 10px;">
+        <a href=` + loginLink + `>
+            <button class="add-review">
+                <text class="add-review-text">` +
+            loginText +
+            `</text>
+            </button>
+        </a>
+    </div>
+    </div>
+</header>`;
+        // headerDiv.innerHTML = header.innerHTML;
+
+    } else {
+        //Load header elements
+        var headerDiv = document.getElementById("header-div");
+        // var header = document.createElement("div");
+        headerDiv.innerHTML =
+            `<header id="header" class="header">
     <div class="title">
         <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
             <strong>vma</strong>walk
         </a>
     </div>
-    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0">
+    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0;">
         <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
             <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
                 lay-filter="search">
@@ -58,21 +103,23 @@ function loadHeader() {
                 </button>
             </a>
         </div>
-        <div style="padding-right: 30px;">
+        <div style="margin-right: 30px">
             <a href=` + loginLink + `>
                 <button class="add-review">
                     <text class="add-review-text">` +
-        loginText +
-        `</text>
+            loginText +
+            `</text>
                 </button>
             </a>
         </div>
     </div>
 </header>`;
-    headerDiv.appendChild(header);
+        // headerDiv.appendChild(header);
+        // headerDiv.innerHTML = header.innerHTML;
+    }
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], function () {
+    layui.use(["layer", "jquery", "form"], function() {
         var $ = layui.jquery;
 
         teachers.filter(teacher => {
@@ -94,18 +141,18 @@ function loadHeader() {
         layui.form.render("select");
     });
 
-    layui.use(["form", "jquery"], function () {
+    layui.use(["form", "jquery"], function() {
         var form = layui.form;
         var $ = layui.$;
 
-        $(document).keydown(function (e) {
+        $(document).keydown(function(e) {
             if (e.keyCode === 13) {
                 $("#submit").trigger("click");
                 return false;
             }
         });
 
-        form.on("submit(submit)", function (data) {
+        form.on("submit(submit)", function(data) {
             let query = data.field.teacher;
             let link = `../menu/menu.html?query=${query}`;
             window.location.href = link;
@@ -145,11 +192,11 @@ function loadFooter() {
             </a>
         </div>
         <span class="footer-info">
-            Vmawalk is a public platform only provided for VMA students, created by VMA students since 2020.
+            Vmawalk is only provided for VMAers, created by VMAers since 2020.
         </span>
         <br>
     </footer>`;
-    footerDiv.appendChild(footer);
+    footerDiv.innerHTML = footer.innerHTML;
 
     var realFooter = document.getElementById("realfooter")
     realFooter.classList.add("fixed-bottom");

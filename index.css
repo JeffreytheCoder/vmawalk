@@ -1,9 +1,36 @@
+.content {
+    width: 100%;
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    /* width: fit-content; */
+    height: fit-content;
+    padding-bottom: 180px;
+}
+
+.add-review {
+    box-shadow: none;
+    width: fit-content;
+    margin-right: 20px;
+}
+
+.add-review:hover {
+    background: none;
+}
+
+.add-review:hover .add-review-text {
+    color: gray;
+}
+
 .index-title {
     color: #69bdc8;
     font-weight: normal;
     font-size: 80px;
-    margin-top: 110px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .subtitle {
@@ -13,9 +40,7 @@
 }
 
 .home-header {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
+    margin: 1%;
     display: flex;
     justify-content: space-between;
     align-items: center;

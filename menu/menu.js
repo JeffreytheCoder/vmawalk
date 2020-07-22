@@ -54,6 +54,20 @@ function callData(query, queryID, callback) {
     })
 }
 
+function loadCourseListTitle() {
+    let courselisttitle = document.getElementById("course-list-title");
+    var title = document.createElement("div");
+    title.className = "courses-list-title";
+    if (document.documentElement.clientWidth <= 700) {
+        title.innerHTML = `<b>Courses / Teachers</b> <b>Ratings</b>`
+    } else {
+        title.innerHTML = `<b>Courses / Teachers</b>
+        <b>Ratings</b>
+        <b>Most Popular Review</b>`
+    }
+    courselisttitle.appendChild(title)
+}
+
 function loadTeacherMenu() {
     //add namewithpic
     let namewithpic = document.getElementById("namewithpic");
@@ -73,7 +87,7 @@ function loadTeacherMenu() {
     namewithpic.appendChild(teacherName);
     var teacherScore = document.createElement("font");
     teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
-    if (teacherObj.averageScore == null || teacherObj.averageScore == 5) {
+    if (teacherObj.averageScore == null) {
         teacherObj.averageScore = "N/A";
         teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
     } else {
@@ -113,9 +127,31 @@ function loadTeacherMenu() {
                 bestReview = review.text;
             }
 
-            var courseElement = document.createElement("div");
-            courseElement.className = "course";
-            courseElement.innerHTML = `<br>
+            if (document.documentElement.clientWidth <= 700) {
+                var courseElement = document.createElement("div");
+                courseElement.className = "course";
+                courseElement.innerHTML = `
+            <table>
+            <tr>
+            <td width="200px">
+                <a href="` + queryLink + `" class="profile-link">
+                    <div class="icon-round">` + course.courseCode + `</div>
+                    <div class="teacher-name">
+                        <font color="black" size="3" style="margin-bottom: 5px;">` + course.courseName + `</font>
+                        <font color="#69BDC8" size="2">Full Profile ></font>
+                    </div>
+                </a>
+            </td>
+            <td class="rating-cell" >
+                <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
+            </td>
+            </table>
+            <span style="width: 15px"></span>`;
+                courseFrame.appendChild(courseElement);
+            } else {
+                var courseElement = document.createElement("div");
+                courseElement.className = "course";
+                courseElement.innerHTML = `
             <table>
             <tr>
             <td width="200px">
@@ -142,11 +178,12 @@ function loadTeacherMenu() {
             <td class="rating-cell">
                 <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px"><div class="review">` + bestReview + `</div></td>
             </tr>
             </table>
-            <br>`;
-            courseFrame.appendChild(courseElement);
+            `;
+                courseFrame.appendChild(courseElement);
+            }
         }
     )
 }
@@ -215,10 +252,11 @@ function loadCourseMenu() {
             }
             var imageURL = Imagelink[course.teacherId];
 
+
             var courseElement = document.createElement("div");
             courseElement.className = "course";
             courseElement.innerHTML = `
-        <br>
+        
         <table>
             <tr>
             <td width="200px">
@@ -246,21 +284,22 @@ function loadCourseMenu() {
             <td class="rating-cell">
             <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
             </td>
-            <td width="200px" class="review"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">` + bestReview + `</div></td>
+            <td width="200px"><div class="review">` + bestReview + `</div></td>
             </tr>
             </table>
-            <br>`;
+            `;
             courseFrame.appendChild(courseElement);
         }
     )
 }
 
-window.onload = function() {
+function load() {
     //init
     var query = getUrlQueryString(decodeURI(window.location.href));
     console.log(query);
     var queryID = query.substring(2);
     loadHeader();
+    loadCourseListTitle()
     var callStart = new Date().getTime();
     callData(query, queryID, function() {
         count++;
@@ -280,3 +319,12 @@ window.onload = function() {
         }
     })
 }
+window.onload = load;
+// window.onresize = function() {
+//     document.getElementById("header-div").innerHTML = "";
+//     document.getElementById("namewithpic").innerHTML = "";
+//     document.getElementById("course-list-title").innerHTML = "";
+//     document.getElementById("course-frame").innerHTML = "";
+//     document.getElementById("footer-div").innerHTML = "";
+//     load();
+// }

@@ -11,7 +11,7 @@ var teacherName;
 var reviewList;
 
 function Like(reviewId, reviewIndex) {
-    layui.use("layer", function () {
+    layui.use("layer", function() {
         var layer = layui.layer;
         var token = localStorage.getItem("token")
         if (!token) {
@@ -50,7 +50,7 @@ function Like(reviewId, reviewIndex) {
 
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function () {
+    layui.use(["jquery", "layer"], function() {
 
         /**
          * @type {JQueryStatic}
@@ -66,7 +66,7 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function (info) {
+            function(info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 var teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -93,7 +93,7 @@ function callInfo(id, callback) {
              * likes:number
              * }[]} result - 课程类型
              */
-            function (result) {
+            function(result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -113,7 +113,7 @@ function callInfo(id, callback) {
                     /**
                      * @param {number[]} data
                      */
-                    success: function (data) {
+                    success: function(data) {
                         console.log(data);
                         callback();
                     },
@@ -147,6 +147,11 @@ function loadData() {
             imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
         }
 
+        //mobile adjustment
+        var fontSize = 60;
+        if (document.documentElement.clientWidth <= 700) {
+            var fontSize = 30;
+        }
         //add namewithpic
         var namewithpic = document.getElementById("namewithpic");
         var namewithpicElement = document.createElement("div");
@@ -158,12 +163,12 @@ function loadData() {
         </a>
     </td>
     <td height="100%">
-        <p style="font-size:60px"><strong>` + coursewithteacher.courseName + `</strong></p>
+        <p style="font-size:` + fontSize + `px"><strong>` + coursewithteacher.courseName + `</strong></p>
     </td>
 </tr>
 <tr height="40px">
         <td style="display: flex; align-items: center;">
-            <a style="white-space:nowrap;" href="../menu/menu.html?query=1-` + coursewithteacher.teacherId + `">
+            <a style="white-space:nowrap; display:flex; align-items: center;" href="../menu/menu.html?query=1-` + coursewithteacher.teacherId + `">
                 <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
                 </div>
                 <font size="4">` + teacherName + `</font>
@@ -224,7 +229,7 @@ function loadData() {
             <td align=" center" width="20%">Light</td>
         </tr>
         <tr class="rating-cell">
-            <td align="center" width="20%">Not Clear</td>
+            <td align="center" width="20%">Confuse</td>
             <td width="60%">
                 <div style="display: flex; justify-content: space-between;">
                     <font color="black">Clarity</font>
@@ -238,7 +243,7 @@ function loadData() {
             <td align=" center" width="20%">Clear</td>
         </tr>
         <tr class="rating-cell">
-            <td align="center" width="20%">Not Helpful</td>
+            <td align="center" width="20%">Helpless</td>
             <td width="60%">
                 <div style="display: flex; justify-content: space-between;">
                     <font color="black">Helpfulness</font>
@@ -321,7 +326,7 @@ function loadData() {
     }
 }
 
-window.onload = function () {
+window.onload = function() {
 
     //init
     var query = getUrlQueryString(window.location.href);

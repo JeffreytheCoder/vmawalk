@@ -28,6 +28,17 @@ function setLogin(callback) {
 }
 
 window.onload = function() {
+
+    var selectForm = document.getElementById("submit");
+    if (document.documentElement.clientWidth <= 700) {
+        selectForm.style.cssText = `padding:0; width: 50px; text-align: center; background-color: #69bdc8; box-shadow: /* -7px -7px 20px 0px #fff9, */
+        /* -4px -4px 5px 0px #fff9, */
+        7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+        inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+        inset 0px 0px 0px 0px #0001;`
+        selectForm.innerHTML = '<img src="img/search-icon.png" style="width: 30px;">'
+    }
+
     // Load options of select
     layui.use(['layer', 'jquery', 'form'], function() {
 
@@ -58,9 +69,8 @@ window.onload = function() {
         loginDiv = document.getElementById("login-div");
         var login = document.createElement("a");
         login.setAttribute('href', loginLink);
-        login.innerHTML = `<button class="add-review">
-                <text class="add-review-text">` + loginText + `</text>
-            </button>`;
+        login.innerHTML = ` <button class = "add-review">
+            <text class = "add-review-text"> ` + loginText + ` </text> </button>`;
         loginDiv.appendChild(login);
     })
 }
