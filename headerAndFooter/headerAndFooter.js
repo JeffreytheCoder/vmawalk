@@ -97,20 +97,16 @@ async function loadHeader() {
     </form>
     <div style="display: flex; overflow: hidden;height: 100%;align-items: center;">
         <div style="padding-right: 25px">
-            <a href="../review/review.html">
-                <button class="add-review">
+                <button class="add-review"  onclick="location.href='../review/review.html'">
                     <text class="add-review-text">✚ Review</text>
                 </button>
-            </a>
         </div>
         <div style="margin-right: 30px">
-            <a href=` + loginLink + `>
-                <button class="add-review">
+                <button class="add-review"  onclick="location.href='` + loginLink + `'">
                     <text class="add-review-text">` +
             loginText +
             `</text>
                 </button>
-            </a>
         </div>
     </div>
 </header>`;
