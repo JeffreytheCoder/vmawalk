@@ -491,12 +491,6 @@
         "teacherId": 202
     },
     {
-        "id": 108,
-        "courseName": "IGCSE Physics",
-        "courseCode": "PHYC0625",
-        "teacherId": 102
-    },
-    {
         "id": 109,
         "courseName": "Sports Team-Badminton",
         "courseCode": "PE318",
@@ -693,12 +687,6 @@
         "courseName": "US History 1",
         "courseCode": "HIS504A",
         "teacherId": 115
-    },
-    {
-        "id": 142,
-        "courseName": "IGCSE Chemistry",
-        "courseCode": "CHEC0620",
-        "teacherId": 105
     },
     {
         "id": 143,
