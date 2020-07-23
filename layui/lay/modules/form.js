@@ -340,7 +340,7 @@ layui.define('layer', function (exports) {
 
                                 // modify for search
 
-                                var chineseFilter = /\p{Unified_Ideograph}*/u
+                                var chineseFilter = /[\u4E00-\u9FCC]*/
 
                                 var fuzzysearch = function (needle, haystack) {
                                     var hlen = haystack.length;
