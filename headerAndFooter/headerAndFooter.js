@@ -36,7 +36,7 @@ async function loadHeader() {
         headerDiv.innerHTML =
             `<header id="header" class="header">
             <a href="../index.html" style="margin-left: 10px;">
-            <img src="../img/logo-round-white.png" style="height: 35px;">
+            <img src="../img/logo-round-white.png" style="height: 30px;">
         </a>
     <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin: 10px; width: 100%">
         <div class="layui-form-block" style="margin-right: 10px; width: 100%">
@@ -207,4 +207,8 @@ function loadFooter() {
     } else {
         realFooter.classList.remove("fixed-bottom");
     }
+}
+
+window.onresize = function() {
+    location.reload();
 }
