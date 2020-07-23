@@ -61,9 +61,16 @@
 }
 
 .layui-input {
+    /* position: relative; */
     border-radius: 10px;
     /* height: 40px; */
     font-size: 15px;
+}
+
+.tips {
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
 }
 
 .layui-form-label {

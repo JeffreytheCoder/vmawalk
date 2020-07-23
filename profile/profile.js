@@ -11,7 +11,7 @@ var teacherName;
 var reviewList;
 
 function Like(reviewId, reviewIndex) {
-    layui.use("layer", function () {
+    layui.use("layer", function() {
         var layer = layui.layer;
         var token = localStorage.getItem("token")
         if (!token) {
@@ -50,7 +50,7 @@ function Like(reviewId, reviewIndex) {
 
 
 function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function () {
+    layui.use(["jquery", "layer"], function() {
 
         /**
          * @type {JQueryStatic}
@@ -66,10 +66,10 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function (info) {
+            function(info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
-                loadInfo.then(function () {
+                loadInfo.then(function() {
                     var teacher = teachers.find(teacher => teacher.id == info.teacherId);
                     teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
                     callback();
@@ -95,7 +95,7 @@ function callInfo(id, callback) {
              * likes:number
              * }[]} result - 课程类型
              */
-            function (result) {
+            function(result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -115,7 +115,7 @@ function callInfo(id, callback) {
                     /**
                      * @param {number[]} data
                      */
-                    success: function (data) {
+                    success: function(data) {
                         console.log(data);
                         callback();
                     },
@@ -331,7 +331,7 @@ function loadData() {
     }
 }
 
-window.onload = function () {
+window.onload = function() {
 
     //init
     var query = getUrlQueryString(window.location.href);
@@ -340,4 +340,8 @@ window.onload = function () {
     loadHeader();
 
     callInfo(query, loadData)
+}
+
+window.onresize = function() {
+    location.reload();
 }

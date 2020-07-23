@@ -102,34 +102,40 @@ function loadReview() {
             review.innerHTML = `<div>
             <table width="100%">
                 <tr>
-                    <td class="review-upper">
-                        <div class="review-info">
+                    <td class="review-upper" style="display: block;">
+                        <div class="review-info" style="display: flex; flex-direction: row; align-items: flex-end;">
                             <div>
-                                <div class="review-title">` + ` ` + courseName + `</font>
+                                <div class="review-title">` + courseName + `</font>
                                 </div>
                                 <div>
                                     <font size="4">` + teacherName + `</font>
                                 </div>
                             </div>
+                            <div class="date">
+                                <span>` + reviewList[i].year + ` ` + semester + `</span>
+                                <span>Submitted ` + date + `</span>
+                                <span>Likes Recieved: ` + reviewList[i].likes + `</span>
+                            </div>
                         </div>
+                        <hr>
                         <div class="rating-table">
-                            <div class="review-title"> </div>
+                            <div class="review-title">Ratings</div>
                             <table width="auto">
                                 <tr>
-                                    <td class="rating-cell">
-                                        <font size="5" color="black">` + scoreList[0] + `</font><br />
+                                    <td class="rating-cell" style="font-size: 10px;">
+                                        <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
                                     </td>
-                                    <td class="rating-cell">
-                                        <font size="5" color="black">` + scoreList[1] + `</font><br />
+                                    <td class="rating-cell" style="font-size: 10px;">
+                                        <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
                                     </td>
-                                    <td class="rating-cell">
-                                        <font size="5" color="black">` + scoreList[2] + `</font><br />
+                                    <td class="rating-cell" style="font-size: 10px;">
+                                        <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
                                     </td>
-                                    <td class="rating-cell">
-                                        <font size="5" color="black">` + scoreList[3] + `</font><br />
+                                    <td class="rating-cell" style="font-size: 10px;">
+                                        <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
                                     </td>
-                                    <td class="rating-cell">
-                                        <font size="5" color="black">` + scoreList[4] + `</font><br />
+                                    <td class="rating-cell" style="font-size: 10px;">
+                                        <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
                                     </td>
                                 </tr>
                             </table>
@@ -227,4 +233,8 @@ window.onload = function() {
         loadReview();
         loadFooter();
     })
+}
+
+window.onresize = function() {
+    location.reload();
 }
