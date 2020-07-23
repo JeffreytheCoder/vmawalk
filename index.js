@@ -9,6 +9,10 @@ function setLogin(callback) {
     var param = new URL(location)
     if (param.searchParams.has("token")) {
         localStorage.setItem("token", param.searchParams.get("token"))
+        if (new URL(document.referrer).pathname.endsWith("EmailConfirm"))
+            layui.use("layer", function () {
+                layui.layer.msg("Email Confirmed Successfully");
+            })
     }
     var token = localStorage.getItem("token")
 
