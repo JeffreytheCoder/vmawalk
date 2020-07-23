@@ -1433,5 +1433,36 @@
         "courseCode": "ENG501",
         "teacherId": 227,
         "averageScore": null
+    },
+    {
+        "courseName": "English 3 Honors AP Preparation",
+        "courseCode": "ENG318",
+        "teacherId": 228,
+        "averageScore": null
+    },
+    {
+        "courseName": "Tai Ji",
+        "courseCode": "PE555",
+        "teacherId": 1,
+        "averageScore": null
+    },
+    {
+        "courseName": "AP Chinese",
+        "courseCode": "CHI501",
+        "teacherId": 1,
+        "averageScore": null
+    }, 
+    {
+        "courseName": "AP Speeching",
+        "courseCode": "CHI502",
+        "teacherId": 1,
+        "averageScore": null
+    }, 
+    {
+        "courseName": "AP Suspend",
+        "courseCode": "HHH501",
+        "teacherId": 1,
+        "averageScore": null
     }
+
 ]
