@@ -51,7 +51,7 @@ window.onload = function () {
     }
 
     // Load options of select
-    layui.use(['layer', 'jquery', 'form'], async function () {
+    layui.use(['layer', 'jquery', 'form'], async function() {
 
         var $ = layui.jquery;
 
@@ -81,9 +81,9 @@ window.onload = function () {
     //Load login button
     setLogin(function () {
         loginDiv = document.getElementById("login-div");
-        var login = document.createElement("a");
+        var login = document.createElement("span");
         login.setAttribute('href', loginLink);
-        login.innerHTML = ` <button class = "add-review">
+        login.innerHTML = ` <button class = "add-review" onclick="location.href='` + loginLink + `'">
             <text class = "add-review-text"> ` + loginText + ` </text> </button>`;
         loginDiv.appendChild(login);
     })
