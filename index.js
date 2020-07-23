@@ -7,10 +7,11 @@ var loginLink = "login/login.html";
 function setLogin(callback) {
     // Judge if login or myreview
     var param = new URL(location)
-    var token = localStorage.getItem("token")
     if (param.searchParams.has("token")) {
         localStorage.setItem("token", param.searchParams.get("token"))
     }
+    var token = localStorage.getItem("token")
+
     if (token) {
         console.log("检测到token")
         try {
@@ -33,7 +34,7 @@ function setLogin(callback) {
     callback()
 }
 
-window.onload = function() {
+window.onload = function () {
 
     var selectForm = document.getElementById("submit");
     if (document.documentElement.clientWidth <= 700) {
@@ -51,7 +52,7 @@ window.onload = function() {
         var $ = layui.jquery;
 
         await loadInfo;
-    
+
 
         for (var i = 1; i < teachers.length; i++) {
             if (teachers[i].chineseName == null) {
@@ -74,7 +75,7 @@ window.onload = function() {
     })
 
     //Load login button
-    setLogin(function() {
+    setLogin(function () {
         loginDiv = document.getElementById("login-div");
         var login = document.createElement("a");
         login.setAttribute('href', loginLink);
@@ -86,12 +87,12 @@ window.onload = function() {
 
 
 // Set submit button click
-layui.use(['form', 'jquery'], function() {
+layui.use(['form', 'jquery'], function () {
 
     var form = layui.form;
     var $ = layui.$;
 
-    $(document).keydown(function(e) {
+    $(document).keydown(function (e) {
         if (e.keyCode === 13) {
 
             $("#submit").trigger("click");
@@ -99,7 +100,7 @@ layui.use(['form', 'jquery'], function() {
         }
     });
 
-    form.on('submit(submit)', function(data) {
+    form.on('submit(submit)', function (data) {
         query = data.field.teacher;
         link = "menu/menu.html?query=" + encodeURI(encodeURI(query)) + "";
         window.location.href = link;
