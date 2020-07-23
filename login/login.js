@@ -39,7 +39,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
             },
             error: function (req) {
                 if (req.status == 400) {
-                    layer.msg("您输入的用户名或密码错误");
+                    layer.msg(req.responseJSON.message);
                     console.log(req)
                 }
             },
