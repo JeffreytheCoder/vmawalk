@@ -125,9 +125,7 @@ async function callInfo(id) {
         }
     })
 
-    await teacherLoading;
-    await reviewLoading;
-    await userReviewsLoading;
+    await Promise.all([teacherLoading, reviewLoading, userReviewsLoading])
 }
 
 
