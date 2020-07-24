@@ -11,7 +11,7 @@ var teacherName;
 var reviewList;
 
 function Like(reviewId, reviewIndex) {
-    layui.use("layer", function() {
+    layui.use("layer", function () {
         var layer = layui.layer;
         var token = localStorage.getItem("token")
         if (!token) {
@@ -49,14 +49,17 @@ function Like(reviewId, reviewIndex) {
 }
 
 
-function callInfo(id, callback) {
-    layui.use(["jquery", "layer"], function() {
+async function callInfo(id) {
+    let teacherLoading;
+    let reviewLoading;
+    let userReviewsLoading;
+    layui.use(["jquery"], function () {
 
         /**
          * @type {JQueryStatic}
          */
         var $ = layui.$;
-        $.get(
+        teacherLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Course/" + id,
             /**
              * @param {{
@@ -66,18 +69,17 @@ function callInfo(id, callback) {
              * averageScore:number
              * }} info - 课程属性
              */
-            function(info) {
+            function (info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
-                loadInfo.then(function() {
+                loadInfo.then(function () {
                     var teacher = teachers.find(teacher => teacher.id == info.teacherId);
-                    teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
-                    callback();
+                    teacherName = `${teacher.chineseName} ${teacher.englishName}`.trim()
                 })
             }
         )
 
-        $.get(
+        reviewLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Review", {
                 id: id
             },
@@ -95,69 +97,68 @@ function callInfo(id, callback) {
              * likes:number
              * }[]} result - 课程类型
              */
-            function(result) {
+            function (result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
-                callback();
             }
         )
 
         var token = localStorage.getItem("token")
-        if (token) {
-            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
-            if (user.exp > Date.now() / 1000) {
-                $.get({
-                    url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
-                    headers: {
-                        Authorization: "Bearer " + localStorage.getItem("token")
-                    },
-                    /**
-                     * @param {number[]} data
-                     */
-                    success: function(data) {
-                        console.log(data);
-                        callback();
-                    },
-                    dataType: "json"
-                })
-            } else {
-                callback();
-            }
-        } else {
-            callback();
+
+
+        if (token && JSON.parse(b64_to_utf8(token.split(".")[1])).exp > Date.now() / 1000) {
+
+            let userReviewsLoading = $.get({
+                url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token")
+                },
+                /**
+                 * @param {number[]} data
+                 */
+                success: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            })
         }
     })
+
+    await teacherLoading;
+    await reviewLoading;
+    await userReviewsLoading;
 }
 
 
 function loadData() {
-    count++;
-    if (count == 3) {
-        //prepare scoreList and widthList of rating cells
-        var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
-        var widthList = ["0%", "0%", "0%", "0%", "0%"];
-        if (coursewithteacher.averageScore != null) {
-            scoreList = coursewithteacher.averageScore.split("|")
-            for (let i = 0; i < scoreList.length; i++) {
-                widthList[i] = "" + ((scoreList[i] / 5.0).toFixed(2) * 100).toFixed(0) + "%"
-            }
-        }
-        //prepare teacher image        
-        var imageURL = Imagelink[coursewithteacher.teacherId];
-        if (imageURL == undefined) {
-            imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
-        }
 
-        //mobile adjustment
-        var fontSize = 60;
-        if (document.documentElement.clientWidth <= 700) {
-            var fontSize = 30;
+
+
+    //prepare scoreList and widthList of rating cells
+    var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
+    var widthList = ["0%", "0%", "0%", "0%", "0%"];
+    if (coursewithteacher.averageScore != null) {
+        scoreList = coursewithteacher.averageScore.split("|")
+        for (let i = 0; i < scoreList.length; i++) {
+            widthList[i] = "" + ((scoreList[i] / 5.0).toFixed(2) * 100).toFixed(0) + "%"
         }
-        //add namewithpic
-        var namewithpic = document.getElementById("namewithpic");
-        var namewithpicElement = document.createElement("div");
-        namewithpicElement.innerHTML = `<table height="120px">
+    }
+    //prepare teacher image        
+    var imageURL = Imagelink[coursewithteacher.teacherId];
+    if (imageURL == undefined) {
+        imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
+    }
+
+    //mobile adjustment
+    var fontSize = 60;
+    if (document.documentElement.clientWidth <= 700) {
+        var fontSize = 30;
+    }
+    //add namewithpic
+    var namewithpic = document.getElementById("namewithpic");
+    var namewithpicElement = document.createElement("div");
+    namewithpicElement.innerHTML = `<table height="120px">
 <tr height="80px">
     <td rowspan="2" width="130px" height="100%">
         <a href="../menu/menu.html?query=2-` + coursewithteacher.courseCode + `" style="font-size: 18px; text-decoration: none; color: white;">
@@ -178,16 +179,16 @@ function loadData() {
         </td>
 </tr>
 </table>`
-        namewithpic.appendChild(namewithpicElement);
+    namewithpic.appendChild(namewithpicElement);
 
-        //add header title
-        document.title = teacherName + " - " + coursewithteacher.courseName + " | Vmawalk";
+    //add header title
+    document.title = teacherName + " - " + coursewithteacher.courseName + " | Vmawalk";
 
-        //add ratings
-        var ratings = document.getElementById("ratings");
-        var ratingBox = document.createElement("div");
-        ratingBox.className = "display-box";
-        ratingBox.innerHTML = `<table width="100%">
+    //add ratings
+    var ratings = document.getElementById("ratings");
+    var ratingBox = document.createElement("div");
+    ratingBox.className = "display-box";
+    ratingBox.innerHTML = `<table width="100%">
         <tr class="rating-cell">
             <td align="center" width="20%">Bad</td>
             <td width="60%">
@@ -259,16 +260,16 @@ function loadData() {
             <td align=" center" width="20%">Helpful</td>
         </tr>
     </table>`
-        ratings.appendChild(ratingBox);
+    ratings.appendChild(ratingBox);
 
 
-        //add reviews
-        var reviews = document.getElementById("reviews");
-        if (reviewList.length == 0) {
-            //add reviewBox
-            let reviewBox = document.createElement("div");
-            reviewBox.className = "display-box";
-            reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px; width: auto">
+    //add reviews
+    var reviews = document.getElementById("reviews");
+    if (reviewList.length == 0) {
+        //add reviewBox
+        let reviewBox = document.createElement("div");
+        reviewBox.className = "display-box";
+        reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px; width: auto">
             <tr>
             <td colspan="2">
         <p class="review-content" style="margin-bottom: 15px; font-size: 16px; margin-top: 15px; width: 100%;">
@@ -279,24 +280,24 @@ function loadData() {
     </td>
 </tr>
 </table>`
-            reviews.appendChild(reviewBox);
-        } else {
-            for (let i = 0; i < reviewList.length; i++) {
-                //convert semester
-                let semester = " Full year";
-                if (reviewList[i].semester) {
-                    semester = "  Semester 1";
-                }
-                if (reviewList[i].semester == false) {
-                    semester = " Semester 2";
-                }
-                //convert insertDate
-                let date = reviewList[i].insertDate.split("T")[0];
-                //add reviewBox
-                let reviewBox = document.createElement("div");
-                reviewBox.className = "display-box";
-                reviewBox.style.cssText = "padding: 15px;";
-                reviewBox.innerHTML = `<table class="review-table">
+        reviews.appendChild(reviewBox);
+    } else {
+        for (let i = 0; i < reviewList.length; i++) {
+            //convert semester
+            let semester = " Full year";
+            if (reviewList[i].semester) {
+                semester = "  Semester 1";
+            }
+            if (reviewList[i].semester == false) {
+                semester = " Semester 2";
+            }
+            //convert insertDate
+            let date = reviewList[i].insertDate.split("T")[0];
+            //add reviewBox
+            let reviewBox = document.createElement("div");
+            reviewBox.className = "display-box";
+            reviewBox.style.cssText = "padding: 15px;";
+            reviewBox.innerHTML = `<table class="review-table">
     <tr>
         <td style="color: gray; padding-bottom: 2px;">Semester: ${reviewList[i].year} ~ ${(reviewList[i].year + 1) + semester}</td>
         <td style="color: gray; float: right;">${date}</td>
@@ -324,24 +325,28 @@ function loadData() {
     </td>
 </tr>
 </table>`
-                reviews.appendChild(reviewBox);
-            }
+            reviews.appendChild(reviewBox);
         }
-        loadFooter();
     }
+    loadFooter();
+
 }
 
-window.onload = function() {
+var query = getUrlQueryString(window.location.href);
 
-    //init
-    var query = getUrlQueryString(window.location.href);
+var wait = callInfo(query)
+
+
+window.onload = async function () {
     console.log(query);
 
     loadHeader();
 
-    callInfo(query, loadData)
+    await wait;
+    loadData();
+    //init
 }
 
-window.onresize = function() {
+window.onresize = function () {
     location.reload();
 }
