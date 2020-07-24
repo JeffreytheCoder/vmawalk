@@ -125,7 +125,7 @@ function callInfo(id) {
         }
     })
 
-    return Promise.all([teacherLoading, reviewLoading, userReviewsLoading])
+    return Promise.all([teacherLoading, reviewLoading, userReviewsLoading, loadInfo])
 }
 
 
