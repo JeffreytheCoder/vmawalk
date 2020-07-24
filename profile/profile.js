@@ -50,18 +50,18 @@ function Like(reviewId, reviewIndex) {
 
 
 async function callInfo(id) {
-    let courseLoading = fetch(
-        "https://vma-walk.azurewebsites.net/api/Course/" + id
-    );
-    let reviewLoading;
-    let userReviewsLoading;
-    layui.use(["jquery"], async function () {
+    var courseLoading;
+    var reviewLoading;
+    var userReviewsLoading;
+    layui.use(["jquery"], function () {
 
         /**
          * @type {JQueryStatic}
          */
         var $ = layui.$;
-
+        courseLoading = $.get(
+            "https://vma-walk.azurewebsites.net/api/Course/" + id,
+        )
 
         reviewLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Review", {
