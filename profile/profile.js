@@ -49,7 +49,7 @@ function Like(reviewId, reviewIndex) {
 }
 
 
-async function callInfo(id) {
+function callInfo(id) {
     let teacherLoading;
     let reviewLoading;
     let userReviewsLoading;
