@@ -29,11 +29,11 @@ layui.use("jquery", async function () {
 
     loadInfo = $.when(
 
-        $.getJSON("https://www.vmawalk.com/files/Teachers.json", function (result) {
+        $.getJSON("https://vmawalk.vercel.app/files/Teachers.json", function (result) {
             teachers = result;
-        }), $.getJSON("https://www.vmawalk.com/files/Courses.json", function (result) {
+        }), $.getJSON("https://vmawalk.vercel.app/files/Courses.json", function (result) {
             Courses = result
-        }), $.getJSON("https://www.vmawalk.com/files/CoursesWithTeacher.json", function (result) {
+        }), $.getJSON("https://vmawalk.vercel.app/CoursesWithTeacher.json", function (result) {
             CoursesWithTeacher = result
         }));
 })
