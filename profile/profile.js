@@ -55,7 +55,7 @@ async function callInfo(id) {
     );
     let reviewLoading;
     let userReviewsLoading;
-    layui.use(["jquery"], function () {
+    layui.use(["jquery"], async function () {
 
         /**
          * @type {JQueryStatic}
