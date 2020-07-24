@@ -125,7 +125,7 @@ async function callInfo(id) {
         }
     })
 
-    await Promise.all([teacherLoading, reviewLoading, userReviewsLoading])
+    return Promise.all([teacherLoading, reviewLoading, userReviewsLoading])
 }
 
 
@@ -332,7 +332,7 @@ function loadData() {
 
 var query = getUrlQueryString(window.location.href);
 
-var wait = callInfo(query)
+var waitInfo = callInfo(query)
 
 
 window.onload = async function () {
@@ -340,7 +340,7 @@ window.onload = async function () {
 
     loadHeader();
 
-    await wait;
+    await waitInfo;
     loadData();
     //init
 }

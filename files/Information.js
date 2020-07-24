@@ -28,7 +28,6 @@ layui.use("jquery", async function () {
     var $ = layui.$;
 
     loadInfo = $.when(
-
         $.getJSON("https://vmawalk.vercel.app/files/Teachers.json", function (result) {
             teachers = result;
         }), $.getJSON("https://vmawalk.vercel.app/files/Courses.json", function (result) {
