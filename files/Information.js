@@ -33,7 +33,7 @@ layui.use("jquery", async function () {
             teachers = result;
         }), $.getJSON("https://vmawalk.vercel.app/files/Courses.json", function (result) {
             Courses = result
-        }), $.getJSON("https://vmawalk.vercel.app/CoursesWithTeacher.json", function (result) {
+        }), $.getJSON("https://vmawalk.vercel.app/files/CoursesWithTeacher.json", function (result) {
             CoursesWithTeacher = result
         }));
 })
