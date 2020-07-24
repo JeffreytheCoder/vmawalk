@@ -50,7 +50,9 @@ function Like(reviewId, reviewIndex) {
 
 
 async function callInfo(id) {
-    let courseLoading;
+    let courseLoading = fetch(
+        "https://vma-walk.azurewebsites.net/api/Course/" + id
+    );
     let reviewLoading;
     let userReviewsLoading;
     layui.use(["jquery"], function () {
@@ -59,9 +61,7 @@ async function callInfo(id) {
          * @type {JQueryStatic}
          */
         var $ = layui.$;
-        courseLoading = fetch(
-            "https://vma-walk.azurewebsites.net/api/Course/" + id
-        )
+
 
         reviewLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Review", {
