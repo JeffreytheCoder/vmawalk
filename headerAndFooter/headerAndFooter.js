@@ -62,10 +62,8 @@ async function loadHeader() {
         </div>
         <div style="padding-right: 10px;">
         <a href=` + loginLink + `>
-            <button class="add-review">
-                <text class="add-review-text">` +
-            loginText +
-            `</text>
+            <button class="add-review" style="width:40px;">
+            <img src="../img/person.png" style="height: 20px;">
             </button>
         </a>
     </div>
