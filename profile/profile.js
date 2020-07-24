@@ -74,7 +74,7 @@ function callInfo(id) {
                 coursewithteacher = info;
                 loadInfo.then(function () {
                     var teacher = teachers.find(teacher => teacher.id == info.teacherId);
-                    teacherName = `${teacher.chineseName} ${teacher.englishName}`.trim()
+                    teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
                 })
             }
         )
@@ -109,7 +109,7 @@ function callInfo(id) {
 
         if (token && JSON.parse(b64_to_utf8(token.split(".")[1])).exp > Date.now() / 1000) {
 
-            let userReviewsLoading = $.get({
+            userReviewsLoading = $.get({
                 url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
                 headers: {
                     Authorization: "Bearer " + localStorage.getItem("token")
