@@ -59,17 +59,8 @@ async function callInfo(id) {
          * @type {JQueryStatic}
          */
         var $ = layui.$;
-        courseLoading = $.get(
-            "https://vma-walk.azurewebsites.net/api/Course/" + id,
-            /**
-             * @param {{
-             * id:number,
-             * courseName:string,
-             * teacherId:number,
-             * averageScore:number
-             * }} info - 课程属性
-             */
-            
+        courseLoading = fetch(
+            "https://vma-walk.azurewebsites.net/api/Course/" + id
         )
 
         reviewLoading = $.get(
@@ -120,12 +111,17 @@ async function callInfo(id) {
 
     await Promise.all([courseLoading, reviewLoading, userReviewsLoading, loadInfo])
 
-    courseLoading.then(function (info) {
-        console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
-        coursewithteacher = info;
-        let teacher = teachers.find(teacher => teacher.id == info.teacherId);
-        teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
-    })
+    courseLoading.then(
+        /**
+         * @param {{
+         * id:number,courseName:string,teacherId:number,averageScore:number}} info - 课程属性
+         */
+        function (info) {
+            console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
+            coursewithteacher = info;
+            let teacher = teachers.find(teacher => teacher.id == info.teacherId);
+            teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
+        })
 }
 
 
