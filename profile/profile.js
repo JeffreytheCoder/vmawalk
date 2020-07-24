@@ -49,8 +49,8 @@ function Like(reviewId, reviewIndex) {
 }
 
 
-function callInfo(id) {
-    let teacherLoading;
+async function callInfo(id) {
+    let courseLoading;
     let reviewLoading;
     let userReviewsLoading;
     layui.use(["jquery"], function () {
@@ -59,7 +59,7 @@ function callInfo(id) {
          * @type {JQueryStatic}
          */
         var $ = layui.$;
-        teacherLoading = $.get(
+        courseLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Course/" + id,
             /**
              * @param {{
@@ -125,7 +125,13 @@ function callInfo(id) {
         }
     })
 
-    return Promise.all([teacherLoading, reviewLoading, userReviewsLoading, loadInfo])
+    await Promise.all([courseLoading, reviewLoading, userReviewsLoading, loadInfo])
+    courseLoading.then(function (info) {
+        console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
+        coursewithteacher = info;
+        let teacher = teachers.find(teacher => teacher.id == info.teacherId);
+        teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
+    })
 }
 
 
