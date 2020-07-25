@@ -4,7 +4,7 @@ function getUrlQueryString() {
     return getQuery;
 };
 
-var Like;
+var Like = function () {};
 
 layui.use(["jquery", "layer"], function () {
     //global variable
@@ -71,18 +71,8 @@ layui.use(["jquery", "layer"], function () {
                 id: id
             },
             /**
-             * @param {{
-             * id:number,
-             * userId:number,
-             * courseId:number,
-             * teacherId:number,
-             * year:number,
-             * semester:boolean,
-             * grade:string,
-             * score:string,
-             * text:string,
-             * likes:number
-             * }[]} result - 课程类型
+             * @param {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
+             * grade:string,score:string,text:string,likes:number}[]} result - 课程类型
              */
             function (result) {
                 // result 是一组Review
@@ -325,7 +315,6 @@ layui.use(["jquery", "layer"], function () {
                 reviews.appendChild(reviewBox);
             }
         }
-        loadFooter();
 
     }
 
@@ -342,6 +331,8 @@ layui.use(["jquery", "layer"], function () {
         await waitInfo;
         loadData();
         //init
+        loadFooter();
+
     }
 
     window.onresize = function () {
