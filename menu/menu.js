@@ -1,58 +1,10 @@
-function getUrlQueryString() {
-    var equal = window.location.href.indexOf("=")
-    var query = window.location.href.substring(equal + 1);
-    return query;
-}
-
+var callData;
 //global variable
 var teacherObj;
 var courseList = null;
-var count = 0;
 var footerCount = 0;
-
-function callData(query, queryID, callback) {
-    layui.use(["jquery", "layer"], function() {
-        var $ = layui.$;
-        var url = "";
-        var teacher = null;
-
-        var data = {}
-        if (query[0] == "1") {
-            $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID, function(result) {
-                teacher = result;
-                teacherObj = teacher;
-                console.log(teacher)
-                callback();
-            });
-            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
-            data.id = Number(queryID);
-        } else if (query[0] == "2") {
-            url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
-            data.code = queryID;
-            callback();
-        }
-
-        $.ajax({
-            type: "GET",
-            url: url,
-            contentType: "application/json",
-            data: data,
-            /**@param {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number}[],
-             * text:{courseId:number,text:string}[]
-             * }} req
-             */
-            success: function(req) {
-                courseList = req;
-                console.log(courseList)
-                callback();
-            },
-            error: function(req) {
-                console.log(req);
-                callback();
-            }
-        });
-    })
-}
+var query = new URLSearchParams(location.search).get("query");
+var queryID = query.substr(2);
 
 function loadCourseListTitle() {
     let courselisttitle = document.getElementById("course-list-title");
@@ -228,7 +180,7 @@ function loadCourseMenu() {
         course => {
             // find teacher with id
             var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                // parse the teacher name
+            // parse the teacher name
             teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
         }
     )
@@ -293,34 +245,61 @@ function loadCourseMenu() {
     )
 }
 
-function load() {
-    //init
-    var query = getUrlQueryString(decodeURI(window.location.href));
-    console.log(query);
-    var queryID = query.substring(2);
-    loadHeader();
-    loadCourseListTitle()
-    var callStart = new Date().getTime();
-    callData(query, queryID, function() {
-        count++;
-        if (count == 2) {
-            var callEnd = new Date().getTime();
-            console.log("Call time (s): " + (callEnd - callStart) / 1000);
-            if (query[0] == "1") {
-                loadTeacherMenu();
-            }
-            if (query[0] == "2") {
-                loadCourseMenu();
-            }
-            var loadEnd = new Date().getTime();
-            console.log("Load time (s): " + (loadEnd - callEnd) / 1000);
-            console.log(document.body.clientHeight);
-            loadFooter();
+layui.use(["jquery", "layer"], function () {
+    var $ = layui.$;
+    var url = "";
+    var teacher = null;
+    callData = async function () {
+        var data = {}
+        let teacherLoading;
+        if (query[0] == "1") {
+            teacherLoading = $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID).then(
+                function (result) {
+                    teacherObj = result;
+                    console.log(result)
+                });
+            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
+            data.id = Number(queryID);
+        } else if (query[0] == "2") {
+            url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
+            data.code = queryID;
+            callback();
         }
-    })
-}
-window.onload = load;
+        let courseLoading = $.get({
+            url: url,
+            data: data,
+            /**@param {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number}[],
+             * text:{courseId:number,text:string}[]
+             * }} req
+             */
+            success: function (req) {
+                courseList = req;
+                console.log(courseList)
+            },
+            error: function (req) {
+                console.log(req);
+            }
+        });
+        await Promise.all([teacherLoading, courseLoading])
 
-window.onresize = function() {
-    location.reload();
-}
+        if (query[0] == "1") {
+            loadTeacherMenu();
+        }
+        if (query[0] == "2") {
+            loadCourseMenu();
+        }
+        console.log(document.body.clientHeight);
+    }
+
+    async function load() {
+        loadHeader();
+        loadCourseListTitle();
+        await callData();
+        loadFooter();
+    }
+
+    window.onload = load;
+    window.onresize = function () {
+        location.reload();
+    };
+})
