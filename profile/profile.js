@@ -4,6 +4,8 @@ function getUrlQueryString() {
     return getQuery;
 };
 
+var Like;
+
 layui.use(["jquery", "layer"], function () {
     //global variable
     var count = 0;
@@ -11,7 +13,7 @@ layui.use(["jquery", "layer"], function () {
     var teacherName;
     var reviewList;
 
-    var Like = function (reviewId, reviewIndex) {
+    Like = function (reviewId, reviewIndex) {
 
         var layer = layui.layer;
         var token = localStorage.getItem("token")
