@@ -58,17 +58,16 @@ window.onload = function () {
         await loadInfo;
 
 
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName == null) {
-                $("#search").append(new Option(teachers[i].englishName, "1-" + teachers[i].id));
-            }
-        }
+        teachers.filter(teacher => {
+            if (teacher.chineseName == null) {
+                $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
 
-        for (var i = 1; i < teachers.length; i++) {
-            if (teachers[i].chineseName != null) {
-                $("#search").append(new Option(teachers[i].chineseName + " " + teachers[i].englishName, "1-" + teachers[i].id));
-            }
-        }
+                return false;
+            } else
+                return true
+        }).forEach(teacher =>
+            $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
+        )
 
         Courses.forEach(i => {
             $("#search").append(new Option(i.courseName + " " + i.courseCode, "2-" + i.courseCode));
@@ -80,8 +79,8 @@ window.onload = function () {
 
     //Load login button
     setLogin(function () {
-        loginDiv = document.getElementById("login-div");
-        var login = document.createElement("span");
+        let loginDiv = document.getElementById("login-div");
+        let login = document.createElement("span");
         login.setAttribute('href', loginLink);
         login.innerHTML = ` <button class = "add-review" onclick="location.href='` + loginLink + `'">
             <text class = "add-review-text"> ` + loginText + ` </text> </button>`;
