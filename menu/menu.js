@@ -263,7 +263,6 @@ layui.use(["jquery", "layer"], function () {
         } else if (query[0] == "2") {
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
             data.code = queryID;
-            callback();
         }
         let courseLoading = $.get({
             url: url,
