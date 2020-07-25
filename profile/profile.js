@@ -11,7 +11,7 @@ layui.use(["jquery", "layer"], function () {
     var teacherName;
     var reviewList;
 
-    function Like(reviewId, reviewIndex) {
+    var Like = function (reviewId, reviewIndex) {
 
         var layer = layui.layer;
         var token = localStorage.getItem("token")
