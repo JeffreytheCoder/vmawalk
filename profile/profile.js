@@ -120,8 +120,6 @@ layui.use(["jquery", "layer"], function() {
 
     function loadData() {
 
-
-
         //prepare scoreList and widthList of rating cells
         var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
         var widthList = ["0%", "0%", "0%", "0%", "0%"];
@@ -269,7 +267,7 @@ layui.use(["jquery", "layer"], function() {
 </table>`
             reviews.appendChild(reviewBox);
         } else {
-            for (let i = 0; i < reviewList.length; i++) {
+            for (let i = reviewList.length - 1; i >= 0; i--) {
                 //convert semester
                 let semester = " Full year";
                 if (reviewList[i].semester) {
