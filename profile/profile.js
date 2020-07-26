@@ -4,16 +4,30 @@ function getUrlQueryString() {
     return getQuery;
 };
 
-var Like = function() {};
+var Like = function () {};
 
-layui.use(["jquery", "layer"], function() {
+layui.use(["jquery", "layer"], function () {
     //global variable
     var count = 0;
     var coursewithteacher;
     var teacherName;
     var reviewList;
+    /**
+     * @type {JQuery}
+     */
+    let $ = layui.$;
 
-    Like = function(reviewId, reviewIndex) {
+    function layuiLoading() {
+        let index = layer.load(0, { offset: ['50%', '50%'], shade: false });
+        return index;
+    }
+
+    function layuiRemoveLoading(loading) {
+        var layer = layui.layer
+        layer.close(loading);
+    }
+
+    Like = function (reviewId, reviewIndex) {
 
         var layer = layui.layer;
         var token = localStorage.getItem("token")
@@ -58,10 +72,7 @@ layui.use(["jquery", "layer"], function() {
         let userReviewsLoading;
 
 
-        /**
-         * @type {JQueryStatic}
-         */
-        var $ = layui.$;
+
         courseLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Course/" + id,
         )
@@ -74,7 +85,7 @@ layui.use(["jquery", "layer"], function() {
              * @param {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
              * grade:string,score:string,text:string,likes:number}[]} result - 课程类型
              */
-            function(result) {
+            function (result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -94,7 +105,7 @@ layui.use(["jquery", "layer"], function() {
                 /**
                  * @param {number[]} data
                  */
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                 },
                 dataType: "json"
@@ -109,7 +120,7 @@ layui.use(["jquery", "layer"], function() {
              * @param {{
              * id:number,courseName:string,teacherId:number,averageScore:number}} info - 课程属性
              */
-            function(info) {
+            function (info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 let teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -320,20 +331,23 @@ layui.use(["jquery", "layer"], function() {
 
     var waitInfo = callInfo(query)
 
-
-    window.onload = async function() {
+    async function load() {
         console.log(query);
 
         loadHeader();
-
+        var loading = layuiLoading();
         await waitInfo;
         loadData();
         //init
         loadFooter();
+        layuiRemoveLoading(loading);
 
     }
 
-    window.onresize = function() {
+    window.onload = load();
+    // $(document).ready(function () { load() })
+
+    window.onresize = function () {
         location.reload();
     }
 })
