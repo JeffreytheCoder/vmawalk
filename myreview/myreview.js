@@ -226,12 +226,26 @@ function toPreviousPage() {
     }
 }
 
+function layuiLoading() {
+    layui.use(['layer'], function() {
+        index = layer.load(0, { shade: false });
+    });
+}
+
+function layuiRemoveLoading() {
+    layui.use(['layer'], function() {
+        var layer = layui.layer
+        layer.close(index);
+    });
+}
 
 window.onload = function() {
+    layuiLoading();
     loadHeader();
     getUserReviews(function() {
         loadReview();
         loadFooter();
+        layuiRemoveLoading();
     })
 }
 
