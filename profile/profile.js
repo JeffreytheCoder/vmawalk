@@ -4,19 +4,6 @@ function getUrlQueryString() {
     return getQuery;
 };
 
-function layuiLoading() {
-    layui.use(['layer'], function() {
-        index = layer.load(0, { shade: false });
-    });
-}
-
-function layuiRemoveLoading() {
-    layui.use(['layer'], function() {
-        var layer = layui.layer
-        layer.close(index);
-    });
-}
-
 var Like = function() {};
 
 layui.use(["jquery", "layer"], function() {
@@ -337,14 +324,15 @@ layui.use(["jquery", "layer"], function() {
 
 
     window.onload = async function() {
-        layuiLoading();
         console.log(query);
+
         loadHeader();
+
         await waitInfo;
         loadData();
         //init
         loadFooter();
-        layuiRemoveLoading();
+
     }
 
     window.onresize = function() {
