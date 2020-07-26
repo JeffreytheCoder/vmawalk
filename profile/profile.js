@@ -4,16 +4,29 @@ function getUrlQueryString() {
     return getQuery;
 };
 
-var Like = function () {};
+function layuiLoading() {
+    layui.use(['layer'], function() {
+        index = layer.load(0, { shade: false });
+    });
+}
 
-layui.use(["jquery", "layer"], function () {
+function layuiRemoveLoading() {
+    layui.use(['layer'], function() {
+        var layer = layui.layer
+        layer.close(index);
+    });
+}
+
+var Like = function() {};
+
+layui.use(["jquery", "layer"], function() {
     //global variable
     var count = 0;
     var coursewithteacher;
     var teacherName;
     var reviewList;
 
-    Like = function (reviewId, reviewIndex) {
+    Like = function(reviewId, reviewIndex) {
 
         var layer = layui.layer;
         var token = localStorage.getItem("token")
@@ -74,7 +87,7 @@ layui.use(["jquery", "layer"], function () {
              * @param {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
              * grade:string,score:string,text:string,likes:number}[]} result - 课程类型
              */
-            function (result) {
+            function(result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -94,7 +107,7 @@ layui.use(["jquery", "layer"], function () {
                 /**
                  * @param {number[]} data
                  */
-                success: function (data) {
+                success: function(data) {
                     console.log(data);
                 },
                 dataType: "json"
@@ -109,7 +122,7 @@ layui.use(["jquery", "layer"], function () {
              * @param {{
              * id:number,courseName:string,teacherId:number,averageScore:number}} info - 课程属性
              */
-            function (info) {
+            function(info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 let teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -323,19 +336,18 @@ layui.use(["jquery", "layer"], function () {
     var waitInfo = callInfo(query)
 
 
-    window.onload = async function () {
+    window.onload = async function() {
+        layuiLoading();
         console.log(query);
-
         loadHeader();
-
         await waitInfo;
         loadData();
         //init
         loadFooter();
-
+        layuiRemoveLoading();
     }
 
-    window.onresize = function () {
+    window.onresize = function() {
         location.reload();
     }
 })

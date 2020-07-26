@@ -180,7 +180,7 @@ function loadCourseMenu() {
         course => {
             // find teacher with id
             var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-            // parse the teacher name
+                // parse the teacher name
             teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
         }
     )
@@ -245,16 +245,31 @@ function loadCourseMenu() {
     )
 }
 
-layui.use(["jquery", "layer"], function () {
+function layuiLoading() {
+    layui.use(['layer'], function() {
+        index = layer.load(0, { shade: false });
+    });
+}
+
+function layuiRemoveLoading() {
+    layui.use(['layer'], function() {
+        var layer = layui.layer
+        layer.close(index);
+    });
+}
+
+layui.use(["jquery", "layer"], function() {
     var $ = layui.$;
     var url = "";
     var teacher = null;
-    callData = async function () {
+    var layer = layui.layer;
+
+    callData = async function() {
         var data = {}
         let teacherLoading;
         if (query[0] == "1") {
             teacherLoading = $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID).then(
-                function (result) {
+                function(result) {
                     teacherObj = result;
                     console.log(result)
                 });
@@ -271,11 +286,11 @@ layui.use(["jquery", "layer"], function () {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function (req) {
+            success: function(req) {
                 courseList = req;
                 console.log(courseList)
             },
-            error: function (req) {
+            error: function(req) {
                 console.log(req);
             }
         });
@@ -291,14 +306,16 @@ layui.use(["jquery", "layer"], function () {
     }
 
     async function load() {
+        index = layer.load(0, { shade: false });
         loadHeader();
         loadCourseListTitle();
         await callData();
         loadFooter();
+        layer.close(index);
     }
 
     window.onload = load;
-    window.onresize = function () {
+    window.onresize = function() {
         location.reload();
     };
 })
