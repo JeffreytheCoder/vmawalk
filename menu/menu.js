@@ -264,6 +264,7 @@ layui.use(["jquery", "layer"], function () {
         var layer = layui.layer
         layer.close(loading);
     }
+
     callData = async function () {
         var data = {}
         let teacherLoading;
@@ -318,9 +319,8 @@ layui.use(["jquery", "layer"], function () {
 
     
 
-    window.onload = function(){
-        load();
-    };
+    window.onload = load();
+    
     window.onresize = function () {
         location.reload();
     };
