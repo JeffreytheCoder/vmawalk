@@ -18,7 +18,7 @@ layui.use(["jquery", "layer"], function () {
     let $ = layui.$;
 
     function layuiLoading() {
-        let index = layer.load(0, { shade: false });
+        let index = layer.load(0, { offset: ['50%', '50%'], shade: false });
         return index;
     }
 

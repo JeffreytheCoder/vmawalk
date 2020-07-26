@@ -256,7 +256,7 @@ layui.use(["jquery", "layer"], function () {
     var layer = layui.layer;
 
     function layuiLoading() {
-        let index = layer.load(0, { shade: false });
+        let index = layer.load(0, { offset: ['50%', '50%'], shade: false });
         return index;
     }
 
@@ -317,10 +317,10 @@ layui.use(["jquery", "layer"], function () {
         loadFooter();
     }
 
-    
+
 
     window.onload = load();
-    
+
     window.onresize = function () {
         location.reload();
     };
