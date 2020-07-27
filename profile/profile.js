@@ -334,6 +334,10 @@ layui.use(["jquery", "layer"], function () {
     async function load() {
         console.log(query);
 
+        $("#addReviewBtn").click(function () {
+            location.href = "../review/review.html?code=" + query
+        })
+
         loadHeader();
         var loading = layuiLoading();
         await waitInfo;

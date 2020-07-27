@@ -117,7 +117,11 @@ async function loadHeader() {
 
     //Load select options
     layui.use(["layer", "jquery", "form"], async function () {
+        /**
+         * @type {J}
+         */
         var $ = layui.jquery;
+        
 
         await loadInfo;
 
