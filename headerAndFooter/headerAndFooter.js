@@ -116,12 +116,12 @@ async function loadHeader() {
     }
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], async function() {
+    layui.use(["layer", "jquery", "form"], async function () {
         var $ = layui.jquery;
 
         await loadInfo;
 
-        teachers.filter(teacher => {
+        teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).filter(teacher => {
             if (teacher.chineseName == null) {
                 $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
                 return false;
@@ -131,7 +131,7 @@ async function loadHeader() {
             $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
         )
 
-        Courses.forEach((i) => {
+        Courses.sort((x, y) => x.courseCode.localeCompare(y.courseCode)).forEach((i) => {
             $("#search").append(
                 new Option(`${i.courseName} ${i.courseCode}`, `2-${i.courseCode}`)
             );
@@ -140,18 +140,18 @@ async function loadHeader() {
         layui.form.render("select");
     });
 
-    layui.use(["form", "jquery"], function() {
+    layui.use(["form", "jquery"], function () {
         var form = layui.form;
         var $ = layui.$;
 
-        $(document).keydown(function(e) {
+        $(document).keydown(function (e) {
             if (e.keyCode === 13) {
                 $("#submit").trigger("click");
                 return false;
             }
         });
 
-        form.on("submit(submit)", function(data) {
+        form.on("submit(submit)", function (data) {
             let query = data.field.teacher;
             let link = `../menu/menu.html?query=${query}`;
             window.location.href = link;
@@ -207,6 +207,6 @@ function loadFooter() {
     }
 }
 
-window.onresize = function() {
+window.onresize = function () {
     location.reload();
 }
