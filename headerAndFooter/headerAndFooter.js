@@ -91,6 +91,140 @@ async function loadHeader() {
         var headerDiv = document.getElementById("header-div");
         // var header = document.createElement("div");
         headerDiv.innerHTML = `
+        <div id="loginLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:1; width: 100%; height: 100%;" >
+            <form class="layui-form" action="">
+                <div class="container" id="Login" style="box-shadow: none; width: auto; margin: auto 10px;">
+                    <a class="close" href="javascript:" onclick="goBack()" style="text-decoration: none;">✖️</a>
+                    <table class="input-table">
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Email</label>
+                            </td>
+                            <td>
+                                <input type="text" name="Email" lay-verify="Email|required" placeholder="Email Address" autocomplete="off" class="layui-input">
+                            </td>
+                            <td>
+                                <label class="email">&nbsp@stu.vma.edu.cn</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Password</label>
+                            </td>
+                            <td colspan="2 ">
+                                <input type="password" name="password" lay-verify="pass|required" placeholder="Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button type="submit" id="loginbtn" class="layui-btn" lay-submit lay-filter="form">Login</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="width: 100%; display: flex; justify-content: space-evenly;">
+                        <a href="javascript:" onclick="toForget()" class="font-set">Forget Passward</a>
+                        <a href="javascript:" onclick="toRegister()" class="font-set">Register Now</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="registerLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:1; width: 100%; height: 100%;" >
+            <form class="layui-form" action="" method="post">
+                <div class="container" style="box-shadow: none; width: auto; margin: auto 10px;">
+                    <a class="close" href="javascript:" onclick="goBack()" style="text-decoration: none;">✖️</a>
+                    <table class="input-table">
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">User Name</label>
+                            </td>
+                            <td colspan="2" style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="text" name="userName" required lay-verify="userName" placeholder="User Name" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Email</label>
+                            </td>
+                            <td style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="text" name="email" required lay-verify="alphabet" placeholder="Email Address" autocomplete="off" class="layui-input">
+                            </td>
+                            <td>
+                                <label class="email">&nbsp@stu.vma.edu.cn</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Password</label>
+                            </td>
+                            <td colspan="2" style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="password" name="password" required lay-verify="password" placeholder="Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Comfirm Password</label>
+                            </td>
+                            <td colspan="2" style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="password" name="confirm" required lay-verify="required|confirmPass" placeholder="Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button type="submit" id="register" class="layui-btn" lay-submit lay-filter="register">Register</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <a href="javascript:" onclick="toLogin()" class="font-set">Login</a>
+                </div>
+            </form>
+        </div>
+        <div id="forgetLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:1; width: 100%; height: 100%;" >
+            <form class="layui-form" action="" method="post">
+                <div class="container" style="box-shadow: none; width: auto; margin: auto 10px;">
+                    <a class="close" href="javascript:" onclick="goBack()" style="text-decoration: none;">✖️</a>
+                    <table class="input-table">
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Email</label>
+                            </td>
+                            <td>
+                                <input type=" text " name="email " required lay-verify="required " placeholder="Email Address" autocomplete="off " class="layui-input ">
+                            </td>
+                            <td>
+                                <label class="email">&nbsp@stu.vma.edu.cn</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">New Password</label>
+                            </td>
+                            <td colspan="2 ">
+                                <input id="password" type="password" name="password" required lay-verify="required" placeholder="New Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label ">Comfirm Password</label>
+                            </td>
+                            <td colspan="2 ">
+                                <input id="confirm" type="password" required lay-verify="required|confirmPass" placeholder="New Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button class="layui-btn" id="forget " lay-submit lay-filter="forget ">Change Password</button>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <a href="javascript:" onclick="toLogin()" class="font-set ">Login</a>
+                </div>
+            </form>
+        </div>
         <header id="header" class="header">
             <a href="../index.html" style="margin-left: 10px;">
                 <img src="../img/logo-round-white.png" style="height: 30px;">
@@ -117,11 +251,9 @@ async function loadHeader() {
                     </a>
                 </div>
                 <div style="padding-right: 10px;">
-                <a href=` + loginLink + `>
-                    <button class="add-review" style="width:40px;">
+                    <button id="loginBtn" class="add-review" style="width:40px;">
                     <img src="../img/person.png" style="height: 20px;">
                     </button>
-                </a>
                 </div>
             </div>
         </header>`;
