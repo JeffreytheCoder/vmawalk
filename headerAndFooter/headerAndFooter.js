@@ -51,7 +51,7 @@ async function action() {
         console.log("未检测到token, 请登录")
     }
 
-    loginBtn.onclick = function() {
+    loginBtn.onclick = function () {
         if (loginText == "Login") {
             layerDiv.style.display = "block";
         } else {
@@ -102,7 +102,7 @@ async function loadHeader() {
                         <option value="">Find a course or a teacher</option>
                     </select>
                 </div>
-                <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+                <button id="selectSubmit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
             /* -4px -4px 5px 0px #fff9, */
             7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
             inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
@@ -158,7 +158,7 @@ async function loadHeader() {
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <button type="submit" id="loginbtn" class="layui-btn" lay-submit lay-filter="form">Login</button>
+                                <button type="submit" id="loginSubmit" class="layui-btn" lay-submit lay-filter="loginSubmit">Login</button>
                             </td>
                         </tr>
                     </table>
@@ -215,7 +215,7 @@ async function loadHeader() {
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <button type="submit" id="register" class="layui-btn" lay-submit lay-filter="register">Register</button>
+                                <button type="submit" id="registerSubmit" class="layui-btn" lay-submit lay-filter="registerSubmit">Register</button>
                             </td>
                         </tr>
                     </table>
@@ -233,7 +233,7 @@ async function loadHeader() {
                                 <label class="layui-form-label">Email</label>
                             </td>
                             <td>
-                                <input type=" text " name="email " required lay-verify="required " placeholder="Email Address" autocomplete="off " class="layui-input ">
+                                <input type="text" name="email" required lay-verify="required " placeholder="Email Address" autocomplete="off " class="layui-input ">
                             </td>
                             <td>
                                 <label class="email">&nbsp@stu.vma.edu.cn</label>
@@ -257,7 +257,7 @@ async function loadHeader() {
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <button class="layui-btn" id="forget " lay-submit lay-filter="forget ">Change Password</button>
+                                <button class="layui-btn" id="forgetSubmit" lay-submit lay-filter="forgetSubmit">Change Password</button>
                             </td>
                         </tr>
 
@@ -280,7 +280,7 @@ async function loadHeader() {
                         </option>
                     </select>
                 </div>
-                <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+                <button id="selectSubmit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
             /* -4px -4px 5px 0px #fff9, */
             7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
             inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
@@ -306,15 +306,18 @@ async function loadHeader() {
     }
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], async function() {
+    layui.use(["layer", "jquery", "form"], async function () {
         /**
-         * @type {J}
+         * @type {JQuery}
          */
-        var $ = layui.jquery;
+        var $ = layui.jquery,
+            form = layui.form,
+            layer = layui.layer;
 
 
         await loadInfo;
 
+        //#region 加载数据
         teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).filter(teacher => {
             if (teacher.chineseName == null) {
                 $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
@@ -332,26 +335,141 @@ async function loadHeader() {
         });
 
         layui.form.render("select");
-    });
-
-    layui.use(["form", "jquery"], function() {
-        var form = layui.form;
-        var $ = layui.$;
-
-        $(document).keydown(function(e) {
+        //#endregion
+        
+        //#region 弹出层，登录，注册，重置密码
+        $(document).keydown(function (e) {
             if (e.keyCode === 13) {
-                $("#submit").trigger("click");
+                if ($("#loginLayer").css("display") != "none")
+                    $("#loginSubmit").trigger("click");
+                else if ($("#registerLayer").css("display") != "none")
+                    $("#registerSubmit").trigger("click");
+                else if ($("#forgetLayer").css("display") != "none")
+                    $("#forgetSubmit").trigger("click");
+                else
+                    $("#selectSubmit").trigger("click")
                 return false;
             }
-        });
+        })
 
-        form.on("submit(submit)", function(data) {
+        form.on("submit(submit)", function (data) {
             let query = data.field.teacher;
             let link = `../menu/menu.html?query=${query}`;
             window.location.href = link;
             return false;
         });
+
+        let loginSubmit = async (formData) => {
+            var index = layer.load({
+                shade: [0.4, '#def'],
+                icon: '&#xe63d'
+            })
+            let request = await fetch("https://vma-walk.azurewebsites.net/Auth/Login", {
+                method: "POST",
+                body: JSON.stringify(formData.field),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            layer.close(index)
+            if (request.status == 200) {
+                let result = await request.json();
+                localStorage.setItem("token", result.token);
+                localStorage.setItem("userName", result.userName);
+                layer.msg("登陆成功");
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } else {
+                let result = request.json();
+                layer.alert(result.message)
+            }
+        }
+
+        let registerSubmit = async (formData) => {
+            var index = layer.load({
+                shade: [0.4, '#def'],
+                icon: '&#xe63d'
+            })
+            let request = await fetch("https://vma-walk.azurewebsites.net/Auth/Registration", {
+                method: "PUT",
+                body: JSON.stringify(formData.field),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            layer.close(index)
+            if (request.status == 200) {
+                alert("注册成功，请查看学生邮箱并点击验证链接")
+            } else {
+                let result = await request.json();
+
+                layer.alert(result.message.map(x => x.description).join("</br>"), {
+                    skin: "layui-layer-molv",
+                    anim: 5,
+                    title: "请重试"
+                })
+            }
+        }
+
+        let forgetSubmit = async (formData) => {
+            var index = layer.load({
+                shade: [0.4, '#def'],
+                icon: '&#xe63d'
+            })
+            let request = await fetch("https://vma-walk.azurewebsites.net/Auth/ResetPassword", {
+                method: "PUT",
+                body: JSON.stringify(formData.field),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            layer.close(index)
+            if (request.status == 200) {
+                alert("请查看学生邮箱并点击验证链接")
+            } else {
+                let result = await request.json()
+                layer.alert(result.message.map(x => x.description).join("</br>"), {
+                    skin: "layui-layer-molv",
+                    anim: 5,
+                    title: "请重试"
+                })
+            }
+        }
+
+        form.on("submit(loginSubmit)", function (formData) {
+            loginSubmit(formData);
+            return false;
+        });
+        form.on("submit(registerSubmit)", function (formData) {
+            registerSubmit(formData);
+            return false;
+        });
+        form.on("submit(forgetSubmit)", function (formData) {
+            forgetSubmit(formData);
+            return false;
+        });
+
+        form.verify({
+            userName: [
+                /^[\S]+$/,
+                "用户名中不能含有空格"
+            ],
+            alphabat: [
+                /[a-z]/i,
+                "学生邮箱前缀不得含有特殊字符"
+            ],
+            password: [
+                /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
+            ],
+            confirmPass: function (value) {
+                if ($('#password').val() !== value)
+                    return ('两次密码输入不一致！');
+            }
+        })
     });
+
+    //#endregion
     action();
 }
 
@@ -402,6 +520,6 @@ function loadFooter() {
     }
 }
 
-window.onresize = function() {
+window.onresize = function () {
     location.reload();
 }
