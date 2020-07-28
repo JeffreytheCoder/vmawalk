@@ -4,9 +4,9 @@ function getUrlQueryString() {
     return getQuery;
 };
 
-var Like = function () {};
+var Like = function() {};
 
-layui.use(["jquery", "layer"], function () {
+layui.use(["jquery", "layer"], function() {
     //global variable
     var count = 0;
     var coursewithteacher;
@@ -27,7 +27,7 @@ layui.use(["jquery", "layer"], function () {
         layer.close(loading);
     }
 
-    Like = function (reviewId, reviewIndex) {
+    Like = function(reviewId, reviewIndex) {
 
         var layer = layui.layer;
         var token = localStorage.getItem("token")
@@ -85,7 +85,7 @@ layui.use(["jquery", "layer"], function () {
              * @param {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
              * grade:string,score:string,text:string,likes:number}[]} result - 课程类型
              */
-            function (result) {
+            function(result) {
                 // result 是一组Review
                 reviewList = result;
                 console.log(result)
@@ -105,7 +105,7 @@ layui.use(["jquery", "layer"], function () {
                 /**
                  * @param {number[]} data
                  */
-                success: function (data) {
+                success: function(data) {
                     console.log(data);
                 },
                 dataType: "json"
@@ -120,7 +120,7 @@ layui.use(["jquery", "layer"], function () {
              * @param {{
              * id:number,courseName:string,teacherId:number,averageScore:number}} info - 课程属性
              */
-            function (info) {
+            function(info) {
                 console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
                 coursewithteacher = info;
                 let teacher = teachers.find(teacher => teacher.id == info.teacherId);
@@ -149,16 +149,16 @@ layui.use(["jquery", "layer"], function () {
         //mobile adjustment
         var fontSize = 60;
         if (document.documentElement.clientWidth <= 700) {
-            var fontSize = 30;
+            var fontSize = 40;
         }
         //add namewithpic
         var namewithpic = document.getElementById("namewithpic");
         var namewithpicElement = document.createElement("div");
         namewithpicElement.innerHTML = `<table height="120px">
 <tr height="80px">
-    <td rowspan="2" width="130px" height="100%">
+    <td rowspan="2" width="110px" height="100%">
         <a href="../menu/menu.html?query=2-` + coursewithteacher.courseCode + `" style="font-size: 18px; text-decoration: none; color: white;">
-            <div class="icon-round">` + coursewithteacher.courseCode + `</div>
+            <div class="icon-round" style="width: 100px; height: 100px;">` + coursewithteacher.courseCode + `</div>
         </a>
     </td>
     <td height="100%">
@@ -334,7 +334,7 @@ layui.use(["jquery", "layer"], function () {
     async function load() {
         console.log(query);
 
-        $("#addReviewBtn").click(function () {
+        $("#addReviewBtn").click(function() {
             location.href = "../review/review.html?code=" + query
         })
 
@@ -351,7 +351,7 @@ layui.use(["jquery", "layer"], function () {
     window.onload = load();
     // $(document).ready(function () { load() })
 
-    window.onresize = function () {
+    window.onresize = function() {
         location.reload();
     }
 })
