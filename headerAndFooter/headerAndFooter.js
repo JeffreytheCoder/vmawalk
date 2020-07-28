@@ -3,6 +3,64 @@ document.write(`
     <script src="../lib/initials.js"></script>
 `)
 
+function toLogin() {
+    document.getElementById("loginLayer").style.display = "block";
+    document.getElementById("registerLayer").style.display = "none";
+    document.getElementById("forgetLayer").style.display = "none";
+}
+
+function toForget() {
+    document.getElementById("loginLayer").style.display = "none";
+    document.getElementById("registerLayer").style.display = "none";
+    document.getElementById("forgetLayer").style.display = "block";
+}
+
+function toRegister() {
+    document.getElementById("loginLayer").style.display = "none";
+    document.getElementById("registerLayer").style.display = "block";
+    document.getElementById("forgetLayer").style.display = "none";
+}
+
+function goBack() {
+    document.getElementById("loginLayer").style.display = "none";
+    document.getElementById("registerLayer").style.display = "none";
+    document.getElementById("forgetLayer").style.display = "none";
+}
+
+async function action() {
+    var loginBtn = document.getElementById("loginBtn");
+    var loginText = "Login";
+    var loginLink = "../login/login.html";
+    var token = localStorage.getItem("token");
+    var layerDiv = document.getElementById("loginLayer");
+    if (token) {
+        console.log("检测到token")
+        try {
+            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+            if (user.exp > Date.now() / 1000) {
+                console.log("token未过期, 已登录")
+                loginText = "My Review";
+                loginLink = "../myreview/myreview.html";
+            } else {
+                console.log("token已过期, 请重新登录")
+            }
+        } catch (ess) {
+            localStorage.removeItem("token")
+        }
+    } else {
+        console.log("未检测到token, 请登录")
+    }
+
+    loginBtn.onclick = function() {
+        if (loginText == "Login") {
+            layerDiv.style.display = "block";
+        } else {
+            layerDiv.style.display = "none";
+            window.location.href = loginLink;
+        }
+    }
+}
+
 async function loadHeader() {
 
     // Judge if login or myreview
@@ -27,96 +85,228 @@ async function loadHeader() {
         console.log("未检测到token, 请登录")
     }
 
-
     if (document.documentElement.clientWidth <= 700) {
         console.log(document.documentElement.clientWidth);
         //Load header elements
         var headerDiv = document.getElementById("header-div");
         // var header = document.createElement("div");
-        headerDiv.innerHTML =
-            `<header id="header" class="header">
+        headerDiv.innerHTML = `
+        <header id="header" class="header">
             <a href="../index.html" style="margin-left: 10px;">
-            <img src="../img/logo-round-white.png" style="height: 30px;">
-        </a>
-    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin: 10px; width: 100%">
-        <div class="layui-form-block" style="margin-right: 10px; width: 100%">
-            <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
-                lay-filter="search">
-                <option value="">Find a course or a teacher
-                </option>
-            </select>
-        </div>
-        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
-    /* -4px -4px 5px 0px #fff9, */
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
-    </form>
-    <div style="display: flex; height: 100%; align-items: center;">
-        <div style="padding-right: 10px">
-            <a href="../review/review.html">
-                <button class="add-review" style="width: 40px; padding:" >
-                    <text class="add-review-text">✚</text>
-                </button>
+                <img src="../img/logo-round-white.png" style="height: 30px;">
             </a>
-        </div>
-        <div style="padding-right: 10px;">
-        <a href=` + loginLink + `>
-            <button class="add-review" style="width:40px;">
-            <img src="../img/person.png" style="height: 20px;">
-            </button>
-        </a>
-    </div>
-    </div>
-</header>`;
+            <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin: 10px; width: 100%">
+                <div class="layui-form-block" style="margin-right: 10px; width: 100%">
+                    <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
+                        lay-filter="search">
+                        <option value="">Find a course or a teacher</option>
+                    </select>
+                </div>
+                <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+            /* -4px -4px 5px 0px #fff9, */
+            7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+            inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+            inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
+            </form>
+            <div style="display: flex; height: 100%; align-items: center;">
+                <div style="padding-right: 10px">
+                    <a href="../review/review.html">
+                        <button class="add-review" style="width: 40px; padding:" >
+                            <text class="add-review-text">✚</text>
+                        </button>
+                    </a>
+                </div>
+                <div style="padding-right: 10px;">
+                <a href=` + loginLink + `>
+                    <button class="add-review" style="width:40px;">
+                    <img src="../img/person.png" style="height: 20px;">
+                    </button>
+                </a>
+                </div>
+            </div>
+        </header>`;
         // headerDiv.innerHTML = header.innerHTML;
 
     } else {
         //Load header elements
         var headerDiv = document.getElementById("header-div");
         // var header = document.createElement("div");
-        headerDiv.innerHTML =
-            `<header id="header" class="header">
-    <div class="title">
-        <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
-            <strong>vma</strong>walk
-        </a>
-    </div>
-    <form class="layui-form" align="center" action="submit" style="margin-bottom: 0;">
-        <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
-            <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
-                lay-filter="search">
-                <option value="">Find a course or a teacher
-                </option>
-            </select>
+        headerDiv.innerHTML = `
+        <div id="loginLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:1; width: 100%; height: 100%;" >
+            <form class="layui-form" action="">
+                <div class="container" id="Login" style="box-shadow: none;">
+                    <a class="close" href="javascript:" onclick="goBack()" style="text-decoration: none;">✖️</a>
+                    <table class="input-table">
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Email</label>
+                            </td>
+                            <td>
+                                <input type="text" name="Email" lay-verify="Email|required" placeholder="Email Address" autocomplete="off" class="layui-input">
+                            </td>
+                            <td>
+                                <label class="email">&nbsp@stu.vma.edu.cn</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Password</label>
+                            </td>
+                            <td colspan="2 ">
+                                <input type="password" name="password" lay-verify="pass|required" placeholder="Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button type="submit" id="loginbtn" class="layui-btn" lay-submit lay-filter="form">Login</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="width: 100%; display: flex; justify-content: space-evenly;">
+                        <a href="javascript:" onclick="toForget()" class="font-set">Forget Passward</a>
+                        <a href="javascript:" onclick="toRegister()" class="font-set">Register Now</a>
+                    </div>
+                </div>
+            </form>
         </div>
-        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
-    /* -4px -4px 5px 0px #fff9, */
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-    inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
-    </form>
-    <div style="display: flex; overflow: hidden;height: 100%;align-items: center;">
-        <div style="padding-right: 25px">
-                <button class="add-review"  onclick="location.href='../review/review.html'">
-                    <text class="add-review-text">✚ Review</text>
-                </button>
+        <div id="registerLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:1; width: 100%; height: 100%;" >
+            <form class="layui-form" action="" method="post">
+                <div class="container" style="box-shadow: none;">
+                    <a class="close" href="javascript:" onclick="goBack()" style="text-decoration: none;">✖️</a>
+                    <table class="input-table">
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">User Name</label>
+                            </td>
+                            <td colspan="2" style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="text" name="userName" required lay-verify="userName" placeholder="User Name" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Email</label>
+                            </td>
+                            <td style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="text" name="email" required lay-verify="alphabet" placeholder="Email Address" autocomplete="off" class="layui-input">
+                            </td>
+                            <td>
+                                <label class="email">&nbsp@stu.vma.edu.cn</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Password</label>
+                            </td>
+                            <td colspan="2" style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="password" name="password" required lay-verify="password" placeholder="Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Comfirm Password</label>
+                            </td>
+                            <td colspan="2" style="position: relative;">
+                                <!-- <div class="tips">233</div> -->
+                                <input type="password" name="confirm" required lay-verify="required|confirmPass" placeholder="Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button type="submit" id="register" class="layui-btn" lay-submit lay-filter="register">Register</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <a href="javascript:" onclick="toLogin()" class="font-set">Login</a>
+                </div>
+            </form>
         </div>
-        <div style="margin-right: 30px">
-                <button class="add-review"  onclick="location.href='` + loginLink + `'">
-                    <text class="add-review-text">` +
-            loginText +
-            `</text>
-                </button>
+        <div id="forgetLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:1; width: 100%; height: 100%;" >
+            <form class="layui-form" action="" method="post">
+                <div class="container" style="box-shadow: none;">
+                    <a class="close" href="javascript:" onclick="goBack()" style="text-decoration: none;">✖️</a>
+                    <table class="input-table">
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">Email</label>
+                            </td>
+                            <td>
+                                <input type=" text " name="email " required lay-verify="required " placeholder="Email Address" autocomplete="off " class="layui-input ">
+                            </td>
+                            <td>
+                                <label class="email">&nbsp@stu.vma.edu.cn</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label">New Password</label>
+                            </td>
+                            <td colspan="2 ">
+                                <input id="password" type="password" name="password" required lay-verify="required" placeholder="New Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="layui-form-label ">Comfirm Password</label>
+                            </td>
+                            <td colspan="2 ">
+                                <input id="confirm" type="password" required lay-verify="required|confirmPass" placeholder="New Password" autocomplete="off" class="layui-input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button class="layui-btn" id="forget " lay-submit lay-filter="forget ">Change Password</button>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <a href="javascript:" onclick="toLogin()" class="font-set ">Login</a>
+                </div>
+            </form>
         </div>
-    </div>
-</header>`;
+        <header id="header" class="header">
+            <div class="title">
+                <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
+                    <strong>vma</strong>walk
+                </a>
+            </div>
+            <form class="layui-form" align="center" action="submit" style="margin-bottom: 0;">
+                <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
+                    <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
+                        lay-filter="search">
+                        <option value="">Find a course or a teacher
+                        </option>
+                    </select>
+                </div>
+                <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
+            /* -4px -4px 5px 0px #fff9, */
+            7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+            inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+            inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
+            </form>
+            <div style="display: flex; overflow: hidden;height: 100%;align-items: center;">
+                <div style="padding-right: 25px">
+                    <button class="add-review"  onclick="location.href='../review/review.html'">
+                        <text class="add-review-text">✚ Review</text>
+                    </button>
+                </div>
+                <div style="margin-right: 30px">
+                    <button class="add-review" id="loginBtn">
+                        <text class="add-review-text">` + loginText + `</text>
+                    </button>
+                </div>
+            </div>
+        </header>`;
+        //onclick="location.href='` + loginLink + `'"
         // headerDiv.appendChild(header);
         // headerDiv.innerHTML = header.innerHTML;
+
     }
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], async function () {
+    layui.use(["layer", "jquery", "form"], async function() {
         var $ = layui.jquery;
 
         await loadInfo;
@@ -140,24 +330,25 @@ async function loadHeader() {
         layui.form.render("select");
     });
 
-    layui.use(["form", "jquery"], function () {
+    layui.use(["form", "jquery"], function() {
         var form = layui.form;
         var $ = layui.$;
 
-        $(document).keydown(function (e) {
+        $(document).keydown(function(e) {
             if (e.keyCode === 13) {
                 $("#submit").trigger("click");
                 return false;
             }
         });
 
-        form.on("submit(submit)", function (data) {
+        form.on("submit(submit)", function(data) {
             let query = data.field.teacher;
             let link = `../menu/menu.html?query=${query}`;
             window.location.href = link;
             return false;
         });
     });
+    action();
 }
 
 function loadFooter() {
@@ -207,6 +398,6 @@ function loadFooter() {
     }
 }
 
-window.onresize = function () {
+window.onresize = function() {
     location.reload();
 }
