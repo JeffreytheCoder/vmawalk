@@ -355,7 +355,7 @@ layui.define('layer', function (exports) {
                                             allowTypo: false,
                                             threshold: -50
                                         })
-                                        return initial.substr(0, value.length) != value &&
+                                        return initial.substr(0, value.length) != value.toLowerCase() &&
                                             (!result.length > 0);
                                     }
                                 }
