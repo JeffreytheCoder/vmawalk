@@ -320,8 +320,12 @@ layui.use(["jquery", "layer"], function () {
 
 
     window.onload = load();
-
+    var width = $(window).width()
     window.onresize = function () {
-        location.reload();
+        if($(window).width()!=width){
+            //execute code here.
+            lastWidth = $(window).width();
+            location.reload();
+         }
     };
 })

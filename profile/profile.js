@@ -351,7 +351,12 @@ layui.use(["jquery", "layer"], function() {
     window.onload = load();
     // $(document).ready(function () { load() })
 
-    window.onresize = function() {
-        location.reload();
-    }
+    var width = $(window).width()
+    window.onresize = function () {
+        if($(window).width()!=width){
+            //execute code here.
+            lastWidth = $(window).width();
+            location.reload();
+         }
+    };
 })
