@@ -1,7 +1,7 @@
 document.write(`
     <script src="../lib/pinyin.js"></script>
     <script src="../lib/initials.js"></script>
-    <script src="https://rawgit.com/farzher/fuzzysort/master/fuzzysort.js"></script>
+    <script src="../lib/fuzzysort.js"></script>
 `)
 
 function toLogin() {

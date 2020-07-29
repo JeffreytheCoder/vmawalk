@@ -19,7 +19,7 @@
     <script src="lib/pinyin.js"></script>
     <script src="lib/initials.js"></script>
     <script src="index.js"></script>
-    <script src="https://rawgit.com/farzher/fuzzysort/master/fuzzysort.js"></script>
+    <script src="lib/fuzzysort.js"></script>
 </head>
 
 <style>
@@ -50,7 +50,7 @@
         <form class="layui-form" align="center" action="submit" style="padding-top: 30px; margin: 0 auto; width: 60%;">
             <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
                 <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="search">
-                    <option value="">Find a course or a teacher</option>
+                    <option value="">Find a course or a teacher (with full pinyin or acronym)></acronym></option>
                 </select>
             </div>
             <button id="submit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: auto; text-align: center; padding: 0 5px;">
