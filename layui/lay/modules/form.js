@@ -355,8 +355,10 @@ layui.define('layer', function (exports) {
                                             allowTypo: false,
                                             threshold: -50
                                         })
-                                        return initial.substr(0, value.length) != value.toLowerCase() &&
-                                            (!result.length > 0);
+
+                                        return initial.substr(0, value.length) != value &&
+                                            (!result.length > 0) &&
+                                            (text + pinyinText).indexOf(value) == -1;
                                     }
                                 }
                                 // end of modify
