@@ -343,6 +343,8 @@ layui.define('layer', function (exports) {
                                 var chineseFilter = /[\u4E00-\u9FCC]*/
 
                                 var pinyinFilter = function (value, text) {
+                                    if (value.length == 0)
+                                        return true;
                                     let chineseText = text.match(chineseFilter)[0]
                                     value = value.toLowerCase()
                                     if (chineseText === "") {
