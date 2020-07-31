@@ -344,7 +344,7 @@ layui.define('layer', function (exports) {
 
                                 var pinyinFilter = function (value, text) {
                                     if (value.length == 0)
-                                        return true;
+                                        return false;
                                     let chineseText = text.match(chineseFilter)[0]
                                     value = value.toLowerCase()
                                     if (chineseText === "") {
