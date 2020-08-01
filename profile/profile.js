@@ -32,17 +32,11 @@ layui.use(["jquery", "layer"], function() {
         var layer = layui.layer;
         var token = localStorage.getItem("token")
         if (!token) {
-            layer.msg("您暂未登录，请先登录!");
-            setTimeout(() => {
-                self.location = "../login/login.html";
-            }, 1000);
+            toLogin();
         } else {
             var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
             if (user.exp < Date.now() / 1000) {
-                layer.msg("您暂未登录，请先登录!");
-                setTimeout(() => {
-                    self.location = "../login/login.html";
-                }, 1000);
+                toLogin();
             } else {
                 // post like number change to dataset
                 fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
