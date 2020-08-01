@@ -1117,7 +1117,7 @@
     },
     {
         "id": 215,
-        "courseName": "English 3",
+        "courseName": "English 3 Honors AP Preparation",
         "courseCode": "ENG318",
         "teacherId": 236
     },
@@ -1135,7 +1135,7 @@
     },
     {
         "id": 218,
-        "courseName": "English 3",
+        "courseName": "English 3 Honors AP Preparation",
         "courseCode": "ENG318",
         "teacherId": 232
     },
@@ -1463,4 +1463,4 @@
         "courseCode": "HHH501",
         "teacherId": 1
     }
-]
+]   
