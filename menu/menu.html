@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, minimum-scale=0.8, user-scalable=no">
     <link rel="stylesheet" href="menu.css" />
-    <link rel="stylesheet" href="../headerAndFooter/headerAndFooter.css" />
     <link rel="stylesheet" href="../layui/css/layui2.css" media="all">
+    <link rel="stylesheet" href="../headerAndFooter/headerAndFooter.css" />
+    <!-- <link rel="stylesheet" href="../login/login.css" media="all"> -->
+    <!-- <script type="text/javascript " src="../login/login.js "></script> -->
     <script src="../lib/pinyin.js"></script>
     <script src="../lib/initials.js"></script>
     <script src="../layui/layui.js"></script>
@@ -29,9 +31,87 @@
         <div id="course-list-title" class="courses-list-title">
         </div>
         <!--课程列表-->
+
+        <script id="courses" type="text/html">
+        {{# layui.each(d.courseList,(index,course)=>{
+                let scoreList =course.averageScore != null?
+                    course.averageScore.split("|") : ["N/A", "N/A", "N/A", "N/A", "N/A"];
+                var review = d.reviewList.find(review =>review.courseId == course.id);
+                let bestReview = review!=undefined?review.text:"No Review";
+                }}
+            <div class="course standard">
+                <table>
+                    <tr>
+                        <td class="td-large">
+                            <a href=../profile/profile.html?query= {{course.id}} class="profile-link">
+                                {{# if(d.type==1){ }}
+                                <div class="icon-round">{{course.courseCode}}</div>
+                                <div class="teacher-name">
+                                    <font color="black" size="3" style="margin-bottom: 5px;">{{course.courseName}}</font>
+                                    <font color="#69BDC8" size="2">Full Profile ></font>
+                                </div>
+                                {{# } else if(d.type==2){ }}
+                                <div class="icon-round2" style="background-image: url({{d.Imagelink[course.teacherId]}})"></div>
+                                <div class="teacher-name">
+                                    <font color="black" size="3" style="margin-bottom: 5px;">{{d.teacherNameList[course.teacherId]}}</font>
+                                    <font color=" #69BDC8" size="2">Full Profile ></font>
+                                </div>
+                                {{# } }}
+                            </a>
+                        </td>
+                        <td class="rating-cell">
+                            <font size="5" color="black">{{scoreList[0]}}</font><br /> Overall
+                        </td>
+                        <td class="rating-cell">
+                            <font size="5" color="black">{{scoreList[1]}}</font><br /> Easiness
+                        </td>
+                        <td class="rating-cell">
+                            <font size="5" color="black">{{scoreList[2]}}</font><br /> Workload
+                        </td>
+                        <td class="rating-cell">
+                            <font size="5" color="black">{{scoreList[3]}}</font><br /> Clarity
+                        </td>
+                        <td class="rating-cell">
+                            <font size="5" color="black">{{scoreList[4]}}</font><br /> Helpfulness
+                        </td>
+                        <td class="td-large">
+                            <div class="review">{{bestReview}}</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="mobile" class="course mobile">
+                <table>
+                    <tr>
+                        <td class="td-small">
+                            <a href=../profile/profile.html?query= {{course.id}} class="profile-link">
+                                {{# if(d.type==1){ }}
+                                <div class="icon-round">{{course.courseCode}}</div>
+                                <div class="teacher-name">
+                                    <font color="black" size="3" style="margin-bottom: 5px;">{{course.courseName}}</font>
+                                    <font color="#69BDC8" size="2">Full Profile ></font>
+                                </div>
+                                {{# } else if(d.type==2){ }}
+                                <div class="icon-round2" style="background-image: url({{d.Imagelink[course.teacherId]}})"></div>
+                                <div class="teacher-name">
+                                    <font color="black" size="3" style="margin-bottom: 5px;">{{d.teacherNameList[course.teacherId]}}</font>
+                                    <font color=" #69BDC8" size="2">Full Profile ></font>
+                                </div>
+                                {{# } }}
+                            </a>
+                        </td>
+                        <td class="rating-cell">
+                            <font size="5" color="black">{{scoreList[0]}}</font><br /> Overall
+                        </td>
+                </table>
+            </div>
+            {{# });}}
+        </script>
+
         <div id="course-frame">
         </div>
     </main>
+
     <!--页足-->
     <div id="footer-div">
     </div>

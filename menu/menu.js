@@ -53,91 +53,40 @@ function loadTeacherMenu() {
     // add courseframe
     var courseFrame = document.getElementById("course-frame")
 
-    /**
-     * @type {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
-     * text:{courseId:number,text:string}[]
-     * }} courseObj
-     */
 
-    var courseObj = courseList;
-    courseList = courseObj.courses;
 
-    var reviewList = courseObj.text
 
-    courseList.forEach(
-        course => {
-            var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
-                bestReview = "No Review",
-                queryLink = "../profile/profile.html?query=" + course.id + "";
-            if (course.averageScore != null) {
-                scoreList = course.averageScore.split("|");
-            }
-            var review = reviewList.find(review =>
-                review.courseId == course.id
-            )
-            if (review != undefined) {
-                bestReview = review.text;
-            }
+    layui.use(["laytpl", "jquery"], function () {
+        let laytpl = layui.laytpl,
+            $ = layui.$;
 
-            if (document.documentElement.clientWidth <= 700) {
-                var courseElement = document.createElement("div");
-                courseElement.className = "course";
-                courseElement.innerHTML = `
-            <table>
-            <tr>
-            <td class="td-small">
-                <a href="` + queryLink + `" class="profile-link">
-                    <div class="icon-round">` + course.courseCode + `</div>
-                    <div class="teacher-name">
-                        <font color="black" size="3" style="margin-bottom: 5px;">` + course.courseName + `</font>
-                        <font color="#69BDC8" size="2">Full Profile ></font>
-                    </div>
-                </a>
-            </td>
-            <td class="rating-cell" >
-                <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
-            </td>
-            </table>
-            <span style="width: 15px"></span>`;
-                courseFrame.appendChild(courseElement);
-            } else {
-                var courseElement = document.createElement("div");
-                courseElement.className = "course";
-                courseElement.innerHTML = `
-            <table>
-            <tr>
-            <td class="td-large">
-                <a href="` + queryLink + `" class="profile-link">
-                    <div class="icon-round">` + course.courseCode + `</div>
-                    <div class="teacher-name">
-                        <font color="black" size="3" style="margin-bottom: 5px;">` + course.courseName + `</font>
-                        <font color="#69BDC8" size="2">Full Profile ></font>
-                    </div>
-                </a>
-            </td>
-            <td class="rating-cell">
-            <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
-            </td>
-            <td class="rating-cell">
-                <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
-            </td>
-            <td class="rating-cell">
-                <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
-            </td>
-            <td class="rating-cell">
-                <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
-            </td>
-            <td class="rating-cell">
-                <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
-            </td>
-            <td class="td-large"><div class="review">` + bestReview + `</div></td>
-            </tr>
-            </table>
-            `;
-                courseFrame.appendChild(courseElement);
-            }
+        /**
+         * @type {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
+         * text:{courseId:number,text:string}[]
+         * }} courseObj
+         */
+        var courseObj = courseList;
+        courseList = courseObj.courses;
+
+        let reviewList = courseObj.text
+
+        let data = {
+            "courseList": courseList,
+            "reviewList": reviewList,
+            "type": 1
         }
-    )
+
+        let courseTpl = courses.innerHTML
+        laytpl(courseTpl).render(data, function (html) {
+            courseFrame.innerHTML = html;
+        })
+
+        if (document.documentElement.clientWidth > 750) {
+            $(".mobile").css("display", "none")
+        } else {
+            $(".standard").css("display", "none")
+        }
+    })
 }
 
 function loadCourseMenu() {
@@ -173,76 +122,50 @@ function loadCourseMenu() {
 
     // add courseframe
     var courseFrame = document.getElementById("course-frame")
-    var teacherNameList = {};
+    layui.use(["laytpl", "jquery"], function () {
+        let laytpl = layui.laytpl,
+            $ = layui.$;
 
-    // add teachers' name into the list
-    courseList.forEach(
-        course => {
-            // find teacher with id
-            var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-            // parse the teacher name
-            teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
-        }
-    )
 
-    var reviewList = courseObj.text
+        var teacherNameList = {};
 
-    courseList.forEach(
-        course => {
-            //prepare score list, best review, and image link
-            var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"],
-                bestReview = "No Review",
-                queryLink = "../profile/profile.html?query=" + course.id + "";
-            if (course.averageScore != null) {
-                scoreList = course.averageScore.split("|");
+        // add teachers' name into the list
+        /**
+         * @type {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
+         * text:{courseId:number,text:string}[]
+         * }} courseObj
+         */ 
+        courseList.forEach(
+            course => {
+                // find teacher with id
+                var teacher = teachers.find(teacher => teacher.id === course.teacherId)
+                // parse the teacher name
+                teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
             }
-            var review = reviewList.find(review =>
-                review.courseId == course.id
-            )
-            if (review != undefined) {
-                bestReview = review.text;
-            }
-            var imageURL = Imagelink[course.teacherId];
+        )
 
+        var reviewList = courseObj.text
 
-            var courseElement = document.createElement("div");
-            courseElement.className = "course";
-            courseElement.innerHTML = `
-        
-        <table>
-        <tr>
-            <td class="td-large">
-            <a href=` + queryLink + ` class="profile-link">
-                <div class="icon-round2" style="background-image: url(` + imageURL + `);">
-                </div>
-                <div class="teacher-name">
-                    <font color="black" size="3" style="margin-bottom: 5px;">` + teacherNameList[course.teacherId] + `</font>
-                    <font color=" #69BDC8" size="2">Full Profile ></font>
-                </div>
-            </a>
-        </td>
-            <td class="rating-cell">
-            <font size="5" color="black">` + scoreList[0] + `</font><br /> Overall
-            </td>
-            <td class="rating-cell">
-            <font size="5" color="black">` + scoreList[1] + `</font><br /> Easiness
-            </td>
-            <td class="rating-cell">
-            <font size="5" color="black">` + scoreList[2] + `</font><br /> Workload
-            </td>
-            <td class="rating-cell">
-            <font size="5" color="black">` + scoreList[3] + `</font><br /> Clarity
-            </td>
-            <td class="rating-cell">
-            <font size="5" color="black">` + scoreList[4] + `</font><br /> Helpfulness
-            </td>
-            <td class="td-large"><div class="review">` + bestReview + `</div></td>
-            </tr>
-            </table>
-            `;
-            courseFrame.appendChild(courseElement);
+        var data = {
+            "courseList": courseList,
+            "reviewList": reviewList,
+            "teacherNameList": teacherNameList,
+            "Imagelink":Imagelink,
+            "type": 2
         }
-    )
+
+        let courseTpl = courses.innerHTML
+        laytpl(courseTpl).render(data, function (html) {
+            courseFrame.innerHTML = html;
+        })
+
+        if (document.documentElement.clientWidth > 750) {
+            $(".mobile").css("display", "none")
+        } else {
+            $(".standard").css("display", "none")
+        }
+    })
+
 }
 
 
@@ -320,8 +243,14 @@ layui.use(["jquery", "layer"], function () {
 
 
     window.onload = load();
-
+    var width = $(window).width()
     window.onresize = function () {
-        location.reload();
+        if (document.documentElement.clientWidth > 750) {
+            $(".standard").css("display", "block")
+            $(".mobile").css("display", "none")
+        } else {
+            $(".mobile").css("display", "block")
+            $(".standard").css("display", "none")
+        }
     };
 })

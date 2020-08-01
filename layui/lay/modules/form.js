@@ -342,38 +342,25 @@ layui.define('layer', function (exports) {
 
                                 var chineseFilter = /[\u4E00-\u9FCC]*/
 
-                                var fuzzysearch = function (needle, haystack) {
-                                    var hlen = haystack.length;
-                                    var nlen = needle.length;
-
-                                    if (nlen > hlen) {
-                                        return false;
-                                    }
-                                    if (nlen === hlen) {
-                                        return needle === haystack;
-                                    }
-                                    outer: for (var i = 0, j = 0; i < nlen; i++) {
-                                        var nch = needle.charCodeAt(i);
-                                        while (j < hlen) {
-                                            if (haystack.charCodeAt(j++) === nch) {
-                                                continue outer;
-                                            }
-                                        }
-                                        return false;
-                                    }
-                                    return true;
-                                }
-
-
                                 var pinyinFilter = function (value, text) {
+                                    if (value.length == 0)
+                                        return false;
                                     let chineseText = text.match(chineseFilter)[0]
                                     value = value.toLowerCase()
                                     if (chineseText === "") {
-                                        return !fuzzysearch(value, text.toLowerCase());
+                                        let result = fuzzysort.single(value, text, { allowTypo: false })
+                                        return result ? result.score < -50 : true;
                                     } else {
                                         let pinyinText = ConvertPinyin(chineseText);
-                                        return !fuzzysearch(value, pinyinText) &&
-                                            !fuzzysearch(value, text.toLowerCase());
+                                        let initial = makePy(chineseText)[0].toLowerCase();
+                                        let result = fuzzysort.go(value, [text, pinyinText], {
+                                            allowTypo: false,
+                                            threshold: -50
+                                        })
+
+                                        return initial.substr(0, value.length) != value &&
+                                            (!result.length > 0) &&
+                                            (text + pinyinText).indexOf(value) == -1;
                                     }
                                 }
                                 // end of modify

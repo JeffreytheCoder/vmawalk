@@ -32,17 +32,11 @@ layui.use(["jquery", "layer"], function() {
         var layer = layui.layer;
         var token = localStorage.getItem("token")
         if (!token) {
-            layer.msg("您暂未登录，请先登录!");
-            setTimeout(() => {
-                self.location = "../login/login.html";
-            }, 1000);
+            toLogin();
         } else {
             var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
             if (user.exp < Date.now() / 1000) {
-                layer.msg("您暂未登录，请先登录!");
-                setTimeout(() => {
-                    self.location = "../login/login.html";
-                }, 1000);
+                toLogin();
             } else {
                 // post like number change to dataset
                 fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
@@ -149,16 +143,16 @@ layui.use(["jquery", "layer"], function() {
         //mobile adjustment
         var fontSize = 60;
         if (document.documentElement.clientWidth <= 700) {
-            var fontSize = 30;
+            var fontSize = 40;
         }
         //add namewithpic
         var namewithpic = document.getElementById("namewithpic");
         var namewithpicElement = document.createElement("div");
         namewithpicElement.innerHTML = `<table height="120px">
 <tr height="80px">
-    <td rowspan="2" width="130px" height="100%">
+    <td rowspan="2" width="110px" height="100%">
         <a href="../menu/menu.html?query=2-` + coursewithteacher.courseCode + `" style="font-size: 18px; text-decoration: none; color: white;">
-            <div class="icon-round">` + coursewithteacher.courseCode + `</div>
+            <div class="icon-round" style="width: 100px; height: 100px;">` + coursewithteacher.courseCode + `</div>
         </a>
     </td>
     <td height="100%">
@@ -351,7 +345,12 @@ layui.use(["jquery", "layer"], function() {
     window.onload = load();
     // $(document).ready(function () { load() })
 
+    var width = $(window).width()
     window.onresize = function() {
-        location.reload();
-    }
+        if ($(window).width() != width) {
+            //execute code here.
+            lastWidth = $(window).width();
+            location.reload();
+        }
+    };
 })
