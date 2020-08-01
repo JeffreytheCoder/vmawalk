@@ -61,17 +61,15 @@ layui.use(["jquery", "layer"], function() {
 
 
     async function callInfo(id) {
-        let courseLoading;
-        let reviewLoading;
         let userReviewsLoading;
 
 
 
-        courseLoading = $.get(
+        let courseLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Course/" + id,
-        )
+        );
 
-        reviewLoading = $.get(
+        let reviewLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Review", {
                 id: id
             },
@@ -84,7 +82,7 @@ layui.use(["jquery", "layer"], function() {
                 reviewList = result;
                 console.log(result)
             }
-        )
+        );
 
         var token = localStorage.getItem("token")
 
