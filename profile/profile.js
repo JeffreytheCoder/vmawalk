@@ -1,12 +1,20 @@
 var Like;
 
+var token = localStorage.getItem("token")
+var logined;
+
+try {
+    logined = token && JSON.parse(b64_to_utf8(token.split(".")[1])).exp > Date.now() / 1000
+} catch (error) {
+    logined = false;
+}
+
 layui.use(["jquery", "layer", "laytpl"], function () {
 
     const laytpl = layui.laytpl,
         $ = layui.$,
         layer = layui.layer;
 
-    var logined;
 
     /**
      * @type {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
@@ -22,19 +30,19 @@ layui.use(["jquery", "layer", "laytpl"], function () {
 
 
 
-    try {
-        logined = token && JSON.parse(b64_to_utf8(token.split(".")[1])).exp > Date.now() / 1000
-    } catch (error) {
-        logined = false;
-    }
+
 
     Like = async function (reviewId, reviewIndex) {
 
         var layer = layui.layer;
-        var token = localStorage.getItem("token")
 
         if (!logined) {
             toLogin();
+            return;
+        }
+
+        if (reviewList[reviewIndex].liked) {
+            layer.msg("You can only give one Like for each review");
             return;
         }
         // post like number change to dataset
@@ -51,6 +59,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
             var reviewLike = document.getElementById(reviewIndex);
             reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
             reviewLike.style = "color: #1e8997; font-weight: bold"
+            reviewList[reviewIndex].liked = true;
         }
     }
 
@@ -95,7 +104,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
             /**@type {number[]}*/
             let userReviews = await userReviewLoading;
             reviewList.forEach(review => {
-                if ($.inArray(review.id, userReviews)) {
+                if ($.inArray(review.id, userReviews) != -1) {
                     review.liked = true;
                 } else {
                     review.liked = false;
@@ -150,5 +159,12 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         await callInfo(id);
         loadData();
         loadFooter();
+    }
+    window.onresize = function () {
+        if ($(window).width() < 750) {
+            $("#teacherName").css("font-size", "40px")
+        }else{
+            $("#teacherName").css("font-size", "60px")
+        }
     }
 })

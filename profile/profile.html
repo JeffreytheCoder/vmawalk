@@ -33,7 +33,7 @@
                         </a>
                     </td>
                     <td height="100%">
-                        <p style="font-size:{{d.fontSize}}px"><strong>{{d.courseWithTeacher.courseName}}</strong></p>
+                        <p style="font-size:{{d.fontSize}}px" id="teacherName"><strong>{{d.courseWithTeacher.courseName}}</strong></p>
                     </td>
                 </tr>
                 <tr height="40px">
@@ -188,7 +188,7 @@
                         <td colspan="2">
                             <div class="feedback" style="margin-top:15px; font-size: 15px;">
                                 <div class="control">
-                                    <a href="javascript:Like(` + reviewList[i].id + `,` + i + `)" id=` + i + `>🙂Like {{review.likes}}</a>
+                                    <a href="javascript:Like({{review.id}},{{index}})" id={{index}} style="{{#if(review.liked){}}color: #1e8997; font-weight: bold{{#}}}">🙂Like {{review.likes}}</a>
                                 </div>
                                 <div class="control" style="margin-left:auto; margin-right: 10px">
                                     <a href="">🖐Report</a>
