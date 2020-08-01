@@ -348,6 +348,9 @@ layui.define('layer', function (exports) {
                                     let chineseText = text.match(chineseFilter)[0]
                                     value = value.toLowerCase()
                                     if (chineseText === "") {
+                                        if (text.toLowerCase().split(" ").map(x => x[0]).join("").indexOf(value) != -1)
+                                            return false;
+
                                         let result = fuzzysort.single(value, text, { allowTypo: false })
                                         return result ? result.score < -50 : true;
                                     } else {
