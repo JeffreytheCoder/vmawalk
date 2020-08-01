@@ -344,11 +344,11 @@ layui.use(["jquery", "layer"], function() {
     // $(document).ready(function () { load() })
 
     var width = $(window).width()
-    window.onresize = function () {
-        if($(window).width()!=width){
+    window.onresize = function() {
+        if ($(window).width() != width) {
             //execute code here.
             lastWidth = $(window).width();
             location.reload();
-         }
+        }
     };
 })

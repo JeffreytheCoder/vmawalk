@@ -52,9 +52,10 @@ async function action() {
         console.log("未检测到token, 请登录")
     }
 
-    loginBtn.onclick = function () {
+    loginBtn.onclick = function() {
         if (loginText == "Login") {
             layerDiv.style.display = "block";
+            layerDiv.style.transition = "2s";
         } else {
             layerDiv.style.display = "none";
             window.location.href = loginLink;
@@ -439,7 +440,7 @@ async function loadHeader() {
     }
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], async function () {
+    layui.use(["layer", "jquery", "form"], async function() {
         /**
          * @type {JQuery}
          */
@@ -469,9 +470,9 @@ async function loadHeader() {
 
         layui.form.render("select");
         //#endregion
-        
+
         //#region 弹出层，登录，注册，重置密码
-        $(document).keydown(function (e) {
+        $(document).keydown(function(e) {
             if (e.keyCode === 13) {
                 if ($("#loginLayer").css("display") != "none")
                     $("#loginSubmit").trigger("click");
@@ -485,14 +486,14 @@ async function loadHeader() {
             }
         })
 
-        form.on("submit(submit)", function (data) {
+        form.on("submit(submit)", function(data) {
             let query = data.field.teacher;
             let link = `../menu/menu.html?query=${query}`;
             window.location.href = link;
             return false;
         });
 
-        let loginSubmit = async (formData) => {
+        let loginSubmit = async(formData) => {
             var index = layer.load({
                 shade: [0.4, '#def'],
                 icon: '&#xe63d'
@@ -519,7 +520,7 @@ async function loadHeader() {
             }
         }
 
-        let registerSubmit = async (formData) => {
+        let registerSubmit = async(formData) => {
             var index = layer.load({
                 shade: [0.4, '#def'],
                 icon: '&#xe63d'
@@ -545,7 +546,7 @@ async function loadHeader() {
             }
         }
 
-        let forgetSubmit = async (formData) => {
+        let forgetSubmit = async(formData) => {
             var index = layer.load({
                 shade: [0.4, '#def'],
                 icon: '&#xe63d'
@@ -570,15 +571,15 @@ async function loadHeader() {
             }
         }
 
-        form.on("submit(loginSubmit)", function (formData) {
+        form.on("submit(loginSubmit)", function(formData) {
             loginSubmit(formData);
             return false;
         });
-        form.on("submit(registerSubmit)", function (formData) {
+        form.on("submit(registerSubmit)", function(formData) {
             registerSubmit(formData);
             return false;
         });
-        form.on("submit(forgetSubmit)", function (formData) {
+        form.on("submit(forgetSubmit)", function(formData) {
             forgetSubmit(formData);
             return false;
         });
@@ -595,7 +596,7 @@ async function loadHeader() {
             password: [
                 /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
             ],
-            confirmPass: function (value) {
+            confirmPass: function(value) {
                 if ($('#password').val() !== value)
                     return ('两次密码输入不一致！');
             }
@@ -653,6 +654,6 @@ function loadFooter() {
     }
 }
 
-window.onresize = function () {
+window.onresize = function() {
     location.reload();
 }
