@@ -1,356 +1,154 @@
-function getUrlQueryString() {
-    let equal = window.location.href.indexOf("=")
-    let getQuery = window.location.href.substring(equal + 1);
-    return getQuery;
-};
+var Like;
 
-var Like = function() {};
+var token = localStorage.getItem("token")
+var logined;
 
-layui.use(["jquery", "layer"], function() {
-    //global variable
-    var count = 0;
-    var coursewithteacher;
-    var teacherName;
-    var reviewList;
+try {
+    logined = token && JSON.parse(b64_to_utf8(token.split(".")[1])).exp > Date.now() / 1000
+} catch (error) {
+    logined = false;
+}
+
+layui.use(["jquery", "layer", "laytpl"], function () {
+
+    const laytpl = layui.laytpl,
+        $ = layui.$,
+        layer = layui.layer;
+
+
     /**
-     * @type {JQuery}
+     * @type {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
+     * grade:string,score:string,text:string,likes:number,liked:boolean}[]}  
      */
-    let $ = layui.$;
+    var courseWithTeacher;
+    var teacherName;
+    /**
+     * @type {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
+     * grade:string,score:string,text:string,likes:number}[]} 评论类型
+     */
+    var reviewList;
 
-    function layuiLoading() {
-        let index = layer.load(0, { offset: ['50%', '50%'], shade: false });
-        return index;
-    }
 
-    function layuiRemoveLoading(loading) {
-        var layer = layui.layer
-        layer.close(loading);
-    }
 
-    Like = function(reviewId, reviewIndex) {
+
+
+    Like = async function (reviewId, reviewIndex) {
 
         var layer = layui.layer;
-        var token = localStorage.getItem("token")
-        if (!token) {
+
+        if (!logined) {
             toLogin();
-        } else {
-            var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
-            if (user.exp < Date.now() / 1000) {
-                toLogin();
-            } else {
-                // post like number change to dataset
-                fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
-                    headers: {
-                        Authorization: "Bearer " + localStorage.getItem("token")
-                    }
-                }).then(res => {
-                    // 400 代表已经点过赞
-                    if (res.status === 400) {
-                        layer.msg("You can only give one Like for each review");
-                    } else {
-                        // change like number on page
-                        var reviewLike = document.getElementById(reviewIndex);
-                        reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
-                        reviewLike.style = "color: #1e8997; font-weight: bold"
-                    }
-                })
-            }
+            return;
         }
 
+        if (reviewList[reviewIndex].liked) {
+            layer.msg("You can only give one Like for each review");
+            return;
+        }
+        // post like number change to dataset
+        var res = await fetch(`https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=${reviewId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+        // 400 代表已经点过赞
+        if (res.status === 400) {
+            layer.msg("You can only give one Like for each review");
+        } else {
+            // change like number on page
+            var reviewLike = document.getElementById(reviewIndex);
+            reviewLike.text = `🙂Like ${reviewList[reviewIndex].likes + 1}`;
+            reviewLike.style = "color: #1e8997; font-weight: bold"
+            reviewList[reviewIndex].liked = true;
+        }
     }
 
+    const callInfo = async (id) => {
+        let courseLoading = $.get(
+            `https://vma-walk.azurewebsites.net/api/Course/${id}`,
+        );
 
-    async function callInfo(id) {
-        let courseLoading;
-        let reviewLoading;
-        let userReviewsLoading;
-
-
-
-        courseLoading = $.get(
-            "https://vma-walk.azurewebsites.net/api/Course/" + id,
-        )
-
-        reviewLoading = $.get(
+        let reviewLoading = $.get(
             "https://vma-walk.azurewebsites.net/api/Review", {
                 id: id
             },
-            /**
-             * @param {{id:number,userId:number, courseId:number,teacherId:number,year:number,semester:boolean,
-             * grade:string,score:string,text:string,likes:number}[]} result - 课程类型
-             */
-            function(result) {
-                // result 是一组Review
-                reviewList = result;
-                console.log(result)
-            }
-        )
+        );
 
-        var token = localStorage.getItem("token")
+        let userReviewLoading;
 
-
-        if (token && JSON.parse(b64_to_utf8(token.split(".")[1])).exp > Date.now() / 1000) {
-
-            userReviewsLoading = $.get({
+        if (logined)
+            userReviewLoading = $.get({
                 url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
                 headers: {
-                    Authorization: "Bearer " + localStorage.getItem("token")
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
                 },
                 /**
                  * @param {number[]} data
                  */
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                 },
                 dataType: "json"
             })
+
+        await loadInfo;
+
+
+        courseWithTeacher = await courseLoading;
+        let teacher = teachers.find(teacher => teacher.id == courseWithTeacher.teacherId);
+        teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
+        reviewList = await reviewLoading;
+        console.log(courseWithTeacher, reviewList)
+
+        if (userReviewLoading) {
+            /**@type {number[]}*/
+            let userReviews = await userReviewLoading;
+            reviewList.forEach(review => $.inArray(review.id, userReviews) != -1 ? review.liked = true : review.liked = false)
         }
-
-
-        await Promise.all([courseLoading, reviewLoading, userReviewsLoading, loadInfo])
-
-        courseLoading.then(
-            /**
-             * @param {{
-             * id:number,courseName:string,teacherId:number,averageScore:number}} info - 课程属性
-             */
-            function(info) {
-                console.log(info); // 这个是整个课程的信息，你读一下console就知道里面有什么了
-                coursewithteacher = info;
-                let teacher = teachers.find(teacher => teacher.id == info.teacherId);
-                teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
-            })
     }
-
 
     function loadData() {
+        let nameWithPicTpl = nameWithPic.innerHTML;
+        var fontSize = document.documentElement.clientWidth <= 700 ? 40 : 60;
 
-        //prepare scoreList and widthList of rating cells
-        var scoreList = ["N/A", "N/A", "N/A", "N/A", "N/A"];
-        var widthList = ["0%", "0%", "0%", "0%", "0%"];
-        if (coursewithteacher.averageScore != null) {
-            scoreList = coursewithteacher.averageScore.split("|")
-            for (let i = 0; i < scoreList.length; i++) {
-                widthList[i] = "" + ((scoreList[i] / 5.0).toFixed(2) * 100).toFixed(0) + "%"
-            }
-        }
-        //prepare teacher image        
-        var imageURL = Imagelink[coursewithteacher.teacherId];
-        if (imageURL == undefined) {
-            imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
-        }
-
-        //mobile adjustment
-        var fontSize = 60;
-        if (document.documentElement.clientWidth <= 700) {
-            var fontSize = 40;
-        }
-        //add namewithpic
-        var namewithpic = document.getElementById("namewithpic");
-        var namewithpicElement = document.createElement("div");
-        namewithpicElement.innerHTML = `<table height="120px">
-<tr height="80px">
-    <td rowspan="2" width="110px" height="100%">
-        <a href="../menu/menu.html?query=2-` + coursewithteacher.courseCode + `" style="font-size: 18px; text-decoration: none; color: white;">
-            <div class="icon-round" style="width: 100px; height: 100px;">` + coursewithteacher.courseCode + `</div>
-        </a>
-    </td>
-    <td height="100%">
-        <p style="font-size:` + fontSize + `px"><strong>` + coursewithteacher.courseName + `</strong></p>
-    </td>
-</tr>
-<tr height="40px">
-        <td style="display: flex; align-items: center;">
-            <a style="white-space:nowrap; display:flex; align-items: center;" href="../menu/menu.html?query=1-` + coursewithteacher.teacherId + `">
-                <div class="teacher-icon" style="background-image: url(` + imageURL + `);">
-                </div>
-                <font size="4">` + teacherName + `</font>
-            </a>
-        </td>
-</tr>
-</table>`
-        namewithpic.appendChild(namewithpicElement);
+        laytpl(nameWithPicTpl).render({
+            "teacherName": teacherName,
+            "courseWithTeacher": courseWithTeacher,
+            "ImageUrl": Imagelink[courseWithTeacher.teacherId],
+            "fontSize": fontSize
+        }, html => $("#namewithpic").html(html))
 
         //add header title
-        document.title = teacherName + " - " + coursewithteacher.courseName + " | Vmawalk";
-
-        //add ratings
-        let ratings = document.getElementById("ratings");
-        let ratingBox = document.createElement("div");
-        ratingBox.className = "display-box";
-        ratingBox.innerHTML = `<table width="100%">
-        <tr class="rating-cell">
-            <td align="center" width="20%">Bad</td>
-            <td width="60%">
-                <div style="display: flex; justify-content: space-between;">
-                    <font color="black">Overall</font>
-                    <font color="#69BDC8"><b>` + scoreList[0] + `</b></font>
-                </div>
-                <div class="rating-bar">
-                    <div style="width: ` + widthList[0] + `;" class="rating-inside-bar">
-                    </div>
-                </div>
-            </td>
-            <td align=" center" width="20%">Good</td>
-        </tr>
-        <tr class="rating-cell">
-            <td align="center" width="20%">Hard</td>
-            <td width="60%">
-                <div style="display: flex; justify-content: space-between;">
-                    <font color="black">Easiness</font>
-                    <font color="#69BDC8"><b>` + scoreList[1] + `</b></font>
-                </div>
-                <div class="rating-bar">
-                    <div style="width: ` + widthList[1] + `;" class="rating-inside-bar">
-                    </div>
-                </div>
-            </td>
-            <td align=" center" width="20%">Easy</td>
-        </tr>
-        <tr class="rating-cell">
-            <td align="center" width="20%">Heavy</td>
-            <td width="60%">
-                <div style="display: flex; justify-content: space-between;">
-                    <font color="black">Workload</font>
-                    <font color="#69BDC8"><b>` + scoreList[2] + `</b></font>
-                </div>
-                <div class="rating-bar">
-                    <div style="width: ` + widthList[2] + `;" class="rating-inside-bar">
-                    </div>
-                </div>
-            </td>
-            <td align=" center" width="20%">Light</td>
-        </tr>
-        <tr class="rating-cell">
-            <td align="center" width="20%">Confuse</td>
-            <td width="60%">
-                <div style="display: flex; justify-content: space-between;">
-                    <font color="black">Clarity</font>
-                    <font color="#69BDC8"><b>` + scoreList[3] + `</b></font>
-                </div>
-                <div class="rating-bar">
-                    <div style="width: ` + widthList[3] + `;" class="rating-inside-bar">
-                    </div>
-                </div>
-            </td>
-            <td align=" center" width="20%">Clear</td>
-        </tr>
-        <tr class="rating-cell">
-            <td align="center" width="20%">Helpless</td>
-            <td width="60%">
-                <div style="display: flex; justify-content: space-between;">
-                    <font color="black">Helpfulness</font>
-                    <font color="#69BDC8"><b>` + scoreList[4] + `</b></font>
-                </div>
-                <div class="rating-bar">
-                    <div style="width: ` + widthList[4] + `;" class="rating-inside-bar">
-                    </div>
-                </div>
-            </td>
-            <td align=" center" width="20%">Helpful</td>
-        </tr>
-    </table>`
-        ratings.appendChild(ratingBox);
+        document.title = `${teacherName} - ${courseWithTeacher.courseName} | Vmawalk`;
 
 
-        //add reviews
-        let reviews = document.getElementById("reviews");
-        if (reviewList.length == 0) {
-            //add reviewBox
-            let reviewBox = document.createElement("div");
-            reviewBox.className = "display-box";
-            reviewBox.innerHTML = `<table class="review-table" style="margin: 20px; margin-bottom: 5px; width: auto">
-            <tr>
-            <td colspan="2">
-        <p class="review-content" style="margin-bottom: 15px; font-size: 16px; margin-top: 15px; width: 100%;">
-        No reviews for ${coursewithteacher.courseName} taught by ${teacherName} so far.
-        Write the first one <a href="../review/review.html?code=${coursewithteacher.id}" style="color:#69BDC8"><strong>here!</strong>
-        </a>
-        </p>
-    </td>
-</tr>
-</table>`
-            reviews.appendChild(reviewBox);
-        } else {
-            for (let i = reviewList.length - 1; i >= 0; i--) {
-                //convert semester
-                let semester = " Full year";
-                if (reviewList[i].semester) {
-                    semester = "  Semester 1";
-                }
-                if (reviewList[i].semester == false) {
-                    semester = " Semester 2";
-                }
-                //convert insertDate
-                let date = reviewList[i].insertDate.split("T")[0];
-                //add reviewBox
-                let reviewBox = document.createElement("div");
-                reviewBox.className = "display-box";
-                reviewBox.style.cssText = "padding: 15px;";
-                reviewBox.innerHTML = `<table class="review-table">
-    <tr>
-        <td style="color: gray; padding-bottom: 2px;">Semester: ${reviewList[i].year} ~ ${(reviewList[i].year + 1) + semester}</td>
-        <td style="color: gray; float: right;">${date}</td>
-    </tr>
-    <tr>
-        <td colspan="2" style="color: gray;">Grade: ` + reviewList[i].grade + `</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <p class="review-content">` + reviewList[i].text + `</p>
-        </td>
-    </tr>
-    <tr>
-</table>
-<table class="review-table">
-    <td colspan="2">
-        <div class="feedback" style="margin-top:15px; font-size: 15px;">
-            <div class="control">
-                <a href="javascript:Like(` + reviewList[i].id + `,` + i + `)" id=` + i + `>🙂Like ` + reviewList[i].likes + `</a>
-            </div>
-            <div class="control" style="margin-left:auto; margin-right: 10px">
-                <a href="">🖐Report</a>
-            </div>
-        </div>
-    </td>
-</tr>
-</table>`
-                reviews.appendChild(reviewBox);
-            }
-        }
+        let ratingtpl = ratingsTpl.innerHTML;
+        laytpl(ratingtpl).render({
+            "courseWithTeacher": courseWithTeacher
+        }, html => $("#ratings").html(html))
 
+        laytpl(reviewsTpl.innerHTML).render({
+            "reviewList": reviewList,
+            "courseWithTeacher": courseWithTeacher,
+            "teacherName": teacherName
+        }, html => $("#reviews").html(html))
     }
 
-    var query = getUrlQueryString(window.location.href);
-
-    var waitInfo = callInfo(query)
-
-    async function load() {
-        console.log(query);
-
-        $("#addReviewBtn").click(function() {
-            location.href = "../review/review.html?code=" + query
+    window.onload = async function () {
+        var id = new URLSearchParams(location.search).get("query")
+        $("#addReviewBtn").click(() => {
+            location.href = `../review/review.html?code=${id}`
         })
-
         loadHeader();
-        var loading = layuiLoading();
-        await waitInfo;
+        await callInfo(id);
         loadData();
-        //init
         loadFooter();
-        layuiRemoveLoading(loading);
-
     }
-
-    window.onload = load();
-    // $(document).ready(function () { load() })
-
-    var width = $(window).width()
     window.onresize = function () {
-        if($(window).width()!=width){
-            //execute code here.
-            lastWidth = $(window).width();
-            location.reload();
-         }
-    };
+        if ($(window).width() < 750) {
+            $("#teacherName").css("font-size", "40px");
+        } else {
+            $("#teacherName").css("font-size", "60px");
+        }
+    }
 })

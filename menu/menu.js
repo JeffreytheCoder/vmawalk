@@ -20,43 +20,51 @@ function loadCourseListTitle() {
     courselisttitle.appendChild(title)
 }
 
-function loadTeacherMenu() {
-    //add namewithpic
-    let namewithpic = document.getElementById("namewithpic");
-
-    var image = document.createElement("div");
-    var imageURL = Imagelink[teacherObj.id];
-    if (imageURL == undefined) {
-        imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
-    }
-    image.style.cssText = "background-image: url(" + imageURL + ");";
-    image.className = "image";
-    namewithpic.appendChild(image);
-    var teacherName = document.createElement("h2");
-    var teacherNameText = [teacherObj.chineseName, teacherObj.englishName].join(" ").trim()
-    teacherName.style = "margin-bottom: 5px";
-    teacherName.innerHTML = "<strong>" + teacherNameText + "</strong>";
-    namewithpic.appendChild(teacherName);
-    var teacherScore = document.createElement("font");
-    teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
-    if (teacherObj.averageScore == null) {
-        teacherObj.averageScore = "N/A";
-        teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
-    } else {
-        teacherScore.innerHTML = `<b>` + teacherObj.averageScore.toFixed(2) + `</b>`;
-    }
-    namewithpic.appendChild(teacherScore);
-
-    //add header title
-    document.title = teacherNameText + " | Vmawalk";
-
-    // add courseframe
-    var courseFrame = document.getElementById("course-frame")
 
 
 
 
-    layui.use(["laytpl", "jquery"], function () {
+layui.use(["jquery", "layer", "laytpl"], function () {
+    var $ = layui.$,
+        layer = layui.layer,
+        laytpl = layui.laytpl;
+
+    function loadTeacherMenu() {
+        //add namewithpic
+        let namewithpic = document.getElementById("namewithpic");
+
+        var image = document.createElement("div");
+        var imageURL = Imagelink[teacherObj.id];
+        if (imageURL == undefined) {
+            imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
+        }
+        image.style.cssText = "background-image: url(" + imageURL + ");";
+        image.className = "image";
+        namewithpic.appendChild(image);
+        var teacherName = document.createElement("h2");
+        var teacherNameText = [teacherObj.chineseName, teacherObj.englishName].join(" ").trim()
+        teacherName.style = "margin-bottom: 5px";
+        teacherName.innerHTML = "<strong>" + teacherNameText + "</strong>";
+        namewithpic.appendChild(teacherName);
+        var teacherScore = document.createElement("font");
+        teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
+        if (teacherObj.averageScore == null) {
+            teacherObj.averageScore = "N/A";
+            teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
+        } else {
+            teacherScore.innerHTML = `<b>` + teacherObj.averageScore.toFixed(2) + `</b>`;
+        }
+        namewithpic.appendChild(teacherScore);
+
+        //add header title
+        document.title = teacherNameText + " | Vmawalk";
+
+        // add courseframe
+        var courseFrame = document.getElementById("course-frame")
+
+
+
+
         let laytpl = layui.laytpl,
             $ = layui.$;
 
@@ -86,45 +94,43 @@ function loadTeacherMenu() {
         } else {
             $(".standard").css("display", "none")
         }
-    })
-}
 
-function loadCourseMenu() {
-    //add namewithpic
-    var namewithpic = document.getElementById("namewithpic");
-
-    var courseObj = courseList;
-    courseList = courseObj.courses;
-
-    var code = document.createElement("div");
-    code.style.cssText = "background-color: #69BDC8;";
-    code.innerHTML = "<font color='white'>" + courseList[0].courseCode + "</font>";
-    code.className = "code";
-    namewithpic.appendChild(code);
-
-    var courseName = document.createElement("h2");
-    courseName.style = "margin-bottom: 5px";
-    var courseNameText = courseList[0].courseName;
-    courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
-    namewithpic.appendChild(courseName);
-    //add header title
-    document.title = courseNameText + " | Vmawalk";
-
-    var teacherScore = document.createElement("font");
-    teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
-    if (courseObj.average == null) {
-        courseObj.average = "N/A";
-        teacherScore.innerHTML = `<b>` + courseObj.average + `</b>`;
-    } else {
-        teacherScore.innerHTML = `<b>` + courseObj.average.toFixed(2) + `</b>`;
     }
-    namewithpic.appendChild(teacherScore);
 
-    // add courseframe
-    var courseFrame = document.getElementById("course-frame")
-    layui.use(["laytpl", "jquery"], function () {
-        let laytpl = layui.laytpl,
-            $ = layui.$;
+    function loadCourseMenu() {
+        //add namewithpic
+        var namewithpic = document.getElementById("namewithpic");
+
+        var courseObj = courseList;
+        courseList = courseObj.courses;
+
+        var code = document.createElement("div");
+        code.style.cssText = "background-color: #69BDC8;";
+        code.innerHTML = "<font color='white'>" + courseList[0].courseCode + "</font>";
+        code.className = "code";
+        namewithpic.appendChild(code);
+
+        var courseName = document.createElement("h2");
+        courseName.style = "margin-bottom: 5px";
+        var courseNameText = courseList[0].courseName;
+        courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
+        namewithpic.appendChild(courseName);
+        //add header title
+        document.title = courseNameText + " | Vmawalk";
+
+        var teacherScore = document.createElement("font");
+        teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
+        if (courseObj.average == null) {
+            courseObj.average = "N/A";
+            teacherScore.innerHTML = `<b>` + courseObj.average + `</b>`;
+        } else {
+            teacherScore.innerHTML = `<b>` + courseObj.average.toFixed(2) + `</b>`;
+        }
+        namewithpic.appendChild(teacherScore);
+
+        // add courseframe
+        var courseFrame = document.getElementById("course-frame")
+
 
 
         var teacherNameList = {};
@@ -134,7 +140,7 @@ function loadCourseMenu() {
          * @type {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
          * text:{courseId:number,text:string}[]
          * }} courseObj
-         */ 
+         */
         courseList.forEach(
             course => {
                 // find teacher with id
@@ -150,7 +156,7 @@ function loadCourseMenu() {
             "courseList": courseList,
             "reviewList": reviewList,
             "teacherNameList": teacherNameList,
-            "Imagelink":Imagelink,
+            "Imagelink": Imagelink,
             "type": 2
         }
 
@@ -164,16 +170,8 @@ function loadCourseMenu() {
         } else {
             $(".standard").css("display", "none")
         }
-    })
+    }
 
-}
-
-
-layui.use(["jquery", "layer"], function () {
-    /**
-     * @type {JQuery}
-     */
-    var $ = layui.$;
     var url = "";
     var teacher = null;
     var layer = layui.layer;
@@ -230,7 +228,7 @@ layui.use(["jquery", "layer"], function () {
     }
 
     async function load() {
-        index = layuiLoading();
+        let index = layuiLoading();
 
         loadHeader();
 
@@ -243,6 +241,7 @@ layui.use(["jquery", "layer"], function () {
 
 
     window.onload = load();
+
     var width = $(window).width()
     window.onresize = function () {
         if (document.documentElement.clientWidth > 750) {
