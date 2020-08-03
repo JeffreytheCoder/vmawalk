@@ -46,9 +46,9 @@ layui.use(["jquery", "layer", "laytpl"], function () {
             return;
         }
         // post like number change to dataset
-        var res = await fetch("https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=" + reviewId, {
+        var res = await fetch(`https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=${reviewId}`, {
             headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             }
         })
         // 400 代表已经点过赞
@@ -57,7 +57,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         } else {
             // change like number on page
             var reviewLike = document.getElementById(reviewIndex);
-            reviewLike.text = "🙂Like " + (reviewList[reviewIndex].likes + 1);
+            reviewLike.text = `🙂Like ${reviewList[reviewIndex].likes + 1}`;
             reviewLike.style = "color: #1e8997; font-weight: bold"
             reviewList[reviewIndex].liked = true;
         }
@@ -65,7 +65,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
 
     const callInfo = async (id) => {
         let courseLoading = $.get(
-            "https://vma-walk.azurewebsites.net/api/Course/" + id,
+            `https://vma-walk.azurewebsites.net/api/Course/${id}`,
         );
 
         let reviewLoading = $.get(
@@ -80,7 +80,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
             userReviewLoading = $.get({
                 url: "https://vma-walk.azurewebsites.net/api/Review/GetUserLikes",
                 headers: {
-                    Authorization: "Bearer " + localStorage.getItem("token")
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
                 },
                 /**
                  * @param {number[]} data
@@ -103,57 +103,41 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         if (userReviewLoading) {
             /**@type {number[]}*/
             let userReviews = await userReviewLoading;
-            reviewList.forEach(review => {
-                if ($.inArray(review.id, userReviews) != -1) {
-                    review.liked = true;
-                } else {
-                    review.liked = false;
-                }
-            })
+            reviewList.forEach(review => $.inArray(review.id, userReviews) != -1 ? review.liked = true : review.liked = false)
         }
     }
 
     function loadData() {
         let nameWithPicTpl = nameWithPic.innerHTML;
-        var fontSize = 60;
-        if (document.documentElement.clientWidth <= 700) {
-            fontSize = 40;
-        }
+        var fontSize = document.documentElement.clientWidth <= 700 ? 40 : 60;
 
         laytpl(nameWithPicTpl).render({
             "teacherName": teacherName,
             "courseWithTeacher": courseWithTeacher,
             "ImageUrl": Imagelink[courseWithTeacher.teacherId],
             "fontSize": fontSize
-        }, html => {
-            $("#namewithpic").html(html);
-        })
+        }, html => $("#namewithpic").html(html))
 
         //add header title
-        document.title = teacherName + " - " + courseWithTeacher.courseName + " | Vmawalk";
+        document.title = `${teacherName} - ${courseWithTeacher.courseName} | Vmawalk`;
 
 
         let ratingtpl = ratingsTpl.innerHTML;
         laytpl(ratingtpl).render({
             "courseWithTeacher": courseWithTeacher
-        }, html => {
-            $("#ratings").html(html);
-        })
+        }, html => $("#ratings").html(html))
 
         laytpl(reviewsTpl.innerHTML).render({
             "reviewList": reviewList,
             "courseWithTeacher": courseWithTeacher,
             "teacherName": teacherName
-        }, html => {
-            $("#reviews").html(html);
-        })
-
+        }, html => $("#reviews").html(html))
     }
 
     window.onload = async function () {
         var id = new URLSearchParams(location.search).get("query")
-        $("#addReviewBtn").click(function () {
-            location.href = "../review/review.html?code=" + id
+        $("#addReviewBtn").click(() => {
+            location.href = `../review/review.html?code=${id}`
         })
         loadHeader();
         await callInfo(id);
@@ -162,9 +146,9 @@ layui.use(["jquery", "layer", "laytpl"], function () {
     }
     window.onresize = function () {
         if ($(window).width() < 750) {
-            $("#teacherName").css("font-size", "40px")
-        }else{
-            $("#teacherName").css("font-size", "60px")
+            $("#teacherName").css("font-size", "40px");
+        } else {
+            $("#teacherName").css("font-size", "60px");
         }
     }
 })
