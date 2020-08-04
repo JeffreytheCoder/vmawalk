@@ -646,6 +646,7 @@ function loadFooter() {
 
     var realFooter = document.getElementById("realfooter")
     realFooter.classList.add("fixed-bottom");
+    console.log(contentHeight, winHeight);
     if (contentHeight <= (winHeight - 150)) {
         //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
         realFooter.classList.add("fixed-bottom");
