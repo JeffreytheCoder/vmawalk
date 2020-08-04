@@ -618,5 +618,13 @@
     {
         "courseName": "AP Suspend",
         "courseCode": "HHH501"
+    },
+    {
+        "courseName": "Engineering Design",
+        "courseCode": "EGR404"
+    },
+    {
+        "courseName": "Advanced Robotics Engineering",
+        "courseCode": "EGR403"
     }
 ]

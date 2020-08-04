@@ -432,12 +432,6 @@
         "teacherId": 161
     },
     {
-        "id": 98,
-        "courseName": "IGCSE Physics",
-        "courseCode": "PHYC0625",
-        "teacherId": 99
-    },
-    {
         "id": 99,
         "courseName": "Portfolio Development",
         "courseCode": "ARTA410",
@@ -1462,5 +1456,23 @@
         "courseName": "AP Suspend",
         "courseCode": "HHH501",
         "teacherId": 1
+    },
+    {
+        "id": 278,
+        "courseName": "Programming with Python",
+        "courseCode": "CSE205",
+        "teacherId": 111
+    },
+    {
+        "id": 279,
+        "courseName": "Engineering Design",
+        "courseCode": "EGR404",
+        "teacherId": 111
+    },
+    {
+        "id": 280,
+        "courseName": "Advanced Robotics Engineering",
+        "courseCode": "EGR403",
+        "teacherId": 111
     }
-]   
+]

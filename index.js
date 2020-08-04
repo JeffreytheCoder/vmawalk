@@ -13,6 +13,11 @@ function setLogin(callback) {
             layui.use("layer", function () {
                 layui.layer.msg("Email Confirmed Successfully");
             })
+        else if (param.get("pr") == 1) {
+            layui.use("layer", function () {
+                layui.layer.msg("Password Reset Successfully");
+            })
+        }
     }
     var token = localStorage.getItem("token")
 
