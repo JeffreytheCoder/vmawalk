@@ -52,7 +52,7 @@ async function action() {
         console.log("未检测到token, 请登录")
     }
 
-    loginBtn.onclick = function() {
+    loginBtn.onclick = function () {
         if (loginText == "Login") {
             layerDiv.style.display = "block";
             layerDiv.style.transition = "2s";
@@ -440,7 +440,7 @@ async function loadHeader() {
     }
 
     //Load select options
-    layui.use(["layer", "jquery", "form"], async function() {
+    layui.use(["layer", "jquery", "form"], async function () {
         /**
          * @type {JQuery}
          */
@@ -468,11 +468,11 @@ async function loadHeader() {
             );
         });
 
-        layui.form.render("select");
+        form.render("select");
         //#endregion
 
         //#region 弹出层，登录，注册，重置密码
-        $(document).keydown(function(e) {
+        $(document).keydown(function (e) {
             if (e.keyCode === 13) {
                 if ($("#loginLayer").css("display") != "none")
                     $("#loginSubmit").trigger("click");
@@ -486,101 +486,96 @@ async function loadHeader() {
             }
         })
 
-        form.on("submit(submit)", function(data) {
+        form.on("submit(submit)", function (data) {
             let query = data.field.teacher;
             let link = `../menu/menu.html?query=${query}`;
             window.location.href = link;
             return false;
         });
-
-        let loginSubmit = async(formData) => {
+        /**
+         * 
+         * @param {*} formData 
+         * @param {number} action 
+         * 1 登录
+         * 2 注册
+         * 3 重置密码
+         */
+        let authSubmit = async (formData, action) => {
             var index = layer.load({
                 shade: [0.4, '#def'],
                 icon: '&#xe63d'
             })
-            let request = await fetch("https://vma-walk.azurewebsites.net/Auth/Login", {
-                method: "POST",
+            let path;
+            let method = "POST";
+
+            switch (action) {
+            case 1:
+                path = "Login"
+                break;
+            case 2:
+                path = "Registration"
+                method = "PUT"
+                break;
+            case 3:
+                path = "ResetPassword"
+                method = "PUT"
+                break;
+            }
+            let request = await fetch(`https://vma-walk.azurewebsites.net/Auth/${path}`, {
+                method: method,
                 body: JSON.stringify(formData.field),
                 headers: {
                     "Content-Type": "application/json"
                 }
             })
             layer.close(index)
-            if (request.status == 200) {
-                let result = await request.json();
-                localStorage.setItem("token", result.token);
-                localStorage.setItem("userName", result.userName);
-                layer.msg("登陆成功");
-                setTimeout(() => {
-                    location.reload();
-                }, 1000);
-            } else {
-                let result = request.json();
-                layer.alert(result.message)
-            }
-        }
 
-        let registerSubmit = async(formData) => {
-            var index = layer.load({
-                shade: [0.4, '#def'],
-                icon: '&#xe63d'
-            })
-            let request = await fetch("https://vma-walk.azurewebsites.net/Auth/Registration", {
-                method: "PUT",
-                body: JSON.stringify(formData.field),
-                headers: {
-                    "Content-Type": "application/json"
+            if (request.status == 200) {
+                switch (action) {
+                case 1:
+                    let result = await request.json();
+                    localStorage.setItem("token", result.token);
+                    localStorage.setItem("userName", result.userName);
+                    layer.msg("登陆成功");
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
+                    break;
+                case 2:
+                    layer.alert("注册成功，请查看学生邮箱并点击验证链接")
+                    break;
+                case 3:
+                    alert("请查看学生邮箱并点击验证链接重置密码")
+                    break;
                 }
-            })
-            layer.close(index)
-            if (request.status == 200) {
-                alert("注册成功，请查看学生邮箱并点击验证链接")
             } else {
-                let result = await request.json();
-
-                layer.alert(result.message.map(x => x.description).join("</br>"), {
-                    skin: "layui-layer-molv",
-                    anim: 5,
-                    title: "请重试"
-                })
-            }
-        }
-
-        let forgetSubmit = async(formData) => {
-            var index = layer.load({
-                shade: [0.4, '#def'],
-                icon: '&#xe63d'
-            })
-            let request = await fetch("https://vma-walk.azurewebsites.net/Auth/ResetPassword", {
-                method: "PUT",
-                body: JSON.stringify(formData.field),
-                headers: {
-                    "Content-Type": "application/json"
+                switch (action) {
+                case 1:
+                    var result = await request.json();
+                    layer.alert(result.message)
+                    break;
+                case 2:
+                case 3:
+                    var result = await request.json();
+                    layer.alert(result.message.map(x => x.description).join("</br>"), {
+                        skin: "layui-layer-molv",
+                        anim: 5,
+                        title: "请重试"
+                    })
                 }
-            })
-            layer.close(index)
-            if (request.status == 200) {
-                alert("请查看学生邮箱并点击验证链接")
-            } else {
-                let result = await request.json()
-                layer.alert(result.message.map(x => x.description).join("</br>"), {
-                    skin: "layui-layer-molv",
-                    anim: 5,
-                    title: "请重试"
-                })
             }
         }
 
-        form.on("submit(loginSubmit)", function(formData) {
-            loginSubmit(formData);
+        form.on("submit(loginSubmit)", function (formData) {
+            authSubmit(formData, 1);
             return false;
         });
-        form.on("submit(registerSubmit)", function(formData) {
-            registerSubmit(formData);
+        form.on("submit(registerSubmit)", function (formData) {
+            authSubmit(formData, 2);
             return false;
         });
-        form.on("submit(forgetSubmit)", function(formData) {
-            forgetSubmit(formData);
+        form.on("submit(forgetSubmit)", function (formData) {
+            authSubmit(formData, 3);
             return false;
         });
 
@@ -596,8 +591,8 @@ async function loadHeader() {
             password: [
                 /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
             ],
-            confirmPass: function(value) {
-                if ($('#password').val() !== value)
+            confirmPass: function (value, item) {
+                if (item.form.elements.password.value !== value)
                     return ('两次密码输入不一致！');
             }
         })
