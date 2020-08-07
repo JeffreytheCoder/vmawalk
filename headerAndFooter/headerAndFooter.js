@@ -328,6 +328,10 @@ layui.use(["layer", "jquery", "form"], function () {
                     return ('两次密码输入不一致！');
             }
         })
+
+        if ($(window).width() < 750) {
+            $(".container").css({ width: "auto", margin: "auto 10px" })
+        }
     }
 
 
@@ -437,7 +441,6 @@ layui.use(["layer", "jquery", "form"], function () {
             $(".mobile").css("display", "none")
         } else {
             $(".standard").css("display", "none")
-            $(".container").css({ width: "auto", margin: "auto 10px" })
         }
 
         //Load select options
