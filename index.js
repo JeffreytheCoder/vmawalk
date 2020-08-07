@@ -80,6 +80,9 @@ window.onload = function () {
 
         layui.form.render('select');
 
+        await loadLayer();
+        
+
     })
 
     //Load login button
@@ -87,7 +90,7 @@ window.onload = function () {
         let loginDiv = document.getElementById("login-div");
         let login = document.createElement("span");
         login.setAttribute('href', loginLink);
-        login.innerHTML = ` <button class = "add-review" onclick="location.href='` + loginLink + `'">
+        login.innerHTML = ` <button class = "add-review" onclick="${loginText=="Login"?"toLogin()":"location='myreview/myreview.html'"}">
             <text class = "add-review-text"> ` + loginText + ` </text> </button>`;
         loginDiv.appendChild(login);
     })

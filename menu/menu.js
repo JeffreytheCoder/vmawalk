@@ -243,13 +243,5 @@ layui.use(["jquery", "layer", "laytpl"], function () {
     window.onload = load();
 
     var width = $(window).width()
-    window.onresize = function () {
-        if (document.documentElement.clientWidth > 750) {
-            $(".standard").css("display", "block")
-            $(".mobile").css("display", "none")
-        } else {
-            $(".mobile").css("display", "block")
-            $(".standard").css("display", "none")
-        }
-    };
+    
 })
