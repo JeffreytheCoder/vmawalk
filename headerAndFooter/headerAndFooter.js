@@ -249,7 +249,7 @@ layui.use(["layer", "jquery", "form"], function () {
                 method = "PUT"
                 break;
             }
-            let request = await fetch(`https://localhost:5001/Auth/${path}`, {
+            let request = await fetch(`https://vma-walk.azurewebsites.net/Auth/${path}`, {
                 method: method,
                 body: JSON.stringify(formData.field),
                 headers: {
