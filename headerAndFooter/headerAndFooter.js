@@ -72,7 +72,7 @@ var loadHeader = async () => {
     await waitInitial();
     loadHeader();
 }
-var waitInitial = new Promise(() => {
+var waitInitial = async () => {
     layui.use(["layer", "jquery", "form"], function () {
         const $ = layui.jquery,
             form = layui.form,
@@ -489,7 +489,7 @@ var waitInitial = new Promise(() => {
         };
         //#endregion
     })
-})
+}
 
 function loadFooter() {
     //Load footer elements
