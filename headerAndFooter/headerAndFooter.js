@@ -368,11 +368,16 @@ layui.use(["layer", "jquery", "form"], function () {
         // var header = document.createElement("div");
 
         headerDiv.innerHTML = `
-        <header id="header" class="header mobile">
-            <a href="../index.html" style="margin-left: 10px;">
+        <header id="header" class="header">
+            <div class="title standard">
+                <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
+                    <strong>vma</strong>walk
+                </a>
+            </div>
+            <a class="mobile" href="../index.html" style="margin-left: 10px;">
                 <img src="../img/logo-round-white.png" style="height: 30px;">
             </a>
-            <form class="layui-form" align="center" action="submit" style="margin-bottom: 0; margin: 10px; width: 100%">
+            <form id="teacherList" class="layui-form" align="center" action="submit" style="margin-bottom: 0;">
                 <div class="layui-form-block" style="margin-right: 10px; width: 100%">
                     <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
                         lay-filter="search">
@@ -385,7 +390,7 @@ layui.use(["layer", "jquery", "form"], function () {
             inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
             inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
             </form>
-            <div style="display: flex; height: 100%; align-items: center;">
+            <div style="display: flex; height: 100%; align-items: center;" class="mobile">
                 <div style="padding-right: 10px">
                     <a href="../review/review.html">
                         <button class="add-review" style="width: 40px; padding:" >
@@ -399,30 +404,9 @@ layui.use(["layer", "jquery", "form"], function () {
                     </button>
                 </div>
             </div>
-        </header>
-        <header id="header" class="header standard">
-            <div class="title">
-                <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
-                    <strong>vma</strong>walk
-                </a>
-            </div>
-            <form class="layui-form" align="center" action="submit" style="margin-bottom: 0;">
-                <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
-                    <select name="teacher" id="search" lay-search lay-verify="required" class="layui-input layui-unselect"
-                        lay-filter="search">
-                        <option value="">Find a course or a teacher
-                        </option>
-                    </select>
-                </div>
-                <button id="selectSubmit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="padding:0; width: 50px; text-align: center; background-color: #0098ac; box-shadow: /* -7px -7px 20px 0px #fff9, */
-            /* -4px -4px 5px 0px #fff9, */
-            7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-            inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
-            inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
-            </form>
-            <div style="display: flex; overflow: hidden;height: 100%;align-items: center;">
+            <div style="display: flex; overflow: hidden;height: 100%;align-items: center;" class="standard">
                 <div style="padding-right: 25px">
-                    <button class="add-review"  onclick="location.href='../review/review.html'">
+                    <button class="add-review" onclick="location.href='../review/review.html'">
                         <text class="add-review-text">✚ Review</text>
                     </button>
                 </div>
@@ -431,8 +415,7 @@ layui.use(["layer", "jquery", "form"], function () {
                         <text class="add-review-text">` + loginText + `</text>
                     </button>
                 </div>
-            </div>
-        </header>`;
+            </div>`;
         await loadLayer();
         action();
         // headerDiv.innerHTML = header.innerHTML;
@@ -441,6 +424,7 @@ layui.use(["layer", "jquery", "form"], function () {
             $(".mobile").css("display", "none")
         } else {
             $(".standard").css("display", "none")
+            $("#teacherList").css({ width: "100%", margin: "10px" })
         }
 
         //Load select options
@@ -493,10 +477,12 @@ layui.use(["layer", "jquery", "form"], function () {
             $(".standard").css("display", "flex")
             $(".mobile").css("display", "none")
             $(".container").css({ width: "450px", margin: "" })
+            $("#teacherList").css({ width: "", margin: "" })
         } else {
             $(".mobile").css("display", "flex")
             $(".standard").css("display", "none")
             $(".container").css({ width: "auto", margin: "auto 20px" })
+            $("#teacherList").css({ width: "100%", margin: "10px" })
         }
     };
     //#endregion
