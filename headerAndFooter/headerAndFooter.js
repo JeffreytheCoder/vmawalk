@@ -177,7 +177,7 @@ layui.use(["layer", "jquery", "form"], function () {
                                     <label class="layui-form-label">Email</label>
                                 </td>
                                 <td>
-                                    <input type=" text " name="email " required lay-verify="required " placeholder="Email Address" autocomplete="off " class="layui-input ">
+                                    <input type=" text " name="Email" required lay-verify="required " placeholder="Email Address" autocomplete="off " class="layui-input ">
                                 </td>
                                 <td>
                                     <label class="email">&nbsp@stu.vma.edu.cn</label>
@@ -249,7 +249,7 @@ layui.use(["layer", "jquery", "form"], function () {
                 method = "PUT"
                 break;
             }
-            let request = await fetch(`https://vma-walk.azurewebsites.net/Auth/${path}`, {
+            let request = await fetch(`https://localhost:5001/Auth/${path}`, {
                 method: method,
                 body: JSON.stringify(formData.field),
                 headers: {
