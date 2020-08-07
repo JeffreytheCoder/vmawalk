@@ -45,7 +45,7 @@ function setLogin(callback) {
 
 window.onload = function () {
 
-    var selectForm = document.getElementById("submit");
+    var selectForm = document.getElementById("selectSubmit");
     if (document.documentElement.clientWidth <= 700) {
         selectForm.style.cssText = `padding:0; width: 50px; text-align: center; background-color: #69bdc8; box-shadow: /* -7px -7px 20px 0px #fff9, */
         /* -4px -4px 5px 0px #fff9, */
