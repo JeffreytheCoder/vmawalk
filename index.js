@@ -69,7 +69,8 @@ window.onload = function () {
 
         layui.form.render('select');
 
-        await loadLayer();
+        await waitInitial;
+        loadLayer();
 
 
     })

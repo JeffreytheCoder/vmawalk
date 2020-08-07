@@ -230,6 +230,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
     async function load() {
         let index = layuiLoading();
 
+        await waitInitial;
         loadHeader();
 
         loadCourseListTitle();

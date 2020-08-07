@@ -139,6 +139,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         $("#addReviewBtn").click(() => {
             location.href = `../review/review.html?code=${id}`
         })
+        await waitInitial;
         loadHeader();
         await callInfo(id);
         loadData();
