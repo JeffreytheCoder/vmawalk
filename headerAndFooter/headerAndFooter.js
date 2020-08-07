@@ -64,23 +64,15 @@ async function action() {
     })
 }
 
-var loadLayer = async () => {
-    await waitInitial();
-    loadLayer();
-}
-var loadHeader = async () => {
-    await waitInitial();
-    loadHeader();
-}
-var waitInitial = async () => {
-    layui.use(["layer", "jquery", "form"], function () {
-        const $ = layui.jquery,
-            form = layui.form,
-            layer = layui.layer;
 
-        loadLayer = async () => {
-            let $ = layui.$;
-            $(`<layer>
+layui.use(["layer", "jquery", "form"], function () {
+    const $ = layui.jquery,
+        form = layui.form,
+        layer = layui.layer;
+
+    window.loadLayer = async () => {
+        let $ = layui.$;
+        $(`<layer>
             <div id="loginLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:1; width: 100%; height: 100%;" >
                 <form class="layui-form" action="">
                     <div class="container" id="Login" style="box-shadow: none;">
@@ -216,160 +208,160 @@ var waitInitial = async () => {
                 </form>
             </div>
         </layer>`).insertBefore(
-                "body"
-            )
+            "body"
+        )
 
-            $(document).keydown(function (e) {
-                if (e.keyCode === 13) {
-                    if ($("#loginLayer").css("display") != "none")
-                        $("#loginSubmit").trigger("click");
-                    else if ($("#registerLayer").css("display") != "none")
-                        $("#registerSubmit").trigger("click");
-                    else if ($("#forgetLayer").css("display") != "none")
-                        $("#forgetSubmit").trigger("click");
-                    else
-                        $("#selectSubmit").trigger("click")
-                    return false;
+        $(document).keydown(function (e) {
+            if (e.keyCode === 13) {
+                if ($("#loginLayer").css("display") != "none")
+                    $("#loginSubmit").trigger("click");
+                else if ($("#registerLayer").css("display") != "none")
+                    $("#registerSubmit").trigger("click");
+                else if ($("#forgetLayer").css("display") != "none")
+                    $("#forgetSubmit").trigger("click");
+                else
+                    $("#selectSubmit").trigger("click")
+                return false;
+            }
+        })
+
+        let authSubmit = async (formData, action) => {
+            var index = layer.load({
+                shade: [0.4, '#def'],
+                icon: '&#xe63d'
+            })
+            let path;
+            let method = "POST";
+
+            switch (action) {
+            case 1:
+                path = "Login"
+                break;
+            case 2:
+                path = "Registration"
+                method = "PUT"
+                break;
+            case 3:
+                path = "ResetPassword"
+                method = "PUT"
+                break;
+            }
+            let request = await fetch(`https://vma-walk.azurewebsites.net/Auth/${path}`, {
+                method: method,
+                body: JSON.stringify(formData.field),
+                headers: {
+                    "Content-Type": "application/json"
                 }
             })
+            layer.close(index)
 
-            let authSubmit = async (formData, action) => {
-                var index = layer.load({
-                    shade: [0.4, '#def'],
-                    icon: '&#xe63d'
-                })
-                let path;
-                let method = "POST";
-
+            if (request.status == 200) {
                 switch (action) {
                 case 1:
-                    path = "Login"
+                    let result = await request.json();
+                    localStorage.setItem("token", result.token);
+                    localStorage.setItem("userName", result.userName);
+                    layer.msg("登陆成功");
+                    if (!location.pathname.endsWith("review.html"))
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    else {
+                        goBack();
+                    }
                     break;
                 case 2:
-                    path = "Registration"
-                    method = "PUT"
+                    layer.alert("注册成功，请查看学生邮箱并点击验证链接")
                     break;
                 case 3:
-                    path = "ResetPassword"
-                    method = "PUT"
+                    layer.alert("请查看学生邮箱并点击验证链接重置密码")
                     break;
                 }
-                let request = await fetch(`https://vma-walk.azurewebsites.net/Auth/${path}`, {
-                    method: method,
-                    body: JSON.stringify(formData.field),
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                })
-                layer.close(index)
-
-                if (request.status == 200) {
-                    switch (action) {
-                    case 1:
-                        let result = await request.json();
-                        localStorage.setItem("token", result.token);
-                        localStorage.setItem("userName", result.userName);
-                        layer.msg("登陆成功");
-                        if (!location.pathname.endsWith("review.html"))
-                            setTimeout(() => {
-                                location.reload();
-                            }, 1000);
-                        else {
-                            goBack();
-                        }
-                        break;
-                    case 2:
-                        layer.alert("注册成功，请查看学生邮箱并点击验证链接")
-                        break;
-                    case 3:
-                        layer.alert("请查看学生邮箱并点击验证链接重置密码")
-                        break;
-                    }
-                } else {
-                    switch (action) {
-                    case 1:
-                        var result = await request.json();
-                        layer.alert(result.message)
-                        break;
-                    case 2:
-                    case 3:
-                        var result = await request.json();
-                        layer.alert(result.message.map(x => x.description).join("</br>"), {
-                            skin: "layui-layer-molv",
-                            anim: 5,
-                            title: "请重试"
-                        })
-                    }
+            } else {
+                switch (action) {
+                case 1:
+                    var result = await request.json();
+                    layer.alert(result.message)
+                    break;
+                case 2:
+                case 3:
+                    var result = await request.json();
+                    layer.alert(result.message.map(x => x.description).join("</br>"), {
+                        skin: "layui-layer-molv",
+                        anim: 5,
+                        title: "请重试"
+                    })
                 }
-            }
-
-            form.on("submit(loginSubmit)", function (formData) {
-                authSubmit(formData, 1);
-                return false;
-            });
-            form.on("submit(registerSubmit)", function (formData) {
-                authSubmit(formData, 2);
-                return false;
-            });
-            form.on("submit(forgetSubmit)", function (formData) {
-                authSubmit(formData, 3);
-                return false;
-            });
-
-            form.verify({
-                userName: [
-                    /^[\S]+$/,
-                    "用户名中不能含有空格"
-                ],
-                alphabat: [
-                    /[a-z]/i,
-                    "学生邮箱前缀不得含有特殊字符"
-                ],
-                password: [
-                    /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
-                ],
-                confirmPass: function (value, item) {
-                    if (item.form.elements.password.value !== value)
-                        return ('两次密码输入不一致！');
-                }
-            })
-
-            if ($(window).width() < 750) {
-                $(".container").css({ width: "auto", margin: "auto 10px" })
             }
         }
 
+        form.on("submit(loginSubmit)", function (formData) {
+            authSubmit(formData, 1);
+            return false;
+        });
+        form.on("submit(registerSubmit)", function (formData) {
+            authSubmit(formData, 2);
+            return false;
+        });
+        form.on("submit(forgetSubmit)", function (formData) {
+            authSubmit(formData, 3);
+            return false;
+        });
 
-
-        loadHeader = async () => {
-            // Judge if login or myreview
-            var loginText = "Login";
-            var loginLink = "../login/login.html";
-            var token = localStorage.getItem("token")
-            if (token) {
-                console.log("检测到token")
-                try {
-                    var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
-                    if (user.exp > Date.now() / 1000) {
-                        console.log("token未过期, 已登录")
-                        loginText = "My Review";
-                        loginLink = "../myreview/myreview.html";
-                    } else {
-                        console.log("token已过期, 请重新登录")
-                    }
-                } catch (ess) {
-                    localStorage.removeItem("token")
-                }
-            } else {
-                console.log("未检测到token, 请登录")
+        form.verify({
+            userName: [
+                /^[\S]+$/,
+                "用户名中不能含有空格"
+            ],
+            alphabat: [
+                /[a-z]/i,
+                "学生邮箱前缀不得含有特殊字符"
+            ],
+            password: [
+                /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
+            ],
+            confirmPass: function (value, item) {
+                if (item.form.elements.password.value !== value)
+                    return ('两次密码输入不一致！');
             }
+        })
 
-            console.log(document.documentElement.clientWidth);
-            //Load header elements
-            var headerDiv = document.getElementById("header-div");
-            // var header = document.createElement("div");
+        if ($(window).width() < 750) {
+            $(".container").css({ width: "auto", margin: "auto 10px" })
+        }
+    }
 
-            headerDiv.innerHTML = `
+
+
+    window.loadHeader = async () => {
+        // Judge if login or myreview
+        var loginText = "Login";
+        var loginLink = "../login/login.html";
+        var token = localStorage.getItem("token")
+        if (token) {
+            console.log("检测到token")
+            try {
+                var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
+                if (user.exp > Date.now() / 1000) {
+                    console.log("token未过期, 已登录")
+                    loginText = "My Review";
+                    loginLink = "../myreview/myreview.html";
+                } else {
+                    console.log("token已过期, 请重新登录")
+                }
+            } catch (ess) {
+                localStorage.removeItem("token")
+            }
+        } else {
+            console.log("未检测到token, 请登录")
+        }
+
+        console.log(document.documentElement.clientWidth);
+        //Load header elements
+        var headerDiv = document.getElementById("header-div");
+        // var header = document.createElement("div");
+
+        headerDiv.innerHTML = `
         <header id="header" class="header">
             <div class="title standard">
                 <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
@@ -418,78 +410,78 @@ var waitInitial = async () => {
                     </button>
                 </div>
             </div>`;
-            await loadLayer();
-            action();
-            // headerDiv.innerHTML = header.innerHTML;
+        await loadLayer();
+        action();
+        // headerDiv.innerHTML = header.innerHTML;
 
-            if (document.documentElement.clientWidth > 750) {
-                $(".mobile").css("display", "none")
-            } else {
-                $(".standard").css("display", "none")
-                $("#teacherList").css({ width: "100%", margin: "10px" })
-            }
+        if (document.documentElement.clientWidth > 750) {
+            $(".mobile").css("display", "none")
+        } else {
+            $(".standard").css("display", "none")
+            $("#teacherList").css({ width: "100%", margin: "10px" })
+        }
 
-            //Load select options
+        //Load select options
 
 
 
-            await loadInfo;
+        await loadInfo;
 
-            //#region 加载数据
-            teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).filter(teacher => {
-                if (teacher.chineseName == null) {
-                    $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
-                    return false;
-                } else
-                    return true
-            }).forEach(teacher =>
-                $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
-            )
-
-            Courses.sort((x, y) => x.courseCode.localeCompare(y.courseCode)).forEach((i) => {
-                $("#search").append(
-                    new Option(`${i.courseName} ${i.courseCode}`, `2-${i.courseCode}`)
-                );
-            });
-
-            form.render("select");
-            //#endregion
-
-            //#region 弹出层，登录，注册，重置密码
-
-            form.on("submit(submit)", function (data) {
-                let query = data.field.teacher;
-                let link = `../menu/menu.html?query=${query}`;
-                window.location.href = link;
+        //#region 加载数据
+        teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).filter(teacher => {
+            if (teacher.chineseName == null) {
+                $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
                 return false;
-            });
-            /**
-             * 
-             * @param {*} formData 
-             * @param {number} action 
-             * 1 登录
-             * 2 注册
-             * 3 重置密码
-             */
+            } else
+                return true
+        }).forEach(teacher =>
+            $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
+        )
 
-        };
+        Courses.sort((x, y) => x.courseCode.localeCompare(y.courseCode)).forEach((i) => {
+            $("#search").append(
+                new Option(`${i.courseName} ${i.courseCode}`, `2-${i.courseCode}`)
+            );
+        });
 
-        window.onresize = function () {
-            if (document.documentElement.clientWidth > 750) {
-                $(".standard").css("display", "flex")
-                $(".mobile").css("display", "none")
-                $(".container").css({ width: "450px", margin: "" })
-                $("#teacherList").css({ width: "", margin: "" })
-            } else {
-                $(".mobile").css("display", "flex")
-                $(".standard").css("display", "none")
-                $(".container").css({ width: "auto", margin: "auto 20px" })
-                $("#teacherList").css({ width: "100%", margin: "10px" })
-            }
-        };
+        form.render("select");
         //#endregion
-    })
-}
+
+        //#region 弹出层，登录，注册，重置密码
+
+        form.on("submit(submit)", function (data) {
+            let query = data.field.teacher;
+            let link = `../menu/menu.html?query=${query}`;
+            window.location.href = link;
+            return false;
+        });
+        /**
+         * 
+         * @param {*} formData 
+         * @param {number} action 
+         * 1 登录
+         * 2 注册
+         * 3 重置密码
+         */
+
+    };
+
+    window.onresize = function () {
+        if (document.documentElement.clientWidth > 750) {
+            $(".standard").css("display", "flex")
+            $(".mobile").css("display", "none")
+            $(".container").css({ width: "450px", margin: "" })
+            $("#teacherList").css({ width: "", margin: "" })
+        } else {
+            $(".mobile").css("display", "flex")
+            $(".standard").css("display", "none")
+            $(".container").css({ width: "auto", margin: "auto 20px" })
+            $("#teacherList").css({ width: "100%", margin: "10px" })
+        }
+    };
+    //#endregion
+})
+
 
 function loadFooter() {
     //Load footer elements
