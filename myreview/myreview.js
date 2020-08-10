@@ -90,7 +90,7 @@ function loadReview() {
         //convert insertDate
         let date = reviewList[i].insertDate.split("T")[0];
         // get scores
-        let scoreList = reviewList[i].score.trim().split("|");
+        let scoreList = reviewList[i].score;
 
         // add a review block
         let reviewDiv = document.getElementById("review-div");

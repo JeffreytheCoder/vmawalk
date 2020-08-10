@@ -68,11 +68,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
             `https://vma-walk.azurewebsites.net/api/Course/${id}`,
         );
 
-        let reviewLoading = $.get(
-            "https://vma-walk.azurewebsites.net/api/Review", {
-                id: id
-            },
-        );
+        
 
         let userReviewLoading;
 
@@ -97,7 +93,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         courseWithTeacher = await courseLoading;
         let teacher = teachers.find(teacher => teacher.id == courseWithTeacher.teacherId);
         teacherName = [teacher.chineseName, teacher.englishName].join(" ").trim()
-        reviewList = await reviewLoading;
+        reviewList = courseWithTeacher.reviews;
         console.log(courseWithTeacher, reviewList)
 
         if (userReviewLoading) {

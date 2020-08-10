@@ -190,12 +190,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         var data = {}
         let teacherLoading;
         if (query[0] == "1") {
-            teacherLoading = $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID).then(
-                function (result) {
-                    teacherObj = result;
-                    console.log(result)
-                });
-            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
+            url = "https://vma-walk.azurewebsites.net/api/teacher/GetCourses";
             data.id = Number(queryID);
         } else if (query[0] == "2") {
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
@@ -209,6 +204,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
              * }} req
              */
             success: function (req) {
+                teacherObj = req.teacher;
                 courseList = req;
                 console.log(courseList)
             },
@@ -216,7 +212,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
                 console.log(req);
             }
         });
-        await Promise.all([teacherLoading, courseLoading])
+        await courseLoading
 
         if (query[0] == "1") {
             loadTeacherMenu();

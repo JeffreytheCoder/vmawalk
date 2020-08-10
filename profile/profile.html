@@ -54,7 +54,7 @@
         <script id="ratingsTpl" type="text/html">
         {{# var scoreList = d.courseWithTeacher.averageScore==null?
             ["N/A", "N/A", "N/A", "N/A", "N/A"]:
-            d.courseWithTeacher.averageScore.split("|");
+            d.courseWithTeacher.averageScore;
             var widthList = scoreList.map(score=>score=="N/A"?"0%":"" + ((score / 5.0).toFixed(2) * 100).toFixed(0) + "%")
         }}
             <table width="100%">

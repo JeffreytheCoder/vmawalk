@@ -90,7 +90,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
             data.field.workload,
             data.field.clarity,
             data.field.helpfulness
-        ].join("|");
+        ].map(x=>Number(x))
 
         console.log(JSON.stringify({
             teacherId: data.field.teacher,

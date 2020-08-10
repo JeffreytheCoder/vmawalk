@@ -35,7 +35,7 @@
         <script id="courses" type="text/html">
         {{# layui.each(d.courseList,(index,course)=>{
                 let scoreList =course.averageScore != null?
-                    course.averageScore.split("|") : ["N/A", "N/A", "N/A", "N/A", "N/A"];
+                    course.averageScore : ["N/A", "N/A", "N/A", "N/A", "N/A"];
                 var review = d.reviewList.find(review =>review.courseId == course.id);
                 let bestReview = review!=undefined?review.text:"No Review";
                 }}
