@@ -39,19 +39,23 @@ window.onload = function () {
 
         // default value
         var Params = new URLSearchParams(location.search)
-        if (Params.has("code")) {
-            var course = CoursesWithTeacher.find(x => x.id === Number(Params.get("code")))
 
-            $("#teacher").val(course.teacherId)
-            CoursesWithTeacher.forEach(
-                _course => {
-                    if (_course.teacherId === course.teacherId)
-                        $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
-                }
-            )
-            $('#course').val(course.id)
+        Jump:
+            if (Params.has("code")) {
+                var course = CoursesWithTeacher.find(x => x.id === Number(Params.get("code")))
+                
+                if (course === undefined)
+                    break Jump;
+                $("#teacher").val(course.teacherId)
+                CoursesWithTeacher.forEach(
+                    _course => {
+                        if (_course.teacherId === course.teacherId)
+                            $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
+                    }
+                )
+                $('#course').val(course.id)
 
-        }
+            }
 
         form.render('select');
 
@@ -90,7 +94,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
             data.field.workload,
             data.field.clarity,
             data.field.helpfulness
-        ].map(x=>Number(x))
+        ].map(x => Number(x))
 
         console.log(JSON.stringify({
             teacherId: data.field.teacher,
