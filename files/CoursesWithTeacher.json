@@ -1474,5 +1474,11 @@
         "courseName": "Advanced Robotics Engineering",
         "courseCode": "EGR403",
         "teacherId": 111
+    },
+    {
+        "id": 281,
+        "courseName": "Research Seminar III",
+        "courseCode": "RE403",
+        "teacherId": 126
     }
 ]

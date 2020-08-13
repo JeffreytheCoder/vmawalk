@@ -1,355 +1,103 @@
 [
     {
-        "courseName": "English 2",
-        "courseCode": "ENG207"
+        "courseName": "3D Print II",
+        "courseCode": "ART210"
     },
     {
-        "courseName": "IGCSE Chemistry",
-        "courseCode": "CHEC0620"
+        "courseName": "Advanced Music Theory",
+        "courseCode": "MUSA202"
     },
     {
-        "courseName": "AP Chemistry",
-        "courseCode": "CHE501"
+        "courseName": "Advanced Robotics Engineering",
+        "courseCode": "EGR403"
     },
     {
-        "courseName": "Chemistry",
-        "courseCode": "CHE203"
+        "courseName": "Animation Studio",
+        "courseCode": "ARTA406"
     },
     {
-        "courseName": "Biotechnology Practices",
-        "courseCode": "BIO302"
+        "courseName": "AP 2D Studio Art",
+        "courseCode": "ART501"
     },
     {
-        "courseName": "AP Human Geography",
-        "courseCode": "GEO501"
-    },
-    {
-        "courseName": "Mathematics",
-        "courseCode": "MATH207"
-    },
-    {
-        "courseName": "German 1",
-        "courseCode": "GER201"
-    },
-    {
-        "courseName": "German 2",
-        "courseCode": "GER301"
-    },
-    {
-        "courseName": "Financial Mathematics",
-        "courseCode": "MATH604"
-    },
-    {
-        "courseName": "Basic Algebra and Number Theory",
-        "courseCode": "MATH205"
-    },
-    {
-        "courseName": "AP Calculus BC",
-        "courseCode": "MATH502"
-    },
-    {
-        "courseName": "AP Calculus AB",
-        "courseCode": "MATH501"
-    },
-    {
-        "courseName": "Geography and World History",
-        "courseCode": "GEO201"
-    },
-    {
-        "courseName": "Painting II",
-        "courseCode": "ART212"
-    },
-    {
-        "courseName": "History of Chinese Culture",
-        "courseCode": "HIS403"
-    },
-    {
-        "courseName": "Chinese & World History",
-        "courseCode": "HIS203"
-    },
-    {
-        "courseName": "Language and Literature in Contexts",
-        "courseCode": "CHI403"
-    },
-    {
-        "courseName": "Chinese 3",
-        "courseCode": "CHI302"
-    },
-    {
-        "courseName": "Politics and International Relations",
-        "courseCode": "HIS302"
-    },
-    {
-        "courseName": "IGCSE Additional English",
-        "courseCode": "ENGC0511"
-    },
-    {
-        "courseName": "IGCSE Economics",
-        "courseCode": "ECOC0455"
-    },
-    {
-        "courseName": "Portfolio Development",
-        "courseCode": "ARTA410"
-    },
-    {
-        "courseName": "Martial Arts Level 1",
-        "courseCode": "PE202"
-    },
-    {
-        "courseName": "Martial Arts Level 2",
-        "courseCode": "PE302"
-    },
-    {
-        "courseName": "Print III",
-        "courseCode": "ART313"
-    },
-    {
-        "courseName": "Print II",
-        "courseCode": "ART213"
-    },
-    {
-        "courseName": "IGCSE Physics",
-        "courseCode": "PHYC0625"
-    },
-    {
-        "courseName": "Art Research III",
-        "courseCode": "ARTA409"
-    },
-    {
-        "courseName": "Ceramic II",
-        "courseCode": "ART219"
-    },
-    {
-        "courseName": "Asian Literature",
-        "courseCode": "ENG609"
-    },
-    {
-        "courseName": "Public Speaking & Debate",
-        "courseCode": "ENG211"
-    },
-    {
-        "courseName": "Table Tennis",
-        "courseCode": "PE203"
-    },
-    {
-        "courseName": "Politics/International Relations Honors",
-        "courseCode": "HIS308"
-    },
-    {
-        "courseName": "Psychology",
-        "courseCode": "PSY303"
-    },
-    {
-        "courseName": "Biology 2",
-        "courseCode": "BIO203"
-    },
-    {
-        "courseName": "Integrated Science",
-        "courseCode": "SCIC0653"
-    },
-    {
-        "courseName": "English 2",
-        "courseCode": "ENG208"
-    },
-    {
-        "courseName": "AP English Language and Composition",
-        "courseCode": "ENG502"
-    },
-    {
-        "courseName": "Intercultural Communication and Studies",
-        "courseCode": "CHI405"
-    },
-    {
-        "courseName": "Volleyball",
-        "courseCode": "PE206"
-    },
-    {
-        "courseName": "Badminton Level 1",
-        "courseCode": "PE204"
-    },
-    {
-        "courseName": "High School General Physical Education",
-        "courseCode": "PE211"
-    },
-    {
-        "courseName": "Chinese 2",
-        "courseCode": "CHI202"
-    },
-    {
-        "courseName": "IGCSE Chinese First Language",
-        "courseCode": "CHIC0509"
-    },
-    {
-        "courseName": "Physics",
-        "courseCode": "PHY203"
-    },
-    {
-        "courseName": "AP Physics C: Electricity",
-        "courseCode": "PHY504"
-    },
-    {
-        "courseName": "Detective Literature Honors",
-        "courseCode": "ENG408"
-    },
-    {
-        "courseName": "AP Physics 1",
-        "courseCode": "PHY501"
-    },
-    {
-        "courseName": "College Readiness",
-        "courseCode": "RE202"
-    },
-    {
-        "courseName": "College Readiness",
-        "courseCode": "RE402"
-    },
-    {
-        "courseName": "US History 2",
-        "courseCode": "HIS504B"
-    },
-    {
-        "courseName": "Sports Team – Girls Soccer",
-        "courseCode": "PE326"
-    },
-    {
-        "courseName": "Sports Leadership Level 1",
-        "courseCode": "PE214"
-    },
-    {
-        "courseName": "Sports Team-Tennis",
-        "courseCode": "PE321"
-    },
-    {
-        "courseName": "Sports Team-Boy's Volleyball",
-        "courseCode": "PE322"
-    },
-    {
-        "courseName": "Sports Team-Cross Country",
-        "courseCode": "PE323"
-    },
-    {
-        "courseName": "Sports Team – Girls Volleyball",
-        "courseCode": "PE327"
-    },
-    {
-        "courseName": "Sports Team – Girls Basketball",
-        "courseCode": "PE324"
-    },
-    {
-        "courseName": "Applied Music 4",
-        "courseCode": "MUSA415"
-    },
-    {
-        "courseName": "Applied Music B",
-        "courseCode": "MUSA225"
-    },
-    {
-        "courseName": "Applied Music 3 B",
-        "courseCode": "MUSA325"
-    },
-    {
-        "courseName": "Applied Music 3",
-        "courseCode": "MUSA315"
-    },
-    {
-        "courseName": "Applied Music A",
-        "courseCode": "MUSA215"
-    },
-    {
-        "courseName": "Applied Music 4 B",
-        "courseCode": "MUSA425"
-    },
-    {
-        "courseName": "Chorus",
-        "courseCode": "MUSA410"
-    },
-    {
-        "courseName": "Sports Team-Badminton",
-        "courseCode": "PE318"
-    },
-    {
-        "courseName": "College Readiness",
-        "courseCode": "RE302"
-    },
-    {
-        "courseName": "Sports Team- Boy's Basketball",
-        "courseCode": "PE319"
-    },
-    {
-        "courseName": "Chorus",
-        "courseCode": "MUS410"
-    },
-    {
-        "courseName": "US History 1",
-        "courseCode": "HIS504A"
-    },
-    {
-        "courseName": "Hip Hop",
-        "courseCode": "DAN205"
-    },
-    {
-        "courseName": "Dance II",
-        "courseCode": "DAN203"
-    },
-    {
-        "courseName": "Physics: USIYPT Competition",
-        "courseCode": "PHY602"
-    },
-    {
-        "courseName": "Physics: USIYPT Competition  Part I",
-        "courseCode": "PHY409"
-    },
-    {
-        "courseName": "Research Seminar II",
-        "courseCode": "RE303"
-    },
-    {
-        "courseName": "AP Computer Science Principles",
-        "courseCode": "CSE502"
-    },
-    {
-        "courseName": "Website Design",
-        "courseCode": "CSE303"
-    },
-    {
-        "courseName": "Introduction to Artificial Intelligence",
-        "courseCode": "CSE400"
-    },
-    {
-        "courseName": "AP Computer Science",
-        "courseCode": "CSE501"
+        "courseName": "AP 3",
+        "courseCode": "ART502"
     },
     {
         "courseName": "AP Biology",
         "courseCode": "BIO501"
     },
     {
-        "courseName": "Botany",
-        "courseCode": "BIO301"
+        "courseName": "AP Calculus AB",
+        "courseCode": "MATH501"
     },
     {
-        "courseName": "ELL English Language Development Honors",
-        "courseCode": "ENG218"
+        "courseName": "AP Calculus BC",
+        "courseCode": "MATH502"
     },
     {
-        "courseName": "IGCSE English ENGC",
-        "courseCode": "ENGC0510A"
+        "courseName": "AP Chemistry",
+        "courseCode": "CHE501"
     },
     {
-        "courseName": "Vocal Performance",
-        "courseCode": "MUS403"
+        "courseName": "AP Chinese",
+        "courseCode": "CHI501"
     },
     {
-        "courseName": "Vocal Music II",
-        "courseCode": "MUS203"
+        "courseName": "AP Computer Science",
+        "courseCode": "CSE501"
     },
     {
-        "courseName": "Functions and Mathematical Modeling",
-        "courseCode": "MATH218"
+        "courseName": "AP Computer Science Principles",
+        "courseCode": "CSE502"
+    },
+    {
+        "courseName": "AP Drawing",
+        "courseCode": "ART503"
+    },
+    {
+        "courseName": "AP English Language and Composition",
+        "courseCode": "ENG502"
+    },
+    {
+        "courseName": "AP English Literature and Composition",
+        "courseCode": "ENG501"
+    },
+    {
+        "courseName": "AP Human Geography",
+        "courseCode": "GEO501"
     },
     {
         "courseName": "AP Macroeconomics",
         "courseCode": "ECO502"
+    },
+    {
+        "courseName": "AP Microeconomics",
+        "courseCode": "ECO501"
+    },
+    {
+        "courseName": "AP Music Theory",
+        "courseCode": "MUSA501"
+    },
+    {
+        "courseName": "AP Physics",
+        "courseCode": "PHY502"
+    },
+    {
+        "courseName": "AP Physics 1",
+        "courseCode": "PHY501"
+    },
+    {
+        "courseName": "AP Physics C Mechanics",
+        "courseCode": "PHY503"
+    },
+    {
+        "courseName": "AP Physics C: Electricity",
+        "courseCode": "PHY504"
+    },
+    {
+        "courseName": "AP Psychology",
+        "courseCode": "PSY501"
     },
     {
         "courseName": "AP Research",
@@ -360,156 +108,16 @@
         "courseCode": "RE504"
     },
     {
-        "courseName": "Animation Studio",
-        "courseCode": "ARTA406"
-    },
-    {
-        "courseName": "Photo and Film Studio",
-        "courseCode": "ARTA402"
-    },
-    {
-        "courseName": "Seminar in Competitive Mathematics",
-        "courseCode": "MATH309"
+        "courseName": "AP Speeching",
+        "courseCode": "CHI502"
     },
     {
         "courseName": "AP Statistics",
         "courseCode": "MATH503"
     },
     {
-        "courseName": "Introduction to Linear Algebra",
-        "courseCode": "MATH606"
-    },
-    {
-        "courseName": "Programming with Python",
-        "courseCode": "CSE205"
-    },
-    {
-        "courseName": "Engineering & Programming with Electronic",
-        "courseCode": "EGR309"
-    },
-    {
-        "courseName": "3D Print II",
-        "courseCode": "ART210"
-    },
-    {
-        "courseName": "ELL English Language Development",
-        "courseCode": "ENG209"
-    },
-    {
-        "courseName": "Foundations of Art History",
-        "courseCode": "HIS301"
-    },
-    {
-        "courseName": "Theatre 2 Honors",
-        "courseCode": "TH208"
-    },
-    {
-        "courseName": "Theatre Topics",
-        "courseCode": "TH402"
-    },
-    {
-        "courseName": "Theatre Production Honors",
-        "courseCode": "TH203"
-    },
-    {
-        "courseName": "Research Seminar I",
-        "courseCode": "RE203"
-    },
-    {
-        "courseName": "AP Microeconomics",
-        "courseCode": "ECO501"
-    },
-    {
-        "courseName": "Digital Painting",
-        "courseCode": "ART316"
-    },
-    {
-        "courseName": "Information Technology",
-        "courseCode": "CSE202"
-    },
-    {
-        "courseName": "Fashion Studio",
-        "courseCode": "ARTA403"
-    },
-    {
-        "courseName": "Girl's Basketball Level",
-        "courseCode": "PE215"
-    },
-    {
-        "courseName": "AP Music Theory",
-        "courseCode": "MUSA501"
-    },
-    {
-        "courseName": "Composition",
-        "courseCode": "MUSA301"
-    },
-    {
-        "courseName": "Advanced Music Theory",
-        "courseCode": "MUSA202"
-    },
-    {
-        "courseName": "Literature and Film Honors",
-        "courseCode": "ENG428"
-    },
-    {
-        "courseName": "AP Physics C Mechanics",
-        "courseCode": "PHY503"
-    },
-    {
-        "courseName": "Music and Popular Culture",
-        "courseCode": "MUS402"
-    },
-    {
-        "courseName": "Design Thinking",
-        "courseCode": "EGR303"
-    },
-    {
-        "courseName": "Mathematical Analysis",
-        "courseCode": "MATH318"
-    },
-    {
-        "courseName": "Electone Performance",
-        "courseCode": "MUS318"
-    },
-    {
-        "courseName": "Introduction to Western Music",
-        "courseCode": "MUS207"
-    },
-    {
-        "courseName": "Piano II",
-        "courseCode": "MUS217"
-    },
-    {
-        "courseName": "Piano Performance Honors",
-        "courseCode": "MUS408"
-    },
-    {
-        "courseName": "Badminton Level 2",
-        "courseCode": "PE304"
-    },
-    {
-        "courseName": "English 3 Honors AP Preparation",
-        "courseCode": "ENG318"
-    },
-    {
-        "courseName": "English 3",
-        "courseCode": "ENG305"
-    },
-    {
-        "courseName": "Journalism Writing",
-        "courseCode": "ENG310"
-    },
-    {
-        "courseName": "Botany",
-        "courseCode": "BIO303"
-    },
-    {
-        "courseName": "AP 3",
-        "courseCode": "ART502"
-    },
-    {
-        "courseName": "Tennis",
-        "courseCode": "PE316"
+        "courseName": "AP Suspend",
+        "courseCode": "HHH501"
     },
     {
         "courseName": "AP US History",
@@ -520,111 +128,523 @@
         "courseCode": "HIS503"
     },
     {
-        "courseName": "Introduction to Linguistics",
-        "courseCode": "CHI404"
+        "courseName": "Applied Music 3",
+        "courseCode": "MUSA315"
     },
     {
-        "courseName": "AP 2D Studio Art",
-        "courseCode": "ART501"
+        "courseName": "Applied Music 3 B",
+        "courseCode": "MUSA325"
     },
     {
-        "courseName": "Graphic Studio",
-        "courseCode": "ARTA401"
+        "courseName": "Applied Music 4",
+        "courseCode": "MUSA415"
     },
     {
-        "courseName": "Wood Art III",
-        "courseCode": "ART314"
+        "courseName": "Applied Music 4 B",
+        "courseCode": "MUSA425"
     },
     {
-        "courseName": "Wood Art II",
-        "courseCode": "ART214"
+        "courseName": "Applied Music A",
+        "courseCode": "MUSA215"
     },
     {
-        "courseName": "AP Drawing",
-        "courseCode": "ART503"
-    },
-    {
-        "courseName": "Interpretation",
-        "courseCode": "MUSA600"
-    },
-    {
-        "courseName": "Soccer",
-        "courseCode": "PE309"
+        "courseName": "Applied Music B",
+        "courseCode": "MUSA225"
     },
     {
         "courseName": "Aquatics and Fitness Level 1",
         "courseCode": "PE200"
     },
     {
+        "courseName": "Art Research III",
+        "courseCode": "ARTA409"
+    },
+    {
+        "courseName": "Asian Literature",
+        "courseCode": "ENG609"
+    },
+    {
+        "courseName": "Badminton Level 1",
+        "courseCode": "PE204"
+    },
+    {
+        "courseName": "Badminton Level 2",
+        "courseCode": "PE304"
+    },
+    {
+        "courseName": "basic algebra and number theory",
+        "courseCode": "MATH205"
+    },
+    {
+        "courseName": "Basica Algebra and Number Theory",
+        "courseCode": "MATH205"
+    },
+    {
+        "courseName": "Biology 2",
+        "courseCode": "BIO203"
+    },
+    {
+        "courseName": "Biotechnology Practices",
+        "courseCode": "BIO302"
+    },
+    {
+        "courseName": "Botany",
+        "courseCode": "BIO301"
+    },
+    {
+        "courseName": "Botany",
+        "courseCode": "BIO303"
+    },
+    {
+        "courseName": "Ceramic II",
+        "courseCode": "ART219"
+    },
+    {
+        "courseName": "Chemistry",
+        "courseCode": "CHE203"
+    },
+    {
+        "courseName": "Chinese & World History",
+        "courseCode": "HIS203"
+    },
+    {
+        "courseName": "Chinese 2",
+        "courseCode": "CHI202"
+    },
+    {
+        "courseName": "Chinese 3",
+        "courseCode": "CHI302"
+    },
+    {
+        "courseName": "Chorus",
+        "courseCode": "MUS410"
+    },
+    {
+        "courseName": "Chorus",
+        "courseCode": "MUSA410"
+    },
+    {
+        "courseName": "College Readiness",
+        "courseCode": "RE202"
+    },
+    {
+        "courseName": "College Readiness",
+        "courseCode": "RE302"
+    },
+    {
+        "courseName": "College Readiness",
+        "courseCode": "RE402"
+    },
+    {
+        "courseName": "Composition",
+        "courseCode": "MUSA301"
+    },
+    {
         "courseName": "Computer Science",
         "courseCode": "CSE302"
     },
     {
-        "courseName": "Flag Football",
-        "courseCode": "PE310"
+        "courseName": "Dance II",
+        "courseCode": "DAN203"
     },
     {
-        "courseName": "Show Choir",
-        "courseCode": "MUS310"
+        "courseName": "Design Thinking",
+        "courseCode": "EGR303"
     },
     {
-        "courseName": "AP Physics",
-        "courseCode": "PHY502"
+        "courseName": "Detective Literature Honors",
+        "courseCode": "ENG408"
     },
     {
-        "courseName": "AP Psychology",
-        "courseCode": "PSY501"
+        "courseName": "Digital Painting",
+        "courseCode": "ART316"
     },
     {
-        "courseName": "IGCSE Additional Mathematics",
-        "courseCode": "MATHC0606"
+        "courseName": "Electone Performance",
+        "courseCode": "MUS318"
     },
     {
-        "courseName": "English 4",
-        "courseCode": "ENG401"
+        "courseName": "ELL English Language Development",
+        "courseCode": "ENG209"
     },
     {
-        "courseName": "Introduction to Creative Writing",
-        "courseCode": "ENG309"
+        "courseName": "ELL English Language Development Honors",
+        "courseCode": "ENG218"
     },
     {
-        "courseName": "Intro to Nuclear Chemistry",
-        "courseCode": "CHE601"
-    },
-    {
-        "courseName": "Technology",
-        "courseCode": "MATH401"
-    },
-    {
-        "courseName": "IGCSE Mathematics",
-        "courseCode": "MATHC0580A"
-    },
-    {
-        "courseName": "AP English Literature and Composition",
-        "courseCode": "ENG501"
-    },
-    {
-        "courseName": "Tai Ji",
-        "courseCode": "PE555"
-    },
-    {
-        "courseName": "AP Chinese",
-        "courseCode": "CHI501"
-    },
-    {
-        "courseName": "AP Speeching",
-        "courseCode": "CHI502"
-    },
-    {
-        "courseName": "AP Suspend",
-        "courseCode": "HHH501"
+        "courseName": "Engineering & Programming with Electronic",
+        "courseCode": "EGR309"
     },
     {
         "courseName": "Engineering Design",
         "courseCode": "EGR404"
     },
     {
-        "courseName": "Advanced Robotics Engineering",
-        "courseCode": "EGR403"
+        "courseName": "English 2",
+        "courseCode": "ENG207"
+    },
+    {
+        "courseName": "English 2",
+        "courseCode": "ENG208"
+    },
+    {
+        "courseName": "English 2 Honors",
+        "courseCode": "ENG208"
+    },
+    {
+        "courseName": "English 3",
+        "courseCode": "ENG305"
+    },
+    {
+        "courseName": "English 3 Honors AP Preparation",
+        "courseCode": "ENG318"
+    },
+    {
+        "courseName": "English 4",
+        "courseCode": "ENG401"
+    },
+    {
+        "courseName": "Essential Mathematics",
+        "courseCode": "MATH207"
+    },
+    {
+        "courseName": "Fashion Studio",
+        "courseCode": "ARTA403"
+    },
+    {
+        "courseName": "Financial Mathematics",
+        "courseCode": "MATH604"
+    },
+    {
+        "courseName": "Flag Football",
+        "courseCode": "PE310"
+    },
+    {
+        "courseName": "Foundations of Art History",
+        "courseCode": "HIS301"
+    },
+    {
+        "courseName": "Functions and Mathematical Modeling",
+        "courseCode": "MATH218"
+    },
+    {
+        "courseName": "Geography and World History",
+        "courseCode": "GEO201"
+    },
+    {
+        "courseName": "German 1",
+        "courseCode": "GER201"
+    },
+    {
+        "courseName": "German 2",
+        "courseCode": "GER301"
+    },
+    {
+        "courseName": "Girl's Basketball Level",
+        "courseCode": "PE215"
+    },
+    {
+        "courseName": "Graphic Studio",
+        "courseCode": "ARTA401"
+    },
+    {
+        "courseName": "High School General Physical Education",
+        "courseCode": "PE211"
+    },
+    {
+        "courseName": "Hip Hop",
+        "courseCode": "DAN205"
+    },
+    {
+        "courseName": "History of Chinese Culture",
+        "courseCode": "HIS403"
+    },
+    {
+        "courseName": "IGCSE Additional English",
+        "courseCode": "ENGC0511"
+    },
+    {
+        "courseName": "IGCSE Additional Mathematics",
+        "courseCode": "MATHC0606"
+    },
+    {
+        "courseName": "IGCSE Chemistry",
+        "courseCode": "CHEC0620"
+    },
+    {
+        "courseName": "IGCSE Chinese First Language",
+        "courseCode": "CHIC0509"
+    },
+    {
+        "courseName": "IGCSE Economics",
+        "courseCode": "ECOC0455"
+    },
+    {
+        "courseName": "IGCSE English ENGC",
+        "courseCode": "ENGC0510A"
+    },
+    {
+        "courseName": "IGCSE Mathematics",
+        "courseCode": "MATHC0580A"
+    },
+    {
+        "courseName": "IGCSE Physics",
+        "courseCode": "PHYC0625"
+    },
+    {
+        "courseName": "Information Technology",
+        "courseCode": "CSE202"
+    },
+    {
+        "courseName": "Integrated Science",
+        "courseCode": "SCIC0653"
+    },
+    {
+        "courseName": "Intercultural Communication and Studies",
+        "courseCode": "CHI405"
+    },
+    {
+        "courseName": "Interpretation",
+        "courseCode": "MUSA600"
+    },
+    {
+        "courseName": "Intro to Nuclear Chemistry",
+        "courseCode": "CHE601"
+    },
+    {
+        "courseName": "Introduction to Artificial Intelligence",
+        "courseCode": "CSE400"
+    },
+    {
+        "courseName": "Introduction to Creative Writing",
+        "courseCode": "ENG309"
+    },
+    {
+        "courseName": "Introduction to Linear Algebra",
+        "courseCode": "MATH606"
+    },
+    {
+        "courseName": "Introduction to Linguistics",
+        "courseCode": "CHI404"
+    },
+    {
+        "courseName": "Introduction to Western Music",
+        "courseCode": "MUS207"
+    },
+    {
+        "courseName": "Journalism Writing",
+        "courseCode": "ENG310"
+    },
+    {
+        "courseName": "Language and Literature in Contexts",
+        "courseCode": "CHI403"
+    },
+    {
+        "courseName": "Literature and Film Honors",
+        "courseCode": "ENG428"
+    },
+    {
+        "courseName": "Martial Arts Level 1",
+        "courseCode": "PE202"
+    },
+    {
+        "courseName": "Martial Arts Level 2",
+        "courseCode": "PE302"
+    },
+    {
+        "courseName": "Mathematical Analysis",
+        "courseCode": "MATH318"
+    },
+    {
+        "courseName": "Mathematical Modeling",
+        "courseCode": "MATH218"
+    },
+    {
+        "courseName": "Mathematics",
+        "courseCode": "MATH207"
+    },
+    {
+        "courseName": "Music and Popular Culture",
+        "courseCode": "MUS402"
+    },
+    {
+        "courseName": "Painting II",
+        "courseCode": "ART212"
+    },
+    {
+        "courseName": "Photo and Film Studio",
+        "courseCode": "ARTA402"
+    },
+    {
+        "courseName": "Physics",
+        "courseCode": "PHY203"
+    },
+    {
+        "courseName": "Physics: USIYPT Competition",
+        "courseCode": "PHY602"
+    },
+    {
+        "courseName": "Physics: USIYPT Competition  Part I",
+        "courseCode": "PHY409"
+    },
+    {
+        "courseName": "Piano II",
+        "courseCode": "MUS217"
+    },
+    {
+        "courseName": "Piano Performance Honors",
+        "courseCode": "MUS408"
+    },
+    {
+        "courseName": "Politics and International Relations",
+        "courseCode": "HIS302"
+    },
+    {
+        "courseName": "Politics/International Relations Honors",
+        "courseCode": "HIS308"
+    },
+    {
+        "courseName": "Portfolio Development",
+        "courseCode": "ARTA410"
+    },
+    {
+        "courseName": "Print II",
+        "courseCode": "ART213"
+    },
+    {
+        "courseName": "Print III",
+        "courseCode": "ART313"
+    },
+    {
+        "courseName": "Programming with Python",
+        "courseCode": "CSE205"
+    },
+    {
+        "courseName": "Psychology",
+        "courseCode": "PSY303"
+    },
+    {
+        "courseName": "Public Speaking & Debate",
+        "courseCode": "ENG211"
+    },
+    {
+        "courseName": "Research Seminar I",
+        "courseCode": "RE203"
+    },
+    {
+        "courseName": "Research Seminar II",
+        "courseCode": "RE303"
+    },
+    {
+        "courseName": "Research Seminar III",
+        "courseCode": "RE403"
+    },
+    {
+        "courseName": "Seminar in Competitive Mathematics",
+        "courseCode": "MATH309"
+    },
+    {
+        "courseName": "Show Choir",
+        "courseCode": "MUS310"
+    },
+    {
+        "courseName": "Soccer",
+        "courseCode": "PE309"
+    },
+    {
+        "courseName": "Sports Leadership Level 1",
+        "courseCode": "PE214"
+    },
+    {
+        "courseName": "Sports Team – Girls Basketball",
+        "courseCode": "PE324"
+    },
+    {
+        "courseName": "Sports Team – Girls Soccer",
+        "courseCode": "PE326"
+    },
+    {
+        "courseName": "Sports Team – Girls Volleyball",
+        "courseCode": "PE327"
+    },
+    {
+        "courseName": "Sports Team- Boy's Basketball",
+        "courseCode": "PE319"
+    },
+    {
+        "courseName": "Sports Team-Badminton",
+        "courseCode": "PE318"
+    },
+    {
+        "courseName": "Sports Team-Boy's Volleyball",
+        "courseCode": "PE322"
+    },
+    {
+        "courseName": "Sports Team-Cross Country",
+        "courseCode": "PE323"
+    },
+    {
+        "courseName": "Sports Team-Tennis",
+        "courseCode": "PE321"
+    },
+    {
+        "courseName": "Table Tennis",
+        "courseCode": "PE203"
+    },
+    {
+        "courseName": "Tai Ji",
+        "courseCode": "PE555"
+    },
+    {
+        "courseName": "Technology",
+        "courseCode": "MATH401"
+    },
+    {
+        "courseName": "Tennis",
+        "courseCode": "PE316"
+    },
+    {
+        "courseName": "Theatre 2 Honors",
+        "courseCode": "TH208"
+    },
+    {
+        "courseName": "Theatre Production Honors",
+        "courseCode": "TH203"
+    },
+    {
+        "courseName": "Theatre Topics",
+        "courseCode": "TH402"
+    },
+    {
+        "courseName": "US History 1",
+        "courseCode": "HIS504A"
+    },
+    {
+        "courseName": "US History 2",
+        "courseCode": "HIS504B"
+    },
+    {
+        "courseName": "Vocal Music II",
+        "courseCode": "MUS203"
+    },
+    {
+        "courseName": "Vocal Performance",
+        "courseCode": "MUS403"
+    },
+    {
+        "courseName": "Volleyball",
+        "courseCode": "PE206"
+    },
+    {
+        "courseName": "Website Design",
+        "courseCode": "CSE303"
+    },
+    {
+        "courseName": "Wood Art II",
+        "courseCode": "ART214"
+    },
+    {
+        "courseName": "Wood Art III",
+        "courseCode": "ART314"
     }
 ]
