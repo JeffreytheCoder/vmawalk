@@ -68,7 +68,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
             `https://vma-walk.azurewebsites.net/api/Course/${id}`,
         );
 
-        
+
 
         let userReviewLoading;
 
@@ -99,7 +99,9 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         if (userReviewLoading) {
             /**@type {number[]}*/
             let userReviews = await userReviewLoading;
-            reviewList.forEach(review => $.inArray(review.id, userReviews) != -1 ? review.liked = true : review.liked = false)
+            reviewList.forEach(review =>
+                userReviews.includes(review.id) ? review.liked = true : review.liked = false
+            )
         }
     }
 
