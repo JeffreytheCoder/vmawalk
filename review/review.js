@@ -43,7 +43,7 @@ window.onload = function () {
         Jump:
             if (Params.has("code")) {
                 var course = CoursesWithTeacher.find(x => x.id === Number(Params.get("code")))
-                
+
                 if (course === undefined)
                     break Jump;
                 $("#teacher").val(course.teacherId)
@@ -111,10 +111,11 @@ layui.use(['form', 'jquery', 'layer'], function () {
             icon: '&#xe63d'
         })
 
-        $.ajax({
-            type: "POST",
-            url: "https://vma-walk.azurewebsites.net/api/Review",
-            contentType: "application/json",
+        fetch("https://vmawalk.com/api/Review", {
+            headers: {
+                contentType: "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            },
             data: JSON.stringify({
                 teacherId: Number(data.field.teacher),
                 CourseId: Number(data.field.course),
@@ -123,37 +124,31 @@ layui.use(['form', 'jquery', 'layer'], function () {
                 Grade: data.field.grade,
                 Score: scores,
                 Text: data.field.review
-            }),
-            xhrFields: {
-                withCredentials: true
-            },
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            },
-            success: function () {
+            })
+        }).then(res => {
+            switch (res.status) {
+            case 200:
                 layer.msg("添加成功");
                 setTimeout(() => {
                     // toPreviousPage();
                     location.href = `../profile/profile.html?query=${data.field.course}`;
                 }, 1000);
-            },
-            error: function (req) {
-                if (req.status == 401) {
-                    layer.msg("身份验证超时或登录出错，请重新登录")
-                    setTimeout(() => {
-                        toLogin();
-                    }, 1000);
-                } else {
-                    console.log(req.responseText);
-                    layer.msg("失败");
-                    layer.alert(req.responseText);
-                }
-            },
-            complete: function () {
-                layer.close(loading);
-            },
-            dataType: "json"
-        });
+                break;
+
+            case 400:
+                console.log(req.responseText);
+                layer.msg("失败");
+                layer.alert(req.responseText);
+                break;
+            case 401:
+                layer.msg("身份验证超时或登录出错，请重新登录")
+                setTimeout(() => {
+                    toLogin();
+                }, 100);
+                break;
+            }
+            layer.close(loading);
+        })
         return false;
     });
 });
