@@ -98,8 +98,8 @@ function loadReview() {
         review.className = "info-content";
 
         // mobile adjustment
-        if (document.documentElement.clientWidth <= 700) {
-            review.innerHTML = `<div>
+        review.innerHTML = `
+        <div class="mobile">
             <table width="100%">
                 <tr>
                     <td class="review-upper" style="display: block;">
@@ -153,9 +153,8 @@ function loadReview() {
                     </td>
                 </tr>
             </table>
-        </div>`;
-        } else {
-            review.innerHTML = `<div>
+        </div>
+        <div class="standard">
         <table width="100%">
             <tr>
                 <td class="review-upper">
@@ -208,9 +207,10 @@ function loadReview() {
                 </td>
             </tr>
         </table>
-    </div>`;
-        }
+        </div>`;
         reviewDiv.appendChild(review);
+
+
     }
 }
 
@@ -246,9 +246,24 @@ window.onload = function() {
         loadReview();
         loadFooter();
         layuiRemoveLoading();
-    })
-}
+        layui.use("jquery", function() {
+            const $ = layui.jquery;
+            if (document.documentElement.clientWidth > 750) {
+                $(".Hstandard").css("display", "flex")
+                $(".standard").css("display", "block")
+                $(".Hmobile").css("display", "none")
+                $(".mobile").css("display", "none")
+                $(".container").css({ width: "450px", margin: "" })
+                $("#teacherList").css({ width: "", margin: "" })
+            } else {
+                $(".Hmobile").css("display", "flex")
+                $(".mobile").css("display", "block")
+                $(".Hstandard").css("display", "none")
+                $(".standard").css("display", "none")
+                $(".container").css({ width: "auto", margin: "auto 20px" })
+                $("#teacherList").css({ width: "100%", margin: "10px" })
+            }
 
-window.onresize = function() {
-    location.reload();
+        })
+    })
 }
