@@ -56,7 +56,7 @@ function loadTeacherMenu() {
 
 
 
-    layui.use(["laytpl", "jquery"], function () {
+    layui.use(["laytpl", "jquery"], function() {
         let laytpl = layui.laytpl,
             $ = layui.$;
 
@@ -77,7 +77,7 @@ function loadTeacherMenu() {
         }
 
         let courseTpl = courses.innerHTML
-        laytpl(courseTpl).render(data, function (html) {
+        laytpl(courseTpl).render(data, function(html) {
             courseFrame.innerHTML = html;
         })
 
@@ -122,7 +122,7 @@ function loadCourseMenu() {
 
     // add courseframe
     var courseFrame = document.getElementById("course-frame")
-    layui.use(["laytpl", "jquery"], function () {
+    layui.use(["laytpl", "jquery"], function() {
         let laytpl = layui.laytpl,
             $ = layui.$;
 
@@ -134,12 +134,12 @@ function loadCourseMenu() {
          * @type {{courses:{id:Number,courseName:string,courseCode:string,teacherId:number,averageScore:string}[],
          * text:{courseId:number,text:string}[]
          * }} courseObj
-         */ 
+         */
         courseList.forEach(
             course => {
                 // find teacher with id
                 var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                // parse the teacher name
+                    // parse the teacher name
                 teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
             }
         )
@@ -150,12 +150,12 @@ function loadCourseMenu() {
             "courseList": courseList,
             "reviewList": reviewList,
             "teacherNameList": teacherNameList,
-            "Imagelink":Imagelink,
+            "Imagelink": Imagelink,
             "type": 2
         }
 
         let courseTpl = courses.innerHTML
-        laytpl(courseTpl).render(data, function (html) {
+        laytpl(courseTpl).render(data, function(html) {
             courseFrame.innerHTML = html;
         })
 
@@ -169,7 +169,7 @@ function loadCourseMenu() {
 }
 
 
-layui.use(["jquery", "layer"], function () {
+layui.use(["jquery", "layer"], function() {
     /**
      * @type {JQuery}
      */
@@ -188,12 +188,12 @@ layui.use(["jquery", "layer"], function () {
         layer.close(loading);
     }
 
-    callData = async function () {
+    callData = async function() {
         var data = {}
         let teacherLoading;
         if (query[0] == "1") {
             teacherLoading = $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID).then(
-                function (result) {
+                function(result) {
                     teacherObj = result;
                     console.log(result)
                 });
@@ -210,11 +210,11 @@ layui.use(["jquery", "layer"], function () {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function (req) {
+            success: function(req) {
                 courseList = req;
                 console.log(courseList)
             },
-            error: function (req) {
+            error: function(req) {
                 console.log(req);
             }
         });
@@ -244,7 +244,7 @@ layui.use(["jquery", "layer"], function () {
 
     window.onload = load();
     var width = $(window).width()
-    window.onresize = function () {
+    window.onresize = function() {
         if (document.documentElement.clientWidth > 750) {
             $(".standard").css("display", "block")
             $(".mobile").css("display", "none")
