@@ -243,5 +243,4 @@ layui.use(["jquery", "layer", "laytpl"], function() {
     window.onload = load();
 
     var width = $(window).width()
-
 })
