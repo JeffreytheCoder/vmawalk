@@ -13,7 +13,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, minimum-scale=0.8, user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=0.8, maximum-scale=1.0, minimum-scale=0.8, user-scalable=no">
     <title>Profile</title>
 </head>
 
@@ -27,9 +28,9 @@
         <script id="nameWithPic" type="text/html">
             <table height="120px">
                 <tr height="80px">
-                    <td rowspan="2" width="110px" height="100%">
+                    <td rowspan="2" width="125px" height="100%">
                         <a href="../menu/menu.html?query=2-{{d.courseWithTeacher.courseCode}}" style="font-size: 18px; text-decoration: none; color: white;">
-                            <div class="icon-round" style="width: 100px; height: 100px;">{{d.courseWithTeacher.courseCode}}</div>
+                            <div class="icon-round" style="width: 115px; height: 115px;">{{d.courseWithTeacher.courseCode}}</div>
                         </a>
                     </td>
                     <td height="100%">
@@ -52,11 +53,7 @@
 
         <!--评分-->
         <script id="ratingsTpl" type="text/html">
-        {{# var scoreList = d.courseWithTeacher.averageScore==null?
-            ["N/A", "N/A", "N/A", "N/A", "N/A"]:
-            d.courseWithTeacher.averageScore;
-            var widthList = scoreList.map(score=>score=="N/A"?"0%":"" + ((score / 5.0).toFixed(2) * 100).toFixed(0) + "%")
-        }}
+            {{# var scoreList = d.courseWithTeacher.averageScore==null? ["N/A", "N/A", "N/A", "N/A", "N/A"]: d.courseWithTeacher.averageScore; var widthList = scoreList.map(score=>score=="N/A"?"0%":"" + ((score / 5.0).toFixed(2) * 100).toFixed(0) + "%") }}
             <table width="100%">
                 <tr class="rating-cell">
                     <td align="center" width="20%">Bad</td>
@@ -135,7 +132,8 @@
         </div>
 
         <div align="center">
-            <button id="addReviewBtn" class="add-review" style="margin-top: 0px; width: 160px; height: 45px; border-radius: 19px; background-color: #69bdc8;">
+            <button id="addReviewBtn" class="add-review"
+                style="margin-top: 0px; width: 160px; height: 45px; border-radius: 19px; background-color: #69bdc8;">
                 <text class="add-review-text" style="font-size: 17px; color: white;">✚ Review</text>
             </button>
         </div>
@@ -145,61 +143,51 @@
 
         <!--评论内容-->
         <script id="reviewsTpl" type="text/html">
-        {{# if(d.reviewList.length==0){}}
+            {{# if(d.reviewList.length==0){}}
             <div class="display-box">
                 <table class="review-table" style="margin: 20px; margin-bottom: 5px; width: auto">
                     <tr>
                         <td colspan="2">
                             <p class="review-content" style="margin-bottom: 15px; font-size: 16px; margin-top: 15px; width: 100%;">
-                                No reviews for {{d.courseWithTeacher.courseName}} taught by {{d.teacherName}} so far.
-                                Write the first one <a href="../review/review.html?code={{d.courseWithTeacher.id}}" style="color:#69BDC8"><strong>here!</strong>
+                                No reviews for {{d.courseWithTeacher.courseName}} taught by {{d.teacherName}} so far. Write the first one <a href="../review/review.html?code={{d.courseWithTeacher.id}}" style="color:#69BDC8"><strong>here!</strong>
                                 </a>
                             </p>
                         </td>
                     </tr>
                 </table>
             </div>
-            {{# }else{ 
-                layui.each(d.reviewList,(index,review) => {
-                    let semester = "Full Year";
-                    if(review.semester)
-                        semester = "Semester 1";
-                    else if(review.semester == false)
-                        semester = "Semester 2";
-                    let date = review.insertDate.split("T")[0];
-                }}
-                <div class="display-box" style="padding:15px;">
-                    <table class="review-table">
-                        <tr>
-                            <td style="color: gray; padding-bottom: 2px;">Semester: {{review.year}} ~ {{review.year + 1 +" " + semester}}</td>
-                            <td style="color: gray; float: right;">{{date}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="color: gray;">Grade: {{review.grade}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <p class="review-content">{{review.text}}</p>
-                            </td>
-                        </tr>
-                        <tr>
-                    </table>
-                    <table class="review-table">
+            {{# }else{ layui.each(d.reviewList,(index,review) => { let semester = "Full Year"; if(review.semester) semester = "Semester 1"; else if(review.semester == false) semester = "Semester 2"; let date = review.insertDate.split("T")[0]; }}
+            <div class="display-box" style="padding:15px;">
+                <table class="review-table">
+                    <tr>
+                        <td style="color: gray; padding-bottom: 2px;">Semester: {{review.year}} ~ {{review.year + 1 +" " + semester}}</td>
+                        <td style="color: gray; float: right;">{{date}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="color: gray;">Grade: {{review.grade}}</td>
+                    </tr>
+                    <tr>
                         <td colspan="2">
-                            <div class="feedback" style="margin-top:15px; font-size: 15px;">
-                                <div class="control">
-                                    <a href="javascript:Like({{review.id}},{{index}})" id={{index}} style="{{#if(review.liked){}}color: #1e8997; font-weight: bold{{#}}}">🙂Like {{review.likes}}</a>
-                                </div>
-                                <div class="control" style="margin-left:auto; margin-right: 10px">
-                                    <a href="">🖐Report</a>
-                                </div>
-                            </div>
+                            <p class="review-content">{{review.text}}</p>
                         </td>
-                        </tr>
-                    </table>
-                </div>
-                {{# })}
-            }}
+                    </tr>
+                    <tr>
+                </table>
+                <table class="review-table">
+                    <td colspan="2">
+                        <div class="feedback" style="margin-top:15px; font-size: 15px;">
+                            <div class="control">
+                                <a href="javascript:Like({{review.id}},{{index}})" id={{index}} style="{{#if(review.liked){}}color: #1e8997; font-weight: bold{{#}}}">🙂Like {{review.likes}}</a>
+                            </div>
+                            <div class="control" style="margin-left:auto; margin-right: 10px">
+                                <a href="">🖐Report</a>
+                            </div>
+                        </div>
+                    </td>
+                    </tr>
+                </table>
+            </div>
+            {{# })} }}
         </script>
         <div id="reviews">
         </div>

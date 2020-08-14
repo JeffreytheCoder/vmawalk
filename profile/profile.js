@@ -9,7 +9,7 @@ try {
     logined = false;
 }
 
-layui.use(["jquery", "layer", "laytpl"], function () {
+layui.use(["jquery", "layer", "laytpl"], function() {
 
     const laytpl = layui.laytpl,
         $ = layui.$,
@@ -32,7 +32,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
 
 
 
-    Like = async function (reviewId, reviewIndex) {
+    Like = async function(reviewId, reviewIndex) {
 
         var layer = layui.layer;
 
@@ -47,11 +47,11 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         }
         // post like number change to dataset
         var res = await fetch(`https://vma-walk.azurewebsites.net/api/Review/Like?reviewId=${reviewId}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        })
-        // 400 代表已经点过赞
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            // 400 代表已经点过赞
         if (res.status === 400) {
             layer.msg("You can only give one Like for each review");
         } else {
@@ -63,7 +63,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         }
     }
 
-    const callInfo = async (id) => {
+    const callInfo = async(id) => {
         let courseLoading = $.get(
             `https://vma-walk.azurewebsites.net/api/Course/${id}`,
         );
@@ -81,7 +81,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
                 /**
                  * @param {number[]} data
                  */
-                success: function (data) {
+                success: function(data) {
                     console.log(data);
                 },
                 dataType: "json"
@@ -132,7 +132,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         }, html => $("#reviews").html(html))
     }
 
-    window.onload = async function () {
+    window.onload = async function() {
         var id = new URLSearchParams(location.search).get("query")
         $("#addReviewBtn").click(() => {
             location.href = `../review/review.html?code=${id}`
@@ -142,12 +142,5 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         await callInfo(id);
         loadData();
         loadFooter();
-    }
-    window.onresize = function () {
-        if ($(window).width() < 750) {
-            $("#teacherName").css("font-size", "40px");
-        } else {
-            $("#teacherName").css("font-size", "60px");
-        }
     }
 })

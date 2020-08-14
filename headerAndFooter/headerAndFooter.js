@@ -262,7 +262,14 @@ var waitInitial = new Promise((resolve, reject) => {
                             localStorage.setItem("token", result.token);
                             localStorage.setItem("userName", result.userName);
                             layer.msg("登陆成功");
-                            if (!location.pathname.endsWith("review.html"))
+                            var a = location.pathname;
+                            console.log(a);
+                            var b = a.split("/");
+                            console.log(b);
+                            var c = b[b.length - 1].toString().split(".");
+                            console.log(b.slice(b.length - 1, b.length));
+                            var pName = c.slice(0, 1);
+                            if (pName != "review")
                                 setTimeout(() => {
                                     location.reload();
                                 }, 1000);
@@ -416,7 +423,7 @@ var waitInitial = new Promise((resolve, reject) => {
 
             if (document.documentElement.clientWidth > 750) {
                 $(".Hmobile").css("display", "none")
-                $(".mobile").css("display","none")
+                $(".mobile").css("display", "none")
             } else {
                 $(".Hstandard").css("display", "none")
                 $(".standard").css("display", "none")

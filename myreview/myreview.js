@@ -4,14 +4,16 @@ layui.use("layer", function() {
     if (!localStorage.getItem("token")) {
         layui.layer.msg("您暂未登录，请先登录!");
         setTimeout(() => {
-            self.location = "../login/login.html";
+            layuiRemoveLoading()
+            toLogin();
         }, 1000);
     } else {
         var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
         if (user.exp < Date.now() / 1000) {
             layui.layer.msg("您的登录已超时，请重新登录");
             setTimeout(() => {
-                self.location = "../login/login.html";
+                layuiRemoveLoading()
+                toLogin();
             }, 1000);
 
         }
@@ -28,7 +30,7 @@ function logOut() {
         layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
-        self.location = "../index.html";
+        toPreviousPage();
         // self.location = document.referrer;
         // window.location.href = "javascript:history.back(-1)";
     }, 1000);
@@ -221,8 +223,11 @@ function toPreviousPage() {
     var previousPage = c.slice(0, 1);
     if (previousPage[0] === "myreview") {
         console.log("对了");
-        // sefl.location = document.referrer;
-        history.go(-1);
+        history.go(-3);
+    } else {
+        console.log(previousPage[0]);
+        // history.go(-1);
+        self.location = document.referrer;
     }
 }
 
@@ -244,8 +249,8 @@ window.onload = function() {
     loadHeader();
     getUserReviews(function() {
         loadReview();
-        loadFooter();
         layuiRemoveLoading();
+        loadFooter();
         layui.use("jquery", function() {
             const $ = layui.jquery;
             if (document.documentElement.clientWidth > 750) {
