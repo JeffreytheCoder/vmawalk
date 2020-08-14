@@ -110,13 +110,13 @@ layui.use(['form', 'jquery', 'layer'], function () {
             shade: [0.4, '#def'],
             icon: '&#xe63d'
         })
-
-        fetch("https://vmawalk.com/api/Review", {
+        fetch("https://vma-walk.azurewebsites.net/api/Review", {
+            method: 'POST',
             headers: {
-                contentType: "application/json",
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             },
-            data: JSON.stringify({
+            body: JSON.stringify({
                 teacherId: Number(data.field.teacher),
                 CourseId: Number(data.field.course),
                 Year: Number(data.field.year),
@@ -125,7 +125,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
                 Score: scores,
                 Text: data.field.review
             })
-        }).then(res => {
+        }).then(async res => {
             switch (res.status) {
             case 200:
                 layer.msg("添加成功");
@@ -136,9 +136,10 @@ layui.use(['form', 'jquery', 'layer'], function () {
                 break;
 
             case 400:
-                console.log(req.responseText);
+                let text = await res.text();
                 layer.msg("失败");
-                layer.alert(req.responseText);
+                layer.alert(text);
+                console.log(text)
                 break;
             case 401:
                 layer.msg("身份验证超时或登录出错，请重新登录")
@@ -147,8 +148,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
                 }, 100);
                 break;
             }
-            layer.close(loading);
-        })
+        }).finally(() => layer.close(loading))
         return false;
     });
 });
