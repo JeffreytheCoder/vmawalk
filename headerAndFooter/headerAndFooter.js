@@ -363,12 +363,12 @@ var waitInitial = new Promise((resolve, reject) => {
 
             headerDiv.innerHTML = `
         <header id="header" class="header">
-            <div class="title standard">
+            <div class="title Hstandard">
                 <a href="../index.html" style="text-decoration: none; color: rgb(255, 255, 255);">
                     <strong>vma</strong>walk
                 </a>
             </div>
-            <a class="mobile" href="../index.html" style="margin-left: 10px;">
+            <a class="Hmobile" href="../index.html" style="margin-left: 10px;">
                 <img src="../img/logo-round-white.png" style="height: 30px;">
             </a>
             <form id="teacherList" class="layui-form" align="center" action="submit" style="margin-bottom: 0;">
@@ -384,7 +384,7 @@ var waitInitial = new Promise((resolve, reject) => {
             inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
             inset 0px 0px 0px 0px #0001;"><img src="../img/search-icon.png" style="width: 30px;"></button>
             </form>
-            <div style="display: flex; height: 100%; align-items: center;" class="mobile">
+            <div style="display: flex; height: 100%; align-items: center;" class="Hmobile">
                 <div style="padding-right: 10px">
                     <a href="../review/review.html">
                         <button class="add-review" style="width: 40px; padding:" >
@@ -398,7 +398,7 @@ var waitInitial = new Promise((resolve, reject) => {
                     </button>
                 </div>
             </div>
-            <div style="display: flex; overflow: hidden;height: 100%;align-items: center;" class="standard">
+            <div style="display: flex; overflow: hidden;height: 100%;align-items: center;" class="Hstandard">
                 <div style="padding-right: 25px">
                     <button class="add-review" onclick="location.href='../review/review.html'">
                         <text class="add-review-text">✚ Review</text>
@@ -415,8 +415,10 @@ var waitInitial = new Promise((resolve, reject) => {
             // headerDiv.innerHTML = header.innerHTML;
 
             if (document.documentElement.clientWidth > 750) {
-                $(".mobile").css("display", "none")
+                $(".Hmobile").css("display", "none")
+                $(".mobile").css("display","none")
             } else {
+                $(".Hstandard").css("display", "none")
                 $(".standard").css("display", "none")
                 $("#teacherList").css({ width: "100%", margin: "10px" })
             }
@@ -468,12 +470,16 @@ var waitInitial = new Promise((resolve, reject) => {
 
         window.onresize = function () {
             if (document.documentElement.clientWidth > 750) {
-                $(".standard").css("display", "flex")
+                $(".Hstandard").css("display", "flex")
+                $(".standard").css("display", "block")
+                $(".Hmobile").css("display", "none")
                 $(".mobile").css("display", "none")
                 $(".container").css({ width: "450px", margin: "" })
                 $("#teacherList").css({ width: "", margin: "" })
             } else {
-                $(".mobile").css("display", "flex")
+                $(".Hmobile").css("display", "flex")
+                $(".mobile").css("display", "block")
+                $(".Hstandard").css("display", "none")
                 $(".standard").css("display", "none")
                 $(".container").css({ width: "auto", margin: "auto 20px" })
                 $("#teacherList").css({ width: "100%", margin: "10px" })
