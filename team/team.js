@@ -5,4 +5,6 @@ function loadingChange() {
     }
 }
 
-document.onreadystatechange = loadingChange;
+// document.onreadystatechange = loadingChange;
+
+window.onload = loadingChange;

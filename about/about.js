@@ -1,14 +1,10 @@
-async function loadingChange() {
+function loadingChange() {
     if (document.readyState == "complete") {
-        await loadHeader();
+        loadHeader();
         loadFooter();
-        layui.use("jquery", function () {
-            var $ = layui.$;
-            document.documentElement.clientWidth > 750 ? $(".mobile").css("display", "none") : $(".standard").css("display", "none");
-
-            
-        })
     }
 }
 
-document.onreadystatechange = loadingChange;
+// document.onreadystatechange = loadingChange;
+
+window.onload = loadingChange;

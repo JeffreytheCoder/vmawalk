@@ -257,25 +257,32 @@ var waitInitial = new Promise((resolve, reject) => {
 
                 if (request.status == 200) {
                     switch (action) {
-                    case 1:
-                        let result = await request.json();
-                        localStorage.setItem("token", result.token);
-                        localStorage.setItem("userName", result.userName);
-                        layer.msg("登陆成功");
-                        if (!location.pathname.endsWith("review.html"))
-                            setTimeout(() => {
-                                location.reload();
-                            }, 1000);
-                        else {
-                            goBack();
-                        }
-                        break;
-                    case 2:
-                        layer.alert("注册成功，请查看学生邮箱并点击验证链接")
-                        break;
-                    case 3:
-                        layer.alert("请查看学生邮箱并点击验证链接重置密码")
-                        break;
+                        case 1:
+                            let result = await request.json();
+                            localStorage.setItem("token", result.token);
+                            localStorage.setItem("userName", result.userName);
+                            layer.msg("登陆成功");
+                            var a = location.pathname;
+                            console.log(a);
+                            var b = a.split("/");
+                            console.log(b);
+                            var c = b[b.length - 1].toString().split(".");
+                            console.log(b.slice(b.length - 1, b.length));
+                            var pName = c.slice(0, 1);
+                            if (pName != "review")
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 1000);
+                            else {
+                                goBack();
+                            }
+                            break;
+                        case 2:
+                            layer.alert("注册成功，请查看学生邮箱并点击验证链接")
+                            break;
+                        case 3:
+                            layer.alert("请查看学生邮箱并点击验证链接重置密码")
+                            break;
                     }
                 } else {
                     switch (action) {

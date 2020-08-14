@@ -4,14 +4,16 @@ layui.use("layer", function() {
     if (!localStorage.getItem("token")) {
         layui.layer.msg("您暂未登录，请先登录!");
         setTimeout(() => {
-            self.location = "../login/login.html";
+            layuiRemoveLoading()
+            toLogin();
         }, 1000);
     } else {
         var user = JSON.parse(b64_to_utf8(token.split(".")[1]))
         if (user.exp < Date.now() / 1000) {
             layui.layer.msg("您的登录已超时，请重新登录");
             setTimeout(() => {
-                self.location = "../login/login.html";
+                layuiRemoveLoading()
+                toLogin();
             }, 1000);
 
         }
@@ -28,7 +30,7 @@ function logOut() {
         layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
-        self.location = "../index.html";
+        toPreviousPage();
         // self.location = document.referrer;
         // window.location.href = "javascript:history.back(-1)";
     }, 1000);
@@ -98,8 +100,8 @@ function loadReview() {
         review.className = "info-content";
 
         // mobile adjustment
-        if (document.documentElement.clientWidth <= 700) {
-            review.innerHTML = `<div>
+        review.innerHTML = `
+        <div class="mobile">
             <table width="100%">
                 <tr>
                     <td class="review-upper" style="display: block;">
@@ -153,9 +155,8 @@ function loadReview() {
                     </td>
                 </tr>
             </table>
-        </div>`;
-        } else {
-            review.innerHTML = `<div>
+        </div>
+        <div class="standard">
         <table width="100%">
             <tr>
                 <td class="review-upper">
@@ -208,9 +209,10 @@ function loadReview() {
                 </td>
             </tr>
         </table>
-    </div>`;
-        }
+        </div>`;
         reviewDiv.appendChild(review);
+
+
     }
 }
 
@@ -221,8 +223,11 @@ function toPreviousPage() {
     var previousPage = c.slice(0, 1);
     if (previousPage[0] === "myreview") {
         console.log("对了");
-        // sefl.location = document.referrer;
-        history.go(-1);
+        history.go(-3);
+    } else {
+        console.log(previousPage[0]);
+        // history.go(-1);
+        self.location = document.referrer;
     }
 }
 
@@ -244,11 +249,26 @@ window.onload = function() {
     loadHeader();
     getUserReviews(function() {
         loadReview();
-        loadFooter();
         layuiRemoveLoading();
-    })
-}
+        loadFooter();
+        layui.use("jquery", function() {
+            const $ = layui.jquery;
+            if (document.documentElement.clientWidth > 750) {
+                $(".Hstandard").css("display", "flex")
+                $(".standard").css("display", "block")
+                $(".Hmobile").css("display", "none")
+                $(".mobile").css("display", "none")
+                $(".container").css({ width: "450px", margin: "" })
+                $("#teacherList").css({ width: "", margin: "" })
+            } else {
+                $(".Hmobile").css("display", "flex")
+                $(".mobile").css("display", "block")
+                $(".Hstandard").css("display", "none")
+                $(".standard").css("display", "none")
+                $(".container").css({ width: "auto", margin: "auto 20px" })
+                $("#teacherList").css({ width: "100%", margin: "10px" })
+            }
 
-window.onresize = function() {
-    location.reload();
+        })
+    })
 }

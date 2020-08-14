@@ -24,7 +24,7 @@ function loadCourseListTitle() {
 
 
 
-layui.use(["jquery", "layer", "laytpl"], function () {
+layui.use(["jquery", "layer", "laytpl"], function() {
     var $ = layui.$,
         layer = layui.layer,
         laytpl = layui.laytpl;
@@ -85,7 +85,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         }
 
         let courseTpl = courses.innerHTML
-        laytpl(courseTpl).render(data, function (html) {
+        laytpl(courseTpl).render(data, function(html) {
             courseFrame.innerHTML = html;
         })
 
@@ -145,7 +145,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
             course => {
                 // find teacher with id
                 var teacher = teachers.find(teacher => teacher.id === course.teacherId)
-                // parse the teacher name
+                    // parse the teacher name
                 teacherNameList[teacher.id] = [teacher.chineseName, teacher.englishName].join(" ").trim()
             }
         )
@@ -161,7 +161,7 @@ layui.use(["jquery", "layer", "laytpl"], function () {
         }
 
         let courseTpl = courses.innerHTML
-        laytpl(courseTpl).render(data, function (html) {
+        laytpl(courseTpl).render(data, function(html) {
             courseFrame.innerHTML = html;
         })
 
@@ -177,16 +177,19 @@ layui.use(["jquery", "layer", "laytpl"], function () {
     var layer = layui.layer;
 
     function layuiLoading() {
-        let index = layer.load(0, { offset: ['50%', '50%'], shade: false });
-        return index;
+        layui.use(['layer'], function() {
+            index = layer.load(0, { shade: false });
+        });
     }
 
-    function layuiRemoveLoading(loading) {
-        var layer = layui.layer
-        layer.close(loading);
+    function layuiRemoveLoading() {
+        layui.use(['layer'], function() {
+            var layer = layui.layer
+            layer.close(index);
+        });
     }
 
-    callData = async function () {
+    callData = async function() {
         var data = {}
         let teacherLoading;
         if (query[0] == "1") {
@@ -203,12 +206,12 @@ layui.use(["jquery", "layer", "laytpl"], function () {
              * text:{courseId:number,text:string}[]
              * }} req
              */
-            success: function (req) {
+            success: function(req) {
                 teacherObj = req.teacher;
                 courseList = req;
                 console.log(courseList)
             },
-            error: function (req) {
+            error: function(req) {
                 console.log(req);
             }
         });
@@ -240,5 +243,4 @@ layui.use(["jquery", "layer", "laytpl"], function () {
     window.onload = load();
 
     var width = $(window).width()
-    
 })

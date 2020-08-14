@@ -84,6 +84,21 @@
     float: left;
 }
 
+.Mround-photo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* margin-right: 60px; */
+    box-shadow: /* -7px -7px 20px 0px #fff9,  */
+    /* -4px -4px 5px 0px #fff9,  */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    float: left;
+}
+
 .description {
     margin-top: 10px;
     position: relative;
@@ -99,6 +114,22 @@
     /* -4px -4px 5px 0px #fff9, */
     7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     margin-left: 260px;
+}
+
+.Mdescription {
+    margin-top: 15px;
+    border-radius: 10px;
+    width: auto;
+    /* height: 150px; */
+    background-color: #69bdc8;
+    /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+    padding: 20px;
+    box-shadow: /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    margin-left: 20px;
 }
 
 .description::before {
@@ -123,8 +154,25 @@
     line-height: 40px;
 }
 
+.Mname {
+    width: auto;
+    height: 50px;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 10px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+
 .detail {
     color: white;
     width: auto;
     height: 100px;
+}
+
+.Mdetail {
+    color: white;
+    width: auto;
+    display: flex;
+    text-align: center;
 }
