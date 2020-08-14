@@ -20,43 +20,51 @@ function loadCourseListTitle() {
     courselisttitle.appendChild(title)
 }
 
-function loadTeacherMenu() {
-    //add namewithpic
-    let namewithpic = document.getElementById("namewithpic");
-
-    var image = document.createElement("div");
-    var imageURL = Imagelink[teacherObj.id];
-    if (imageURL == undefined) {
-        imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
-    }
-    image.style.cssText = "background-image: url(" + imageURL + ");";
-    image.className = "image";
-    namewithpic.appendChild(image);
-    var teacherName = document.createElement("h2");
-    var teacherNameText = [teacherObj.chineseName, teacherObj.englishName].join(" ").trim()
-    teacherName.style = "margin-bottom: 5px";
-    teacherName.innerHTML = "<strong>" + teacherNameText + "</strong>";
-    namewithpic.appendChild(teacherName);
-    var teacherScore = document.createElement("font");
-    teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
-    if (teacherObj.averageScore == null) {
-        teacherObj.averageScore = "N/A";
-        teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
-    } else {
-        teacherScore.innerHTML = `<b>` + teacherObj.averageScore.toFixed(2) + `</b>`;
-    }
-    namewithpic.appendChild(teacherScore);
-
-    //add header title
-    document.title = teacherNameText + " | Vmawalk";
-
-    // add courseframe
-    var courseFrame = document.getElementById("course-frame")
 
 
 
 
-    layui.use(["laytpl", "jquery"], function() {
+layui.use(["jquery", "layer", "laytpl"], function() {
+    var $ = layui.$,
+        layer = layui.layer,
+        laytpl = layui.laytpl;
+
+    function loadTeacherMenu() {
+        //add namewithpic
+        let namewithpic = document.getElementById("namewithpic");
+
+        var image = document.createElement("div");
+        var imageURL = Imagelink[teacherObj.id];
+        if (imageURL == undefined) {
+            imageURL = "https://pic.downk.cc/item/5f119eb214195aa594188884.png";
+        }
+        image.style.cssText = "background-image: url(" + imageURL + ");";
+        image.className = "image";
+        namewithpic.appendChild(image);
+        var teacherName = document.createElement("h2");
+        var teacherNameText = [teacherObj.chineseName, teacherObj.englishName].join(" ").trim()
+        teacherName.style = "margin-bottom: 5px";
+        teacherName.innerHTML = "<strong>" + teacherNameText + "</strong>";
+        namewithpic.appendChild(teacherName);
+        var teacherScore = document.createElement("font");
+        teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
+        if (teacherObj.averageScore == null) {
+            teacherObj.averageScore = "N/A";
+            teacherScore.innerHTML = `<b>` + teacherObj.averageScore + `</b>`;
+        } else {
+            teacherScore.innerHTML = `<b>` + teacherObj.averageScore.toFixed(2) + `</b>`;
+        }
+        namewithpic.appendChild(teacherScore);
+
+        //add header title
+        document.title = teacherNameText + " | Vmawalk";
+
+        // add courseframe
+        var courseFrame = document.getElementById("course-frame")
+
+
+
+
         let laytpl = layui.laytpl,
             $ = layui.$;
 
@@ -86,45 +94,43 @@ function loadTeacherMenu() {
         } else {
             $(".standard").css("display", "none")
         }
-    })
-}
 
-function loadCourseMenu() {
-    //add namewithpic
-    var namewithpic = document.getElementById("namewithpic");
-
-    var courseObj = courseList;
-    courseList = courseObj.courses;
-
-    var code = document.createElement("div");
-    code.style.cssText = "background-color: #69BDC8;";
-    code.innerHTML = "<font color='white'>" + courseList[0].courseCode + "</font>";
-    code.className = "code";
-    namewithpic.appendChild(code);
-
-    var courseName = document.createElement("h2");
-    courseName.style = "margin-bottom: 5px";
-    var courseNameText = courseList[0].courseName;
-    courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
-    namewithpic.appendChild(courseName);
-    //add header title
-    document.title = courseNameText + " | Vmawalk";
-
-    var teacherScore = document.createElement("font");
-    teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
-    if (courseObj.average == null) {
-        courseObj.average = "N/A";
-        teacherScore.innerHTML = `<b>` + courseObj.average + `</b>`;
-    } else {
-        teacherScore.innerHTML = `<b>` + courseObj.average.toFixed(2) + `</b>`;
     }
-    namewithpic.appendChild(teacherScore);
 
-    // add courseframe
-    var courseFrame = document.getElementById("course-frame")
-    layui.use(["laytpl", "jquery"], function() {
-        let laytpl = layui.laytpl,
-            $ = layui.$;
+    function loadCourseMenu() {
+        //add namewithpic
+        var namewithpic = document.getElementById("namewithpic");
+
+        var courseObj = courseList;
+        courseList = courseObj.courses;
+
+        var code = document.createElement("div");
+        code.style.cssText = "background-color: #69BDC8;";
+        code.innerHTML = "<font color='white'>" + courseList[0].courseCode + "</font>";
+        code.className = "code";
+        namewithpic.appendChild(code);
+
+        var courseName = document.createElement("h2");
+        courseName.style = "margin-bottom: 5px";
+        var courseNameText = courseList[0].courseName;
+        courseName.innerHTML = "<strong>" + courseNameText + "</strong>";
+        namewithpic.appendChild(courseName);
+        //add header title
+        document.title = courseNameText + " | Vmawalk";
+
+        var teacherScore = document.createElement("font");
+        teacherScore.style.cssText = "color: #69BDC8; font-size: 20px";
+        if (courseObj.average == null) {
+            courseObj.average = "N/A";
+            teacherScore.innerHTML = `<b>` + courseObj.average + `</b>`;
+        } else {
+            teacherScore.innerHTML = `<b>` + courseObj.average.toFixed(2) + `</b>`;
+        }
+        namewithpic.appendChild(teacherScore);
+
+        // add courseframe
+        var courseFrame = document.getElementById("course-frame")
+
 
 
         var teacherNameList = {};
@@ -164,40 +170,30 @@ function loadCourseMenu() {
         } else {
             $(".standard").css("display", "none")
         }
-    })
+    }
 
-}
-
-
-layui.use(["jquery", "layer"], function() {
-    /**
-     * @type {JQuery}
-     */
-    var $ = layui.$;
     var url = "";
     var teacher = null;
     var layer = layui.layer;
 
     function layuiLoading() {
-        let index = layer.load(0, { offset: ['50%', '50%'], shade: false });
-        return index;
+        layui.use(['layer'], function() {
+            index = layer.load(0, { shade: false });
+        });
     }
 
-    function layuiRemoveLoading(loading) {
-        var layer = layui.layer
-        layer.close(loading);
+    function layuiRemoveLoading() {
+        layui.use(['layer'], function() {
+            var layer = layui.layer
+            layer.close(index);
+        });
     }
 
     callData = async function() {
         var data = {}
         let teacherLoading;
         if (query[0] == "1") {
-            teacherLoading = $.get("https://vma-walk.azurewebsites.net/api/teacher/" + queryID).then(
-                function(result) {
-                    teacherObj = result;
-                    console.log(result)
-                });
-            url = "https://vma-walk.azurewebsites.net/api/course/GetWithTeachers";
+            url = "https://vma-walk.azurewebsites.net/api/teacher/GetCourses";
             data.id = Number(queryID);
         } else if (query[0] == "2") {
             url = "https://vma-walk.azurewebsites.net/api/course/GetWithCode";
@@ -211,6 +207,7 @@ layui.use(["jquery", "layer"], function() {
              * }} req
              */
             success: function(req) {
+                teacherObj = req.teacher;
                 courseList = req;
                 console.log(courseList)
             },
@@ -218,7 +215,7 @@ layui.use(["jquery", "layer"], function() {
                 console.log(req);
             }
         });
-        await Promise.all([teacherLoading, courseLoading])
+        await courseLoading
 
         if (query[0] == "1") {
             loadTeacherMenu();
@@ -230,8 +227,9 @@ layui.use(["jquery", "layer"], function() {
     }
 
     async function load() {
-        index = layuiLoading();
+        let index = layuiLoading();
 
+        await waitInitial;
         loadHeader();
 
         loadCourseListTitle();
@@ -243,14 +241,6 @@ layui.use(["jquery", "layer"], function() {
 
 
     window.onload = load();
+
     var width = $(window).width()
-    window.onresize = function() {
-        if (document.documentElement.clientWidth > 750) {
-            $(".standard").css("display", "block")
-            $(".mobile").css("display", "none")
-        } else {
-            $(".mobile").css("display", "block")
-            $(".standard").css("display", "none")
-        }
-    };
 })

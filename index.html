@@ -3,21 +3,25 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, minimum-scale=0.8, user-scalable=no">
-    <meta name="description" content="Vmawalk is the only public platform for course and teacher ratings in Vanke Meisha Academy.">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=0.8, maximum-scale=1.0, minimum-scale=0.8, user-scalable=no">
+    <meta name="description"
+        content="Vmawalk is the only public platform for course and teacher ratings in Vanke Meisha Academy.">
     <title>vmawalk</title>
     <style type="text/css">
         a {
-            text-decoration: none;
+            text-decoration: none !important;
         }
     </style>
+    <link rel="stylesheet" href="layui/css/layui2.css" media="all">
     <link rel="stylesheet" href="headerAndFooter/headerAndFooter.css" />
     <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="layui/css/layui2.css" media="all">
+    <!-- <link rel="stylesheet" href="login/login.css"> -->
     <script src="layui/layui.js"></script>
     <script src="files/Information.js"></script>
     <script src="lib/pinyin.js"></script>
     <script src="lib/initials.js"></script>
+    <script src="headerAndFooter/headerAndFooter.js"></script>
     <script src="index.js"></script>
     <script src="lib/fuzzysort.js"></script>
 </head>
@@ -40,7 +44,7 @@
     </div>
     <main class="content">
         <div style="margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
-            <a href="https://www.vmawalk.com/index.html">
+            <a href="https://www.vmawalk.com/index.html" style="text-decoration:none;">
                 <h1 align="center" class="index-title"><strong>vma</strong>walk</h1>
             </a>
         </div>
@@ -49,11 +53,13 @@
         </div>
         <form class="layui-form" align="center" action="submit" style="padding-top: 30px; margin: 0 auto; width: 60%;">
             <div class="layui-form-block" style="width: 100%; margin-right: 10px;">
-                <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect" lay-filter="search">
+                <select name="teacher" id="search" lay-verify="required" lay-search class="layui-input layui-unselect"
+                    lay-filter="search">
                     <option value="">Find a course or a teacher</option>
                 </select>
             </div>
-            <button id="submit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit" style="width: auto; text-align: center; padding: 0 5px;">
+            <button id="selectSubmit" class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="submit"
+                style="width: auto; text-align: center; padding: 0 5px;">
                 <img src="img/search-icon.png" style="width: 30px;">
             </button>
         </form>
@@ -61,7 +67,8 @@
     <footer class="footer fixed-bottom" style="background: none;">
         <div class="logo-link" style="margin-bottom: 0px;">
             <a href="https://github.com/JeffreytheCoder/vmawalk" style="text-decoration: none;">
-                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+                    width="32" aria-hidden="true">
                     <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
             0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
             2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">

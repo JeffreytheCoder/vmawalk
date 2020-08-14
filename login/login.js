@@ -40,7 +40,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
             error: function (req) {
                 if (req.status == 400) {
                     layer.msg(req.responseJSON.message);
-                    console.log(req)
+                    console.log(req.responseJSON)
                 }
             },
             complete: function () {

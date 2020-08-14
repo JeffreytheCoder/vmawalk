@@ -1,7 +1,13 @@
-function loadingChange() {
+async function loadingChange() {
     if (document.readyState == "complete") {
-        loadHeader();
+        await loadHeader();
         loadFooter();
+        layui.use("jquery", function () {
+            var $ = layui.$;
+            document.documentElement.clientWidth > 750 ? $(".mobile").css("display", "none") : $(".standard").css("display", "none");
+
+            
+        })
     }
 }
 

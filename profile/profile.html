@@ -24,12 +24,116 @@
     <!--展示内容-->
     <main class="content">
         <!--头像名称-->
+        <script id="nameWithPic" type="text/html">
+            <table height="120px">
+                <tr height="80px">
+                    <td rowspan="2" width="110px" height="100%">
+                        <a href="../menu/menu.html?query=2-{{d.courseWithTeacher.courseCode}}" style="font-size: 18px; text-decoration: none; color: white;">
+                            <div class="icon-round" style="width: 100px; height: 100px;">{{d.courseWithTeacher.courseCode}}</div>
+                        </a>
+                    </td>
+                    <td height="100%">
+                        <p style="font-size:{{d.fontSize}}px" id="teacherName"><strong>{{d.courseWithTeacher.courseName}}</strong></p>
+                    </td>
+                </tr>
+                <tr height="40px">
+                    <td style="display: flex; align-items: center;">
+                        <a style="white-space:nowrap; display:flex; align-items: center;" href="../menu/menu.html?query=1-{{d.courseWithTeacher.teacherId}}">
+                            <div class="teacher-icon" style="background-image: url({{d.ImageUrl}});">
+                            </div>
+                            <font size="4">{{d.teacherName}}</font>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </script>
         <div id="namewithpic" class="name-with-picture">
         </div>
+
         <!--评分-->
-        <div class="ratings" id="ratings">
+        <script id="ratingsTpl" type="text/html">
+        {{# var scoreList = d.courseWithTeacher.averageScore==null?
+            ["N/A", "N/A", "N/A", "N/A", "N/A"]:
+            d.courseWithTeacher.averageScore;
+            var widthList = scoreList.map(score=>score=="N/A"?"0%":"" + ((score / 5.0).toFixed(2) * 100).toFixed(0) + "%")
+        }}
+            <table width="100%">
+                <tr class="rating-cell">
+                    <td align="center" width="20%">Bad</td>
+                    <td width="60%">
+                        <div style="display: flex; justify-content: space-between;">
+                            <font color="black">Overall</font>
+                            <font color="#69BDC8"><b>{{scoreList[0]}}</b></font>
+                        </div>
+                        <div class="rating-bar">
+                            <div style="width: {{widthList[0]}};" class="rating-inside-bar">
+                            </div>
+                        </div>
+                    </td>
+                    <td align=" center" width="20%">Good</td>
+                </tr>
+                <tr class="rating-cell">
+                    <td align="center" width="20%">Hard</td>
+                    <td width="60%">
+                        <div style="display: flex; justify-content: space-between;">
+                            <font color="black">Easiness</font>
+                            <font color="#69BDC8"><b>{{scoreList[1]}}</b></font>
+                        </div>
+                        <div class="rating-bar">
+                            <div style="width: {{widthList[1]}};" class="rating-inside-bar">
+                            </div>
+                        </div>
+                    </td>
+                    <td align=" center" width="20%">Easy</td>
+                </tr>
+                <tr class="rating-cell">
+                    <td align="center" width="20%">Heavy</td>
+                    <td width="60%">
+                        <div style="display: flex; justify-content: space-between;">
+                            <font color="black">Workload</font>
+                            <font color="#69BDC8"><b>{{scoreList[2]}}</b></font>
+                        </div>
+                        <div class="rating-bar">
+                            <div style="width: {{widthList[2]}};" class="rating-inside-bar">
+                            </div>
+                        </div>
+                    </td>
+                    <td align=" center" width="20%">Light</td>
+                </tr>
+                <tr class="rating-cell">
+                    <td align="center" width="20%">Confuse</td>
+                    <td width="60%">
+                        <div style="display: flex; justify-content: space-between;">
+                            <font color="black">Clarity</font>
+                            <font color="#69BDC8"><b>{{scoreList[3]}}</b></font>
+                        </div>
+                        <div class="rating-bar">
+                            <div style="width: {{widthList[3]}};" class="rating-inside-bar">
+                            </div>
+                        </div>
+                    </td>
+                    <td align=" center" width="20%">Clear</td>
+                </tr>
+                <tr class="rating-cell">
+                    <td align="center" width="20%">Helpless</td>
+                    <td width="60%">
+                        <div style="display: flex; justify-content: space-between;">
+                            <font color="black">Helpfulness</font>
+                            <font color="#69BDC8"><b>{{scoreList[4]}}</b></font>
+                        </div>
+                        <div class="rating-bar">
+                            <div style="width: {{widthList[4]}};" class="rating-inside-bar">
+                            </div>
+                        </div>
+                    </td>
+                    <td align=" center" width="20%">Helpful</td>
+                </tr>
+            </table>
+        </script>
+        <div class="ratings display-box" id="ratings">
             <b style="font-size: 17px; color:gray">Ratings</b>
         </div>
+
         <div align="center">
             <button id="addReviewBtn" class="add-review" style="margin-top: 0px; width: 160px; height: 45px; border-radius: 19px; background-color: #69bdc8;">
                 <text class="add-review-text" style="font-size: 17px; color: white;">✚ Review</text>
@@ -38,9 +142,68 @@
         <div style="display: flex; width: 100%;justify-content: space-between; align-items: center;">
             <b style="font-size: 17px; color:gray">Reviews</b>
         </div>
+
         <!--评论内容-->
+        <script id="reviewsTpl" type="text/html">
+        {{# if(d.reviewList.length==0){}}
+            <div class="display-box">
+                <table class="review-table" style="margin: 20px; margin-bottom: 5px; width: auto">
+                    <tr>
+                        <td colspan="2">
+                            <p class="review-content" style="margin-bottom: 15px; font-size: 16px; margin-top: 15px; width: 100%;">
+                                No reviews for {{d.courseWithTeacher.courseName}} taught by {{d.teacherName}} so far.
+                                Write the first one <a href="../review/review.html?code={{d.courseWithTeacher.id}}" style="color:#69BDC8"><strong>here!</strong>
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {{# }else{ 
+                layui.each(d.reviewList,(index,review) => {
+                    let semester = "Full Year";
+                    if(review.semester)
+                        semester = "Semester 1";
+                    else if(review.semester == false)
+                        semester = "Semester 2";
+                    let date = review.insertDate.split("T")[0];
+                }}
+                <div class="display-box" style="padding:15px;">
+                    <table class="review-table">
+                        <tr>
+                            <td style="color: gray; padding-bottom: 2px;">Semester: {{review.year}} ~ {{review.year + 1 +" " + semester}}</td>
+                            <td style="color: gray; float: right;">{{date}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color: gray;">Grade: {{review.grade}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p class="review-content">{{review.text}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                    </table>
+                    <table class="review-table">
+                        <td colspan="2">
+                            <div class="feedback" style="margin-top:15px; font-size: 15px;">
+                                <div class="control">
+                                    <a href="javascript:Like({{review.id}},{{index}})" id={{index}} style="{{#if(review.liked){}}color: #1e8997; font-weight: bold{{#}}}">🙂Like {{review.likes}}</a>
+                                </div>
+                                <div class="control" style="margin-left:auto; margin-right: 10px">
+                                    <a href="">🖐Report</a>
+                                </div>
+                            </div>
+                        </td>
+                        </tr>
+                    </table>
+                </div>
+                {{# })}
+            }}
+        </script>
         <div id="reviews">
         </div>
+
     </main>
     <!--footer-->
     <div id="footer-div">
