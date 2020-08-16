@@ -5,7 +5,8 @@
         "layui":false,
         "console":false,
         "localStorage":false,
-        "fetch":false
+        "fetch":false,
+        "Promise":true
     },
     "noarg": true,
     "quotmark": "double",

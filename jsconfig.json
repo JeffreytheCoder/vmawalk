@@ -5,4 +5,7 @@
             "layui-src"
         ]
     },
+    "compilerOptions": {
+        "target": "esnext"
+    }
 }
