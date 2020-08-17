@@ -1,6 +1,6 @@
-function loadingChange() {
+async function loadingChange() {
     if (document.readyState == "complete") {
-        loadHeader();
+        await loadHeader();
         loadFooter();
     }
 }
