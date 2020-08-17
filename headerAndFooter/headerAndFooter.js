@@ -257,32 +257,32 @@ var waitInitial = new Promise((resolve, reject) => {
 
                 if (request.status == 200) {
                     switch (action) {
-                        case 1:
-                            let result = await request.json();
-                            localStorage.setItem("token", result.token);
-                            localStorage.setItem("userName", result.userName);
-                            layer.msg("登陆成功");
-                            var a = location.pathname;
-                            console.log(a);
-                            var b = a.split("/");
-                            console.log(b);
-                            var c = b[b.length - 1].toString().split(".");
-                            console.log(b.slice(b.length - 1, b.length));
-                            var pName = c.slice(0, 1);
-                            if (pName != "review")
-                                setTimeout(() => {
-                                    location.reload();
-                                }, 1000);
-                            else {
-                                goBack();
-                            }
-                            break;
-                        case 2:
-                            layer.alert("注册成功，请查看学生邮箱并点击验证链接")
-                            break;
-                        case 3:
-                            layer.alert("请查看学生邮箱并点击验证链接重置密码")
-                            break;
+                    case 1:
+                        let result = await request.json();
+                        localStorage.setItem("token", result.token);
+                        localStorage.setItem("userName", result.userName);
+                        layer.msg("登陆成功");
+                        var a = location.pathname;
+                        console.log(a);
+                        var b = a.split("/");
+                        console.log(b);
+                        var c = b[b.length - 1].toString().split(".");
+                        console.log(b.slice(b.length - 1, b.length));
+                        var pName = c.slice(0, 1);
+                        if (pName != "review")
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1000);
+                        else {
+                            goBack();
+                        }
+                        break;
+                    case 2:
+                        layer.alert("注册成功，请查看学生邮箱并点击验证链接")
+                        break;
+                    case 3:
+                        layer.alert("请查看学生邮箱并点击验证链接重置密码")
+                        break;
                     }
                 } else {
                     switch (action) {
@@ -417,8 +417,7 @@ var waitInitial = new Promise((resolve, reject) => {
                     </button>
                 </div>
             </div>`;
-            await loadLayer();
-            action();
+
             // headerDiv.innerHTML = header.innerHTML;
 
             if (document.documentElement.clientWidth > 750) {
@@ -429,7 +428,8 @@ var waitInitial = new Promise((resolve, reject) => {
                 $(".standard").css("display", "none")
                 $("#teacherList").css({ width: "100%", margin: "10px" })
             }
-
+            await loadLayer();
+            action();
             //Load select options
 
 
@@ -437,13 +437,7 @@ var waitInitial = new Promise((resolve, reject) => {
             await loadInfo;
 
             //#region 加载数据
-            teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).filter(teacher => {
-                if (teacher.chineseName == null) {
-                    $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
-                    return false;
-                } else
-                    return true
-            }).forEach(teacher =>
+            teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).forEach(teacher =>
                 $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
             )
 

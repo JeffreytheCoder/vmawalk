@@ -52,14 +52,7 @@ window.onload = function () {
         await loadInfo;
 
 
-        teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).filter(teacher => {
-            if (teacher.chineseName == null) {
-                $("#search").append(new Option(teacher.englishName, `1-${teacher.id}`))
-
-                return false;
-            } else
-                return true
-        }).forEach(teacher =>
+        teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).forEach(teacher =>
             $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
         )
 
