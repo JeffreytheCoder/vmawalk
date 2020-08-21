@@ -338,7 +338,7 @@ var waitInitial = new Promise((resolve, reject) => {
             }
         }
 
-        function fixScreenWidth() {
+        self.fixScreenWidth = () => {
             if (document.documentElement.clientWidth > 750) {
                 $(".Hmobile").css("display", "none")
                 $(".mobile").css("display", "none")
@@ -349,7 +349,7 @@ var waitInitial = new Promise((resolve, reject) => {
             }
         }
 
-        async function loadHeader() {
+        self.loadHeader = async () => {
             // Judge if login or myreview
             var loginText = "Login";
             var loginLink = "../login/login.html";
