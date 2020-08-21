@@ -372,7 +372,6 @@ var waitInitial = new Promise((resolve, reject) => {
                 console.log("未检测到token, 请登录")
             }
 
-            fixScreenWidth();
 
             console.log(document.documentElement.clientWidth);
             //Load header elements
@@ -430,6 +429,7 @@ var waitInitial = new Promise((resolve, reject) => {
             </div>`;
 
             // headerDiv.innerHTML = header.innerHTML;
+            fixScreenWidth();
 
 
             await loadLayer();
