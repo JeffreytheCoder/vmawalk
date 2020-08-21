@@ -338,9 +338,18 @@ var waitInitial = new Promise((resolve, reject) => {
             }
         }
 
+        function fixScreenWidth() {
+            if (document.documentElement.clientWidth > 750) {
+                $(".Hmobile").css("display", "none")
+                $(".mobile").css("display", "none")
+            } else {
+                $(".Hstandard").css("display", "none")
+                $(".standard").css("display", "none")
+                $("#teacherList").css({ width: "100%", margin: "10px" })
+            }
+        }
 
-
-        window.loadHeader = async () => {
+        async function loadHeader() {
             // Judge if login or myreview
             var loginText = "Login";
             var loginLink = "../login/login.html";
@@ -362,6 +371,8 @@ var waitInitial = new Promise((resolve, reject) => {
             } else {
                 console.log("未检测到token, 请登录")
             }
+
+            fixScreenWidth();
 
             console.log(document.documentElement.clientWidth);
             //Load header elements
@@ -420,14 +431,7 @@ var waitInitial = new Promise((resolve, reject) => {
 
             // headerDiv.innerHTML = header.innerHTML;
 
-            if (document.documentElement.clientWidth > 750) {
-                $(".Hmobile").css("display", "none")
-                $(".mobile").css("display", "none")
-            } else {
-                $(".Hstandard").css("display", "none")
-                $(".standard").css("display", "none")
-                $("#teacherList").css({ width: "100%", margin: "10px" })
-            }
+
             await loadLayer();
             action();
             //Load select options
