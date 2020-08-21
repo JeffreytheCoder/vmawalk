@@ -53,7 +53,7 @@ window.onload = function () {
 
 
         teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).forEach(teacher =>
-            $("#search").append(new Option(`${teacher.chineseName} ${teacher.englishName}`, `1-${teacher.id}`))
+            $("#search").append(new Option([teacher.chineseName, teacher.englishName].join(" ").trim(), `1-${teacher.id}`))
         )
 
         Courses.sort((x, y) => x.courseCode.localeCompare(y.courseCode)).forEach(i => {
