@@ -1,11 +1,13 @@
 {
     "globals": {
         "window": false,
-        "document":false,
-        "layui":false,
-        "console":false,
-        "localStorage":false,
-        "fetch":false
+        "document": false,
+        "layui": false,
+        "console": false,
+        "localStorage": false,
+        "fetch": false,
+        "Promise": false,
+        "self": false
     },
     "noarg": true,
     "quotmark": "double",

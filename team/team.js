@@ -1,8 +1,8 @@
-function loadingChange() {
-    if (document.readyState == "complete") {
-        loadHeader();
-        loadFooter();
-    }
+async function loadingChange() {
+    await waitInitial;
+    fixScreenWidth();
+    await loadHeader();
+    loadFooter();
 }
 
 // document.onreadystatechange = loadingChange;

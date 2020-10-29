@@ -21,10 +21,7 @@ var teachers = {},
  */
 var loadInfo;
 
-layui.use("jquery", async function () {
-    /**
-     * @type {JQueryStatic}
-     */
+layui.use("jquery", function () {
     var $ = layui.$;
 
     loadInfo = $.when(

@@ -7,7 +7,7 @@ window.onload = function () {
         var $ = layui.jquery,
             form = layui.form;
 
-        await loadInfo;
+        await waitInitial;
         await loadLayer();
 
         var token = localStorage.getItem("token")
@@ -25,6 +25,7 @@ window.onload = function () {
                 }, 500);
             }
         }
+        await loadInfo;
 
         teachers.filter(teacher => {
             if (teacher.chineseName == null) {
@@ -110,45 +111,49 @@ layui.use(['form', 'jquery', 'layer'], function () {
             shade: [0.4, '#def'],
             icon: '&#xe63d'
         })
-        fetch("https://vma-walk.azurewebsites.net/api/Review", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            },
-            body: JSON.stringify({
-                teacherId: Number(data.field.teacher),
-                CourseId: Number(data.field.course),
-                Year: Number(data.field.year),
-                Semester: data.field.semester == "null" ? null : data.field.semester == "true",
-                Grade: data.field.grade,
-                Score: scores,
-                Text: data.field.review
-            })
-        }).then(async res => {
-            switch (res.status) {
-            case 200:
-                layer.msg("添加成功");
-                setTimeout(() => {
-                    // toPreviousPage();
-                    location.href = `../profile/profile.html?query=${data.field.course}`;
-                }, 1000);
-                break;
 
-            case 400:
-                let text = await res.text();
-                layer.msg("失败");
-                layer.alert(text);
-                console.log(text)
-                break;
-            case 401:
-                layer.msg("身份验证超时或登录出错，请重新登录")
-                setTimeout(() => {
-                    toLogin();
-                }, 100);
-                break;
-            }
-        }).finally(() => layer.close(loading))
+        fetch("https://vma-walk.azurewebsites.net/api/Review", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify({
+                    teacherId: Number(data.field.teacher),
+                    CourseId: Number(data.field.course),
+                    Year: Number(data.field.year),
+                    Semester: data.field.semester == "null" ? null : data.field.semester == "true",
+                    Grade: data.field.grade,
+                    Score: scores,
+                    Text: data.field.review
+                })
+            })
+            .then(async res => {
+                switch (res.status) {
+                case 200:
+                    layer.msg("添加成功");
+                    setTimeout(() => {
+                        // toPreviousPage();
+                        location.href = `../profile/profile.html?query=${data.field.course}`;
+                    }, 1000);
+                    break;
+
+                case 400:
+                    let text = await res.text();
+                    layer.msg("失败");
+                    layer.alert(text);
+                    console.log(text)
+                    break;
+                case 401:
+                    layer.msg("身份验证超时或登录出错，请重新登录")
+                    setTimeout(() => {
+                        toLogin();
+                    }, 100);
+                    break;
+                }
+            })
+            .catch(() => { layer.msg("请求超时，请重试") })
+            .finally(() => layer.close(loading))
         return false;
     });
 });
