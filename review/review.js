@@ -1,3 +1,13 @@
+var url = new URL(location);
+var edit = url.searchParams.get("edit")
+var reviewID = 0;
+if (edit == "1") {
+    edit = true;
+    reviewID = url.searchParams.get("reviewID");
+} else {
+    edit = false;
+}
+
 window.onload = function () {
     layui.use(['layer', 'jquery', 'form'], async function () {
 
@@ -119,6 +129,7 @@ layui.use(['form', 'jquery', 'layer'], function () {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 },
                 body: JSON.stringify({
+                    reviewId: reviewID,
                     teacherId: Number(data.field.teacher),
                     CourseId: Number(data.field.course),
                     Year: Number(data.field.year),

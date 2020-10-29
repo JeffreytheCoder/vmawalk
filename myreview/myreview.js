@@ -1,5 +1,5 @@
 //global variable
-layui.use("layer", function() {
+layui.use("layer", function () {
     var token = localStorage.getItem("token")
     if (!localStorage.getItem("token")) {
         layui.layer.msg("您暂未登录，请先登录!");
@@ -26,7 +26,7 @@ var reviewList;
 function logOut() {
     // var token = localStorage.getItem("token")
     localStorage.removeItem("token");
-    layui.use("layer", function() {
+    layui.use("layer", function () {
         layui.layer.msg("退出登录成功");
     });
     setTimeout(() => {
@@ -37,7 +37,7 @@ function logOut() {
 }
 
 function getUserReviews(callback) {
-    layui.use(["jquery"], function() {
+    layui.use(["jquery"], function () {
         /**
          * @type {JQueryStatic}
          */
@@ -59,7 +59,7 @@ function getUserReviews(callback) {
              * likes:number
              * }[]} data - 课程类型
              */
-            success: function(data) {
+            success: function (data) {
                 reviewList = data;
                 console.log(data);
                 callback();
@@ -232,26 +232,26 @@ function toPreviousPage() {
 }
 
 function layuiLoading() {
-    layui.use(['layer'], function() {
+    layui.use(['layer'], function () {
         index = layer.load(0, { shade: false });
     });
 }
 
 function layuiRemoveLoading() {
-    layui.use(['layer'], function() {
+    layui.use(['layer'], function () {
         var layer = layui.layer
         layer.close(index);
     });
 }
 
-window.onload = function() {
+window.onload = function () {
     layuiLoading();
     loadHeader();
-    getUserReviews(function() {
+    getUserReviews(function () {
         loadReview();
         layuiRemoveLoading();
         loadFooter();
-        layui.use("jquery", function() {
+        layui.use("jquery", function () {
             const $ = layui.jquery;
             if (document.documentElement.clientWidth > 750) {
                 $(".Hstandard").css("display", "flex")

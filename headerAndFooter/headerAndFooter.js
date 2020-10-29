@@ -441,15 +441,17 @@ var waitInitial = new Promise((resolve, reject) => {
             await loadInfo;
 
             //#region 加载数据
-            teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName)).forEach(teacher =>
-                $("#search").append(new Option([teacher.chineseName, teacher.englishName].join(" ").trim(), `1-${teacher.id}`))
-            )
+            teachers.sort((x, y) => (x.chineseName + x.englishName).localeCompare(y.chineseName + y.englishName))
+                .forEach(teacher =>
+                    $("#search").append(
+                        new Option([teacher.chineseName, teacher.englishName].join(" ").trim(), `1-${teacher.id}`))
+                )
 
-            Courses.sort((x, y) => x.courseCode.localeCompare(y.courseCode)).forEach((i) => {
-                $("#search").append(
-                    new Option(`${i.courseName} ${i.courseCode}`, `2-${i.courseCode}`)
+            Courses.sort((x, y) => x.courseCode.localeCompare(y.courseCode))
+                .forEach((i) =>
+                    $("#search").append(
+                        new Option(`${i.courseName} ${i.courseCode}`, `2-${i.courseCode}`))
                 );
-            });
 
             form.render("select");
             //#endregion
