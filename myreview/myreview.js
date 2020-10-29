@@ -121,7 +121,10 @@ function loadReview() {
                         </div>
                         <hr>
                         <div class="rating-table">
-                            <div class="review-title">Ratings</div>
+                            <div class="review-title">
+                                <div>Ratings</div>
+                                <button class="edit">Edit</button>
+                            </div>
                             <table width="auto">
                                 <tr>
                                     <td class="rating-cell" style="font-size: 10px;">
@@ -175,7 +178,10 @@ function loadReview() {
                         </div>
                     </div>
                     <div class="rating-table">
-                        <div class="review-title">Ratings</div>
+                        <div class="review-title">
+                            <div>Ratings</div>
+                            <button class="edit">Edit</button>
+                        </div>
                         <table width="auto">
                             <tr>
                                 <td class="rating-cell">
