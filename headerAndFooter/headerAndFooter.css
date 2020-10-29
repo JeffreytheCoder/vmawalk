@@ -186,7 +186,7 @@ table tr td {
 }
 
 .add-review:hover {
-    background-color: rgb(84, 160, 170);
+    background-color: rgb(84, 160, 170) !important;
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
