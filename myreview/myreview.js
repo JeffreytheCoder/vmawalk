@@ -123,7 +123,7 @@ function loadReview() {
                         <div class="rating-table">
                             <div class="review-title">
                                 <div>Ratings</div>
-                                <button class="edit">Edit</button>
+                                <button class="edit" onclick="edit(` + i + `)">Edit</button>
                             </div>
                             <table width="auto">
                                 <tr>
@@ -180,7 +180,7 @@ function loadReview() {
                     <div class="rating-table">
                         <div class="review-title">
                             <div>Ratings</div>
-                            <button class="edit">Edit</button>
+                                <button class="edit" onclick="edit(` + i + `)">Edit</button>
                         </div>
                         <table width="auto">
                             <tr>
@@ -220,6 +220,11 @@ function loadReview() {
 
 
     }
+}
+
+function edit(reviewIndex) {
+    sessionStorage.setItem(reviewList[reviewIndex].id, JSON.stringify(reviewList[reviewIndex]));
+    location.href = "../review/review.html?edit=1&reviewID=" + reviewList[reviewIndex].id;
 }
 
 function toPreviousPage() {

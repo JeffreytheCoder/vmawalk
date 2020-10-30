@@ -2,5 +2,9 @@
     "liveServer.settings.port": 5501,
     "editor.formatOnSave": false,
     "editor.formatOnType": false,
-    "editor.formatOnSaveMode": "file"
+    "editor.formatOnSaveMode": "file",
+    "errorLens.enabledDiagnosticLevels": [
+        "error"
+    ],
+    "errorLens.delay": 5
 }
