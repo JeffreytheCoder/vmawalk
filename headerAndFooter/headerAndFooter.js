@@ -53,7 +53,7 @@ async function action() {
         console.log("未检测到token, 请登录")
     }
 
-    loginBtn.forEach(x => x.onclick = function () {
+    loginBtn.forEach(x => x.onclick = function() {
         if (loginText == "Login") {
             layerDiv.style.display = "block"
             layerDiv.style.transition = "2s";
@@ -65,14 +65,14 @@ async function action() {
 }
 
 var waitInitial = new Promise((resolve, reject) => {
-    layui.use(["layer", "jquery", "form"], function () {
+    layui.use(["layer", "jquery", "form"], function() {
         const $ = layui.$,
             form = layui.form,
             layer = layui.layer;
 
-        window.loadLayer = async () => {
+        window.loadLayer = async() => {
             let $ = layui.$;
-            $(`<layer>
+            $(`<layer class="general">
             <div id="loginLayer" style="display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index:2; width: 100%; height: 100%;" >
                 <form class="layui-form" action="">
                     <div class="container" id="Login" style="box-shadow: none;">
@@ -211,7 +211,7 @@ var waitInitial = new Promise((resolve, reject) => {
                 "body"
             )
 
-            $(document).keydown(function (e) {
+            $(document).keydown(function(e) {
                 if (e.keyCode === 13) {
                     if ($("#loginLayer").css("display") != "none")
                         $("#loginSubmit").trigger("click");
@@ -225,7 +225,7 @@ var waitInitial = new Promise((resolve, reject) => {
                 }
             })
 
-            let authSubmit = async (formData, action) => {
+            let authSubmit = async(formData, action) => {
                 var index = layer.load({
                     shade: [0.4, '#def'],
                     icon: '&#xe63d'
@@ -234,17 +234,17 @@ var waitInitial = new Promise((resolve, reject) => {
                 let method = "POST";
 
                 switch (action) {
-                case 1:
-                    path = "Login"
-                    break;
-                case 2:
-                    path = "Registration"
-                    method = "PUT"
-                    break;
-                case 3:
-                    path = "ResetPassword"
-                    method = "PUT"
-                    break;
+                    case 1:
+                        path = "Login"
+                        break;
+                    case 2:
+                        path = "Registration"
+                        method = "PUT"
+                        break;
+                    case 3:
+                        path = "ResetPassword"
+                        method = "PUT"
+                        break;
                 }
                 let request = await fetch(`https://vma-walk.azurewebsites.net/Auth/${path}`, {
                     method: method,
@@ -257,60 +257,60 @@ var waitInitial = new Promise((resolve, reject) => {
 
                 if (request.status == 200) {
                     switch (action) {
-                    case 1:
-                        let result = await request.json();
-                        localStorage.setItem("token", result.token);
-                        localStorage.setItem("userName", result.userName);
-                        layer.msg("登陆成功");
-                        var a = location.pathname;
-                        console.log(a);
-                        var b = a.split("/");
-                        console.log(b);
-                        var c = b[b.length - 1].toString().split(".");
-                        console.log(b.slice(b.length - 1, b.length));
-                        var pName = c.slice(0, 1);
-                        if (pName != "review")
-                            setTimeout(() => {
-                                location.reload();
-                            }, 1000);
-                        else {
-                            goBack();
-                        }
-                        break;
-                    case 2:
-                        layer.alert("注册成功，请查看学生邮箱并点击验证链接")
-                        break;
-                    case 3:
-                        layer.alert("请查看学生邮箱并点击验证链接重置密码")
-                        break;
+                        case 1:
+                            let result = await request.json();
+                            localStorage.setItem("token", result.token);
+                            localStorage.setItem("userName", result.userName);
+                            layer.msg("登陆成功");
+                            var a = location.pathname;
+                            console.log(a);
+                            var b = a.split("/");
+                            console.log(b);
+                            var c = b[b.length - 1].toString().split(".");
+                            console.log(b.slice(b.length - 1, b.length));
+                            var pName = c.slice(0, 1);
+                            if (pName != "review")
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 1000);
+                            else {
+                                goBack();
+                            }
+                            break;
+                        case 2:
+                            layer.alert("注册成功，请查看学生邮箱并点击验证链接")
+                            break;
+                        case 3:
+                            layer.alert("请查看学生邮箱并点击验证链接重置密码")
+                            break;
                     }
                 } else {
                     switch (action) {
-                    case 1:
-                        var result = await request.json();
-                        layer.alert(result.message)
-                        break;
-                    case 2:
-                    case 3:
-                        var result = await request.json();
-                        layer.alert(result.message.map(x => x.description).join("</br>"), {
-                            skin: "layui-layer-molv",
-                            anim: 5,
-                            title: "请重试"
-                        })
+                        case 1:
+                            var result = await request.json();
+                            layer.alert(result.message)
+                            break;
+                        case 2:
+                        case 3:
+                            var result = await request.json();
+                            layer.alert(result.message.map(x => x.description).join("</br>"), {
+                                skin: "layui-layer-molv",
+                                anim: 5,
+                                title: "请重试"
+                            })
                     }
                 }
             }
 
-            form.on("submit(loginSubmit)", function (formData) {
+            form.on("submit(loginSubmit)", function(formData) {
                 authSubmit(formData, 1);
                 return false;
             });
-            form.on("submit(registerSubmit)", function (formData) {
+            form.on("submit(registerSubmit)", function(formData) {
                 authSubmit(formData, 2);
                 return false;
             });
-            form.on("submit(forgetSubmit)", function (formData) {
+            form.on("submit(forgetSubmit)", function(formData) {
                 authSubmit(formData, 3);
                 return false;
             });
@@ -327,7 +327,7 @@ var waitInitial = new Promise((resolve, reject) => {
                 password: [
                     /^[\S]{10,}$/, '密码必须大于10位，且不能出现空格'
                 ],
-                confirmPass: function (value, item) {
+                confirmPass: function(value, item) {
                     if (item.form.elements.password.value !== value)
                         return ('两次密码输入不一致！');
                 }
@@ -349,7 +349,7 @@ var waitInitial = new Promise((resolve, reject) => {
             }
         }
 
-        self.loadHeader = async () => {
+        self.loadHeader = async() => {
             // Judge if login or myreview
             var loginText = "Login";
             var loginLink = "../login/login.html";
@@ -458,7 +458,7 @@ var waitInitial = new Promise((resolve, reject) => {
 
             //#region 弹出层，登录，注册，重置密码
 
-            form.on("submit(submit)", function (data) {
+            form.on("submit(submit)", function(data) {
                 let query = data.field.teacher;
                 let link = `../menu/menu.html?query=${query}`;
                 window.location.href = link;
@@ -475,7 +475,7 @@ var waitInitial = new Promise((resolve, reject) => {
 
         };
 
-        window.onresize = function () {
+        window.onresize = function() {
             if (document.documentElement.clientWidth > 750) {
                 $(".Hstandard").css("display", "flex")
                 $(".standard").css("display", "block")

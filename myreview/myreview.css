@@ -138,3 +138,25 @@
     background-color: rgb(84, 160, 170);
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
+
+.logout {
+    align-items: right;
+    width: 100px;
+    height: 38px;
+    background-color: lightcoral;
+    border: 0px solid white;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    box-shadow: /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001;
+}
+
+.logout:hover {
+    background-color: rgb(255, 100, 100);
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
