@@ -1,11 +1,22 @@
+var url = new URL(location);
+var edit = url.searchParams.get("edit")
+var reviewID = 0;
+if (edit == "1") {
+    edit = true;
+    reviewID = url.searchParams.get("reviewID");
+} else {
+    edit = false;
+}
+
 window.onload = function () {
-    layui.use(['layer', 'jquery', 'form'], async function () {
+    layui.use(['layer', 'jquery', 'form', "rate"], async function () {
 
         /**
          * @type {JQueryStatic}
          */
         var $ = layui.jquery,
-            form = layui.form;
+            form = layui.form,
+            rate = layui.rate;
 
         await waitInitial;
         await loadLayer();
@@ -41,22 +52,75 @@ window.onload = function () {
         // default value
         var Params = new URLSearchParams(location.search)
 
+        var review;
+
+        rate.render({
+            elem: "#test1",
+            text: true,
+            setText: function (value) { //自定义文本的回调
+                var arrs = {
+                    '1': '极差',
+                    '2': '差',
+                    '3': '中等',
+                    '4': '好',
+                    '5': '极好'
+                };
+
+            }
+        });
+
         Jump:
-            if (Params.has("code")) {
-                var course = CoursesWithTeacher.find(x => x.id === Number(Params.get("code")))
+            if (Params.has("code") || (edit && sessionStorage.getItem(reviewID))) {
+                let code;
+                let course;
+                if (Params.has("code")) {
+                    code = Params.get("code");
+                    course = CoursesWithTeacher.find(course => course.id == code)
+                } else if (edit && sessionStorage.getItem(reviewID)) {
+                    review = JSON.parse(sessionStorage.getItem(reviewID));
+                }
 
                 if (course === undefined)
                     break Jump;
-                $("#teacher").val(course.teacherId)
-                CoursesWithTeacher.forEach(
-                    _course => {
-                        if (_course.teacherId === course.teacherId)
-                            $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
-                    }
-                )
-                $('#course').val(course.id)
+                if (review === undefined) {
+                    CoursesWithTeacher.forEach(
+                        _course => {
+                            if (_course.teacherId === course.teacherId)
+                                $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
+                        }
+                    )
+                    form.val("review", {
+                        course: course.id,
+                        teacher: course.teacherId
+                    })
+                } else {
+                    CoursesWithTeacher.forEach(
+                        _course => {
+                            if (_course.teacherId === review.teacherId)
+                                $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
+                        }
+                    )
+                    if (review.semester == null)
+                        review.semester = "null"
+                    form.val("review", {
+                        "teacher": review.teacherId,
+                        "course": review.courseId,
+                        "grade": review.grade.trim(),
+                        "semester": review.semester.toString(),
+                        "year": review.year,
+                        "review": review.text,
+                        "overall": review.score[0],
+                        "easiness": review.score[1],
+                        "workload": review.score[2],
+                        "clarity": review.score[3],
+                        "helpfulness": review.score[4]
+                    })
+
+                }
 
             }
+
+
 
         form.render('select');
 
@@ -112,13 +176,14 @@ layui.use(['form', 'jquery', 'layer'], function () {
             icon: '&#xe63d'
         })
 
-        fetch("https://vma-walk.azurewebsites.net/api/Review", {
+        fetch("https:///vma-walk.azurewebsites.net/api/Review", {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 },
                 body: JSON.stringify({
+                    Id: Number(reviewID),
                     teacherId: Number(data.field.teacher),
                     CourseId: Number(data.field.course),
                     Year: Number(data.field.year),
@@ -131,11 +196,19 @@ layui.use(['form', 'jquery', 'layer'], function () {
             .then(async res => {
                 switch (res.status) {
                 case 200:
-                    layer.msg("添加成功");
-                    setTimeout(() => {
-                        // toPreviousPage();
-                        location.href = `../profile/profile.html?query=${data.field.course}`;
-                    }, 1000);
+                    if (edit) {
+                        layer.msg("修改成功");
+                        setTimeout(() => {
+                            // toPreviousPage();
+                            location.href = `../myreview/myreview.html`;
+                        }, 1000);
+                    } else {
+                        layer.msg("添加成功");
+                        setTimeout(() => {
+                            // toPreviousPage();
+                            location.href = `../profile/profile.html?query=${data.field.course}`;
+                        }, 1000);
+                    }
                     break;
 
                 case 400:
