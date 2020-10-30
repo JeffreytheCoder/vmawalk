@@ -166,3 +166,25 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+
+.plus-review {
+    border: 0px;
+    margin-top: 0px;
+    width: 160px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #69bdc8;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    box-shadow: /* -7px -7px 20px 0px #fff9, */
+    /* -4px -4px 5px 0px #fff9, */
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001, /* inset 0px 0px 0px 0px #fff9, */
+    inset 0px 0px 0px 0px #0001;
+}
+
+.plus-review:hover {
+    background-color: rgb(84, 160, 170);
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
