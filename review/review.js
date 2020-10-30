@@ -72,8 +72,10 @@ window.onload = function () {
         Jump:
             if (Params.has("code") || (edit && sessionStorage.getItem(reviewID))) {
                 let code;
+                let course;
                 if (Params.has("code")) {
                     code = Params.get("code");
+                    course = CoursesWithTeacher.find(course => course.id == code)
                 } else if (edit && sessionStorage.getItem(reviewID)) {
                     review = JSON.parse(sessionStorage.getItem(reviewID));
                 }
@@ -81,14 +83,16 @@ window.onload = function () {
                 if (course === undefined)
                     break Jump;
                 if (review === undefined) {
-                    $("#teacher").val(course.teacherId)
                     CoursesWithTeacher.forEach(
                         _course => {
                             if (_course.teacherId === course.teacherId)
                                 $("#course").append(new Option(`${_course.courseName} ${_course.courseCode}`, _course.id))
                         }
                     )
-                    $('#course').val(course.id)
+                    form.val("review", {
+                        course: course.id,
+                        teacher: course.teacherId
+                    })
                 } else {
                     CoursesWithTeacher.forEach(
                         _course => {
