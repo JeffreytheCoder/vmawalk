@@ -54,21 +54,6 @@ window.onload = function () {
 
         var review;
 
-        rate.render({
-            elem: "#test1",
-            text: true,
-            setText: function (value) { //自定义文本的回调
-                var arrs = {
-                    '1': '极差',
-                    '2': '差',
-                    '3': '中等',
-                    '4': '好',
-                    '5': '极好'
-                };
-
-            }
-        });
-
         Jump:
             if (Params.has("code") || (edit && sessionStorage.getItem(reviewID))) {
                 let code;
