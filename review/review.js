@@ -80,7 +80,7 @@ window.onload = function () {
                     review = JSON.parse(sessionStorage.getItem(reviewID));
                 }
 
-                if (course === undefined)
+                if (course === undefined && review == undefined)
                     break Jump;
                 if (review === undefined) {
                     CoursesWithTeacher.forEach(
