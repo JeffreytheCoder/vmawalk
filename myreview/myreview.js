@@ -125,7 +125,7 @@ function loadReview() {
                                 <div>Ratings</div>
                                 <div>
                                     <button class="edit" onclick="edit(` + i + `)">Edit</button>
-                                    <button class="delete" onclick="">Delete</button>
+                                    <button class="delete">Delete</button>
                                 </div>
                             </div>
                             <table width="auto">
@@ -185,7 +185,7 @@ function loadReview() {
                             <div>Ratings</div>
                             <div>
                                 <button class="edit" onclick="edit(` + i + `)">Edit</button>
-                                <button class="delete" onclick="">Delete</button>
+                                <button class="delete">Delete</button>
                             </div>
                         </div>
                         <table width="auto">
