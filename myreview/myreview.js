@@ -237,33 +237,40 @@ function deleteReview(reviewIndex) {
     var review = reviewList[reviewIndex];
     let course = CoursesWithTeacher.find(item => item.id == review.courseId);
 
-    layui.use("layer", () => {
-        layer.open({
-            content: `是否要删掉这条${course.courseName}评论`,
-            btn: ['删除', '取消'],
-            yes: async function (index, layero) {
-                await fetch(`https://vma-walk.azurewebsites.net/api/Review/${review.id}`, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${localStorage.getItem("token")}`
-                    },
-                    method: "DELETE"
-                });
+    layer.open({
+        content: `是否要删掉这条${course.courseName}评论`,
+        btn: ['删除', '取消'],
+        yes: async function (index, layero) {
+            var loading = layer.load({
+                shade: [0.4, '#def'],
+                icon: '&#xe63d'
+            })
+            await fetch(`https://vma-walk.azurewebsites.net/api/Review/${review.id}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                },
+                method: "DELETE"
+            });
+            layer.close(loading);
+            layer.msg("删除成功");
+            setTimeout(() => {
                 location.reload();
-                //按钮【按钮一】的回调
-            },
-            btn2: function (index, layero) {
-                //按钮【按钮二】的回调
+            }, 500);
+            //按钮【按钮一】的回调
+        },
+        btn2: function (index, layero) {
+            //按钮【按钮二】的回调
 
-                //return false 开启该代码可禁止点击该按钮关闭
-            },
-            cancel: function () {
-                //右上角关闭回调
+            //return false 开启该代码可禁止点击该按钮关闭
+        },
+        cancel: function () {
+            //右上角关闭回调
 
-                //return false 开启该代码可禁止点击该按钮关闭
-            }
-        })
+            //return false 开启该代码可禁止点击该按钮关闭
+        }
     })
+
 }
 
 function toPreviousPage() {
